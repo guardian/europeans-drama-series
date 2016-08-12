@@ -1,0 +1,81 @@
+@mixin dividers {
+  &:before {
+    content: '';
+    width:100%;
+    height:2px;
+    background-color: #474747;
+    margin: 5px 0 8px 0;
+    display:block;
+  }
+  &:after {
+    content: '';
+    width:100%;
+    height:2px;
+    background-color: #474747;
+    margin: 16px 0 -7px 0;
+    display:block;
+  }
+}
+
+a:link, a:hover, a:visited {
+  color: #999;
+}
+
+.docs--wrapper {
+  position: relative;
+  padding:10px;
+  display: block;
+  font-family: "Guardian Egyptian Web";
+  font-weight: 400;
+  color: white;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.docs--standfirst {
+  @include dividers;
+  // position: absolute;
+}
+
+
+.docs--sponsor {
+  @include dividers;
+  width:100%;
+  height:85px;
+  position: relative;
+}
+
+.docs__logo--sponsor {
+  &:after {
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: 0px;
+    width: 115px;
+    height: 47px;
+    background-image: url('https://interactive.guim.co.uk/video-docs-assets/bertha-logo@3x.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+
+.docs--timestamp {
+  @include dividers;
+}
+
+.docs--social {
+  @include dividers;
+  &button.docs--social {
+    background-color: transparent;
+    border: solid 0.7px #dddbd7;
+    opacity: 0.6;
+  }
+
+  .interactive-share {
+    background-color: transparent;
+    border: solid 0.7px #dddbd7;
+    opacity: 0.6;
+  }
+
+}

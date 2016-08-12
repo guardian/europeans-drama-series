@@ -21,17 +21,16 @@ a {
 
 .interactive-container {
     margin: 0 auto;
-    background-color: black;
-    height: 500px;
-    @include mq(mobileLandscape) {
-        padding: 20px;
-    }
-
-    @each $bp in (tablet, desktop, leftCol, wide) {
-        @include mq($bp) {
-            max-width: map-get($mq-breakpoints, $bp);
-        }
-    }
+    // background-color: black;
+    // @include mq(mobileLandscape) {
+    //     // padding: 20px;
+    // }
+    //
+    // @each $bp in (tablet, desktop, leftCol, wide) {
+    //     @include mq($bp) {
+    //         max-width: map-get($mq-breakpoints, $bp);
+    //     }
+    // }
 }
 
 .interactive-es6-headline {

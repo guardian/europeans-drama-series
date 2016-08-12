@@ -21,9 +21,8 @@ export function init(el, context, config, mediator) {
         shareEl.addEventListener('click', () => shareFn(network));
     });
 
-    pimpYouTubePlayer('-Gy7poRbUHY', 'ytGuPlayer', '540', '960');
-
-    getYouTubeVideoDuration('-Gy7poRbUHY', function (duration) {
-        el.querySelector('.docs--play-button').setAttribute("data-duration", duration);
+    pimpYouTubePlayer('-Gy7poRbUHY', 'ytGuPlayer', '100%', '100%');
+    getYouTubeVideoDuration('-Gy7poRbUHY', function(duration) {
+        console.log(duration);
     })
 }
