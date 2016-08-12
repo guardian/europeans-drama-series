@@ -23,6 +23,6 @@ export function init(el, context, config, mediator) {
 
     pimpYouTubePlayer('-Gy7poRbUHY', 'ytGuPlayer', '390', '640');
     getYouTubeVideoDuration('-Gy7poRbUHY', function(duration) {
-        console.log(duration); 
+        console.log(duration);
     })
 }

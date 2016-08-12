@@ -6,7 +6,7 @@ export function pimpYouTubePlayer(videoId, placeholderId, height, width) {
     youTubeIframe.init(function() {
         //preload youtube iframe API
 
-        const p = document.getElementById('placeholder');
+        const p = document.getElementById(placeholderId);
         p.addEventListener('click', function() {
             var youTubePlayer = youTubeIframe.createPlayer(placeholderId, {
                 height: height,
