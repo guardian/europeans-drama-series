@@ -20,7 +20,9 @@ export function init(el, context, config, mediator) {
         var network = shareEl.getAttribute('data-network');
         shareEl.addEventListener('click',() => shareFn(network));
     });
-    
-pimpYouTubePlayer('-Gy7poRbUHY', 'ytGuPlayer', '390', '640');
-getYouTubeVideoDuration('-Gy7poRbUHY');
+
+    pimpYouTubePlayer('-Gy7poRbUHY', 'ytGuPlayer', '390', '640');
+    getYouTubeVideoDuration('-Gy7poRbUHY', function(duration) {
+        console.log(duration); 
+    })
 }

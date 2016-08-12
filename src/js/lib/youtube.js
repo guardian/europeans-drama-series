@@ -26,7 +26,7 @@ export function pimpYouTubePlayer(videoId, placeholderId, height, width) {
     })
 }
 
-function getYouTubeVideoDuration(videoId){
+function getYouTubeVideoDuration(videoId, callback){
     //Note: This is a browser key intended to be exposed on the client-side.
     const apiKey = 'AIzaSyCtM2CJsgRhfXVj_HesBIs540tzD4JUXqc';
 
@@ -36,7 +36,7 @@ function getYouTubeVideoDuration(videoId){
         crossOrigin: true,
         success: (resp) => {let duration =  resp.items[0].contentDetails.duration;
                             let re = /PT(\d+)M(\d+)S/;
-                            console.log(duration.replace(re,'$1:$2'));}
+                            callback(duration.replace(re,'$1:$2'))}
     });
 }
 
