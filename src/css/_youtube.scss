@@ -2,7 +2,7 @@
   text-align: center;
   display: block;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1500px;
   height: 540px;
   background: black;
   position: relative;
@@ -26,8 +26,11 @@
   margin: 0 auto;
   position: absolute;
   z-index: 1;
-  @include mq(desktop) {
-    left:330px;
+  @include mq(tablet) {
+    left:60px;
+  }
+  @include mq(leftCol) {
+    left:220px;
   }
 }
 

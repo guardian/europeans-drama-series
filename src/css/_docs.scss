@@ -2,18 +2,26 @@
   &:before {
     content: '';
     width:100%;
-    height:2px;
+    height:1px;
     background-color: #474747;
-    margin: 5px 0 8px 0;
+    margin: 5px 0 4px 0;
     display:block;
-  }
+    }
   &:after {
     content: '';
     width:100%;
-    height:2px;
-    background-color: #474747;
     margin: 16px 0 -7px 0;
     display:block;
+  }
+}
+
+.docs__main-player {
+  opacity: 1;
+}
+
+@mixin divider-invisible {
+  &:before {
+    background-color: transparent;
   }
 }
 
@@ -24,58 +32,220 @@ a:link, a:hover, a:visited {
 .docs--wrapper {
   position: relative;
   padding:10px;
+  background-color: #333;
+  padding: 0 10px 0 10px;
+  max-width: 1300px;
+  height: 500px;
   display: block;
-  font-family: "Guardian Egyptian Web";
   font-weight: 400;
-  color: white;
   font-size: 16px;
   line-height: 18px;
+  margin: 0 auto;
+  @include mq(mobileLandscape) {
+    padding: 0 20px 0 20px;
+  }
+  @include mq(tablet) {
+    width:660px;
+  }
+  @include mq($from:desktop) {
+    width:910px;
+  }
+  @include mq(leftCol) {
+    width: 1300px;
+  }
+}
+
+.docs--meta {
+  color:#999;
+  font-family: "Guardian Agate Sans 1 Web";
+  font-weight:400;
+  font-size: 14px;
 }
 
 .docs--standfirst {
   @include dividers;
-  // position: absolute;
+  @include divider-invisible;
+  font-family: "Guardian Egyptian Web";
+  color: white;
+  height: 48px;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  @include mq(mobileLandscape) {
+    width:60%;
+    display: inline-block;
+  }
+  @include mq($from:leftCol) {
+    left: 170px;
+    position: relative;
+    &-read-more {
+      left: 170px;
+      position: relative;
+    }
+  }
 }
 
 
 .docs--sponsor {
   @include dividers;
   width:100%;
-  height:85px;
+  height:72px;
   position: relative;
+  font-size: 14px;
+  @include mq(mobileLandscape) {
+    width:35%;
+    right: 20px;
+    top:110px;
+    display: inline-block;
+    position: absolute;
+  }
+  @include mq(leftCol) {
+    @include divider-invisible;
+    width: 218px;
+    left: 10px;
+    top:0;
+  }
 }
 
 .docs__logo--sponsor {
+  span{
+    position: absolute;
+    padding-top: 12px;
+  }
+  @include mq (leftCol) {
+    span {
+      padding-top: 0;
+    }
+  }
   &:after {
     content: '';
     position: absolute;
-    left: 100px;
-    top: 0px;
+    left: 90px;
+    top: -9px;
     width: 115px;
     height: 47px;
     background-image: url('https://interactive.guim.co.uk/video-docs-assets/bertha-logo@3x.png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100%;
+    @include mq(mobileLandscape) {
+      top:-3px;
+    }
+    @include mq (leftCol) {
+      left: 10px;
+      top: 20px;
+    }
   }
 }
 
 .docs--timestamp {
   @include dividers;
+  font-size: 12px;
+  width:45%;
+  display: inline-block;
+  @include mq(mobileLandscape) {
+    @include divider-invisible;
+    width: 35%;
+    right: 20px;
+    top: 0;
+    position: absolute;
+    font-size: 14px;
+  }
+  @include mq(leftCol) {
+    width: 218px;
+    right: 100px;
+  }
+  svg {
+    padding-right: 4px;
+  }
+  span {
+    margin-top: -5px;
+  }
 }
 
 .docs--social {
   @include dividers;
+  width: 45%;
+  position: absolute;
+  right: 10px;
+  display: inline-block;
+  @include mq(mobileLandscape) {
+    width: 35%;
+    margin-top:-30px;
+    right: 20px;
+  }
+  @include mq(leftCol) {
+    width: 218px;
+    right: 100px;
+  }
   &button.docs--social {
     background-color: transparent;
     border: solid 0.7px #dddbd7;
     opacity: 0.6;
+    right: 0;
   }
 
   .interactive-share {
     background-color: transparent;
     border: solid 0.7px #dddbd7;
     opacity: 0.6;
+    margin-right: 6px;
+  }
+  &-buttons {
+    position: absolute;
+    right: 0;
+    top: 10px;
   }
 
+}
+.docs--social-share-container {
+  color: #999;
+  font-size: 14px;
+  height:36px;
+  font-family: "Guardian Agate Sans 1 Web";
+  font-weight:400;
+  border-right: 1px solid rgba(153,153,153,0.1);
+  width:38%;
+  @include mq(mobileLandscape) {
+    width: 55%;
+    svg {
+      width:16px;
+      width: 16px;
+    }
+  }
+  padding-right: 13px;
+  svg {
+    color: #999;
+    padding-top: 10px;
+    float: left;
+  }
+}
+
+.docs--social-share-number {
+    padding-left: 15px;
+    @include mq(mobileLandscape) {
+      padding-left: 20px;
+      padding-top: 6px;
+    }
+}
+.docs--social-share-font-bold {
+  font-family: "Guardian Agate Sans 1 Web";
+  font-weight:900;
+  font-size: 15px;
+  margin-top:-8px;
+  @include mq(mobileLandscape) {
+    font-size: 16px;
+  }
+}
+
+.docs--social-share-wrap {
+  display: block;
+  margin-top: -4px;
+  @include mq(mobileLandscape) {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 4px;
+  }
 }
