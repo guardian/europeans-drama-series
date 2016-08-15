@@ -18,7 +18,6 @@ export function pimpYouTubePlayer(videoId, placeholderId, height, width) {
             });
 
             function playerReady(event) {
-                // p.style.display = 'none';
                 youTubePlayer.playVideo();
             }
         });
