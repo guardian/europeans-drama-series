@@ -2,11 +2,10 @@ import youTubeIframe from 'youtube-iframe-player'
 import reqwest from 'reqwest'
 
 export function pimpYouTubePlayer(videoId, placeholderId, height, width) {
-
     youTubeIframe.init(function() {
         //preload youtube iframe API
-
         const p = document.getElementById(placeholderId);
+
         p.addEventListener('click', function() {
             var youTubePlayer = youTubeIframe.createPlayer(placeholderId, {
                 height: height,
@@ -19,7 +18,6 @@ export function pimpYouTubePlayer(videoId, placeholderId, height, width) {
             });
 
             function playerReady(event) {
-                p.style.display = 'none';
                 youTubePlayer.playVideo();
             }
         });
