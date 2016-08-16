@@ -1,8 +1,19 @@
+//Variables
+$c-background: #2e2e2e;
+$c-grey-dark: #333;
+$c-white: #fff;
+$c-grey-light: #999;
+
+.fonts__egyptian { @include fs-headline(3); }
+.fonts__text-egyptian { @include fs-bodyCopy(2); }
+.fonts__sans { @include f-headlineSans; }
+.fonts__text-sans { @include fs-textSans(4); }
+
 body,
 figure.interactive {
     margin: 0;
     padding: 0;
-    background-color: #2e2e2e;
+    background-color: $c-background;
 }
 
 // Link styles don't exist on the app
@@ -10,7 +21,7 @@ a {
     &,
     &:hover,
     &:active {
-        color: #005689;
+        color: $c-grey-light;
     }
 
     text-decoration: none;
@@ -41,8 +52,3 @@ a {
 		margin-bottom: 6px;
 	}
 }
-
-.fonts__egyptian { @include fs-headline(3); }
-.fonts__text-egyptian { @include fs-bodyCopy(2); }
-.fonts__sans { @include f-headlineSans; }
-.fonts__text-sans { @include fs-textSans(4); }
