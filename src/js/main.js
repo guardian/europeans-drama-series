@@ -20,16 +20,24 @@ export function init(el, context, config, mediator) {
     })
 
     var hiddenDesc = el.querySelector('.docs--standfirst-longdesc');
-    var showMoreDesc = el.querySelector('.docs--show-longdesc');
     var showMoreBtn = el.querySelector('.docs--standfirst-read-more');
 
+    var hiddenAbout = el.querySelector('.docs--about-wrapper');
+    var showAboutBtn = el.querySelector('.docs--sponsor');
+    var hideAboutBtn = el.querySelector('.docs--about-wrapper');
+
+    // console.log(hideAboutBtn[0]);
+
     showMoreBtn.onclick = function(){
-        showDescription();
+        hiddenDesc.classList.toggle('docs--show-longdesc');
     };
 
-    function showDescription(){
-      hiddenDesc.classList.toggle('docs--show-longdesc');
+    showAboutBtn.onclick = function(){
+      hiddenAbout.classList.add('docs--show-about');
     };
 
+    hideAboutBtn.onclick = function(){
+      hideAboutBtn.classList.remove('docs--show-about');
+    };
 
 }
