@@ -9,13 +9,6 @@ var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 export function init(el, context, config, mediator) {
     el.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
-    reqwest({
-        url: 'http://ip.jsontest.com/',
-        type: 'json',
-        crossOrigin: true,
-        success: (resp) => el.querySelector('.test-msg').innerHTML = `Your IP address is ${resp.ip}`
-    });
-
     [].slice.apply(el.querySelectorAll('.interactive-share')).forEach(shareEl => {
         var network = shareEl.getAttribute('data-network');
         shareEl.addEventListener('click', () => shareFn(network));
@@ -25,4 +18,24 @@ export function init(el, context, config, mediator) {
     getYouTubeVideoDuration('-Gy7poRbUHY', function(duration) {
       el.querySelector('.docs__poster--play-button').setAttribute("data-duration", duration);
     })
+
+    var hiddenDesc = el.querySelector('.docs--standfirst-longdesc');
+    var showMoreBtn = el.querySelector('.docs--standfirst-read-more');
+
+    var hiddenAbout = el.querySelector('.docs--about-wrapper');
+    var showAboutBtn = el.querySelector('.docs--sponsor');
+    var hideAboutBtn = el.querySelector('.docs--about-wrapper');
+
+    showMoreBtn.onclick = function(){
+        hiddenDesc.classList.toggle('docs--show-longdesc');
+    };
+
+    showAboutBtn.onclick = function(){
+      hiddenAbout.classList.add('docs--show-about');
+    };
+
+    hideAboutBtn.onclick = function(){
+      hideAboutBtn.classList.remove('docs--show-about');
+    };
+
 }
