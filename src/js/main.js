@@ -26,8 +26,6 @@ export function init(el, context, config, mediator) {
     var showAboutBtn = el.querySelector('.docs--sponsor');
     var hideAboutBtn = el.querySelector('.docs--about-wrapper');
 
-    // console.log(hideAboutBtn[0]);
-
     showMoreBtn.onclick = function(){
         hiddenDesc.classList.toggle('docs--show-longdesc');
     };
