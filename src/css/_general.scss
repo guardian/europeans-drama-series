@@ -2,9 +2,14 @@
 $c-background: #2e2e2e;
 $c-grey-dark: #333;
 $c-divider: #474747;
+$c-grey-mid: #676767;
 $c-grey-light: #999;
 $c-grey-lightest: #ececec;
+$c-grey-lighterman: #1e4385;
 $c-white: #fff;
+$c-media-default: #fb0;
+$c-media-bright: #FFE700;
+$c-share-border: #dddbd7;
 
 .fonts__egyptian { @include fs-headline(3); }
 .fonts__text-egyptian { @include fs-bodyCopy(2); }
