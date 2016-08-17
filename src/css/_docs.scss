@@ -14,10 +14,10 @@
       margin-top: 0;
     }
     @include mq(tablet) {
-      width:700px;
+      width: 700px;
     }
     @include mq($from:desktop) {
-      width:910px;
+      width: 910px;
       padding-bottom: 14%;
     }
     @include mq(leftCol) {
@@ -57,12 +57,12 @@
     &-legal {
       border-top: 1px solid rgba(60,60,60,0.5);
       padding-top: 3px;
-      margin-top:15px;
+      margin-top: 15px;
       color: $c-grey-light;
     }
     &-headline {
       @include fs-bodyCopy(2);
-      font-weight:800;
+      font-weight: 800;
     }
   }
   &--show-about {
@@ -71,33 +71,34 @@
   &--meta {
     color: $c-grey-light;
     @include fs-textSans(4);
-    font-weight:400;
+    font-weight: 400;
     font-size: 14px;
   }
   &--standfirst {
     &-wrapper {
       @include mq(mobile) {
-        padding-left:1%;
+        padding-left: 1%;
       }
       @include mq(mobileLandscape) {
-        padding-left:0;
+        padding-left: 0;
       }
       @include mq(tablet) {
-        padding-left:4%;
+        padding-left: 4%;
       }
     }
     @include dividers;
     @include divider-invisible;
     @include fs-bodyCopy(2);
     @include mq(mobileLandscape) {
-      width:50%;
+      width: 50%;
       display: inline-block;
     }
     @include mq($from:leftCol) {
       left: 270px;
       position: relative;
     }
-    &-shortdesc, &-longdesc{
+    &-shortdesc,
+    &-longdesc{
       color: white;
     }
     &-read-more {
@@ -113,9 +114,6 @@
       height: 50px;
       overflow : hidden;
       text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
     }
     &-longdesc {
       display: none;
@@ -135,20 +133,20 @@
     }
     &-title {
     @include fs-bodyCopy(2);
-    font-weight:800;
+    font-weight: 800;
     font-size: 15px;
     }
   }
   &--sponsor {
     @include dividers;
-    width:100%;
-    height:72px;
+    width: 100%;
+    height: 72px;
     position: relative;
     font-size: 14px;
     @include mq(mobileLandscape) {
-      width:35%;
+      width: 35%;
       right: 20px;
-      top:110px;
+      top: 110px;
       display: inline-block;
       position: absolute;
     }
@@ -156,11 +154,11 @@
       @include divider-invisible;
       width: 218px;
       left: 40px;
-      top:0;
+      top: 0;
     }
     &-logo {
       cursor: pointer;
-      span{
+      span {
         position: absolute;
         padding-top: 12px;
         &:nth-child(2){
@@ -174,7 +172,7 @@
           padding-top: 0;
           &:nth-child(2){
             top: 85px;
-            left:0;
+            left: 0;
           }
         }
       }
@@ -190,7 +188,7 @@
         background-repeat: no-repeat;
         background-size: 100%;
         @include mq(mobileLandscape) {
-          top:10px;
+          top: 10px;
         }
         @include mq (leftCol) {
           left: 0;
@@ -203,7 +201,7 @@
     @include icon-timestamp;
     @include dividers;
     font-size: 12px;
-    width:45%;
+    width: 45%;
     display: inline-block;
     @include mq(mobileLandscape) {
       @include divider-invisible;
@@ -233,7 +231,7 @@
     display: inline-block;
     @include mq(mobileLandscape) {
       width: 35%;
-      top:40px;
+      top: 40px;
       right: 20px;
     }
     @include mq(leftCol) {
@@ -266,21 +264,21 @@
       @include icon-share;
       color: $c-grey-light;
       font-size: 14px;
-      height:36px;
+      height: 36px;
       @include fs-textSans(4);
-      font-weight:400;
+      font-weight: 400;
       border-right: 1px solid rgba(153,153,153,0.1);
-      width:38%;
+      width: 38%;
       @include mq(mobileLandscape) {
         width: 55%;
         svg {
-          width:16px;
+          width: 16px;
           width: 16px;
         }
       }
       padding-right: 13px;
       svg {
-        color: #999;
+        color: $c-grey-light;
         padding-top: 10px;
         float: left;
       }
@@ -294,7 +292,7 @@
     }
     &-share-font-bold {
       @include fs-textSans(4);
-      font-weight:500;
+      font-weight: 500;
       font-size: 15px;
       @include mq(mobileLandscape) {
         font-size: 16px;
