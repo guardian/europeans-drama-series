@@ -42,7 +42,6 @@
 
 .docs--wrapper {
   position: relative;
-  padding:10px;
   background-color: $c-grey-dark;
   padding: 0 10px 0 10px;
   max-width: 1300px;
@@ -56,7 +55,7 @@
     padding: 0 20px 0 20px;
   }
   @include mq(tablet) {
-    width:660px;
+    width:700px;
   }
   @include mq($from:desktop) {
     width:910px;
@@ -74,11 +73,22 @@
 }
 
 .docs--standfirst {
+  &-wrapper {
+    @include mq(mobile) {
+      padding-left:1%;
+    }
+    @include mq(mobileLandscape) {
+      padding-left:0;
+    }
+    @include mq(tablet) {
+      padding-left:4%;
+    }
+  }
   @include dividers;
   @include divider-invisible;
   font-family: "Guardian Egyptian Web";
   @include mq(mobileLandscape) {
-    width:55%;
+    width:50%;
     display: inline-block;
   }
   @include mq($from:leftCol) {

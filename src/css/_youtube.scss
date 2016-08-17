@@ -18,6 +18,42 @@
   background: black;
 }
 
+.docs--poster-gradient-fill {
+  position: absolute;
+  left:0;
+  margin-left: -75px;
+  top:0;
+  right:0;
+  bottom:0;
+  width: 1500px;
+  height: 540px;
+  opacity: 0.53;
+  background-image: radial-gradient(circle at 23% 54%, rgba(40, 40, 40, 0.5), rgba(40, 40, 40, 0));
+  @include mq($until:desktop) {
+    margin-left: -95px;
+  }
+}
+
+.docs__poster--elements-wrapper {
+  max-width: 1300px;
+  height: 540px;
+  z-index: 10;
+  position: relative;
+  margin: 0 auto;
+  @include mq(mobileLandscape) {
+    padding: 0 20px 0 20px;
+  }
+  @include mq(tablet) {
+    width:700px;
+  }
+  @include mq($from:desktop) {
+    width:910px;
+  }
+  @include mq(leftCol) {
+    width: 1260px;
+  }
+}
+
 .docs__poster--elements {
   width:400px;
   height:310px;
@@ -33,10 +69,10 @@
     left:7%;
   }
   @include mq(desktop) {
-    left:5%;
+    left:6%;
   }
   @include mq(leftCol) {
-    left:23%;
+    left:26%;
   }
 }
 
