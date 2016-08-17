@@ -19,9 +19,8 @@
         cursor: pointer;
         .docs__poster--play-button {
           color: $c-media-default;
-          animation-name: buttonSwitch;
+          animation-name: buttonSwitchIn;
           animation-duration: .5s;
-          animation-iteration-count: 1;
           animation-fill-mode: forwards;
         }
         .docs__poster--play-button:after {
@@ -125,6 +124,9 @@
     height: 46px;
     background-color: $c-media-default;
     border-radius: 30px;
+    animation-name: buttonSwitchOut;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
       &:before {
         position: absolute;
         content: 'Watch now | ' attr(data-duration);
@@ -142,7 +144,7 @@
               transform: translate(-40%, -50%);
               border-style: solid;
               border-width: .5em 0 .5em 1.3em;
-              border-color: transparent transparent transparent #333;
+              border-color: transparent transparent transparent $c-grey-dark;
           }
   }
   &--yellow {
@@ -150,7 +152,12 @@
   }
 }
 
-@keyframes buttonSwitch {
+@keyframes buttonSwitchIn {
     from {background-color: $c-media-default;}
     to {background-color: $c-grey-dark;}
+}
+
+@keyframes buttonSwitchOut {
+    from {background-color: $c-grey-dark;}
+    to {background-color: $c-media-default;}
 }
