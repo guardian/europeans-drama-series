@@ -7,6 +7,7 @@ $c-grey-light: #999;
 $c-grey-lightest: #ececec;
 $c-white: #fff;
 $c-media-default: #fb0;
+$c-media-bright: #FFE700;
 
 .fonts__egyptian { @include fs-headline(3); }
 .fonts__text-egyptian { @include fs-bodyCopy(2); }

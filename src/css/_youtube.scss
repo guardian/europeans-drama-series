@@ -18,7 +18,14 @@
     &:hover {
         cursor: pointer;
         .docs__poster--play-button {
-        background-color: darken($c-white, 3%);
+          color: $c-media-default;
+          animation-name: buttonSwitch;
+          animation-duration: .5s;
+          animation-iteration-count: 1;
+          animation-fill-mode: forwards;
+        }
+        .docs__poster--play-button:after {
+          border-color: transparent transparent transparent $c-media-default;
       }
     }
   }
@@ -141,4 +148,9 @@
   &--yellow {
     color: $c-media-default;
   }
+}
+
+@keyframes buttonSwitch {
+    from {background-color: $c-media-default;}
+    to {background-color: $c-grey-dark;}
 }
