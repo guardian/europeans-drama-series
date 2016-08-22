@@ -1,13 +1,17 @@
-.breaking-news {
-  display: none;
-}
-
 // mobile:  320px,
 // mobileLandscape: 480px
 // tablet:  740px,
 // desktop: 980px,
 // leftCol: 1140px,
 // wide:    1300px,
+
+
+// To-do
+// [ ] Improve &__film-details { height: 240px }
+//     — does not need fixed height
+// [ ] Email input styling & placeholder
+
+
 
 .onward-signup {
   color: #f6f6f6;
@@ -53,13 +57,12 @@
   }
 
   &__container-title {
-    @include mq(mobileLandscape) {
-    }
-    @include mq(tablet) {
-    }
     @include mq(desktop) {
+      display: block;
+      width: auto;
     }
     @include mq(leftCol) {
+      width: 140px;
     }
     @include mq(wide) {
       width: 220px;
@@ -71,16 +74,35 @@
       font-size: 22px;
     	font-weight: 600;
       text-transform: lowercase;
-      margin-top: 5px;
+      margin-top: 7px;
+      @include mq(tablet) {
+        margin-top: 5px;
+      }
     }
     .details {
       line-height: 18px;
     	font-weight: 200;
       font-family: 'Guardian Egyptian Web', Georgia, serif;
       margin-top: 4px;
+      max-width: 110px;
+      display: none;
+      @include mq(leftCol) {
+        display: block;
+      }
+      @include mq(wide) {
+        max-width: none;
+      }
     }
   }
   &__contents {
+    margin-left: 0;
+    width: 100%;
+    @include mq(tablet) {
+      width: auto;
+    }
+    @include mq(leftCol) {
+      margin-left: 20px;
+    }
     .section-title {
       font-family: 'Guardian Sans Web', sans-serif;
       font-size: 14px;
@@ -91,22 +113,33 @@
   }
   &__film-details {
     position: relative;
-    margin-right: 6px; // 10px
     color: #FCBEBB;
-    width: 540px;
     font-family: 'Guardian Egyptian Web', Georgia, serif;
-    // margin-left: 20px;
-    margin-left: 80px;
     position: relative;
     height: 240px;
+    width: 100%;
+    @include mq(tablet) {
+      width: 430px;
+    }
+    @include mq(desktop) {
+      margin-left: 0;
+      width: 540px;
+    }
     &:after {
       content: '';
       position: absolute;
-      top: 12px;
+      left: 0;
       right: 0;
-      bottom: 8px;
-      width: 0;
-      border-right: 1px dotted #666;
+      bottom: 0;
+      border-bottom: 1px dotted #666;
+      @include mq(tablet) {
+        left: auto;
+        width: 0;
+        top: 12px;
+        right: 0;
+        bottom: 8px;
+        border-right: 1px dotted #666;
+      }
     }
     .section-title {
       strong {
@@ -115,13 +148,36 @@
     }
     .film-title,
     .film-synopsis {
-      max-width: 280px;
+      max-width: 55%;
+      min-width: 117px;
+      @include mq(mobileLandscape) {
+        max-width: 200px;
+      }
+      @include mq(desktop) {
+        max-width: 280px;
+      }
     }
     .film-title {
-      font-size: 52px;
-      margin-top: 80px;
       display: block;
-      font-weight: 400;
+      font-size: 38px;
+      font-weight: 500;
+      margin-top: 11px;
+      line-height: 36px;
+      @include mq(mobileLandscape) {
+        margin-top: 21px;
+        line-height: 42px;
+      }
+      @include mq(tablet) {
+        margin-top: 72px;
+      }
+      @include mq(tablet) {
+        margin-top: 72px;
+      }
+      @include mq(desktop) {
+        font-size: 52px;
+        margin-top: 80px;
+        font-weight: 400;
+      }
     }
     .film-synopsis {
       display: block;
@@ -130,20 +186,45 @@
       font-weight: 600;
     }
     .cutout {
-      height: 262px;
       position: absolute;
       bottom: 0;
-      right: 0;
+      right: -17%;
+      height: auto;
+      width: 60%;
+      @include mq(mobileLandscape) {
+        right: 0;
+        height: 222px;
+        width: auto;
+      }
+      @include mq(desktop) {
+        height: 262px;
+      }
     }
   }
   &__email-signup {
-    width: 400px;
+    width: auto;
+    @include mq(tablet) {
+      padding-left: 6px;
+      width: 260px;
+      br {
+        display: none;
+      }
+    }
+    @include mq(desktop) {
+      width: 390px;
+      br {
+        display: block;
+      }
+    }
     .section-title {
 
     }
     .email-form {
       font-family: 'Guardian Egyptian Web', Georgia, serif;
-      margin-top: 106px;
+      margin-top: 20px;
+      @include mq(tablet) {
+        margin-top: 106px;
+      }
       &__title {
         margin-bottom: 2px;
       }
@@ -168,8 +249,14 @@
         }
         #email {
           margin-left: -1px;
-          margin-right: 7px;
+          margin-right: 5px;
           width: 170px;
+          @include mq(tablet) {
+            width: 130px;
+          }
+          @include mq(desktop) {
+            width: 170px;
+          }
         }
         #remind-me {
           background-color: #DDDBD7;
