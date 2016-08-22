@@ -7,8 +7,6 @@
 
 
 // To-do
-// [ ] Improve &__film-details { height: 240px }
-//     — does not need fixed height
 // [ ] Email input styling & placeholder
 
 
@@ -116,7 +114,6 @@
     color: #FCBEBB;
     font-family: 'Guardian Egyptian Web', Georgia, serif;
     position: relative;
-    height: 240px;
     width: 100%;
     @include mq(tablet) {
       width: 430px;
@@ -137,7 +134,7 @@
         width: 0;
         top: 12px;
         right: 0;
-        bottom: 8px;
+        bottom: -5px;
         border-right: 1px dotted #666;
       }
     }
@@ -184,6 +181,10 @@
       font-size: 16px;
       line-height: 18px;
       font-weight: 600;
+      padding-bottom: 9px;
+      @include mq(tablet) {
+        padding-bottom: 0;
+      }
     }
     .cutout {
       position: absolute;
@@ -191,10 +192,12 @@
       right: -17%;
       height: auto;
       width: 60%;
+      max-width: 245px;
       @include mq(mobileLandscape) {
         right: 0;
         height: 222px;
         width: auto;
+        max-width: none;
       }
       @include mq(desktop) {
         height: 262px;
@@ -223,7 +226,7 @@
       font-family: 'Guardian Egyptian Web', Georgia, serif;
       margin-top: 20px;
       @include mq(tablet) {
-        margin-top: 106px;
+        margin-top: 101px;
       }
       &__title {
         margin-bottom: 2px;
@@ -243,7 +246,7 @@
           border: 0;
           outline: none;
           border-radius: 16px;
-          margin-top: 10px;
+          margin-top: 6px;
           font-family: 'Guardian Sans Web', sans-serif;
           font-size: 13px;
         }
