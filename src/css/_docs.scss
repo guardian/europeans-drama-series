@@ -1,5 +1,3 @@
-$mobile-large:  640px;
-
 .docs {
   &--wrapper {
     position: relative;
@@ -98,9 +96,11 @@ $mobile-large:  640px;
       }
       @include mq(desktop) {
         padding-left: 0;
+        width: 70%;
       }
       @include mq(leftCol) {
         left: 115px;
+        width: 60%;
         padding-left: 4%;
         position: relative;
       }
@@ -122,7 +122,6 @@ $mobile-large:  640px;
         }
     }
     &-shortdesc {
-      height: 50px;
       overflow : hidden;
       text-overflow: ellipsis;
     }
