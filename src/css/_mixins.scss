@@ -43,10 +43,6 @@
     display: block;
     position: absolute;
     margin-top: 4px;
-    @include mq(leftCol) {
-      left: 0;
-      right: 10px;
-    }
   }
 
 }
