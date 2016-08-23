@@ -43,7 +43,6 @@
     width: 1100px;
   }
   @include mq(wide) {
-    // @include gs-span(13);
     width: 1260px;
   }
 
