@@ -229,6 +229,8 @@
       }
       &__title {
         margin-bottom: 2px;
+        height: 19px;
+        @include logo-theguardiandocumentaries;
       }
       &__details {
         font-size: 16px;
