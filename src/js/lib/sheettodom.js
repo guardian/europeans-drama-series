@@ -4,7 +4,7 @@ import reqwest from 'reqwest'
 
 export default function sheettodom(sheetID, sheetName, el, callback) {
 
-    var sheet = (sheetUrl(sheetID));
+    var sheet = sheetUrl(sheetID);
 
     reqwest({
         'url': sheet,
