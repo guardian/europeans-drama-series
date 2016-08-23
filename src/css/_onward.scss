@@ -1,0 +1,273 @@
+// mobile:  320px,
+// mobileLandscape: 480px
+// tablet:  740px,
+// desktop: 980px,
+// leftCol: 1140px,
+// wide:    1300px,
+
+
+// To-do
+// [ ] Email input styling & placeholder
+
+
+
+.onward-signup {
+  color: #f6f6f6;
+  background-color: #333;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  &:before {
+    content: '';
+    background-color: #999;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 0;
+    height: 1px;
+  }
+
+
+  @include mq(mobileLandscape) {
+    width: auto;
+    max-width: 580px;
+  }
+  @include mq(tablet) {
+    width: 700px;
+    max-width: none;
+  }
+  @include mq(desktop) {
+    width: 940px;
+  }
+  @include mq(leftCol) {
+    width: 1100px;
+  }
+  @include mq(wide) {
+    width: 1260px;
+  }
+
+  font-size: 0;
+  .col {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+  }
+
+  &__container-title {
+    @include mq(desktop) {
+      display: block;
+      width: auto;
+    }
+    @include mq(leftCol) {
+      width: 140px;
+    }
+    @include mq(wide) {
+      width: 220px;
+    }
+
+
+    color: #999;
+    .coming-soon {
+      font-size: 22px;
+    	font-weight: 600;
+      text-transform: lowercase;
+      margin-top: 7px;
+      @include mq(tablet) {
+        margin-top: 5px;
+      }
+    }
+    .details {
+      line-height: 18px;
+    	font-weight: 200;
+      font-family: 'Guardian Egyptian Web', Georgia, serif;
+      margin-top: 4px;
+      max-width: 110px;
+      display: none;
+      @include mq(leftCol) {
+        display: block;
+      }
+      @include mq(wide) {
+        max-width: none;
+      }
+    }
+  }
+  &__contents {
+    margin-left: 0;
+    width: 100%;
+    @include mq(tablet) {
+      width: auto;
+    }
+    @include mq(leftCol) {
+      margin-left: 20px;
+    }
+    .section-title {
+      font-family: 'Guardian Sans Web', sans-serif;
+      font-size: 14px;
+      margin-top: 11px;
+      display: block;
+      font-weight: 400;
+    }
+  }
+  &__film-details {
+    position: relative;
+    color: #FCBEBB;
+    font-family: 'Guardian Egyptian Web', Georgia, serif;
+    position: relative;
+    width: 100%;
+    @include mq(tablet) {
+      width: 430px;
+    }
+    @include mq(desktop) {
+      margin-left: 0;
+      width: 540px;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-bottom: 1px dotted #666;
+      @include mq(tablet) {
+        left: auto;
+        width: 0;
+        top: 12px;
+        right: 0;
+        bottom: -5px;
+        border-right: 1px dotted #666;
+      }
+    }
+    .section-title {
+      strong {
+        font-weight: 600;
+      }
+    }
+    .film-title,
+    .film-synopsis {
+      max-width: 55%;
+      min-width: 117px;
+      @include mq(mobileLandscape) {
+        max-width: 200px;
+      }
+      @include mq(desktop) {
+        max-width: 280px;
+      }
+    }
+    .film-title {
+      display: block;
+      font-size: 38px;
+      font-weight: 500;
+      margin-top: 11px;
+      line-height: 36px;
+      @include mq(mobileLandscape) {
+        margin-top: 21px;
+        line-height: 42px;
+      }
+      @include mq(tablet) {
+        margin-top: 72px;
+      }
+      @include mq(tablet) {
+        margin-top: 72px;
+      }
+      @include mq(desktop) {
+        font-size: 52px;
+        margin-top: 80px;
+        font-weight: 400;
+      }
+    }
+    .film-synopsis {
+      display: block;
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 600;
+      padding-bottom: 9px;
+      @include mq(tablet) {
+        padding-bottom: 0;
+      }
+    }
+    .cutout {
+      position: absolute;
+      bottom: 0;
+      right: -17%;
+      height: auto;
+      width: 60%;
+      max-width: 245px;
+      @include mq(mobileLandscape) {
+        right: 0;
+        height: 222px;
+        width: auto;
+        max-width: none;
+      }
+      @include mq(desktop) {
+        height: 262px;
+      }
+    }
+  }
+  &__email-signup {
+    width: auto;
+    @include mq(tablet) {
+      padding-left: 6px;
+      width: 260px;
+      br {
+        display: none;
+      }
+    }
+    @include mq(desktop) {
+      width: 390px;
+      br {
+        display: block;
+      }
+    }
+    .section-title {
+
+    }
+    .email-form {
+      font-family: 'Guardian Egyptian Web', Georgia, serif;
+      margin-top: 20px;
+      @include mq(tablet) {
+        margin-top: 101px;
+      }
+      &__title {
+        margin-bottom: 2px;
+        height: 19px;
+        @include logo-theguardiandocumentaries;
+      }
+      &__details {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+      }
+      &__form {
+        padding-bottom: 12px;
+        input {
+          display: inline-block;
+          line-height: 32px;
+          height: 32px;
+          padding: 0 15px;
+          border: 0;
+          outline: none;
+          border-radius: 16px;
+          margin-top: 6px;
+          font-family: 'Guardian Sans Web', sans-serif;
+          font-size: 13px;
+        }
+        #email {
+          margin-left: -1px;
+          margin-right: 5px;
+          width: 170px;
+          @include mq(tablet) {
+            width: 130px;
+          }
+          @include mq(desktop) {
+            width: 170px;
+          }
+        }
+        #remind-me {
+          background-color: #DDDBD7;
+          color: #333;
+          width: auto;
+        }
+      }
+    }
+  }
+}
