@@ -2,8 +2,7 @@
   &--wrapper {
     position: relative;
     background-color: $c-grey-dark;
-    padding: 0 10px 10% 10px;
-    max-width: 1300px;
+    padding: 0 20px 10% 20px;
     height: 100%;
     display: block;
     font-size: 16px;
@@ -11,18 +10,23 @@
     margin: -5px auto 0;
     @include mq(mobileLandscape) {
       padding: 0 20px 22% 20px;
+      max-width: 580px;
       margin-top: 0;
     }
     @include mq(tablet) {
       width: 700px;
+      max-width: 1300px;
     }
     @include mq($from:desktop) {
-      width: 910px;
+      width: 940px;
       padding-bottom: 14%;
     }
     @include mq(leftCol) {
-      width: 1260px;
+      width: 1100px;
       padding-bottom: 4%;
+    }
+    @include mq(wide) {
+      width: 1260px;
     }
   }
   &--about {
@@ -76,26 +80,33 @@
   }
   &--standfirst {
     &-wrapper {
+      @include dividers;
+      @include divider-invisible;
+      @include fs-bodyCopy(2);
       @include mq(mobile) {
         padding-left: 1%;
       }
       @include mq(mobileLandscape) {
         padding-left: 0;
+        width: 50%;
+        display: inline-block;
       }
       @include mq(tablet) {
-        padding-left: 4%;
+        padding-left: 0;
       }
-    }
-    @include dividers;
-    @include divider-invisible;
-    @include fs-bodyCopy(2);
-    @include mq(mobileLandscape) {
-      width: 50%;
-      display: inline-block;
-    }
-    @include mq($from:leftCol) {
-      left: 270px;
-      position: relative;
+      @include mq(desktop) {
+        padding-left: 0;
+        width: 70%;
+      }
+      @include mq(leftCol) {
+        left: 115px;
+        width: 60%;
+        padding-left: 4%;
+        position: relative;
+      }
+      @include mq(wide) {
+        left: 190px;
+      }
     }
     &-shortdesc,
     &-longdesc{
@@ -111,7 +122,6 @@
         }
     }
     &-shortdesc {
-      height: 50px;
       overflow : hidden;
       text-overflow: ellipsis;
     }
@@ -150,12 +160,15 @@
       display: inline-block;
       position: absolute;
     }
+    @include mq(desktop) {
+      width: 218px;
+    }
     @include mq(leftCol) {
       @include divider-invisible;
-      width: 218px;
-      left: 40px;
+      left: 20px;
       top: 0;
     }
+
     &-logo {
       cursor: pointer;
       span {
@@ -211,9 +224,12 @@
       position: absolute;
       font-size: 14px;
     }
-    @include mq(leftCol) {
+    @include mq(desktop) {
       width: 218px;
       top: 0;
+      right: 20px;
+    }
+    @include mq(leftCol) {
       right: 100px;
     }
     svg {
@@ -227,15 +243,18 @@
     @include dividers;
     width: 45%;
     position: absolute;
-    right: 10px;
+    right: 20px;
     display: inline-block;
     @include mq(mobileLandscape) {
       width: 35%;
       top: 40px;
       right: 20px;
     }
-    @include mq(leftCol) {
+    @include mq(desktop) {
       width: 218px;
+      right: 20px;
+    }
+    @include mq(leftCol) {
       top: 35px;
       right: 100px;
     }
@@ -284,10 +303,11 @@
       }
     }
     &-share-number {
-        padding-left: 15px;
+        padding-left: 20px;
         @include mq(mobileLandscape) {
           padding-left: 20px;
-          padding-top: 6px;
+          padding-top: 4px;
+          line-height: 12px;
         }
     }
     &-share-font-bold {

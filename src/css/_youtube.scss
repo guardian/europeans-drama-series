@@ -36,14 +36,18 @@
     margin: 0 auto;
     @include mq(mobileLandscape) {
       padding: 0 20px 0 20px;
+      width: 580px;
     }
     @include mq(tablet) {
       width: 700px;
     }
-    @include mq($from:desktop) {
+    @include mq(desktop) {
       width: 910px;
     }
     @include mq(leftCol) {
+      width: 1100px;
+    }
+    @include mq(wide) {
       width: 1260px;
     }
   }
@@ -74,7 +78,7 @@
     width: 400px;
     height: 310px;
     bottom: 0;
-    left: 3%;
+    left: 6%;
     margin: 0 auto;
     position: absolute;
     z-index: 1;
@@ -82,13 +86,16 @@
       left: 3%;
     }
     @include mq(tablet) {
-      left: 7%;
+      left: 2%;
     }
     @include mq(desktop) {
-      left: 6%;
+      left: 0;
     }
     @include mq(leftCol) {
-      left: 26%;
+      left: 16%;
+    }
+    @include mq(wide) {
+      left: 20%;
     }
   }
   &--headline {
