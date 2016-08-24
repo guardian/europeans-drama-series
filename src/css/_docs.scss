@@ -342,3 +342,15 @@
     }
   }
 }
+
+.docs__chapters {
+  li {
+    display: inline-block;
+    @include fs-textSans(4);
+    text-align: left;
+    font-weight: 400;
+    font-size: 15px;
+    background-color: $c-background;
+    padding:10px;
+  }
+}
