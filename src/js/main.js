@@ -24,7 +24,7 @@ export function init(el, context, config, mediator) {
 
         pimpYouTubePlayer(youTubeId, builder.querySelector('#ytGuPlayer'), '100%', '100%');
 
-        var hiddenDesc = builder.querySelector('.docs--standfirst-longdesc');
+        var hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         var showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
         var hiddenAbout = builder.querySelector('.docs--about-wrapper');
@@ -32,7 +32,7 @@ export function init(el, context, config, mediator) {
         var hideAboutBtn = builder.querySelector('.docs--about-wrapper');
 
         showMoreBtn.onclick = function(){
-            hiddenDesc.classList.toggle('docs--show-longdesc');
+            hiddenDesc.classList.toggle('docs--show-hidden');
         };
 
         showAboutBtn.onclick = function(){
