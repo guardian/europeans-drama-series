@@ -366,7 +366,8 @@
     color: $c-grey-light;
     font-size: 15px;
     line-height: 17px;
-    background-color: $c-grey-mid;
+    background-color: $c-grey-dark;
+    border-left: 1px solid $c-grey-light;
     &:hover {
       background-color: darken($c-grey-mid, 10%);
     }
