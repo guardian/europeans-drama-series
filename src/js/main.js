@@ -7,20 +7,22 @@ var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 
 
 export function init(el, context, config, mediator) {
-const builder = document.createElement('div');
-builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
+    const builder = document.createElement('div');
+    builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
-    sheetToDOM('1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g', config.sheetName, builder, function callback(){
+    sheetToDOM(config.sheetId, config.sheetName, builder, function callback(resp){
         [].slice.apply(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
             var network = shareEl.getAttribute('data-network');
             shareEl.addEventListener('click', () => shareFn(network));
         });
 
-        getYouTubeVideoDuration('-Gy7poRbUHY', function(duration) {
+        const youTubeId = resp.sheets[config.sheetName][0]['youTubeId'];
+
+        getYouTubeVideoDuration(youTubeId, function(duration) {
             builder.querySelector('.docs__poster--play-button').setAttribute("data-duration", duration);
         });
 
-        pimpYouTubePlayer('-Gy7poRbUHY', builder.querySelector('#ytGuPlayer'), '100%', '100%');
+        pimpYouTubePlayer(youTubeId, builder.querySelector('#ytGuPlayer'), '100%', '100%');
 
         var hiddenDesc = builder.querySelector('.docs--standfirst-longdesc');
         var showMoreBtn = builder.querySelector('.docs--standfirst-read-more');

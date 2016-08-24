@@ -17,7 +17,8 @@ define([], function() {
 
             config = {
                 'assetPath': '<%= assetPath %>',
-                'sheetName': 'gun-nation'
+                'sheetName': 'gun-nation',
+                'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g'
             };
 
             // Load CSS asynchronously
