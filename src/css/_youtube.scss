@@ -16,6 +16,7 @@
     height: 540px;
     transition: height 300ms;
     &--playing {
+      // 48px is the header height
       height: calc(100vh - 48px);
     }
 
