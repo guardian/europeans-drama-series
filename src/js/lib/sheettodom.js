@@ -17,7 +17,7 @@ export default function sheettodom(sheetID, sheetName, el, callback) {
                 const value = node.getAttribute('data-sheet-attribute');
                 node.innerHTML = resp.sheets[sheetName][0][value];
             }
-            callback()
+            callback();
 
         }
     });
