@@ -100,7 +100,7 @@
       }
       @include mq(leftCol) {
         left: 115px;
-        width: 60%;
+        width: 50%;
         padding-left: 4%;
         position: relative;
       }
@@ -125,11 +125,11 @@
       overflow : hidden;
       text-overflow: ellipsis;
     }
-    &-longdesc {
+    &-hidden {
       display: none;
     }
   }
-  &--show-longdesc {
+  &--show-hidden {
     display: block;
     @include icon-showless;
   }
@@ -137,6 +137,7 @@
     &-wrapper{
       margin: 0;
       padding: 5px 0 10px 0;
+      color: $c-white;
       li {
         list-style-type: none;
       }
