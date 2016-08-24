@@ -8,11 +8,13 @@ Usage
 
 Setup
 -----
-`npm install`
+- Install [nvm](https://github.com/creationix/nvm) to manage multiple versions of node.
+- Switch node version `nvm use`
+- Install dependancies `npm install`
 
 Development
 -----------
-`npm start`
+If you haven't switched node version yet, run `nvm use`. Then start the server `npm start`.
 
 Production / deployment
 -----------------------
