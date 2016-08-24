@@ -14,6 +14,12 @@
     width: 100%;
     max-width: 1900px;
     height: 540px;
+    transition: height 300ms;
+    &--playing {
+      // 48px is the header height
+      height: calc(100vh - 48px);
+    }
+
     position: relative;
     &:hover {
         cursor: pointer;
@@ -55,7 +61,7 @@
     position: absolute;
     width: 100%;
     background-image: url('//media.guim.co.uk/f240e0d95c62184e0b582ad068aee627a255671e/0_0_1920_1080/1920.jpg');
-    height: 540px;
+    height: 100%;
     background-position: center center;
     background-size: cover;
   }

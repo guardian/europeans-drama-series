@@ -4,8 +4,8 @@ import reqwest from 'reqwest'
 export function pimpYouTubePlayer(videoId, node, height, width) {
     youTubeIframe.init(function() {
         //preload youtube iframe API
-        node.addEventListener('click', function() {
-            var youTubePlayer = youTubeIframe.createPlayer(node, {
+        node.querySelector('#ytGuPlayer').addEventListener('click', function() {
+            var youTubePlayer = youTubeIframe.createPlayer(this, {
                 height: height,
                 width: width,
                 videoId: videoId,
@@ -15,12 +15,28 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
                 }
             });
 
+            node.classList.add('docs__poster--wrapper--playing');
+            scrollTo(document.body, 0, 300);
+
             function playerReady(event) {
                 youTubePlayer.playVideo();
             }
         });
     })
 }
+
+function scrollTo(element, to, duration) {
+    if (duration <= 0) return;
+    const difference = to - element.scrollTop;
+    const perTick = difference / duration * 10;
+
+    setTimeout(() => {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop === to) return;
+        scrollTo(element, to, duration - 10);
+    }, 10);
+}
+
 
 function getYouTubeVideoDuration(videoId, callback){
     //Note: This is a browser key intended to be exposed on the client-side.

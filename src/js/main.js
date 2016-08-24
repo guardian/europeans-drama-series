@@ -22,7 +22,7 @@ export function init(el, context, config, mediator) {
             builder.querySelector('.docs__poster--play-button').setAttribute("data-duration", duration);
         });
 
-        pimpYouTubePlayer(youTubeId, builder.querySelector('#ytGuPlayer'), '100%', '100%');
+        pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%');
 
         var hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         var showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
