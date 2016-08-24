@@ -15,7 +15,7 @@ export function init(el, context, config) {
             shareEl.addEventListener('click', () => shareFn(network));
         });
 
-        const youTubeId = resp.sheets[config.sheetName][0]['youTubeId'];
+        const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
 
         getYouTubeVideoDuration(youTubeId, function(duration) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);

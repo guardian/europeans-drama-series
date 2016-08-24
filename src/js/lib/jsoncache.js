@@ -23,7 +23,10 @@ let fns = {
             promise
                 .then(json => cache[url] = json)
                 .fail(() => { delete cache[url]; });
+
+            /* jshint ignore:start */
             return cache[url] = promise;
+            /* jshint ignore:end */
         }
     },
     get: (url, fn, saveDate) => {

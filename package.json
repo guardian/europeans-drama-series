@@ -16,13 +16,14 @@
     "grunt-sass": "^1.1.0",
     "grunt-shell": "^1.1.2",
     "grunt-template": "^0.2.3",
-    "jit-grunt": "^0.9.1"
+    "jit-grunt": "^0.9.1",
+    "jshint": "^2.9.3"
   },
   "scripts": {
     "start": "./node_modules/.bin/grunt",
     "test": "npm run lint",
     "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/jspm install",
-    "lint": "eslint src/js"
+    "lint": "eslint src/js && jshint src/js"
   },
   "author": "",
   "license": "ISC",
