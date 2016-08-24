@@ -4,6 +4,7 @@
   "description": "Guardian ES6 interactive template",
   "devDependencies": {
     "bower": "^1.7.7",
+    "eslint": "^3.3.1",
     "grunt": "^0.4.5",
     "grunt-aws-s3": "^0.14.5",
     "grunt-cli": "^1.1.0",
@@ -19,8 +20,9 @@
   },
   "scripts": {
     "start": "./node_modules/.bin/grunt",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/jspm install"
+    "test": "npm run lint",
+    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/jspm install",
+    "lint": "eslint src/js"
   },
   "author": "",
   "license": "ISC",

@@ -114,7 +114,7 @@ function _processEl(options) {
         // element was passed as only argument
         options = {el:options};
     }
-    let date = new Date(options.el.getAttribute('datetime'))
+    let date = new Date(options.el.getAttribute('datetime'));
     options.el.innerHTML = getVagueTime({from: now, to: date});
 }
 

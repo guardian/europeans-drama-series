@@ -28,4 +28,4 @@ export default function(func, wait, options) {
     }
     return result;
   };
-};
+}

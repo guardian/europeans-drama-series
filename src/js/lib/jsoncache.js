@@ -1,4 +1,5 @@
-import {fetchJSON} from './fetch'
+/*eslint no-console: "off"*/
+import {fetchJSON} from './fetch';
 
 let cache = {};
 let serverDate;
@@ -17,12 +18,12 @@ let fns = {
                         dateCallbacks = [];
                     } catch (err) { console.log(err); }
                     return response;
-                })
+                });
             }
             promise
                 .then(json => cache[url] = json)
                 .fail(() => { delete cache[url]; });
-            return cache[url] = promise
+            return cache[url] = promise;
         }
     },
     get: (url, fn, saveDate) => {
@@ -43,6 +44,6 @@ let fns = {
         if (serverDate) cb(serverDate);
         else dateCallbacks.push(cb);
     }
-}
+};
 
 export default fns;

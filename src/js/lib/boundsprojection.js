@@ -1,4 +1,4 @@
-import d3 from 'd3'
+import d3 from 'd3';
 
 export default function(geo, width, height) {
     var projection = d3.geo.mercator().scale(1).translate([0, 0]);

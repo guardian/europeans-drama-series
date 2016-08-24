@@ -1,5 +1,5 @@
-import sheetUrl from './sheetURL'
-import reqwest from 'reqwest'
+import sheetUrl from './sheetURL';
+import reqwest from 'reqwest';
 
 
 export default function sheettodom(sheetID, sheetName, el, callback) {
