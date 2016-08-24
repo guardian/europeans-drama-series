@@ -343,14 +343,37 @@
   }
 }
 
-.docs__chapters {
+.docs--chapters {
+  &-wrapper {
+    margin: 0 auto;
+      padding: 5px 20px 10px 20px;
+      height: 60px;
+      white-space: nowrap;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      counter-reset: chapters;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+  }
   li {
+    cursor: pointer;
     display: inline-block;
     @include fs-textSans(4);
-    text-align: left;
-    font-weight: 400;
-    font-size: 15px;
-    background-color: $c-background;
+    white-space: pre-wrap;
+    width: 150px;
+    height: 44px;
     padding:10px;
+    color: $c-white;
+    font-size: 15px;
+    line-height: 17px;
+    background-color: $c-grey-mid;
+    &:hover {
+      background-color: darken($c-grey-mid, 10%);
+    }
+    &:before {
+      counter-increment: chapters;
+      content: "Chapter " counter(chapters) ": ";
+    }
   }
 }
