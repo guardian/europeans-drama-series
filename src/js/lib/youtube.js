@@ -1,7 +1,7 @@
 import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
 
-export function pimpYouTubePlayer(videoId, node, height, width) {
+export function pimpYouTubePlayer(videoId, node, height, width, dom) {
     youTubeIframe.init(function() {
         //preload youtube iframe API
         node.querySelector('#ytGuPlayer').addEventListener('click', function() {
@@ -20,6 +20,20 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
 
             function playerReady() {
                 youTubePlayer.playVideo();
+            }
+
+            // function renderChapters(){
+            //   var chapterOptionHtml = '';
+            //   for (var key in answersObj) {
+            //
+            //     if (answersObj.hasOwnProperty(key)) {
+            //       chapterOptionHtml += '<li class="label" for="' + key + '"> <input type="radio" class="pseudo-radio-input" name="option" id="' + key + '" value="' + key + '" data-link-name="poll-id : ' + id + ' : poll-option : ' + key + '" required="required"> <div class="pseudo-radio"> <div class="q1"></div>' + answersObj[key] + '</div> </label>';
+            //   }
+            // }
+
+            var chapterSkipBtn = dom.querySelector('.docs--chapters li');
+            chapterSkipBtn.onclick = function(){
+                youTubePlayer.seekTo(139, true);
             }
         });
     });
@@ -52,6 +66,10 @@ function getYouTubeVideoDuration(videoId, callback){
             callback(duration.replace(re,'$1:$2'));
         }
     });
+}
+
+function youtubeSkipToChapter(videoId, callback){
+
 }
 
 export { pimpYouTubePlayer, getYouTubeVideoDuration };
