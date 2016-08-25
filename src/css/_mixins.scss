@@ -102,6 +102,22 @@
   }
 }
 
+@mixin icon-newsletter {
+  &:before {
+      content: '';
+      background-image: url('data:image/svg+xml;utf8,<svg width="15" height="11" viewBox="10 10 15 11" xmlns="http://www.w3.org/2000/svg"><path d="M21.822 14.296l-.31-.323-4.434 2.18-4.434-2.18-.233.323 4.668 3.958 4.744-3.958zm.934-3.796h-11.59L10 12.52v7.51l1.244.97h11.59L24 20.03v-7.51l-1.244-2.02zm-.39 8.723H11.634v-6.946h10.734v6.946z" fill="#999" fill-rule="evenodd"/></svg>');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 15px;
+      height: 11px;
+  }
+}
+
 @mixin logo-theguardiandocumentaries {
   &:after {
     content: '';
