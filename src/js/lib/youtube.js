@@ -1,5 +1,5 @@
-import youTubeIframe from 'youtube-iframe-player'
-import reqwest from 'reqwest'
+import youTubeIframe from 'youtube-iframe-player';
+import reqwest from 'reqwest';
 
 export function pimpYouTubePlayer(videoId, node, height, width) {
     youTubeIframe.init(function() {
@@ -18,11 +18,11 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
             node.classList.add('docs__poster--wrapper--playing');
             scrollTo(document.body, 0, 300);
 
-            function playerReady(event) {
+            function playerReady() {
                 youTubePlayer.playVideo();
             }
         });
-    })
+    });
 }
 
 function scrollTo(element, to, duration) {
@@ -49,7 +49,8 @@ function getYouTubeVideoDuration(videoId, callback){
         success: (resp) => {
             let duration =  resp.items[0].contentDetails.duration;
             let re = /PT(\d+)M(\d+)S/;
-            callback(duration.replace(re,'$1:$2'))}
+            callback(duration.replace(re,'$1:$2'));
+        }
     });
 }
 

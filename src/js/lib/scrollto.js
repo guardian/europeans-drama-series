@@ -1,6 +1,6 @@
-import {requestAnimFrame, cancelAnimFrame} from './raf.js'
-import iframeMessenger from 'guardian/iframe-messenger'
-import {getOffset} from './dom.js'
+import {requestAnimFrame, cancelAnimFrame} from './raf.js';
+import iframeMessenger from 'guardian/iframe-messenger';
+import {getOffset} from './dom.js';
 
 const interval = 15;//, total = 300;
 
@@ -51,8 +51,8 @@ export function scrollTo(el, offset, cb) {
                 if (cb) cb();
             }
         });
-    })
-};
+    });
+}
 
 export function ensureVisible(el, maxOffset=20) {
     _getPositionInfo(info => {
@@ -71,5 +71,5 @@ export function ensureVisible(el, maxOffset=20) {
             let scrollY = info.pageYOffset + elScreenOffset + elHeight - info.innerHeight + 20;
             _scrollTo(0, scrollY);
         }
-    })
+    });
 }

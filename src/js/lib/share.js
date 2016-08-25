@@ -20,5 +20,5 @@ export default function share(title, shareURL, fbImg, twImg, hashTag) {
         }
 
         window.open(shareWindow, network + 'share', 'width=640,height=320');
-    }
+    };
 }

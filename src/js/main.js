@@ -1,12 +1,11 @@
-import mainHTML from './text/main.html!text'
-import share from './lib/share'
-import {pimpYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube'
-import sheetToDOM from './lib/sheettodom'
+import mainHTML from './text/main.html!text';
+import share from './lib/share';
+import {pimpYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube';
+import sheetToDOM from './lib/sheettodom';
 
 var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 
-
-export function init(el, context, config, mediator) {
+export function init(el, context, config) {
     const builder = document.createElement('div');
     builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
@@ -16,10 +15,10 @@ export function init(el, context, config, mediator) {
             shareEl.addEventListener('click', () => shareFn(network));
         });
 
-        const youTubeId = resp.sheets[config.sheetName][0]['youTubeId'];
+        const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
 
         getYouTubeVideoDuration(youTubeId, function(duration) {
-            builder.querySelector('.docs__poster--play-button').setAttribute("data-duration", duration);
+            builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
 
         pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%');
@@ -44,6 +43,5 @@ export function init(el, context, config, mediator) {
         };
 
         el.parentNode.replaceChild(builder, el);
-    })
-
+    });
 }
