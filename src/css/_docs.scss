@@ -38,6 +38,7 @@
       left: 0;
       bottom: 0;
       right: 0;
+      height: 1000px;
       background-color: rgba(51,51,51,0.8);
       z-index: 15;
     }
@@ -100,13 +101,8 @@
         width: 70%;
       }
       @include mq(leftCol) {
-        left: 115px;
         width: 50%;
-        padding-left: 4%;
         position: relative;
-      }
-      @include mq(wide) {
-        left: 190px;
       }
     }
     &-shortdesc,
@@ -151,51 +147,49 @@
   }
   &--sponsor {
     @include dividers;
-    width: 100%;
-    height: 72px;
-    position: relative;
     font-size: 14px;
     @include mq(mobileLandscape) {
-      width: 35%;
-      right: 20px;
-      top: 110px;
-      display: inline-block;
-      position: absolute;
+      float: right;
+      margin: 95px 0 0 0;
+      width: 37%;
     }
     @include mq(desktop) {
-      width: 218px;
+      width: 220px;
     }
     @include mq(leftCol) {
       @include divider-invisible;
-      left: 20px;
-      top: 0;
+      float: left;
+      width: 140px;
+      margin: 0 20px 0 0;
     }
-
+    @include mq(wide) {
+      width: 220px;
+    }
+    &-supported {
+      display: inline-block;
+      margin: 0;
+      line-height: 47px;
+      vertical-align: top;
+      padding-right: 5px;
+      @include mq(mobileLandscape) {
+        display: block;
+        line-height: 20px;
+      }
+      @include mq(tablet) {
+        display: inline-block;
+        line-height: 47px;
+      }
+      @include mq(leftCol) {
+        display: block;
+        line-height: 20px;
+      }
+    }
     &-logo {
-      cursor: pointer;
-      span {
-        position: absolute;
-        padding-top: 12px;
-        &:nth-child(2){
-          top: 45px;
-          left: 90px;
-          font-size: 11px;
-        }
-      }
-      @include mq (leftCol) {
-        span {
-          padding-top: 0;
-          &:nth-child(2){
-            top: 85px;
-            left: 0;
-          }
-        }
-      }
+      height: 47px;
+      display: inline-block;
       &:after {
         content: '';
-        position: absolute;
-        left: 90px;
-        top: 5px;
+        display: block;
         width: 115px;
         height: 47px;
         background-image: url('https://interactive.guim.co.uk/video-docs-assets/bertha-logo@3x.png');
@@ -209,6 +203,24 @@
           left: 0;
           top: 35px;
         }
+      }
+    }
+    &-aboutfilms {
+      font-size: 12px;
+      cursor: pointer;
+      @include mq(mobile) {
+        display: block;
+        margin-left: 95px;
+      }
+      @include mq(mobileLandscape) {
+        margin-left: 0;
+      }
+      @include mq(tablet) {
+        display: block;
+        margin-left: 95px;
+      }
+      @include mq(leftCol) {
+        margin: 0;
       }
     }
   }
