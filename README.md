@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/guardian/docs-interactive-template.svg?style=svg)](https://circleci.com/gh/guardian/docs-interactive-template)
+
 Guardian interactive ES6 template
 =================================
 
