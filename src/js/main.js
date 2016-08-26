@@ -46,17 +46,17 @@ export function init(el, context, config) {
         // Show the trailer on click #docs__playTrailer
         const $showTrailerAll = builder.querySelectorAll('.docs__shows-trailer');
         [].forEach.call($showTrailerAll, function($showTrailer) {
-          $showTrailer.onclick = () => {
-            builder.querySelector('#interactive-container').classList.add('show-trailer');
-          }
+            $showTrailer.onclick = () => {
+                builder.querySelector('#interactive-container').classList.add('show-trailer');
+            };
         });
 
         // Hide the trailer
         const $hideTrailerAll = builder.querySelectorAll('.docs__hides-trailer');
         [].forEach.call($hideTrailerAll, function($hideTrailer) {
-          $hideTrailer.onclick = () => {
-            builder.querySelector('#interactive-container').classList.remove('show-trailer');
-          }
+            $hideTrailer.onclick = () => {
+                builder.querySelector('#interactive-container').classList.remove('show-trailer');
+            };
         });
 
 
