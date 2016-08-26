@@ -19,7 +19,6 @@
 
 .docs__poster {
   &--wrapper {
-    text-align: center;
     display: block;
     width: 100%;
     max-width: 1900px;
@@ -34,14 +33,8 @@
     &:hover {
         cursor: pointer;
         .docs__poster--play-button {
-          color: $c-media-default;
-          animation-name: buttonSwitchIn;
-          animation-duration: .5s;
-          animation-fill-mode: forwards;
+          transform: scale(1.05);
         }
-        .docs__poster--play-button:after {
-          border-color: transparent transparent transparent $c-media-default;
-      }
     }
   }
   &--title-wrapper {
@@ -133,6 +126,7 @@
     display: inline-block;
     width: auto;
     z-index: 2;
+    padding: 0 10px 0;
     height: 46px;
     background-color: $c-media-default;
     border-radius: 46px;
@@ -158,14 +152,4 @@
   &--yellow {
     color: $c-media-default;
   }
-}
-
-@keyframes buttonSwitchIn {
-    from {background-color: $c-media-default;}
-    to {background-color: $c-grey-dark;}
-}
-
-@keyframes buttonSwitchOut {
-    from {background-color: $c-grey-dark;}
-    to {background-color: $c-media-default;}
 }
