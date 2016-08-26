@@ -34,7 +34,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, dom) {
             var chapterSkipBtn = dom.querySelector('.docs--chapters li');
             chapterSkipBtn.onclick = function(){
                 youTubePlayer.seekTo(139, true);
-            }
+            };
         });
     });
 }

@@ -345,12 +345,12 @@
 
 .docs--chapters {
   &-wrapper {
-    margin: 0 auto;
-    padding: 5px 20px 10px 20px;
-    height: 50px;
+    margin: 0;
+    padding: 5px 0 5px 10px;
     white-space: nowrap;
     overflow-y: hidden;
     overflow-x: scroll;
+    background-color: #161616;
     counter-reset: chapters;
       &::-webkit-scrollbar {
         display: none;
@@ -362,15 +362,14 @@
     @include fs-textSans(4);
     white-space: pre-wrap;
     width: 150px;
-    padding:10px;
+    padding: 5px;
+    margin: 0;
     color: $c-grey-light;
     font-size: 15px;
     line-height: 17px;
-    background-color: $c-grey-dark;
     border: 1px solid $c-grey-mid;
     &:hover {
-      background-color: darken($c-grey-dark, 3%);
-      text-decoration-style: none;
+      background-color: darken($c-background, 3%);
     }
     &:before {
       color: $c-white;
