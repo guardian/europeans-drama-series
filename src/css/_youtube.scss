@@ -113,7 +113,7 @@
     line-height: 48px;
     color: white;
     z-index: 10;
-    text-shadow: 0 0 24px rgba(51, 51, 51, 0.5);
+    text-shadow: 0 0 36px rgba(51, 51, 51, 0.4);
   }
   &--logo{
     font-family: "Guardian Titlepiece Web";
@@ -123,43 +123,37 @@
     z-index: 5;
     position: absolute;
     color: white;
-    text-shadow: 0 0 14px rgba(51, 51, 51, 0.5);
+    text-shadow: 0 0 16px rgba(51, 51, 51, 0.4);
     @include mq(desktop) {
       font-size: 28px;
     }
   }
   &--play-button {
-    position:absolute;
-    top: 56px;
-    width: 100%;
+    margin-top: 56px;
+    display: inline-block;
+    width: auto;
     z-index: 2;
-    max-width: 170px;
-    padding: 0 10px 0 10px;
     height: 46px;
     background-color: $c-media-default;
-    border-radius: 30px;
-    animation-name: buttonSwitchOut;
-    animation-duration: .5s;
-    animation-fill-mode: forwards;
-      &:before {
-        position: absolute;
-        content: 'Watch now | ' attr(data-duration);
-        @include fs-textSans(4);
-        font-weight: 500;
-        text-align: center;
-        top: 26%;
-        left: 27%;
-      }
-      &:after {
-              content: '';
-              position: absolute;
-              top: 50%;
-              left: 15%;
-              transform: translate(-40%, -50%);
-              border-style: solid;
-              border-width: .5em 0 .5em 1.3em;
-              border-color: transparent transparent transparent $c-grey-dark;
-          }
+    border-radius: 46px;
+    line-height: 26px;
+    padding-left: 41px;
+    position: relative;
+    transition: all 160ms;
+    &:before {
+      content: attr(data-duration);
+      @include fs-textSans(4);
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 20px;
+      margin-top: 14px;
+      padding-right: 7px;
+      padding-left: 8px;
+      margin-left: 4px;
+      border-left: 1px solid rgba(51,51,51,0.6);
+      display: inline-block;
+    }
+    @include icon-play;
   }
   &--yellow {
     color: $c-media-default;
