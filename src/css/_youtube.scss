@@ -67,18 +67,9 @@
   }
   &--gradient-fill {
     position: absolute;
-    left: 0;
-    margin-left: -80px;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 1500px;
+    width: 100vw;
     height: 540px;
-    opacity: 0.53;
-    background-image: radial-gradient(circle at 23% 54%, rgba(40, 40, 40, 0.5), rgba(40, 40, 40, 0));
-    @include mq($until:desktop) {
-      margin-left: -95px;
-    }
+    background-image: radial-gradient(circle at 23% 54%, rgba(40, 40, 40, 0.2), rgba(40, 40, 40, 0));
   }
   &--title {
     width: 400px;
