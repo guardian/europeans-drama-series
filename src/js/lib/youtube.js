@@ -1,7 +1,7 @@
 import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
 
-export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
+export function pimpYouTubePlayer(videoId, node, height, width) {
     youTubeIframe.init(function() {
         //preload youtube iframe API
         node.querySelector('#ytGuPlayer').addEventListener('click', function() {
@@ -22,14 +22,13 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                 youTubePlayer.playVideo();
             }
 
-            var chapterSkipBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
+            var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
 
-            chapterSkipBtns.forEach( function(chapterBtn){
+            chapterBtns.forEach( function(chapterBtn){
               chapterBtn.onclick = function(){
-                console.log('works');
                 var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-attribute'));
                 youTubePlayer.seekTo(chapTime, true);
-              }
+              };
             });
         });
     });
@@ -63,9 +62,4 @@ function getYouTubeVideoDuration(videoId, callback){
         }
     });
 }
-
-function youtubeSkipToChapter(videoId, callback){
-
-}
-
 export { pimpYouTubePlayer, getYouTubeVideoDuration };
