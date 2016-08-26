@@ -1,0 +1,67 @@
+.doc-trailer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000; // header has elements at 1020
+  visibility: hidden;
+  opacity: 0;
+  transition: all 360ms;
+  .show-trailer & {
+    visibility: visible;
+    opacity: 1;
+  }
+  &__fader {
+    position: absolute;;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(51,51,51, 0.95);
+  }
+  &__overlay {
+    position: absolute;;
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 10px;
+    right: 10px;
+    @include mq(tablet) {
+      left: 20px;
+      right: 20px;
+    }
+    max-width: 960px;
+    margin: 0 auto;
+    &__size {
+      display: block;
+      position: relative;
+      background-color: #161616;
+      padding-bottom: 56.25%;
+      width: 100%;
+    }
+  }
+  &__close {
+    position: absolute;
+    top: -48px;
+    right: 0px;
+    height: 36px;
+    width: 36px;
+    border-radius: 100%;
+    border: 2px solid #DDDBD7;
+    cursor: pointer;
+    @include icon-close;
+    &:before {
+      top: 9px;
+      left: 9px;
+    }
+  }
+  &__embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+}
