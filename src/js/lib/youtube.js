@@ -22,7 +22,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                 youTubePlayer.playVideo();
             }
 
-            var chapterSkipBtns = Array.prototype.slice.call(document.querySelectorAll('.docs--chapters li'));
+            var chapterSkipBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
 
             chapterSkipBtns.forEach( function(chapterBtn){
               chapterBtn.onclick = function(){
