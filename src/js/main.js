@@ -42,6 +42,24 @@ export function init(el, context, config) {
             hideAboutBtn.classList.remove('docs--show-about');
         };
 
+
+        // Show the trailer on click #docs__playTrailer
+        const $showTrailerAll = builder.querySelectorAll('.docs__shows-trailer');
+        [].forEach.call($showTrailerAll, function($showTrailer) {
+          $showTrailer.onclick = () => {
+            builder.querySelector('#interactive-container').classList.add('show-trailer');
+          }
+        });
+
+        // Hide the trailer
+        const $hideTrailerAll = builder.querySelectorAll('.docs__hides-trailer');
+        [].forEach.call($hideTrailerAll, function($hideTrailer) {
+          $hideTrailer.onclick = () => {
+            builder.querySelector('#interactive-container').classList.remove('show-trailer');
+          }
+        });
+
+
         el.parentNode.replaceChild(builder, el);
     });
 }
