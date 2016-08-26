@@ -26,7 +26,7 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
 
             chapterBtns.forEach( function(chapterBtn){
               chapterBtn.onclick = function(){
-                var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-attribute'));
+                var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
                 youTubePlayer.seekTo(chapTime, true);
               };
             });
