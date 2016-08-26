@@ -27,7 +27,7 @@ export function init(el, context, config) {
         var showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
         var hiddenAbout = builder.querySelector('.docs--about-wrapper');
-        var showAboutBtn = builder.querySelector('.docs--sponsor');
+        var showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
         var hideAboutBtn = builder.querySelector('.docs--about-wrapper');
 
         showMoreBtn.onclick = function(){
