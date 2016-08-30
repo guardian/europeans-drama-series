@@ -4,7 +4,7 @@ import reqwest from 'reqwest';
 export function pimpYouTubePlayer(videoId, node, height, width) {
     youTubeIframe.init(function() {
         //preload youtube iframe API
-        var promise = new Promise(function(resolve) {
+        const promise = new Promise(function(resolve) {
             var youTubePlayer = youTubeIframe.createPlayer(node.querySelector('#ytGuPlayer'), {
                 height: height,
                 width: width,
@@ -19,27 +19,27 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
             });
 
             promise.then(function(youTubePlayer) {
-              chapters(node, youTubePlayer);
-              node.querySelector('#docs__poster--loader').addEventListener('click', function() {
+              addChapterEventHandlers(node, youTubePlayer);
+              node.querySelector('.docs__poster--loader').addEventListener('click', function() {
                 performPlayActions(node, youTubePlayer, this);
               });
             });
         });
 }
 
-function performPlayActions(posterWrapper, youTubePlayer, hider) {
-  posterWrapper.classList.add('docs__poster--wrapper--playing');
+function performPlayActions(videoExpand, youTubePlayer, posterHide) {
+  videoExpand.classList.add('docs__poster--wrapper--playing');
   scrollTo(document.body, 0, 300);
   youTubePlayer.playVideo();
-  hider.classList.add('docs__poster--hide');
+  posterHide.classList.add('docs__poster--hide');
 }
 
-function chapters(node, youTubePlayer) {
+function addChapterEventHandlers(node, youTubePlayer) {
   var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
   chapterBtns.forEach( function(chapterBtn) {
     chapterBtn.onclick = function(){
       var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
-      performPlayActions(node, youTubePlayer, node.querySelector('#docs__poster--loader'));
+      performPlayActions(node, youTubePlayer, node.querySelector('.docs__poster--loader'));
       youTubePlayer.seekTo(chapTime, true);
     };
   });
