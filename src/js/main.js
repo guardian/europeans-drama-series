@@ -14,14 +14,12 @@ export function init(el, context, config) {
             var network = shareEl.getAttribute('data-network');
             shareEl.addEventListener('click', () => shareFn(network));
         });
-
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
+        const chapters = resp.sheets[config.sheetChapter];
 
         getYouTubeVideoDuration(youTubeId, function(duration) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
-
-        pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%');
 
         var hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         var showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
@@ -29,6 +27,11 @@ export function init(el, context, config) {
         var hiddenAbout = builder.querySelector('.docs--about-wrapper');
         var showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
         var hideAboutBtn = builder.querySelector('.docs--about-wrapper');
+
+        var chapterButtons = builder.querySelector('.docs--chapters');
+        chapters.forEach( function(chapter){
+          chapterButtons.innerHTML += '<li data-sheet-timestamp="'+ chapter.chapterTimestamp +'">' + chapter.chapterTitle + '</li>';
+        });
 
         showMoreBtn.onclick = function(){
             hiddenDesc.classList.toggle('docs--show-hidden');
@@ -41,7 +44,7 @@ export function init(el, context, config) {
         hideAboutBtn.onclick = function(){
             hideAboutBtn.classList.remove('docs--show-about');
         };
-
+        pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%', builder);
         el.parentNode.replaceChild(builder, el);
     });
 }

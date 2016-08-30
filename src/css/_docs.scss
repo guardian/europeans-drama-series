@@ -342,3 +342,39 @@
     }
   }
 }
+
+.docs--chapters {
+  &-wrapper {
+    margin: 0;
+    padding: 5px 0 5px 10px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    background-color: #161616;
+    counter-reset: chapters;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+  }
+  li {
+    cursor: pointer;
+    display: inline-block;
+    @include fs-textSans(4);
+    white-space: pre-wrap;
+    width: 150px;
+    padding: 5px;
+    margin-right: 5px;
+    color: $c-grey-light;
+    font-size: 15px;
+    line-height: 17px;
+    border: 1px solid $c-grey-mid;
+    &:hover {
+      background-color: darken($c-background, 3%);
+    }
+    &:before {
+      color: $c-white;
+      counter-increment: chapters;
+      content: "Chapter " counter(chapters) ": ";
+    }
+  }
+}

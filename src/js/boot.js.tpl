@@ -18,6 +18,7 @@ define([], function() {
             config = {
                 'assetPath': '<%= assetPath %>',
                 'sheetName': 'gun-nation',
+                'sheetChapter': 'gun-nation-chapters',
                 'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g'
             };
 
