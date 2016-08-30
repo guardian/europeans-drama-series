@@ -21,6 +21,15 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
             function playerReady() {
                 youTubePlayer.playVideo();
             }
+
+            var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
+
+            chapterBtns.forEach( function(chapterBtn){
+              chapterBtn.onclick = function(){
+                var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
+                youTubePlayer.seekTo(chapTime, true);
+              };
+            });
         });
     });
 }
@@ -53,5 +62,4 @@ function getYouTubeVideoDuration(videoId, callback){
         }
     });
 }
-
 export { pimpYouTubePlayer, getYouTubeVideoDuration };

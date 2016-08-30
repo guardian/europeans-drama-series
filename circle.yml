@@ -6,3 +6,5 @@ machine:
 dependencies:
   cache_directories:
     - "node_modules"
+    - "bower_components"
+    - "jspm_packages"
