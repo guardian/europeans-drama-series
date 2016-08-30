@@ -19,15 +19,7 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
             });
 
             promise.then(function(youTubePlayer) {
-              var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
-              chapterBtns.forEach( function(chapterBtn) {
-                chapterBtn.onclick = function(){
-                  var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
-                  performPlayActions(node, youTubePlayer, node.querySelector('#docs__poster--loader'));
-                  youTubePlayer.seekTo(chapTime, true);
-                };
-              });
-
+              chapters(node, youTubePlayer);
               node.querySelector('#docs__poster--loader').addEventListener('click', function() {
                 performPlayActions(node, youTubePlayer, this);
               });
@@ -40,6 +32,17 @@ function performPlayActions(posterWrapper, youTubePlayer, hider) {
   scrollTo(document.body, 0, 300);
   youTubePlayer.playVideo();
   hider.classList.add('docs__poster--hide');
+}
+
+function chapters(node, youTubePlayer) {
+  var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
+  chapterBtns.forEach( function(chapterBtn) {
+    chapterBtn.onclick = function(){
+      var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
+      performPlayActions(node, youTubePlayer, node.querySelector('#docs__poster--loader'));
+      youTubePlayer.seekTo(chapTime, true);
+    };
+  });
 }
 
 function scrollTo(element, to, duration) {
