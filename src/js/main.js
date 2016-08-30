@@ -47,12 +47,10 @@ export function init(el, context, config) {
 
 
         // Show the trailer on click #docs__playTrailer
-        const showTrailerAll = builder.querySelectorAll('.docs__shows-trailer');
-        [].forEach.call(showTrailerAll, function(showTrailer) {
-            showTrailer.onclick = () => {
-                builder.querySelector('#interactive-container').classList.add('show-trailer');
-            };
-        });
+        const showTrailer = builder.querySelector('.docs__shows-trailer');
+        showTrailer.onclick = () => {
+            builder.querySelector('#interactive-container').classList.add('show-trailer');
+        };
 
         // Hide the trailer
         const hideTrailerAll = builder.querySelectorAll('.docs__hides-trailer');
