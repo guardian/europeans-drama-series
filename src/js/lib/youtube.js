@@ -4,34 +4,42 @@ import reqwest from 'reqwest';
 export function pimpYouTubePlayer(videoId, node, height, width) {
     youTubeIframe.init(function() {
         //preload youtube iframe API
-        node.querySelector('#ytGuPlayer').addEventListener('click', function() {
-            var youTubePlayer = youTubeIframe.createPlayer(this, {
+        var promise = new Promise(function(resolve) {
+            var youTubePlayer = youTubeIframe.createPlayer(node.querySelector('#ytGuPlayer'), {
                 height: height,
                 width: width,
                 videoId: videoId,
                 playerVars: { 'autoplay': 0, 'controls': 1 },
                 events: {
-                    'onReady': playerReady
+                    'onReady': function(){
+                      resolve(youTubePlayer);
+                    }
                 }
             });
+            });
 
-            node.classList.add('docs__poster--wrapper--playing');
-            scrollTo(document.body, 0, 300);
+            promise.then(function(youTubePlayer) {
+              var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
+              chapterBtns.forEach( function(chapterBtn) {
+                chapterBtn.onclick = function(){
+                  var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
+                  performPlayActions(node, youTubePlayer, node.querySelector('#docs__poster--loader'));
+                  youTubePlayer.seekTo(chapTime, true);
+                };
+              });
 
-            function playerReady() {
-                youTubePlayer.playVideo();
-            }
-
-            var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
-
-            chapterBtns.forEach( function(chapterBtn){
-              chapterBtn.onclick = function(){
-                var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
-                youTubePlayer.seekTo(chapTime, true);
-              };
+              node.querySelector('#docs__poster--loader').addEventListener('click', function() {
+                performPlayActions(node, youTubePlayer, this);
+              });
             });
         });
-    });
+}
+
+function performPlayActions(posterWrapper, youTubePlayer, hider) {
+  posterWrapper.classList.add('docs__poster--wrapper--playing');
+  scrollTo(document.body, 0, 300);
+  youTubePlayer.playVideo();
+  hider.classList.add('docs__poster--hide');
 }
 
 function scrollTo(element, to, duration) {

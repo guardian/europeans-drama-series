@@ -7,6 +7,16 @@
   transform: translateY(-50%);
 }
 
+#docs__poster--loader {
+  position: absolute;
+  top:0;
+  width: 100%;
+}
+
+.docs__poster--hide {
+  display: none;
+}
+
 .docs__poster {
   &--wrapper {
     text-align: center;
