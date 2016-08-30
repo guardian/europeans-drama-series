@@ -62,9 +62,6 @@ export function init(el, context, config) {
             };
         });
 
-
-        pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%', builder);
-
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
         emailIframe.setAttribute('src', emailsignupURL(37));
 
