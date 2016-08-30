@@ -30,7 +30,7 @@ export function init(el, context, config) {
 
         var chapterButtons = builder.querySelector('.docs--chapters');
         chapters.forEach( function(chapter){
-          chapterButtons.innerHTML += '<li class="" data-sheet-timestamp="'+ chapter.chapterTimestamp +'">' + chapter.chapterTitle + '</li>';
+          chapterButtons.innerHTML += '<li data-sheet-timestamp="'+ chapter.chapterTimestamp +'">' + chapter.chapterTitle + '</li>';
         });
 
         showMoreBtn.onclick = function(){
