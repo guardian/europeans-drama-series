@@ -136,12 +136,14 @@
       color: $c-white;
       li {
         list-style-type: none;
+        line-height: 20px;
       }
     }
     &-title {
     @include fs-bodyCopy(2);
     font-weight: 800;
     font-size: 15px;
+    margin-top: 20px;
     }
   }
   &--sponsor {
