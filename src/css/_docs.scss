@@ -146,6 +146,47 @@
     margin-top: 20px;
     }
   }
+  &--actions {
+    &__trailer {
+      cursor: pointer;
+      position: relative;
+      line-height: 32px;
+      padding-left: 34px;
+      font-size: 14px;
+      color: #fb0;
+      font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-weight: 400;
+      @include icon-play-small;
+      &:before {
+        transition: transform 120ms;
+        backface-visibility: visible;
+      }
+      &:hover {
+        &:before {
+          transform: scale(1.1);
+        }
+      }
+      &__duration {
+        position: relative;
+        &:after {
+          content: '';
+          width: 1px;
+          height: 16px;
+          background-color: #fb0;
+          opacity: 0.8;
+          display: inline-block;
+          position: absolute;
+          left: 45px;
+          top: -1px;
+        }
+        &:before {
+          content: 'Trailer';
+          display: inline-block;
+          margin-right: 11px;
+        }
+      }
+    }
+  }
   &--sponsor {
     @include dividers;
     font-size: 14px;

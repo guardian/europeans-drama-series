@@ -44,6 +44,23 @@ export function init(el, context, config) {
         hideAboutBtn.onclick = function(){
             hideAboutBtn.classList.remove('docs--show-about');
         };
+
+
+        // Show the trailer on click #docs__playTrailer
+        const showTrailer = builder.querySelector('.docs__shows-trailer');
+        showTrailer.onclick = () => {
+            builder.querySelector('#interactive-container').classList.add('show-trailer');
+        };
+
+        // Hide the trailer
+        const hideTrailerAll = builder.querySelectorAll('.docs__hides-trailer');
+        [].forEach.call(hideTrailerAll, function(hideTrailer) {
+            hideTrailer.onclick = () => {
+                builder.querySelector('#interactive-container').classList.remove('show-trailer');
+            };
+        });
+
+
         pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%', builder);
         el.parentNode.replaceChild(builder, el);
     });
