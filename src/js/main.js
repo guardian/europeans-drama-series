@@ -1,8 +1,8 @@
 import mainHTML from './text/main.html!text';
 import {pimpYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube';
-import share from './lib/share'
-import sheetToDOM from './lib/sheettodom'
-import emailsignupURL from './lib/emailsignupURL'
+import share from './lib/share';
+import sheetToDOM from './lib/sheettodom';
+import emailsignupURL from './lib/emailsignupURL';
 
 var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 
