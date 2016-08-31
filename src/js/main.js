@@ -41,7 +41,6 @@ export function init(el, context, config) {
         //Show and hide the about these films overlay
         showAboutBtn.onclick = function(){
             hiddenAbout.classList.add('docs--show-about');
-            console.log('eh?');
         };
 
         hideAboutBtn.onclick = function(){
