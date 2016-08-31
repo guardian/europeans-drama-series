@@ -13,6 +13,7 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
                 events: {
                     'onReady': function(){
                       resolve(youTubePlayer);
+                      checkPlaybackTime(youTubePlayer);
                     }
                 }
             });
@@ -43,6 +44,26 @@ function addChapterEventHandlers(node, youTubePlayer) {
       youTubePlayer.seekTo(chapTime, true);
     };
   });
+}
+
+function hmsToSecondsOnly(str) {
+    var p = str.split(':'),
+        s = 0, m = 1;
+
+    while (p.length > 0) {
+        s += m * parseInt(p.pop(), 10);
+        m *= 60;
+    }
+    return s;
+}
+
+function checkPlaybackTime(youTubePlayer) {
+  var playbackBar = document.querySelectorAll('.docs--playback-main');
+  var duration = hmsToSecondsOnly(document.querySelector('.docs__poster--play-button').getAttribute('data-duration'));
+
+  setInterval(function() {
+    playbackBar.style.width = youTubePlayer.getCurrentTime() / duration * 100 + '%';
+ },10)
 }
 
 function scrollTo(element, to, duration) {

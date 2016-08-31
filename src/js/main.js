@@ -49,7 +49,6 @@ export function init(el, context, config) {
             hideAboutBtn.classList.remove('docs--show-about');
         };
 
-
         // Show the trailer on click #docs__playTrailer
         const showTrailer = builder.querySelector('.docs__shows-trailer');
         showTrailer.onclick = () => {

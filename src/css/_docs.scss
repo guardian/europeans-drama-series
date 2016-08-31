@@ -390,6 +390,21 @@
       }
     }
   }
+  &--playback {
+    &-wrapper {
+      background-color: $c-background;
+      width: 100%;
+      height: 30px;
+    }
+    &-main {
+      width: 100%;
+      height: 100%;
+      // padding-left: 10px;
+      line-height: 180%;
+      color: $c-white;
+      background-color: $c-media-default;
+    }
+  }
 }
 
 .docs--chapters {
