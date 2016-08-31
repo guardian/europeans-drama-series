@@ -33,12 +33,15 @@ export function init(el, context, config) {
           chapterButtons.innerHTML += '<li data-sheet-timestamp="'+ chapter.chapterTimestamp +'">' + chapter.chapterTitle + '</li>';
         });
 
+        //Show the long description
         showMoreBtn.onclick = function(){
-            hiddenDesc.classList.toggle('docs--show-hidden');
+            hiddenDesc.classList.toggle('docs--show-longdesc');
         };
 
+        //Show and hide the about these films overlay
         showAboutBtn.onclick = function(){
             hiddenAbout.classList.add('docs--show-about');
+            console.log('eh?');
         };
 
         hideAboutBtn.onclick = function(){
