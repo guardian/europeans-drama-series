@@ -19,7 +19,8 @@ define([], function() {
                 'assetPath': '<%= assetPath %>',
                 'sheetName': 'gun-nation',
                 'sheetChapter': 'gun-nation-chapters',
-                'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g'
+                'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g',
+                'emailListId': 3745
             };
 
             // Load CSS asynchronously
