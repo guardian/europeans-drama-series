@@ -38,6 +38,7 @@ function performPlayActions(videoExpand, youTubePlayer, posterHide) {
 function addChapterEventHandlers(node, youTubePlayer) {
   var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
   chapterBtns.forEach( function(chapterBtn) {
+    chapterBtn.style.backgroundColor = 'black';
     chapterBtn.onclick = function(){
       var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
       performPlayActions(node, youTubePlayer, node.querySelector('.docs__poster--loader'));
@@ -58,7 +59,7 @@ function hmsToSecondsOnly(str) {
 }
 
 function checkPlaybackTime(youTubePlayer) {
-  var playbackBar = document.querySelectorAll('.docs--playback-main');
+  var playbackBar = document.querySelector('.docs--playback-main');
   var duration = hmsToSecondsOnly(document.querySelector('.docs__poster--play-button').getAttribute('data-duration'));
 
   setInterval(function() {
