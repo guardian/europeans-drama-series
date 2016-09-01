@@ -32,10 +32,20 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                             }
                           });
                           if(currentChapter.length === 1){
-                              var a = document.querySelector('li[data-sheet-timestamp="'+ currentChapter[0].chapterTimestamp +'"]');
-                              a.classList.add('docs--chapters-active');
+                            var b = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
+                            b.forEach( function(el){
+                              if(el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
+                                console.log('yeah!');
+                                el.classList.add('docs--chapters-active');
+                              }else{
+                                console.log('Booo!');
+                                el.classList.remove('docs--chapters-active');
+                              }
+                            });
+                            // var a = document.querySelector('li[data-sheet-timestamp="'+ currentChapter[0].chapterTimestamp +'"]');
+                            // a.classList.add('docs--chapters-active');
+                            // b.classList.remove('docs--chapters-active');
                           }
-                          console.log(currentChapter);
                        },1000);
                      } else{
                        clearTimeout(mytimer);
