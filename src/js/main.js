@@ -18,6 +18,12 @@ export function init(el, context, config) {
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
         const chapters = resp.sheets[config.sheetChapter];
 
+        chapters.forEach( function(chapter, index){
+          if(chapters.length > index+1){
+            var endChapter = chapters[index+1];
+            chapter.endChapter = endChapter.chapterTimestamp -1;
+          }
+        });
         getYouTubeVideoDuration(youTubeId, function(duration) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
@@ -66,6 +72,7 @@ export function init(el, context, config) {
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
         emailIframe.setAttribute('src', emailsignupURL(config.emailListId));
 
+        pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%', chapters);
         el.parentNode.replaceChild(builder, el);
     });
 }
