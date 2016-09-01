@@ -1,3 +1,4 @@
+/*globals YT*/
 import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
 
@@ -16,14 +17,12 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                       // checkPlaybackTime(youTubePlayer);
                     },
                     'onStateChange': function(event){
+                      let chapTimer;
                       if (event.data == YT.PlayerState.PLAYING) {
 
-                        var playbackBar = document.querySelector('.docs--playback-main');
                         var playerTotalTime = youTubePlayer.getDuration();
-
-                        var mytimer = setInterval(function() {
+                        chapTimer = setInterval(function() {
                           var playerCurrentTime = youTubePlayer.getCurrentTime();
-                          var playerTimeDifference = (playerCurrentTime / playerTotalTime) * 100;
                           var currentChapter = chapters.filter( function(value){
                             var chapStart = value.chapterTimestamp;
                             var chapEnd = value.endChapter || playerTotalTime;
@@ -32,23 +31,18 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                             }
                           });
                           if(currentChapter.length === 1){
-                            var b = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
-                            b.forEach( function(el){
+                            var chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
+                            chapterAll.forEach( function(el){
                               if(el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
-                                console.log('yeah!');
                                 el.classList.add('docs--chapters-active');
                               }else{
-                                console.log('Booo!');
                                 el.classList.remove('docs--chapters-active');
                               }
                             });
-                            // var a = document.querySelector('li[data-sheet-timestamp="'+ currentChapter[0].chapterTimestamp +'"]');
-                            // a.classList.add('docs--chapters-active');
-                            // b.classList.remove('docs--chapters-active');
                           }
                        },1000);
-                     } else{
-                       clearTimeout(mytimer);
+                     }else {
+                       clearTimeout(chapTimer);
                      }
                   }
                 }
