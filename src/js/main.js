@@ -20,7 +20,7 @@ export function init(el, context, config) {
 
         chapters.sort((a,b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
 
-        chapters.forEach( function(chapter, index){
+        chapters.forEach(function(chapter, index){
           if(chapters.length > index+1){
             const nextChapter = chapters[index+1];
             chapter.nextChapter = parseInt(nextChapter.chapterTimestamp) - 1;

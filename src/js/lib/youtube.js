@@ -22,7 +22,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                         const playerTotalTime = youTubePlayer.getDuration();
                         chapTimer = setInterval(function() {
                           const playerCurrentTime = youTubePlayer.getCurrentTime();
-                          const currentChapter = chapters.filter( function(value){
+                          const currentChapter = chapters.filter(function(value){
                             const chapStart = value.chapterTimestamp;
                             const chapNext = value.nextChapter || playerTotalTime;
                             if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
@@ -31,7 +31,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                           });
                           if (currentChapter.length === 1){
                             const chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
-                            chapterAll.forEach( function(el){
+                            chapterAll.forEach(function(el){
                               if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
                                 el.classList.add('docs--chapters-active');
                                 el.classList.remove('docs--chapters-inactive');
