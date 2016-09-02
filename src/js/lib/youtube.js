@@ -19,18 +19,18 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                       let chapTimer;
                       if (event.data == YT.PlayerState.PLAYING){
 
-                        var playerTotalTime = youTubePlayer.getDuration();
+                        const playerTotalTime = youTubePlayer.getDuration();
                         chapTimer = setInterval(function() {
-                          var playerCurrentTime = youTubePlayer.getCurrentTime();
-                          var currentChapter = chapters.filter( function(value){
-                            var chapStart = value.chapterTimestamp;
-                            var chapEnd = value.endChapter || playerTotalTime;
+                          const playerCurrentTime = youTubePlayer.getCurrentTime();
+                          const currentChapter = chapters.filter( function(value){
+                            const chapStart = value.chapterTimestamp;
+                            const chapEnd = value.endChapter || playerTotalTime;
                             if(playerCurrentTime >= chapStart && playerCurrentTime <= chapEnd){
                               return value;
                             }
                           });
                           if (currentChapter.length === 1){
-                            var chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
+                            const chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
                             chapterAll.forEach( function(el){
                               if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
                                 el.classList.add('docs--chapters-active');
@@ -67,10 +67,10 @@ function performPlayActions(videoExpand, youTubePlayer, posterHide) {
 }
 
 function addChapterEventHandlers(node, youTubePlayer) {
-  var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
+  const chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
   chapterBtns.forEach( function(chapterBtn) {
     chapterBtn.onclick = function(){
-      var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
+      const chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
       performPlayActions(node, youTubePlayer, node.querySelector('.docs__poster--loader'));
       youTubePlayer.seekTo(chapTime, true);
     };

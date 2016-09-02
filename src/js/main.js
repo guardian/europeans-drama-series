@@ -18,16 +18,12 @@ export function init(el, context, config) {
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
         const chapters = resp.sheets[config.sheetChapter];
 
-        var sortChapters = chapters.sort( function(a,b){
-          parseInt(chapters.chapterTimestamp);
-          return a.chapterTimestamp - b.chapterTimestamp;
-        });
+        chapters.sort((a,b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
 
         chapters.forEach( function(chapter, index){
           if(chapters.length > index+1){
-            var endChapter = chapters[index+1];
-            parseInt(endChapter.chapterTimestamp);
-            chapter.endChapter = endChapter.chapterTimestamp -1;
+            const endChapter = chapters[index+1];
+            chapter.endChapter = parseInt(endChapter.chapterTimestamp) - 1;
           }
         });
         getYouTubeVideoDuration(youTubeId, function(duration) {
@@ -35,14 +31,14 @@ export function init(el, context, config) {
         });
 
         pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%');
-        var hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
-        var showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
+        const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
+        const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
-        var hiddenAbout = builder.querySelector('.docs--about-wrapper');
-        var showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
-        var hideAboutBtn = builder.querySelector('.docs--about-wrapper');
+        const hiddenAbout = builder.querySelector('.docs--about-wrapper');
+        const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
+        const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
 
-        var chapterButtons = builder.querySelector('.docs--chapters');
+        const chapterButtons = builder.querySelector('.docs--chapters');
         chapters.forEach( function(chapter){
           chapterButtons.innerHTML += '<li data-sheet-timestamp="'+ chapter.chapterTimestamp +'">' + chapter.chapterTitle + '</li>';
         });
