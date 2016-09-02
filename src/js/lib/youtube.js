@@ -1,7 +1,8 @@
+/*globals YT*/
 import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
 
-export function pimpYouTubePlayer(videoId, node, height, width) {
+export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     youTubeIframe.init(function() {
         //preload youtube iframe API
         const promise = new Promise(function(resolve) {
@@ -13,7 +14,38 @@ export function pimpYouTubePlayer(videoId, node, height, width) {
                 events: {
                     'onReady': function(){
                       resolve(youTubePlayer);
-                    }
+                    },
+                    'onStateChange': function(event){
+                      let chapTimer;
+                      if (event.data == YT.PlayerState.PLAYING){
+
+                        const playerTotalTime = youTubePlayer.getDuration();
+                        chapTimer = setInterval(function() {
+                          const playerCurrentTime = youTubePlayer.getCurrentTime();
+                          const currentChapter = chapters.filter(function(value){
+                            const chapStart = value.chapterTimestamp;
+                            const chapNext = value.nextChapter || playerTotalTime;
+                            if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
+                              return value;
+                            }
+                          });
+                          if (currentChapter.length === 1){
+                            const chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
+                            chapterAll.forEach(function(el){
+                              if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
+                                el.classList.add('docs--chapters-active');
+                                el.classList.remove('docs--chapters-inactive');
+                              } else {
+                                el.classList.add('docs--chapters-inactive');
+                                el.classList.remove('docs--chapters-active');
+                              }
+                            });
+                          }
+                       },1000);
+                     } else {
+                       clearTimeout(chapTimer);
+                     }
+                  }
                 }
             });
             });
@@ -35,10 +67,10 @@ function performPlayActions(videoExpand, youTubePlayer, posterHide) {
 }
 
 function addChapterEventHandlers(node, youTubePlayer) {
-  var chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
+  const chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
   chapterBtns.forEach( function(chapterBtn) {
     chapterBtn.onclick = function(){
-      var chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
+      const chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
       performPlayActions(node, youTubePlayer, node.querySelector('.docs__poster--loader'));
       youTubePlayer.seekTo(chapTime, true);
     };

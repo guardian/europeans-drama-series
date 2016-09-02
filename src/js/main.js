@@ -18,19 +18,27 @@ export function init(el, context, config) {
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
         const chapters = resp.sheets[config.sheetChapter];
 
+        chapters.sort((a,b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
+
+        chapters.forEach(function(chapter, index){
+          if(chapters.length > index+1){
+            const nextChapter = chapters[index+1];
+            chapter.nextChapter = parseInt(nextChapter.chapterTimestamp) - 1;
+          }
+        });
         getYouTubeVideoDuration(youTubeId, function(duration) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
 
         pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%');
-        var hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
-        var showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
+        const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
+        const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
-        var hiddenAbout = builder.querySelector('.docs--about-wrapper');
-        var showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
-        var hideAboutBtn = builder.querySelector('.docs--about-wrapper');
+        const hiddenAbout = builder.querySelector('.docs--about-wrapper');
+        const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
+        const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
 
-        var chapterButtons = builder.querySelector('.docs--chapters');
+        const chapterButtons = builder.querySelector('.docs--chapters');
         chapters.forEach( function(chapter){
           chapterButtons.innerHTML += '<li data-sheet-timestamp="'+ chapter.chapterTimestamp +'">' + chapter.chapterTitle + '</li>';
         });
@@ -49,7 +57,6 @@ export function init(el, context, config) {
             hideAboutBtn.classList.remove('docs--show-about');
         };
 
-
         // Show the trailer on click #docs__playTrailer
         const showTrailer = builder.querySelector('.docs__shows-trailer');
         showTrailer.onclick = () => {
@@ -67,6 +74,7 @@ export function init(el, context, config) {
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
         emailIframe.setAttribute('src', emailsignupURL(config.emailListId));
 
+        pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%', chapters);
         el.parentNode.replaceChild(builder, el);
     });
 }

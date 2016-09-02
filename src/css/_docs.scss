@@ -390,6 +390,18 @@
       }
     }
   }
+  &--playback {
+    &-wrapper {
+      height: 10px;
+    }
+    &-main {
+      width: 100%;
+      height: 100%;
+      line-height: 180%;
+      color: $c-white;
+      background-color: $c-grey-dark;
+    }
+  }
 }
 
 .docs--chapters {
@@ -418,12 +430,22 @@
     line-height: 17px;
     border: 1px solid $c-grey-mid;
     &:hover {
-      background-color: darken($c-background, 3%);
+      border: 1px solid $c-grey-light;
     }
     &:before {
       color: $c-white;
       counter-increment: chapters;
       content: "Chapter " counter(chapters) ": ";
     }
+  }
+  &-active {
+    //Apologies but can only make work with !important
+    border: 1px solid $c-white !important;
+    opacity: 1;
+    transition: all 360ms;
+  }
+  &-inactive {
+    transition: all 360ms;
+    opacity: 0.6;
   }
 }
