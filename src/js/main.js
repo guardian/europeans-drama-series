@@ -57,10 +57,13 @@ export function init(el, context, config) {
             hideAboutBtn.classList.remove('docs--show-about');
         };
 
-        // Show the trailer on click #docs__playTrailer
+        const embedContainer = builder.querySelector('.doc-trailer__embed');
+
         const showTrailer = builder.querySelector('.docs__shows-trailer');
         showTrailer.onclick = () => {
             builder.querySelector('#interactive-container').classList.add('show-trailer');
+            const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeId;
+            embedContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`
         };
 
         // Hide the trailer
@@ -68,6 +71,7 @@ export function init(el, context, config) {
         [].forEach.call(hideTrailerAll, function(hideTrailer) {
             hideTrailer.onclick = () => {
                 builder.querySelector('#interactive-container').classList.remove('show-trailer');
+                embedContainer.innerHTML = '';
             };
         });
 
