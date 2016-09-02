@@ -44,7 +44,19 @@
     top: -1px;
     left: -2px;
   }
+}
 
+@mixin icon-play {
+  &:after {
+    content: '';
+    width: 20px;
+    height: 17px;
+    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="17" viewBox="1404 6229 20 17" xmlns="http://www.w3.org/2000/svg"><path fill="#333" fill-rule="evenodd" d="M1424 6237.97l-19.29 8.03-.71-.502v-15.933l.71-.565 19.29 8.092"/></svg>');
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+  }
 }
 
 @mixin icon-showless {
