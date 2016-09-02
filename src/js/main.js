@@ -22,8 +22,8 @@ export function init(el, context, config) {
 
         chapters.forEach( function(chapter, index){
           if(chapters.length > index+1){
-            const endChapter = chapters[index+1];
-            chapter.endChapter = parseInt(endChapter.chapterTimestamp) - 1;
+            const nextChapter = chapters[index+1];
+            chapter.nextChapter = parseInt(nextChapter.chapterTimestamp) - 1;
           }
         });
         getYouTubeVideoDuration(youTubeId, function(duration) {

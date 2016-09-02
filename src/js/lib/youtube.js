@@ -24,8 +24,8 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                           const playerCurrentTime = youTubePlayer.getCurrentTime();
                           const currentChapter = chapters.filter( function(value){
                             const chapStart = value.chapterTimestamp;
-                            const chapEnd = value.endChapter || playerTotalTime;
-                            if(playerCurrentTime >= chapStart && playerCurrentTime <= chapEnd){
+                            const chapNext = value.nextChapter || playerTotalTime;
+                            if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
                               return value;
                             }
                           });
