@@ -24,7 +24,6 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "guardian/iframe-messenger": "github:guardian/iframe-messenger@master",
     "json": "github:systemjs/plugin-json@0.1.2",
-    "moment": "npm:moment@2.14.1",
     "reqwest": "github:ded/reqwest@1.1.5",
     "text": "github:systemjs/plugin-text@0.0.2",
     "youtube-iframe": "npm:youtube-iframe@1.0.3",

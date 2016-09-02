@@ -14,11 +14,10 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                 events: {
                     'onReady': function(){
                       resolve(youTubePlayer);
-                      // checkPlaybackTime(youTubePlayer);
                     },
                     'onStateChange': function(event){
                       let chapTimer;
-                      if (event.data == YT.PlayerState.PLAYING) {
+                      if (event.data == YT.PlayerState.PLAYING){
 
                         var playerTotalTime = youTubePlayer.getDuration();
                         chapTimer = setInterval(function() {
@@ -30,18 +29,18 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                               return value;
                             }
                           });
-                          if(currentChapter.length === 1){
+                          if (currentChapter.length === 1){
                             var chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
                             chapterAll.forEach( function(el){
-                              if(el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
+                              if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
                                 el.classList.add('docs--chapters-active');
-                              }else{
+                              } else {
                                 el.classList.remove('docs--chapters-active');
                               }
                             });
                           }
                        },1000);
-                     }else {
+                     } else {
                        clearTimeout(chapTimer);
                      }
                   }
