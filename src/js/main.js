@@ -23,8 +23,6 @@ export function init(el, context, config) {
           return a.chapterTimestamp - b.chapterTimestamp;
         });
 
-        console.log(sortChapters);
-
         chapters.forEach( function(chapter, index){
           if(chapters.length > index+1){
             var endChapter = chapters[index+1];
