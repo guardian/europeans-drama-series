@@ -30,13 +30,12 @@ export function init(el, context, config) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
 
-        pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%');
-        const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
-        const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
         const hiddenAbout = builder.querySelector('.docs--about-wrapper');
         const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
         const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
+        const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
+        const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
         const chapterButtons = builder.querySelector('.docs--chapters');
         chapters.forEach( function(chapter){
@@ -63,7 +62,7 @@ export function init(el, context, config) {
         showTrailer.onclick = () => {
             builder.querySelector('#interactive-container').classList.add('show-trailer');
             const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeId;
-            embedContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`
+            embedContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
         };
 
         // Hide the trailer
@@ -78,7 +77,7 @@ export function init(el, context, config) {
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
         emailIframe.setAttribute('src', emailsignupURL(config.emailListId));
 
-        pimpYouTubePlayer(youTubeId, builder.querySelector('#playerWrapper'), '100%', '100%', chapters);
+        pimpYouTubePlayer(youTubeId, builder, '100%', '100%', chapters);
         el.parentNode.replaceChild(builder, el);
     });
 }
