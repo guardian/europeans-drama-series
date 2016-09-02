@@ -439,6 +439,13 @@
     }
   }
   &-active {
+    //Apologies but can only make work with !important
     border: 1px solid $c-white !important;
+    opacity: 1;
+    transition: all 360ms;
+  }
+  &-inactive {
+    transition: all 360ms;
+    opacity: 0.6;
   }
 }

@@ -34,7 +34,9 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                             chapterAll.forEach( function(el){
                               if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
                                 el.classList.add('docs--chapters-active');
+                                el.classList.remove('docs--chapters-inactive');
                               } else {
+                                el.classList.add('docs--chapters-inactive');
                                 el.classList.remove('docs--chapters-active');
                               }
                             });

@@ -18,7 +18,12 @@ export function init(el, context, config) {
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
         const chapters = resp.sheets[config.sheetChapter];
 
-        chapters.sort(chapters.chapterTimestamp);
+        var sortChapters = chapters.sort( function(a,b){
+          parseInt(chapters.chapterTimestamp);
+          return a.chapterTimestamp - b.chapterTimestamp;
+        });
+
+        console.log(sortChapters);
 
         chapters.forEach( function(chapter, index){
           if(chapters.length > index+1){
