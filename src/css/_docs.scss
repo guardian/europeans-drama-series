@@ -429,9 +429,9 @@
     color: $c-grey-light;
     font-size: 15px;
     line-height: 17px;
-    border: 1px solid $c-grey-mid;
+    border-top: 1px solid $c-grey-mid;
     &:hover {
-      border: 1px solid $c-grey-light;
+      border-top: 1px solid $c-grey-light;
     }
     &:before {
       color: $c-white;
@@ -441,7 +441,7 @@
   }
   &-active {
     //Apologies but can only make work with !important
-    border: 1px solid $c-white !important;
+    border-top: 1px solid $c-white !important;
     opacity: 1;
     transition: all 360ms;
   }
