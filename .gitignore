@@ -8,3 +8,4 @@ cfg/aws-keys.json
 .DS_Store
 npm-debug.log
 docs-interactive-template.iml
+.idea

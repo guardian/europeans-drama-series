@@ -65,16 +65,16 @@ export function init(el, context, config) {
 
         const showTrailer = builder.querySelector('.docs__shows-trailer');
         showTrailer.onclick = () => {
-            builder.querySelector('#interactive-container').classList.add('show-trailer');
-            embedContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
+            builder.classList.add('show-trailer');
+            embedContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1" frameborder="0" allowfullscreen class="doc-trailer__player"></iframe>`;
         };
 
         // Hide the trailer
         const hideTrailerAll = builder.querySelectorAll('.docs__hides-trailer');
         [].forEach.call(hideTrailerAll, function(hideTrailer) {
             hideTrailer.onclick = () => {
-                builder.querySelector('#interactive-container').classList.remove('show-trailer');
-                embedContainer.innerHTML = '';
+                builder.classList.remove('show-trailer');
+                embedContainer.removeChild(builder.querySelector('.doc-trailer__player'))
             };
         });
 
