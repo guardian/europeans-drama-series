@@ -64,7 +64,23 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 }
 
 function performPlayActions(videoExpand, youTubePlayer, posterHide) {
-    videoExpand.classList.add('docs__poster--wrapper--playing');
+
+    function isMobile() {
+        function isIOS() {
+            return /(iPad|iPhone|iPod touch)/i.test(navigator.userAgent);
+        }
+
+        function isAndroid() {
+            return /Android/i.test(navigator.userAgent);
+        }
+
+        return isIOS() || isAndroid();
+    }
+
+    if (!isMobile()) {
+        videoExpand.classList.add('docs__poster--wrapper--playing');
+    }
+
     scrollTo(document.body, 0, 300);
     youTubePlayer.playVideo();
     posterHide.classList.add('docs__poster--hide');
