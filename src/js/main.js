@@ -16,6 +16,7 @@ export function init(el, context, config) {
             shareEl.addEventListener('click', () => shareFn(network));
         });
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
+        const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeTrailerId;
         const chapters = resp.sheets[config.sheetChapter];
 
         chapters.sort((a,b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
@@ -26,10 +27,14 @@ export function init(el, context, config) {
             chapter.nextChapter = parseInt(nextChapter.chapterTimestamp) - 1;
           }
         });
+
+        getYouTubeVideoDuration(youTubeTrailerId, function(duration) {
+            builder.querySelector('.docs--actions__trailer__duration').textContent = duration;
+        });
+
         getYouTubeVideoDuration(youTubeId, function(duration) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
-
 
         const hiddenAbout = builder.querySelector('.docs--about-wrapper');
         const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
@@ -61,7 +66,6 @@ export function init(el, context, config) {
         const showTrailer = builder.querySelector('.docs__shows-trailer');
         showTrailer.onclick = () => {
             builder.querySelector('#interactive-container').classList.add('show-trailer');
-            const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeId;
             embedContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
         };
 
