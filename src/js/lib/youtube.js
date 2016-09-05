@@ -53,7 +53,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
         promise.then(function(youTubePlayer) {
             addChapterEventHandlers(node, youTubePlayer);
             node.querySelector('.docs__poster--loader').addEventListener('click', function() {
-                performPlayActions(node, youTubePlayer, this);
+                performPlayActions(node.querySelector('.docs__poster--wrapper'), youTubePlayer, this);
             });
 
             node.querySelector('.docs__shows-trailer').addEventListener('click', function() {
@@ -75,7 +75,7 @@ function addChapterEventHandlers(node, youTubePlayer) {
     chapterBtns.forEach( function(chapterBtn) {
         chapterBtn.onclick = function(){
             const chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
-            performPlayActions(node, youTubePlayer, node.querySelector('.docs__poster--loader'));
+            performPlayActions(node.querySelector('.docs__poster--wrapper'), youTubePlayer, node.querySelector('.docs__poster--loader'));
             youTubePlayer.seekTo(chapTime, true);
         };
     });
