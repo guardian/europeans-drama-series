@@ -405,22 +405,22 @@
 }
 
 .docs--chapters {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   &-wrapper {
     margin: 0;
-    padding: 0 0 0 10px;
+    padding: 0;
     white-space: nowrap;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    background-color: #161616;
+    background-color: #000;
     counter-reset: chapters;
     overflow: hidden;
     transition: height 240ms;
     height: 0;
     .docs__poster--wrapper--playing + & {
       height: 55px;
-    }
-    &::-webkit-scrollbar {
-      display: none;
     }
   }
   li {
@@ -429,20 +429,24 @@
     display: inline-block;
     @include fs-textSans(4);
     white-space: pre-wrap;
-    width: 150px;
+    /* width: 150px; */
     padding: 5px;
-    margin: 5px 5px 5px 0;
-    color: $c-grey-light;
+    margin: 5px 10px;
+    color: $c-grey-lightest;
     font-size: 15px;
     line-height: 17px;
-    border-top: 1px solid $c-grey-mid;
-    &:hover {
-      border-top: 1px solid $c-grey-light;
-    }
+    position: relative;
     &:before {
-      color: $c-white;
+      display: block;
+      line-height: 14px;
+      display: block;
+      color: $c-grey-light;
+      font-size: 12px;
       counter-increment: chapters;
-      content: "Chapter " counter(chapters) ": ";
+      content: "Chapter " counter(chapters);
+    }
+    &:hover {
+      opacity: 1;
     }
   }
   &-active {
@@ -453,6 +457,6 @@
   }
   &-inactive {
     transition: all 360ms;
-    opacity: 0.6;
+    opacity: 0.5;
   }
 }
