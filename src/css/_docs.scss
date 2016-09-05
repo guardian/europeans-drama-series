@@ -407,15 +407,21 @@
 .docs--chapters {
   &-wrapper {
     margin: 0;
-    padding: 5px 0 5px 10px;
+    padding: 0 0 0 10px;
     white-space: nowrap;
     overflow-y: hidden;
     overflow-x: scroll;
     background-color: #161616;
     counter-reset: chapters;
-      &::-webkit-scrollbar {
-        display: none;
-      }
+    overflow: hidden;
+    transition: height 240ms;
+    height: 0;
+    .docs__poster--wrapper--playing + & {
+      height: 55px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   li {
     cursor: pointer;
@@ -425,7 +431,7 @@
     white-space: pre-wrap;
     width: 150px;
     padding: 5px;
-    margin-right: 5px;
+    margin: 5px 5px 5px 0;
     color: $c-grey-light;
     font-size: 15px;
     line-height: 17px;
