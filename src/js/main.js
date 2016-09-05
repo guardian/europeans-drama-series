@@ -74,7 +74,7 @@ export function init(el, context, config) {
         [].forEach.call(hideTrailerAll, function(hideTrailer) {
             hideTrailer.onclick = () => {
                 builder.classList.remove('show-trailer');
-                embedContainer.removeChild(builder.querySelector('.doc-trailer__player'))
+                embedContainer.removeChild(builder.querySelector('.doc-trailer__player'));
             };
         });
 
