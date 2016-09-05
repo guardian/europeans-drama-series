@@ -10,7 +10,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                 height: height,
                 width: width,
                 videoId: videoId,
-                playerVars: { 'autoplay': 0, 'controls': 1 },
+                playerVars: { 'autoplay': 0, 'controls': 1, 'rel': 0 },
                 events: {
                     'onReady': function(){
                         resolve(youTubePlayer);
