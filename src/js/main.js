@@ -36,7 +36,6 @@ export function init(el, context, config) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
 
-        const hiddenAbout = builder.querySelector('.docs--about-wrapper');
         const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
         const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
         const aboutBody = builder.querySelector('.docs--about-body');
