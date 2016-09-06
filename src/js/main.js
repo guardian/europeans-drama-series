@@ -42,13 +42,11 @@ export function init(el, context, config) {
         const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
-        const chapterButtons = builder.querySelector('.docs--chapters');
-
         function compressString(string) {
             return string.replace(/[\s+|\W]/g, '').toLowerCase();
         }
 
-        const chaptersWrapper = builder.querySelector('.docs--chapters-wrapper')
+        const chaptersWrapper = builder.querySelector('.docs--chapters-wrapper');
         const chaptersUl = document.createElement('ul');
 
         chapters.forEach( function(chapter){
