@@ -44,7 +44,7 @@ export function init(el, context, config) {
 
         const chapterButtons = builder.querySelector('.docs--chapters');
         chapters.forEach( function(chapter){
-          chapterButtons.innerHTML += '<li data-sheet-timestamp="'+ chapter.chapterTimestamp +'">' + chapter.chapterTitle + '</li>';
+          chapterButtons.innerHTML += `<li data-sheet-timestamp='${chapter.chapterTimestamp}' data-link-name='${config.sheetChapter} | ${chapter.chapterTitle}'>${chapter.chapterTitle}</li>`;
         });
 
         //Show the long description
