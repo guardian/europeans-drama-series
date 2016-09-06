@@ -36,9 +36,9 @@ export function init(el, context, config) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
 
-        const hiddenAbout = builder.querySelector('.docs--about-wrapper');
         const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
         const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
+        const aboutBody = builder.querySelector('.docs--about-body');
         const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
@@ -59,13 +59,9 @@ export function init(el, context, config) {
         };
 
         //Show and hide the about these films overlay
-        showAboutBtn.onclick = function(){
-            hiddenAbout.classList.add('docs--show-about');
-        };
-
-        hideAboutBtn.onclick = function(){
-            hideAboutBtn.classList.remove('docs--show-about');
-        };
+        showAboutBtn.addEventListener('click', () => hideAboutBtn.classList.add('docs--show-about'));
+        hideAboutBtn.addEventListener('click', () => hideAboutBtn.classList.remove('docs--show-about'));
+        aboutBody.addEventListener('click', (e) => e.stopPropagation());
 
         const embedContainer = builder.querySelector('.doc-trailer__embed');
 
