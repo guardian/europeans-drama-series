@@ -54,17 +54,9 @@ export function init(el, context, config) {
         };
 
         //Show and hide the about these films overlay
-        showAboutBtn.onclick = function(){
-            hiddenAbout.classList.add('docs--show-about');
-        };
-
-        hideAboutBtn.onclick = function(){
-            hideAboutBtn.classList.remove('docs--show-about');
-        };
-
-        aboutBody.addEventListener('click', function(e){
-            e.stopPropagation();
-        });
+        showAboutBtn.addEventListener('click', () => hideAboutBtn.classList.add('docs--show-about'));
+        hideAboutBtn.addEventListener('click', () => hideAboutBtn.classList.remove('docs--show-about'));
+        aboutBody.addEventListener('click', (e) => e.stopPropagation());
 
         const embedContainer = builder.querySelector('.doc-trailer__embed');
 
