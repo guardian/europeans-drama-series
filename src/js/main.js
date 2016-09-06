@@ -43,8 +43,14 @@ export function init(el, context, config) {
         const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
         const chapterButtons = builder.querySelector('.docs--chapters');
+
+        function compressString(string) {
+            return string.replace(/[\s+|\W]/g, '').toLowerCase();
+        }
+
         chapters.forEach( function(chapter){
-          chapterButtons.innerHTML += `<li data-sheet-timestamp='${chapter.chapterTimestamp}' data-link-name='${config.sheetChapter} | ${chapter.chapterTitle}'>${chapter.chapterTitle}</li>`;
+          const chapterDataLinkName = `${compressString(config.sheetChapter)} | ${compressString(chapter.chapterTitle)}`;
+          chapterButtons.innerHTML += `<li data-sheet-timestamp='${chapter.chapterTimestamp}' data-link-name='${chapterDataLinkName}'>${chapter.chapterTitle}</li>`;
         });
 
         //Show the long description
