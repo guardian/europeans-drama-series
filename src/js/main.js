@@ -39,6 +39,7 @@ export function init(el, context, config) {
         const hiddenAbout = builder.querySelector('.docs--about-wrapper');
         const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
         const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
+        const aboutBody = builder.querySelector('.docs--about-body');
         const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
@@ -60,6 +61,10 @@ export function init(el, context, config) {
         hideAboutBtn.onclick = function(){
             hideAboutBtn.classList.remove('docs--show-about');
         };
+
+        aboutBody.addEventListener('click', function(e){
+            e.stopPropagation();
+        });
 
         const embedContainer = builder.querySelector('.doc-trailer__embed');
 
