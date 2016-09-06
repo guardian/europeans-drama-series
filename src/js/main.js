@@ -42,16 +42,24 @@ export function init(el, context, config) {
         const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
-        const chapterButtons = builder.querySelector('.docs--chapters');
-
         function compressString(string) {
             return string.replace(/[\s+|\W]/g, '').toLowerCase();
         }
 
+        const chaptersWrapper = builder.querySelector('.docs--chapters-wrapper');
+        const chaptersUl = document.createElement('ul');
+
         chapters.forEach( function(chapter){
           const chapterDataLinkName = `${compressString(config.sheetChapter)} | ${compressString(chapter.chapterTitle)}`;
-          chapterButtons.innerHTML += `<li data-sheet-timestamp='${chapter.chapterTimestamp}' data-link-name='${chapterDataLinkName}'>${chapter.chapterTitle}</li>`;
+          const chaptersLi = document.createElement('li');
+          chaptersUl.classList.add('docs--chapters');
+          chaptersLi.setAttribute('data-sheet-timestamp' ,`${chapter.chapterTimestamp}`);
+          chaptersLi.setAttribute('data-link-name' ,`${chapterDataLinkName}`);
+          chaptersLi.innerText = `${chapter.chapterTitle}`;
+          chaptersUl.appendChild(chaptersLi);
         });
+
+        chaptersWrapper.appendChild(chaptersUl);
 
         //Show the long description
         showMoreBtn.onclick = function(){
@@ -68,7 +76,14 @@ export function init(el, context, config) {
         const showTrailer = builder.querySelector('.docs__shows-trailer');
         showTrailer.onclick = () => {
             builder.classList.add('show-trailer');
-            embedContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1" frameborder="0" allowfullscreen class="doc-trailer__player"></iframe>`;
+            const embedIframe = document.createElement('iframe');
+            embedIframe.width = '100%';
+            embedIframe.height = '100%';
+            embedIframe.src = `https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1`;
+            embedIframe.frameborder = '0';
+            embedIframe.allowfullscreen = 'true';
+            embedIframe.classList.add('doc-trailer__player');
+            embedContainer.appendChild(embedIframe);
         };
 
         // Hide the trailer
