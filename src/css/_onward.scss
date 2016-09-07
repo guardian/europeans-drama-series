@@ -169,11 +169,10 @@
         line-height: 42px;
       }
       @include mq(tablet) {
-        margin-top: 60px;
+        margin-top: 9px;
       }
       @include mq(desktop) {
         font-size: 52px;
-        margin-top: 9px;
         font-weight: 400;
       }
     }
@@ -231,7 +230,10 @@
       font-family: 'Guardian Egyptian Web', Georgia, serif;
       margin-top: 20px;
       @include mq(tablet) {
-        margin-top: 101px;
+        margin-top: 109px;
+      }
+      @include mq(desktop) {
+        margin-top: 86px;
       }
       &__title {
         margin-bottom: 2px;
