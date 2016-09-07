@@ -241,48 +241,5 @@
         font-weight: 400;
         margin-bottom: 10px;
       }
-      &__form {
-        padding-bottom: 12px;
-        input {
-          display: inline-block;
-          line-height: 34px;
-          height: 32px;
-          padding: 0 15px;
-          border: 0;
-          outline: none;
-          border-radius: 16px;
-          margin-top: 6px;
-          font-family: 'Guardian Sans Web', sans-serif;
-          color: #333;
-        }
-        .email-address {
-          position: absolute;
-          transform: translate3d(7px,16px,0);
-          @include icon-newsletter;
-          width: 15px;
-          height: 32px;
-          overflow: hidden;
-          text-indent: -99em;
-        }
-        #email {
-          margin-left: -1px;
-          margin-right: 5px;
-          width: 170px;
-          padding-left: 30px;
-          font-size: 14px;
-          @include mq(tablet) {
-            width: 130px;
-          }
-          @include mq(desktop) {
-            width: 170px;
-          }
-        }
-        #remind-me {
-          background-color: #DDDBD7;
-          width: auto;
-          font-size: 13px;
-        }
-      }
-    }
   }
 }
