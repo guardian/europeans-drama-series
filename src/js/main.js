@@ -79,7 +79,7 @@ export function init(el, context, config) {
             const embedIframe = document.createElement('iframe');
             embedIframe.width = '100%';
             embedIframe.height = '100%';
-            embedIframe.src = `https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1`;
+            embedIframe.src = `https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1&rel=0`;
             embedIframe.frameborder = '0';
             embedIframe.allowfullscreen = 'true';
             embedIframe.classList.add('doc-trailer__player');
