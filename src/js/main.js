@@ -4,17 +4,20 @@ import share from './lib/share';
 import sheetToDOM from './lib/sheettodom';
 import emailsignupURL from './lib/emailsignupURL';
 
-var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 
 export function init(el, context, config) {
     const builder = document.createElement('div');
     builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
     sheetToDOM(config.sheetId, config.sheetName, builder, function callback(resp){
+        var shareFn = share(resp.sheets[config.sheetName][0].title, window.location);
+
         [].slice.apply(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
             var network = shareEl.getAttribute('data-network');
             shareEl.addEventListener('click', () => shareFn(network));
         });
+
+
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
         const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeTrailerId;
         const chapters = resp.sheets[config.sheetChapter];
