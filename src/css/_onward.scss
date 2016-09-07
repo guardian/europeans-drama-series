@@ -147,10 +147,15 @@
       max-width: 55%;
       min-width: 117px;
       @include mq(mobileLandscape) {
-        max-width: 200px;
+        max-width: 320px;
+        width: auto;
+        padding-right: 220px;
+      }
+      @include mq(tablet) {
+        padding-right: 235px;
       }
       @include mq(desktop) {
-        max-width: 280px;
+        padding-right: 260px;
       }
     }
     .film-title {
@@ -164,10 +169,7 @@
         line-height: 42px;
       }
       @include mq(tablet) {
-        margin-top: 72px;
-      }
-      @include mq(tablet) {
-        margin-top: 72px;
+        margin-top: 60px;
       }
       @include mq(desktop) {
         font-size: 52px;
@@ -200,6 +202,7 @@
       }
       @include mq(tablet) {
         right: 0;
+        height: 212px;
       }
       @include mq(desktop) {
         height: 262px;
