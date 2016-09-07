@@ -46,11 +46,10 @@
     &-overlay {
       position: relative;
       margin: 0 auto;
-      @include mq(mobile) {
-        width: 90%;
-        height: 90%;
-        margin-top: 15%;
-      }
+      width: 90%;
+      height: 90%;
+      margin-top: 15%;
+      max-width: 580px;
       @include mq(mobileLandscape) {
         margin-top: 10%;
       }
@@ -76,6 +75,12 @@
       & p {
         line-height: 1.4em;
         margin-bottom: 8px;
+        a {
+          color: inherit;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
     &-legal {
