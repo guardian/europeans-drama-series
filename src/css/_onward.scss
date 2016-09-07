@@ -110,7 +110,7 @@
   }
   &__film-details {
     position: relative;
-    color: #FCBEBB;
+    color: #e53c60;
     font-family: 'Guardian Egyptian Web', Georgia, serif;
     position: relative;
     width: 100%;
@@ -230,10 +230,10 @@
       font-family: 'Guardian Egyptian Web', Georgia, serif;
       margin-top: 20px;
       @include mq(tablet) {
-        margin-top: 109px;
+        margin-top: 106px;
       }
       @include mq(desktop) {
-        margin-top: 86px;
+        margin-top: 83px;
       }
       &__title {
         margin-bottom: 2px;
