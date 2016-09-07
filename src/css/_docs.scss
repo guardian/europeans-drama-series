@@ -131,7 +131,10 @@
     &-shortdesc,
     &-longdesc{
       color: white;
-      line-height: 22px;
+      p {
+        line-height: 22px;
+        margin-top: 11px;
+      }
     }
     &-read-more {
         @include icon-showmore;
