@@ -241,5 +241,17 @@
         font-weight: 400;
         margin-bottom: 10px;
       }
+      &__iframe {
+        display: block;
+        transform: scale(1);
+        transform-origin: top left;
+        @include mq(tablet) {
+          transform: scale(0.88);
+        }
+        @include mq(desktop) {
+          transform: scale(1);
+        }
+      }
+    }
   }
 }
