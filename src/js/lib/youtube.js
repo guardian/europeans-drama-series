@@ -121,7 +121,12 @@ function getYouTubeVideoDuration(videoId, callback){
         success: (resp) => {
             let duration =  resp.items[0].contentDetails.duration;
             let re = /PT(\d+)M(\d+)S/;
-            callback(duration.replace(re,'$1:$2'));
+            callback(duration.replace(re,function(match, p1, p2) {
+                function numberToTwoDigits(number) {
+                    return (number < 10 ? '0' : '') + number;
+                }
+                return `${p1}:${numberToTwoDigits(p2)}`;
+            }));
         }
     });
 }
