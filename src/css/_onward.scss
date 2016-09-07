@@ -193,10 +193,13 @@
       width: 60%;
       max-width: 245px;
       @include mq(mobileLandscape) {
-        right: 0;
+        right: -20px;
         height: 222px;
         width: auto;
         max-width: none;
+      }
+      @include mq(tablet) {
+        right: 0;
       }
       @include mq(desktop) {
         height: 262px;
