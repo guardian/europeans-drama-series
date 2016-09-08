@@ -9,22 +9,22 @@
     line-height: 18px;
     margin: -5px auto 0;
     @include mq(mobileLandscape) {
-      padding-bottom: 100px;
+      padding-bottom: 110px;
       max-width: 580px;
       margin-top: 0;
     }
     @include mq(tablet) {
       width: 700px;
       max-width: 1300px;
-      padding-bottom: 120px;
+      padding-bottom: 100px;
     }
     @include mq(desktop) {
       width: 940px;
-      padding-bottom: 150px;
+      padding-bottom: 125px;
     }
     @include mq(leftCol) {
       width: 1100px;
-      padding-bottom: 70px;
+      padding-bottom: 52px;
     }
     @include mq(wide) {
       width: 1260px;
@@ -46,11 +46,10 @@
     &-overlay {
       position: relative;
       margin: 0 auto;
-      @include mq(mobile) {
-        width: 90%;
-        height: 90%;
-        margin-top: 15%;
-      }
+      width: 90%;
+      height: 90%;
+      margin-top: 15%;
+      max-width: 580px;
       @include mq(mobileLandscape) {
         margin-top: 10%;
       }
@@ -76,6 +75,12 @@
       & p {
         line-height: 1.4em;
         margin-bottom: 8px;
+        a {
+          color: inherit;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
     }
     &-legal {
@@ -101,8 +106,7 @@
   }
   &--standfirst {
     &-wrapper {
-      @include dividers;
-      @include divider-invisible;
+      padding-top: 2px;
       @include fs-bodyCopy(2);
       @include mq(mobile) {
         padding-left: 1%;
@@ -127,6 +131,10 @@
     &-shortdesc,
     &-longdesc{
       color: white;
+      p {
+        line-height: 22px;
+        margin-top: 11px;
+      }
     }
     &-read-more {
         @include icon-showmore;
@@ -168,6 +176,7 @@
   }
   &--actions {
     &__trailer {
+      margin: 9px 0 3px;
       cursor: pointer;
       position: relative;
       line-height: 32px;
@@ -229,7 +238,7 @@
     }
     &-supported {
       display: inline-block;
-      margin: 0;
+      margin: -6px 0 5px;
       line-height: 47px;
       vertical-align: top;
       padding-right: 5px;
@@ -296,9 +305,12 @@
       @include divider-invisible;
       width: 35%;
       right: 20px;
-      top: 0;
+      top: -6px;
       position: absolute;
       font-size: 14px;
+    }
+    @include mq(tablet) {
+      top: 0;
     }
     @include mq(desktop) {
       width: 218px;
@@ -311,8 +323,15 @@
     svg {
       padding-right: 4px;
     }
-    span {
-      margin-top: -5px;
+    @include mq(tablet) {
+      span {
+        position: relative;
+        bottom: 6px;
+      }
+      &:after {
+        margin-top: -2px;
+        margin-right: 5px;
+      }
     }
   }
   &--social {
