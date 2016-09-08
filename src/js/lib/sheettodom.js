@@ -2,7 +2,7 @@ import sheetUrl from './sheetURL';
 import reqwest from 'reqwest';
 
 
-export default function sheettodom(sheetID, sheetName, el, callback) {
+export function sheetToDomInnerHtml(sheetID, sheetName, el, callback) {
 
     var sheet = sheetUrl(sheetID);
 
@@ -21,5 +21,10 @@ export default function sheettodom(sheetID, sheetName, el, callback) {
 
         }
     });
-
 }
+
+function setAttribute(dom, selector, attribute, value){
+    dom.querySelector(selector).setAttribute(attribute, value)
+}
+
+export {sheetToDomInnerHtml, setAttribute}
