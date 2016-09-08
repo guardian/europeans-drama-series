@@ -55,11 +55,14 @@ export function init(el, context, config) {
         chapters.forEach( function(chapter){
           const chapterDataLinkName = `${compressString(config.sheetChapter)} | ${compressString(chapter.chapterTitle)}`;
           const chaptersLi = document.createElement('li');
+          const chaptersLiProgress = document.createElement('span');
+          chaptersLiProgress.classList.add('progress');
           chaptersUl.classList.add('docs--chapters');
           chaptersLi.setAttribute('data-sheet-timestamp' ,`${chapter.chapterTimestamp}`);
           chaptersLi.setAttribute('data-link-name' ,`${chapterDataLinkName}`);
           chaptersLi.innerText = `${chapter.chapterTitle}`;
           chaptersUl.appendChild(chaptersLi);
+          chaptersLi.appendChild(chaptersLiProgress);
         });
 
         chaptersWrapper.appendChild(chaptersUl);
