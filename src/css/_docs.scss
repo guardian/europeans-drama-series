@@ -345,14 +345,14 @@
       background-color: transparent;
       border: solid 0.7px $c-share-border;
       opacity: 0.6;
-      margin-right: 6px;
+      margin-right: 5px;
       &:hover {
-          background-color: $c-background;
+        background-color: $c-background;
       }
     }
     &-buttons {
       position: absolute;
-      right: 0;
+      left: 0;
       top: 15px;
     }
     &-share-container {
