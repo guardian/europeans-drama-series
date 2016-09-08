@@ -468,6 +468,7 @@
     font-size: 15px;
     line-height: 17px;
     position: relative;
+    border-top: 1px solid #333;
     &:before {
       display: block;
       line-height: 14px;
@@ -483,7 +484,7 @@
   }
   &-active {
     //Apologies but can only make work with !important
-    border-top: 1px solid $c-white !important;
+    border-top: 1px solid $c-grey-lightest !important;
     opacity: 1;
     transition: all 360ms;
   }
