@@ -1,7 +1,7 @@
 import mainHTML from './text/main.html!text';
 import {pimpYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube';
 import share from './lib/share';
-import sheetToDOM from './lib/sheettodom';
+import {sheetToDomInnerHtml, setAttribute} from './lib/sheettodom';
 import emailsignupURL from './lib/emailsignupURL';
 
 
@@ -9,7 +9,7 @@ export function init(el, context, config) {
     const builder = document.createElement('div');
     builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
-    sheetToDOM(config.sheetId, config.sheetName, builder, function callback(resp){
+    sheetToDomInnerHtml(config.sheetId, config.sheetName, builder, function callback(resp){
         var shareFn = share(resp.sheets[config.sheetName][0].title, window.location);
 
         [].slice.apply(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
@@ -102,6 +102,10 @@ export function init(el, context, config) {
         emailIframe.setAttribute('src', emailsignupURL(config.emailListId));
 
         pimpYouTubePlayer(youTubeId, builder, '100%', '100%', chapters);
+
+        setAttribute(builder, '.docs__poster--image','style', `background-image:url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`);
+        setAttribute(builder, '.cutout','src', resp.sheets[config.sheetName][0].nextDocImageUrl);
+
         el.parentNode.replaceChild(builder, el);
     });
 }
