@@ -23,8 +23,8 @@ export function sheetToDomInnerHtml(sheetID, sheetName, el, callback) {
     });
 }
 
-function setAttribute(dom, selector, attribute, value){
-    dom.querySelector(selector).setAttribute(attribute, value);
+function setAttribute(node, selector, attribute, value){
+    node.querySelector(selector).setAttribute(attribute, value);
 }
 
 export {sheetToDomInnerHtml, setAttribute};
