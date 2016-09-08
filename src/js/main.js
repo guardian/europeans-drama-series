@@ -4,17 +4,20 @@ import share from './lib/share';
 import sheetToDOM from './lib/sheettodom';
 import emailsignupURL from './lib/emailsignupURL';
 
-var shareFn = share('Interactive title', 'http://gu.com/p/URL', '#Interactive');
 
 export function init(el, context, config) {
     const builder = document.createElement('div');
     builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
     sheetToDOM(config.sheetId, config.sheetName, builder, function callback(resp){
+        var shareFn = share(resp.sheets[config.sheetName][0].title, window.location);
+
         [].slice.apply(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
             var network = shareEl.getAttribute('data-network');
             shareEl.addEventListener('click', () => shareFn(network));
         });
+
+
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
         const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeTrailerId;
         const chapters = resp.sheets[config.sheetChapter];
@@ -36,16 +39,30 @@ export function init(el, context, config) {
             builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
         });
 
-        const hiddenAbout = builder.querySelector('.docs--about-wrapper');
         const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
         const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
+        const aboutBody = builder.querySelector('.docs--about-body');
         const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
-        const chapterButtons = builder.querySelector('.docs--chapters');
+        function compressString(string) {
+            return string.replace(/[\s+|\W]/g, '').toLowerCase();
+        }
+
+        const chaptersWrapper = builder.querySelector('.docs--chapters-wrapper');
+        const chaptersUl = document.createElement('ul');
+
         chapters.forEach( function(chapter){
-          chapterButtons.innerHTML += '<li data-sheet-timestamp="'+ chapter.chapterTimestamp +'">' + chapter.chapterTitle + '</li>';
+          const chapterDataLinkName = `${compressString(config.sheetChapter)} | ${compressString(chapter.chapterTitle)}`;
+          const chaptersLi = document.createElement('li');
+          chaptersUl.classList.add('docs--chapters');
+          chaptersLi.setAttribute('data-sheet-timestamp' ,`${chapter.chapterTimestamp}`);
+          chaptersLi.setAttribute('data-link-name' ,`${chapterDataLinkName}`);
+          chaptersLi.innerText = `${chapter.chapterTitle}`;
+          chaptersUl.appendChild(chaptersLi);
         });
+
+        chaptersWrapper.appendChild(chaptersUl);
 
         //Show the long description
         showMoreBtn.onclick = function(){
@@ -53,20 +70,23 @@ export function init(el, context, config) {
         };
 
         //Show and hide the about these films overlay
-        showAboutBtn.onclick = function(){
-            hiddenAbout.classList.add('docs--show-about');
-        };
-
-        hideAboutBtn.onclick = function(){
-            hideAboutBtn.classList.remove('docs--show-about');
-        };
+        showAboutBtn.addEventListener('click', () => hideAboutBtn.classList.add('docs--show-about'));
+        hideAboutBtn.addEventListener('click', () => hideAboutBtn.classList.remove('docs--show-about'));
+        aboutBody.addEventListener('click', (e) => e.stopPropagation());
 
         const embedContainer = builder.querySelector('.doc-trailer__embed');
 
         const showTrailer = builder.querySelector('.docs__shows-trailer');
         showTrailer.onclick = () => {
             builder.classList.add('show-trailer');
-            embedContainer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1" frameborder="0" allowfullscreen class="doc-trailer__player"></iframe>`;
+            const embedIframe = document.createElement('iframe');
+            embedIframe.width = '100%';
+            embedIframe.height = '100%';
+            embedIframe.src = `https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1&rel=0`;
+            embedIframe.frameborder = '0';
+            embedIframe.allowfullscreen = 'true';
+            embedIframe.classList.add('doc-trailer__player');
+            embedContainer.appendChild(embedIframe);
         };
 
         // Hide the trailer

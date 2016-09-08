@@ -10,7 +10,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                 height: height,
                 width: width,
                 videoId: videoId,
-                playerVars: { 'autoplay': 0, 'controls': 1 },
+                playerVars: { 'autoplay': 0, 'controls': 1, 'rel': 0 },
                 events: {
                     'onReady': function(){
                         resolve(youTubePlayer);
@@ -64,7 +64,23 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 }
 
 function performPlayActions(videoExpand, youTubePlayer, posterHide) {
-    videoExpand.classList.add('docs__poster--wrapper--playing');
+
+    function isMobile() {
+        function isIOS() {
+            return /(iPad|iPhone|iPod touch)/i.test(navigator.userAgent);
+        }
+
+        function isAndroid() {
+            return /Android/i.test(navigator.userAgent);
+        }
+
+        return isIOS() || isAndroid();
+    }
+
+    if (!isMobile()) {
+        videoExpand.classList.add('docs__poster--wrapper--playing');
+    }
+
     scrollTo(document.body, 0, 300);
     youTubePlayer.playVideo();
     posterHide.classList.add('docs__poster--hide');
@@ -105,7 +121,12 @@ function getYouTubeVideoDuration(videoId, callback){
         success: (resp) => {
             let duration =  resp.items[0].contentDetails.duration;
             let re = /PT(\d+)M(\d+)S/;
-            callback(duration.replace(re,'$1:$2'));
+            callback(duration.replace(re,function(match, p1, p2) {
+                function numberToTwoDigits(number) {
+                    return (number < 10 ? '0' : '') + number;
+                }
+                return `${p1}:${numberToTwoDigits(p2)}`;
+            }));
         }
     });
 }
