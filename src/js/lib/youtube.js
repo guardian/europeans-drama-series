@@ -38,7 +38,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                                             el.classList.add('docs--chapters-active');
                                             el.classList.remove('docs--chapters-inactive');
                                             const progress = el.querySelector('.progress');
-                                            progress.style.width = chapterCurrentProgress*100+'%';
+                                            progress.style.width = `${chapterCurrentProgress*100}%`;
                                         } else {
                                             el.classList.add('docs--chapters-inactive');
                                             el.classList.remove('docs--chapters-active');
