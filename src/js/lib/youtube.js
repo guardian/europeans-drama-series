@@ -21,11 +21,13 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
                             const playerTotalTime = youTubePlayer.getDuration();
                             chapTimer = setInterval(function() {
+                                let chapterCurrentProgress;
                                 const playerCurrentTime = youTubePlayer.getCurrentTime();
                                 const currentChapter = chapters.filter(function(value){
                                     const chapStart = value.chapterTimestamp;
                                     const chapNext = value.nextChapter || playerTotalTime;
                                     if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
+                                        chapterCurrentProgress = (playerCurrentTime-chapStart)/(chapNext-chapStart);
                                         return value;
                                     }
                                 });
@@ -35,6 +37,8 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                                         if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
                                             el.classList.add('docs--chapters-active');
                                             el.classList.remove('docs--chapters-inactive');
+                                            const progress = el.querySelector('.progress');
+                                            progress.style.width = chapterCurrentProgress*100+'%';
                                         } else {
                                             el.classList.add('docs--chapters-inactive');
                                             el.classList.remove('docs--chapters-active');
@@ -108,7 +112,6 @@ function scrollTo(element, to, duration) {
         scrollTo(element, to, duration - 10);
     }, 10);
 }
-
 
 function getYouTubeVideoDuration(videoId, callback){
     //Note: This is a browser key intended to be exposed on the client-side.
