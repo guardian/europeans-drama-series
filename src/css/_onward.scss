@@ -152,18 +152,20 @@
         padding-right: 220px;
       }
       @include mq(tablet) {
-        padding-right: 235px;
+        padding-right: 245px;
       }
       @include mq(desktop) {
-        padding-right: 260px;
+        padding-right: 275px;
       }
     }
     .film-title {
       display: block;
-      font-size: 38px;
-      font-weight: 500;
-      margin-top: 11px;
-      line-height: 36px;
+      margin: 11px 0 11px;
+      @include title-desertfire;
+      width: 235px;
+      height: 38px;
+      position: relative;
+      font-size: 0;
       @include mq(mobileLandscape) {
         margin-top: 21px;
         line-height: 42px;
@@ -171,16 +173,12 @@
       @include mq(tablet) {
         margin-top: 9px;
       }
-      @include mq(desktop) {
-        font-size: 52px;
-        font-weight: 400;
-      }
     }
     .film-synopsis {
       display: block;
       font-size: 16px;
       line-height: 18px;
-      font-weight: 600;
+      font-weight: 500;
       padding-bottom: 9px;
       @include mq(tablet) {
         padding-bottom: 0;
@@ -230,10 +228,10 @@
       font-family: 'Guardian Egyptian Web', Georgia, serif;
       margin-top: 20px;
       @include mq(tablet) {
-        margin-top: 106px;
+        margin-top: 139px;
       }
       @include mq(desktop) {
-        margin-top: 83px;
+        margin-top: 94px;
       }
       &__title {
         margin-bottom: 2px;
