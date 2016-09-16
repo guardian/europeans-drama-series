@@ -52,7 +52,7 @@ export function init(el, context, config) {
         const chaptersWrapper = builder.querySelector('.docs--chapters-wrapper');
         const chaptersUl = document.createElement('ul');
 
-        chapters.forEach( function(chapter){
+        chapters.forEach( function(chapter, index){
           const chapterDataLinkName = `${compressString(config.sheetChapter)} | ${compressString(chapter.chapterTitle)}`;
           const chaptersLi = document.createElement('li');
           const chaptersLiProgress = document.createElement('span');
@@ -60,6 +60,7 @@ export function init(el, context, config) {
           chaptersUl.classList.add('docs--chapters');
           chaptersLi.setAttribute('data-sheet-timestamp' ,`${chapter.chapterTimestamp}`);
           chaptersLi.setAttribute('data-link-name' ,`${chapterDataLinkName}`);
+          chaptersLi.setAttribute('title', `Skip to chapter ${index+1}: ${chapter.chapterTitle}`);
           chaptersLi.innerText = `${chapter.chapterTitle}`;
           chaptersUl.appendChild(chaptersLi);
           chaptersLi.appendChild(chaptersLiProgress);
