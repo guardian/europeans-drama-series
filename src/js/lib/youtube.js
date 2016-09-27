@@ -1,8 +1,16 @@
 /*globals YT*/
 import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
+import events from 'events';
 
 export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
+
+    const emitter = new events.EventEmitter();
+    emitter.once('25', () => {console.log("25")});
+    emitter.once('50', () => {console.log("50")});
+    emitter.once('75', () => {console.log("75")});
+    emitter.once('100', () => {console.log("100")});
+
     youTubeIframe.init(function() {
         //preload youtube iframe API
         const promise = new Promise(function(resolve) {
@@ -16,38 +24,16 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                         resolve(youTubePlayer);
                     },
                     'onStateChange': function(event){
-                        let chapTimer;
-                        if (event.data == YT.PlayerState.PLAYING){
+                        let playTimer;
+                        if (event.data == YT.PlayerState.PLAYING) {
 
                             const playerTotalTime = youTubePlayer.getDuration();
-                            chapTimer = setInterval(function() {
-                                let chapterCurrentProgress;
-                                const playerCurrentTime = youTubePlayer.getCurrentTime();
-                                const currentChapter = chapters.filter(function(value){
-                                    const chapStart = value.chapterTimestamp;
-                                    const chapNext = value.nextChapter || playerTotalTime;
-                                    if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
-                                        chapterCurrentProgress = (playerCurrentTime-chapStart)/(chapNext-chapStart);
-                                        return value;
-                                    }
-                                });
-                                if (currentChapter.length === 1){
-                                    const chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
-                                    chapterAll.forEach(function(el){
-                                        if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
-                                            el.classList.add('docs--chapters-active');
-                                            el.classList.remove('docs--chapters-inactive');
-                                            const progress = el.querySelector('.progress');
-                                            progress.style.width = `${chapterCurrentProgress*100}%`;
-                                        } else {
-                                            el.classList.add('docs--chapters-inactive');
-                                            el.classList.remove('docs--chapters-active');
-                                        }
-                                    });
-                                }
-                            },1000);
+                            playTimer = setInterval(function() {
+                            chapterTimer(youTubePlayer, playerTotalTime);
+                            sendPercentageCompleteEvents(youTubePlayer, playerTotalTime, emitter);
+                            }, 1000);
                         } else {
-                            clearTimeout(chapTimer);
+                            clearTimeout(playTimer);
                         }
                     }
                 }
@@ -65,6 +51,42 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
             });
         });
     });
+
+
+    function chapterTimer(youTubePlayer, playerTotalTime) {
+        let chapterCurrentProgress;
+        const playerCurrentTime = youTubePlayer.getCurrentTime();
+        const currentChapter = chapters.filter(function(value){
+            const chapStart = value.chapterTimestamp;
+            const chapNext = value.nextChapter || playerTotalTime;
+            if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
+                chapterCurrentProgress = (playerCurrentTime-chapStart)/(chapNext-chapStart);
+                return value;
+            }
+        });
+        if (currentChapter.length === 1){
+            const chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
+            chapterAll.forEach(function(el){
+                if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
+                    el.classList.add('docs--chapters-active');
+                    el.classList.remove('docs--chapters-inactive');
+                    const progress = el.querySelector('.progress');
+                    progress.style.width = `${chapterCurrentProgress*100}%`;
+                } else {
+                    el.classList.add('docs--chapters-inactive');
+                    el.classList.remove('docs--chapters-active');
+                }
+            });
+        }
+    }
+
+    function sendPercentageCompleteEvents(youTubePlayer, playerTotalTime, emitter) {
+        const quartile = playerTotalTime / 4;
+
+        if (youTubePlayer.getCurrentTime() > quartile)
+            emitter.emit('25');
+        }
+
 }
 
 function performPlayActions(videoExpand, youTubePlayer, posterHide) {
@@ -89,6 +111,7 @@ function performPlayActions(videoExpand, youTubePlayer, posterHide) {
     youTubePlayer.playVideo();
     posterHide.classList.add('docs__poster--hide');
 }
+
 
 function addChapterEventHandlers(node, youTubePlayer) {
     const chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
