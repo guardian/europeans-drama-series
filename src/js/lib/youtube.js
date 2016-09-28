@@ -11,17 +11,13 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
         const eventList = ['play', '25', '50', '75', 'end'];
 
-        for (const e of eventList) {
-            emitter.once(e, () => {
-                ophanRecord(e)
-            })
-        }
+        eventList.forEach(e => emitter.once(e, () => ophanRecord(e)));
 
         function ophanRecord(event) {
             var ophanPath = 'ophan/ng';
             require([ophanPath], function (ophan) {
                 var eventObject = {};
-                eventObject['video'] = {
+                eventObject.video = {
                     id: 'gu-video-youtube-'+videoId,
                     eventType: 'video:content:'+event
                 };
