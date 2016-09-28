@@ -3,9 +3,9 @@ import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
 import events from 'events';
 
-export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
+const emitter = new events.EventEmitter();
 
-    const emitter = new events.EventEmitter();
+function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
     function initEvents() {
 
@@ -52,7 +52,7 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                             const playerTotalTime = youTubePlayer.getDuration();
                             playTimer = setInterval(function() {
                             chapterTimer(youTubePlayer, playerTotalTime);
-                            sendPercentageCompleteEvents(youTubePlayer, playerTotalTime, emitter);
+                            sendPercentageCompleteEvents(youTubePlayer, playerTotalTime);
                             }, 1000);
                         } else {
                             clearTimeout(playTimer);
@@ -102,24 +102,20 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
         }
     }
 
-    function sendPercentageCompleteEvents(youTubePlayer, playerTotalTime, emitter) {
+    function sendPercentageCompleteEvents(youTubePlayer, playerTotalTime) {
         const quartile = playerTotalTime / 4;
 
-        if (youTubePlayer.getCurrentTime() > quartile) {
-            emitter.emit('25');
-        }
+        let playbackEvents = new Map()
+        .set('25', quartile)
+        .set('50', quartile*2)
+        .set('75', quartile*3)
+        .set('end', quartile*4);
 
-        if (youTubePlayer.getCurrentTime() > quartile*2) {
-            emitter.emit('50');
+        for (let [eventName, eventTrigger] of playbackEvents.entries()) {
+            if (youTubePlayer.getCurrentTime() > eventTrigger) {
+                emitter.emit(eventName);
+            }
         }
-        if (youTubePlayer.getCurrentTime() > quartile*3) {
-            emitter.emit('75');
-        }
-
-        if (youTubePlayer.getCurrentTime() > quartile*4) {
-            emitter.emit('end');
-        }
-
     }
 }
 
