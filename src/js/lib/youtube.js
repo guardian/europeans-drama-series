@@ -6,10 +6,32 @@ import events from 'events';
 export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
     const emitter = new events.EventEmitter();
-    emitter.once('25', () => {console.log("25")});
-    emitter.once('50', () => {console.log("50")});
-    emitter.once('75', () => {console.log("75")});
-    emitter.once('100', () => {console.log("100")});
+
+    function initEvents() {
+
+        const eventList = ['play', '25', '50', '75', 'end'];
+
+        for (const e of eventList) {
+            emitter.once(e, () => {
+                ophanRecord(e)
+            })
+        }
+
+        function ophanRecord(event) {
+            var ophanPath = 'ophan/ng';
+            require([ophanPath], function (ophan) {
+                var eventObject = {};
+                eventObject['video'] = {
+                    id: 'gu-video-youtube-'+videoId,
+                    eventType: 'video:content:'+event
+                };
+                ophan.record(eventObject);
+            });
+
+        }
+    }
+
+    initEvents();
 
     youTubeIframe.init(function() {
         //preload youtube iframe API
@@ -83,10 +105,22 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     function sendPercentageCompleteEvents(youTubePlayer, playerTotalTime, emitter) {
         const quartile = playerTotalTime / 4;
 
-        if (youTubePlayer.getCurrentTime() > quartile)
+        if (youTubePlayer.getCurrentTime() > quartile) {
             emitter.emit('25');
         }
 
+        if (youTubePlayer.getCurrentTime() > quartile*2) {
+            emitter.emit('50');
+        }
+        if (youTubePlayer.getCurrentTime() > quartile*3) {
+            emitter.emit('75');
+        }
+
+        if (youTubePlayer.getCurrentTime() > quartile*4) {
+            emitter.emit('end');
+        }
+
+    }
 }
 
 function performPlayActions(videoExpand, youTubePlayer, posterHide) {
@@ -109,6 +143,7 @@ function performPlayActions(videoExpand, youTubePlayer, posterHide) {
 
     scrollTo(document.body, 0, 300);
     youTubePlayer.playVideo();
+    emitter.emit('play');
     posterHide.classList.add('docs__poster--hide');
 }
 
