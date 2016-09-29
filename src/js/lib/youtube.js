@@ -100,13 +100,22 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     function sendPercentageCompleteEvents(youTubePlayer, playerTotalTime) {
         const quartile = playerTotalTime / 4;
 
-        let playbackEvents = new Map()
-        .set('25', quartile)
-        .set('50', quartile*2)
-        .set('75', quartile*3)
-        .set('end', quartile*4);
+        const playbackEvents =
+        {
+            '25': quartile,
+            '50': quartile * 2,
+            '75': quartile * 3,
+            'end': playerTotalTime
+        };
 
-        for (let [eventName, eventTrigger] of playbackEvents.entries()) {
+
+        function* entries(obj) {
+            for (let key of Object.keys(obj)) {
+                yield [key, obj[key]];
+            }
+        }
+
+        for (let [eventName, eventTrigger] of entries(playbackEvents)) {
             if (youTubePlayer.getCurrentTime() > eventTrigger) {
                 emitter.emit(eventName);
             }
