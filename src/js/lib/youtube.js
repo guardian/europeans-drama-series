@@ -1,8 +1,33 @@
 /*globals YT*/
 import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
+import events from 'events';
 
-export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
+const emitter = new events.EventEmitter();
+
+function pimpYouTubePlayer(videoId, node, height, width, chapters) {
+
+    function initEvents() {
+
+        const eventList = ['play', '25', '50', '75', 'end'];
+
+        eventList.forEach(e => emitter.once(e, () => ophanRecord(e)));
+
+        function ophanRecord(event) {
+            require(['ophan/ng'], function (ophan) {
+                var eventObject = {
+                    video: {
+                        id: 'gu-video-youtube-' + videoId,
+                        eventType: 'video:content:' + event
+                    }
+                };
+                ophan.record(eventObject);
+            });
+        }
+    }
+
+    initEvents();
+
     youTubeIframe.init(function() {
         //preload youtube iframe API
         const promise = new Promise(function(resolve) {
@@ -16,38 +41,16 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
                         resolve(youTubePlayer);
                     },
                     'onStateChange': function(event){
-                        let chapTimer;
-                        if (event.data == YT.PlayerState.PLAYING){
+                        let playTimer;
+                        if (event.data == YT.PlayerState.PLAYING) {
 
                             const playerTotalTime = youTubePlayer.getDuration();
-                            chapTimer = setInterval(function() {
-                                let chapterCurrentProgress;
-                                const playerCurrentTime = youTubePlayer.getCurrentTime();
-                                const currentChapter = chapters.filter(function(value){
-                                    const chapStart = value.chapterTimestamp;
-                                    const chapNext = value.nextChapter || playerTotalTime;
-                                    if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
-                                        chapterCurrentProgress = (playerCurrentTime-chapStart)/(chapNext-chapStart);
-                                        return value;
-                                    }
-                                });
-                                if (currentChapter.length === 1){
-                                    const chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
-                                    chapterAll.forEach(function(el){
-                                        if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
-                                            el.classList.add('docs--chapters-active');
-                                            el.classList.remove('docs--chapters-inactive');
-                                            const progress = el.querySelector('.progress');
-                                            progress.style.width = `${chapterCurrentProgress*100}%`;
-                                        } else {
-                                            el.classList.add('docs--chapters-inactive');
-                                            el.classList.remove('docs--chapters-active');
-                                        }
-                                    });
-                                }
-                            },1000);
+                            playTimer = setInterval(function() {
+                                chapterTimer(youTubePlayer, playerTotalTime);
+                                sendPercentageCompleteEvents(youTubePlayer, playerTotalTime);
+                            }, 1000);
                         } else {
-                            clearTimeout(chapTimer);
+                            clearTimeout(playTimer);
                         }
                     }
                 }
@@ -65,6 +68,52 @@ export function pimpYouTubePlayer(videoId, node, height, width, chapters) {
             });
         });
     });
+
+
+    function chapterTimer(youTubePlayer, playerTotalTime) {
+        let chapterCurrentProgress;
+        const playerCurrentTime = youTubePlayer.getCurrentTime();
+        const currentChapter = chapters.filter(function(value){
+            const chapStart = value.chapterTimestamp;
+            const chapNext = value.nextChapter || playerTotalTime;
+            if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
+                chapterCurrentProgress = (playerCurrentTime-chapStart)/(chapNext-chapStart);
+                return value;
+            }
+        });
+        if (currentChapter.length === 1){
+            const chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
+            chapterAll.forEach(function(el){
+                if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
+                    el.classList.add('docs--chapters-active');
+                    el.classList.remove('docs--chapters-inactive');
+                    const progress = el.querySelector('.progress');
+                    progress.style.width = `${chapterCurrentProgress*100}%`;
+                } else {
+                    el.classList.add('docs--chapters-inactive');
+                    el.classList.remove('docs--chapters-active');
+                }
+            });
+        }
+    }
+
+    function sendPercentageCompleteEvents(youTubePlayer, playerTotalTime) {
+        const quartile = playerTotalTime / 4;
+
+        const playbackEvents =
+        {
+            '25': quartile,
+            '50': quartile * 2,
+            '75': quartile * 3,
+            'end': playerTotalTime
+        };
+
+        for (let prop in playbackEvents) {
+            if (youTubePlayer.getCurrentTime() > playbackEvents[prop]) {
+                emitter.emit(prop);
+            }
+        }
+    }
 }
 
 function performPlayActions(videoExpand, youTubePlayer, posterHide) {
@@ -87,8 +136,10 @@ function performPlayActions(videoExpand, youTubePlayer, posterHide) {
 
     scrollTo(document.body, 0, 300);
     youTubePlayer.playVideo();
+    emitter.emit('play');
     posterHide.classList.add('docs__poster--hide');
 }
+
 
 function addChapterEventHandlers(node, youTubePlayer) {
     const chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
