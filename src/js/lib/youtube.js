@@ -14,16 +14,15 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
         eventList.forEach(e => emitter.once(e, () => ophanRecord(e)));
 
         function ophanRecord(event) {
-            var ophanPath = 'ophan/ng';
-            require([ophanPath], function (ophan) {
-                var eventObject = {};
-                eventObject.video = {
-                    id: 'gu-video-youtube-'+videoId,
-                    eventType: 'video:content:'+event
+            require(['ophan/ng'], function (ophan) {
+                var eventObject = {
+                    video: {
+                        id: 'gu-video-youtube-' + videoId,
+                        eventType: 'video:content:' + event
+                    }
                 };
                 ophan.record(eventObject);
             });
-
         }
     }
 
@@ -47,8 +46,8 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
                             const playerTotalTime = youTubePlayer.getDuration();
                             playTimer = setInterval(function() {
-                            chapterTimer(youTubePlayer, playerTotalTime);
-                            sendPercentageCompleteEvents(youTubePlayer, playerTotalTime);
+                                chapterTimer(youTubePlayer, playerTotalTime);
+                                sendPercentageCompleteEvents(youTubePlayer, playerTotalTime);
                             }, 1000);
                         } else {
                             clearTimeout(playTimer);
