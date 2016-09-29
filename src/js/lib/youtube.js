@@ -108,16 +108,9 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
             'end': playerTotalTime
         };
 
-
-        function* entries(obj) {
-            for (let key of Object.keys(obj)) {
-                yield [key, obj[key]];
-            }
-        }
-
-        for (let [eventName, eventTrigger] of entries(playbackEvents)) {
-            if (youTubePlayer.getCurrentTime() > eventTrigger) {
-                emitter.emit(eventName);
+        for (let prop in playbackEvents) {
+            if (youTubePlayer.getCurrentTime() > playbackEvents[prop]) {
+                emitter.emit(prop);
             }
         }
     }
