@@ -5,6 +5,14 @@ import events from 'events';
 
 const emitter = new events.EventEmitter();
 
+function loadYouTubeApi () {
+    // TODO stop using youtube-iframe-player module?
+    // rather than wrapping the module in a promise, we may as well use the native YT API, declaring
+    // an `onYouTubeIframeAPIReady` function
+    // https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
+    return new Promise(resolve => youTubeIframe.init(() => resolve()));
+}
+
 function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
     function initEvents() {
@@ -28,8 +36,7 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
     initEvents();
 
-    youTubeIframe.init(function() {
-        //preload youtube iframe API
+    loadYouTubeApi().then(() => {
         const promise = new Promise(function(resolve) {
             var youTubePlayer = youTubeIframe.createPlayer(node.querySelector('#ytGuPlayer'), {
                 height: height,
@@ -68,7 +75,6 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
             });
         });
     });
-
 
     function chapterTimer(youTubePlayer, playerTotalTime) {
         let chapterCurrentProgress;
