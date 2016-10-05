@@ -3,6 +3,7 @@ import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
 import {isMobile} from './detect';
 import Tracker from './tracking';
+import {setStyles} from './dom';
 
 function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     const tracker = new Tracker({videoId: videoId});
@@ -25,7 +26,7 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
                             const playerTotalTime = youTubePlayer.getDuration();
                             playTimer = setInterval(function() {
-                                chapterTimer(youTubePlayer, playerTotalTime);
+                                trackChapterProgress(youTubePlayer, playerTotalTime);
                                 sendPercentageCompleteEvents(youTubePlayer, playerTotalTime);
                             }, 1000);
                         } else {
@@ -50,25 +51,34 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     });
 
 
-    function chapterTimer(youTubePlayer, playerTotalTime) {
-        let chapterCurrentProgress;
+    function trackChapterProgress(youTubePlayer, playerTotalTime) {
         const playerCurrentTime = youTubePlayer.getCurrentTime();
         const currentChapter = chapters.filter(function(value){
-            const chapStart = value.chapterTimestamp;
-            const chapNext = value.nextChapter || playerTotalTime;
-            if(playerCurrentTime >= chapStart && playerCurrentTime <= chapNext){
-                chapterCurrentProgress = (playerCurrentTime-chapStart)/(chapNext-chapStart);
+            const chapStart = value.start;
+            const chapEnd = value.end || playerTotalTime;
+            if (playerCurrentTime >= chapStart && playerCurrentTime < chapEnd){
                 return value;
             }
         });
         if (currentChapter.length === 1){
-            const chapterAll = [].slice.call(document.querySelectorAll('li[data-sheet-timestamp]'));
-            chapterAll.forEach(function(el){
-                if (el.dataset.sheetTimestamp === currentChapter[0].chapterTimestamp){
+            const chapterElements = document.querySelectorAll('.docs--chapters li[data-role="chapter"]');
+
+            Array.from(chapterElements).forEach(function(el){
+                const dataStart = parseInt(el.dataset.start);
+
+                if (dataStart === currentChapter[0].start){
                     el.classList.add('docs--chapters-active');
                     el.classList.remove('docs--chapters-inactive');
+
+                    const dataEnd = parseInt(el.dataset.end);
+                    const nextChapter = dataEnd || playerTotalTime;
+                    const chapterCurrentProgress = (playerCurrentTime - dataStart)/(nextChapter - dataStart);
+
                     const progress = el.querySelector('.progress');
-                    progress.style.width = `${chapterCurrentProgress*100}%`;
+
+                    setStyles(progress, {
+                        width: `${chapterCurrentProgress * 100}%`
+                    });
                 } else {
                     el.classList.add('docs--chapters-inactive');
                     el.classList.remove('docs--chapters-active');
@@ -107,13 +117,14 @@ function performPlayActions(videoExpand, youTubePlayer, posterHide) {
 
 
 function addChapterEventHandlers(node, youTubePlayer, tracker) {
-    const chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
-    chapterBtns.forEach( function(chapterBtn) {
+    const chapterElements = document.querySelectorAll('.docs--chapters li[data-role="chapter"]');
+
+    Array.from(chapterElements).forEach( function(chapterBtn) {
         chapterBtn.onclick = function(){
             tracker.track('play');
-            const chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
+            const chapStart = parseInt(chapterBtn.getAttribute('data-start'));
             performPlayActions(node.querySelector('.docs__poster--wrapper'), youTubePlayer, node.querySelector('.docs__poster--loader'));
-            youTubePlayer.seekTo(chapTime, true);
+            youTubePlayer.seekTo(chapStart, true);
         };
     });
 }

@@ -3,8 +3,53 @@ import {pimpYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube';
 import share from './lib/share';
 import sheetToDomInnerHtml from './lib/sheettodom';
 import emailsignupURL from './lib/emailsignupURL';
-import setAttributes from './lib/dom';
+import {setAttributes, setData, setStyles} from './lib/dom';
 
+function initChapters(rootEl, config, chapters) {
+    chapters.sort((a,b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
+
+    chapters.forEach(function(chapter, index){
+        chapter.start = parseInt(chapter.chapterTimestamp);
+        if(chapters.length > index+1){
+            const nextChapter = chapters[index+1];
+            chapter.end = parseInt(nextChapter.chapterTimestamp);
+        }
+    });
+
+    const compressString = (str) => str.replace(/[\s+|\W]/g, '').toLowerCase();
+
+    const getDataLinkName = (title) => `${compressString(config.sheetChapter)} | ${title}`;
+
+    const ul = document.createElement('ul');
+    ul.classList.add('docs--chapters');
+
+    chapters.forEach( function(chapter, index){
+        const dataLinkName = getDataLinkName(chapter.chapterTitle);
+        const li = document.createElement('li');
+
+        setAttributes(li, {
+            title: `Skip to chapter ${index+1}: ${chapter.chapterTitle}`
+        });
+
+        setData(li, {
+            start: chapter.start,
+            end: chapter.end,
+            linkName: dataLinkName,
+            role: 'chapter'
+        });
+
+        li.innerText = `${chapter.chapterTitle}`;
+
+        const progress = document.createElement('span');
+        progress.classList.add('progress');
+        li.appendChild(progress);
+
+        ul.appendChild(li);
+    });
+
+    const chaptersWrapper = rootEl.querySelector('.docs--chapters-wrapper');
+    chaptersWrapper.appendChild(ul);
+}
 
 export function init(el, context, config) {
     const builder = document.createElement('div');
@@ -21,24 +66,17 @@ export function init(el, context, config) {
 
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
         const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeTrailerId;
+
         const chapters = resp.sheets[config.sheetChapter];
-
-        chapters.sort((a,b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
-
-        chapters.forEach(function(chapter, index){
-            if(chapters.length > index+1){
-                const nextChapter = chapters[index+1];
-                chapter.nextChapter = parseInt(nextChapter.chapterTimestamp) - 1;
-            }
-        });
+        initChapters(builder, config, chapters);
 
         getYouTubeVideoDuration(youTubeTrailerId, function(duration) {
             builder.querySelector('.docs--actions__trailer__duration').textContent = duration;
         });
 
         getYouTubeVideoDuration(youTubeId, function(duration) {
-            setAttributes(builder.querySelector('.docs__poster--play-button'), {
-                'data-duration': duration
+            setData(builder.querySelector('.docs__poster--play-button'), {
+                duration: duration
             });
         });
 
@@ -47,33 +85,6 @@ export function init(el, context, config) {
         const aboutBody = builder.querySelector('.docs--about-body');
         const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
         const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
-
-        function compressString(string) {
-            return string.replace(/[\s+|\W]/g, '').toLowerCase();
-        }
-
-        const chaptersWrapper = builder.querySelector('.docs--chapters-wrapper');
-        const chaptersUl = document.createElement('ul');
-
-        chapters.forEach( function(chapter, index){
-            const chapterDataLinkName = `${compressString(config.sheetChapter)} | ${compressString(chapter.chapterTitle)}`;
-            const chaptersLi = document.createElement('li');
-            const chaptersLiProgress = document.createElement('span');
-            chaptersLiProgress.classList.add('progress');
-            chaptersUl.classList.add('docs--chapters');
-
-            setAttributes(chaptersLi, {
-                'data-sheet-timestamp': chapter.chapterTimestamp,
-                'data-link-name': chapterDataLinkName,
-                title: `Skip to chapter ${index+1}: ${chapter.chapterTitle}`
-            });
-
-            chaptersLi.innerText = `${chapter.chapterTitle}`;
-            chaptersUl.appendChild(chaptersLi);
-            chaptersLi.appendChild(chaptersLiProgress);
-        });
-
-        chaptersWrapper.appendChild(chaptersUl);
 
         //Show the long description
         showMoreBtn.onclick = function(){
@@ -121,10 +132,8 @@ export function init(el, context, config) {
 
         pimpYouTubePlayer(youTubeId, builder, '100%', '100%', chapters);
 
-        setAttributes(builder.querySelector('.docs__poster--image'), {
-            style: {
-                'background-image': `url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`
-            }
+        setStyles(builder.querySelector('.docs__poster--image'), {
+            'background-image': `url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`
         });
 
         setAttributes(builder.querySelector('.cutout'), {
