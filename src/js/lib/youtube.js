@@ -3,7 +3,7 @@ import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
 import {isMobile} from './detect';
 import Tracker from './tracking';
-import {setStyles} from './dom';
+import {setStyles, scrollTo} from './dom';
 import {parse} from 'iso8601-duration';
 
 function pimpYouTubePlayer(videoId, node, height, width, chapters) {
@@ -39,10 +39,9 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
         });
 
         promise.then(function(youTubePlayer) {
-            addChapterEventHandlers(node, youTubePlayer, tracker);
+            addChapterEventHandlers(node, youTubePlayer);
             node.querySelector('.docs__poster--loader').addEventListener('click', function() {
-                tracker.track('play');
-                performPlayActions(node.querySelector('.docs__poster--wrapper'), youTubePlayer, this);
+                playVideo(node.querySelector('.docs__poster--wrapper'), youTubePlayer, this);
             });
 
             node.querySelector('.docs__shows-trailer').addEventListener('click', function() {
@@ -104,42 +103,29 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
             }
         }
     }
-}
 
-function performPlayActions(videoExpand, youTubePlayer, posterHide) {
-    if (! isMobile()) {
-        videoExpand.classList.add('docs__poster--wrapper--playing');
+    function playVideo(videoExpand, youTubePlayer, posterHide) {
+        if (! isMobile()) {
+            videoExpand.classList.add('docs__poster--wrapper--playing');
+        }
+
+        scrollTo(document.body, 0, 300);
+        tracker.track('play');
+        youTubePlayer.playVideo();
+        posterHide.classList.add('docs__poster--hide');
     }
 
-    scrollTo(document.body, 0, 300);
-    youTubePlayer.playVideo();
-    posterHide.classList.add('docs__poster--hide');
-}
+    function addChapterEventHandlers(node, youTubePlayer) {
+        const chapterElements = document.querySelectorAll('.docs--chapters li[data-role="chapter"]');
 
-
-function addChapterEventHandlers(node, youTubePlayer, tracker) {
-    const chapterElements = document.querySelectorAll('.docs--chapters li[data-role="chapter"]');
-
-    Array.from(chapterElements).forEach( function(chapterBtn) {
-        chapterBtn.onclick = function(){
-            tracker.track('play');
-            const chapStart = parseInt(chapterBtn.getAttribute('data-start'));
-            performPlayActions(node.querySelector('.docs__poster--wrapper'), youTubePlayer, node.querySelector('.docs__poster--loader'));
-            youTubePlayer.seekTo(chapStart, true);
-        };
-    });
-}
-
-function scrollTo(element, to, duration) {
-    if (duration <= 0) return;
-    const difference = to - element.scrollTop;
-    const perTick = difference / duration * 10;
-
-    setTimeout(() => {
-        element.scrollTop = element.scrollTop + perTick;
-        if (element.scrollTop === to) return;
-        scrollTo(element, to, duration - 10);
-    }, 10);
+        Array.from(chapterElements).forEach( function(chapterBtn) {
+            chapterBtn.onclick = function(){
+                const chapStart = parseInt(chapterBtn.getAttribute('data-start'));
+                playVideo(node.querySelector('.docs__poster--wrapper'), youTubePlayer, node.querySelector('.docs__poster--loader'));
+                youTubePlayer.seekTo(chapStart, true);
+            };
+        });
+    }
 }
 
 function getYouTubeVideoDuration(videoId, callback){
