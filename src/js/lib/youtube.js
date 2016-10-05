@@ -1,38 +1,16 @@
 /*globals YT*/
 import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
-import events from 'events';
 import {isMobile} from './detect';
-
-const emitter = new events.EventEmitter();
+import Tracker from './tracking';
 
 function pimpYouTubePlayer(videoId, node, height, width, chapters) {
-
-    function initEvents() {
-
-        const eventList = ['play', '25', '50', '75', 'end'];
-
-        eventList.forEach(e => emitter.once(e, () => ophanRecord(e)));
-
-        function ophanRecord(event) {
-            require(['ophan/ng'], function (ophan) {
-                var eventObject = {
-                    video: {
-                        id: 'gu-video-youtube-' + videoId,
-                        eventType: 'video:content:' + event
-                    }
-                };
-                ophan.record(eventObject);
-            });
-        }
-    }
-
-    initEvents();
+    const tracker = new Tracker({videoId: videoId});
 
     youTubeIframe.init(function() {
         //preload youtube iframe API
         const promise = new Promise(function(resolve) {
-            var youTubePlayer = youTubeIframe.createPlayer(node.querySelector('#ytGuPlayer'), {
+            const youTubePlayer = youTubeIframe.createPlayer(node.querySelector('#ytGuPlayer'), {
                 height: height,
                 width: width,
                 videoId: videoId,
@@ -59,8 +37,9 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
         });
 
         promise.then(function(youTubePlayer) {
-            addChapterEventHandlers(node, youTubePlayer);
+            addChapterEventHandlers(node, youTubePlayer, tracker);
             node.querySelector('.docs__poster--loader').addEventListener('click', function() {
+                tracker.track('play');
                 performPlayActions(node.querySelector('.docs__poster--wrapper'), youTubePlayer, this);
             });
 
@@ -101,8 +80,7 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     function sendPercentageCompleteEvents(youTubePlayer, playerTotalTime) {
         const quartile = playerTotalTime / 4;
 
-        const playbackEvents =
-        {
+        const playbackEvents = {
             '25': quartile,
             '50': quartile * 2,
             '75': quartile * 3,
@@ -111,7 +89,7 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
         for (let prop in playbackEvents) {
             if (youTubePlayer.getCurrentTime() > playbackEvents[prop]) {
-                emitter.emit(prop);
+                tracker.track(prop);
             }
         }
     }
@@ -124,15 +102,15 @@ function performPlayActions(videoExpand, youTubePlayer, posterHide) {
 
     scrollTo(document.body, 0, 300);
     youTubePlayer.playVideo();
-    emitter.emit('play');
     posterHide.classList.add('docs__poster--hide');
 }
 
 
-function addChapterEventHandlers(node, youTubePlayer) {
+function addChapterEventHandlers(node, youTubePlayer, tracker) {
     const chapterBtns = [].slice.call(document.querySelectorAll('.docs--chapters li'));
     chapterBtns.forEach( function(chapterBtn) {
         chapterBtn.onclick = function(){
+            tracker.track('play');
             const chapTime = parseInt(chapterBtn.getAttribute('data-sheet-timestamp'));
             performPlayActions(node.querySelector('.docs__poster--wrapper'), youTubePlayer, node.querySelector('.docs__poster--loader'));
             youTubePlayer.seekTo(chapTime, true);
