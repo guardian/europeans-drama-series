@@ -2,6 +2,7 @@
 import youTubeIframe from 'youtube-iframe-player';
 import reqwest from 'reqwest';
 import events from 'events';
+import {isMobile} from './detect';
 
 const emitter = new events.EventEmitter();
 
@@ -117,20 +118,7 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 }
 
 function performPlayActions(videoExpand, youTubePlayer, posterHide) {
-
-    function isMobile() {
-        function isIOS() {
-            return /(iPad|iPhone|iPod touch)/i.test(navigator.userAgent);
-        }
-
-        function isAndroid() {
-            return /Android/i.test(navigator.userAgent);
-        }
-
-        return isIOS() || isAndroid();
-    }
-
-    if (!isMobile()) {
+    if (! isMobile()) {
         videoExpand.classList.add('docs__poster--wrapper--playing');
     }
 
