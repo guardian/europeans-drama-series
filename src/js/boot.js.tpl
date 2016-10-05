@@ -17,8 +17,8 @@ define([], function() {
 
             const interactiveConfig = {
                 'assetPath': '<%= assetPath %>',
-                'sheetName': 'gun-nation',
-                'sheetChapter': 'gun-nation-chapters',
+                'sheetName': 'desert-fire',
+                'sheetChapter': 'desert-fire-chapters',
                 'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g',
                 'emailListId': 3745
             };
