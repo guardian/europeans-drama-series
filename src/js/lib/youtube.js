@@ -9,7 +9,7 @@ import {parse} from 'iso8601-duration';
 function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     const tracker = new Tracker({videoId: videoId});
 
-    const youtubePlayer = YouTubePlayer(node.querySelector('#ytGuPlayer'), {
+    const youtubePlayer = new YouTubePlayer(node.querySelector('#ytGuPlayer'), {
         height: height,
         width: width,
         videoId: videoId,
@@ -88,13 +88,13 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
             'end': playerTotalTime
         };
 
-        for (let prop in playbackEvents) {
-            youtubePlayer.getCurrentTime().then(currentTime => {
+        youtubePlayer.getCurrentTime().then(currentTime => {
+            for (let prop in playbackEvents) {
                 if (currentTime > playbackEvents[prop]) {
                     tracker.track(prop);
                 }
-            });
-        }
+            }
+        });
     }
 
     function playVideo(videoExpand, youtubePlayer, posterHide) {
