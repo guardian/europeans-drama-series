@@ -1,8 +1,9 @@
 import mainHTML from './text/main.html!text';
 import {pimpYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube';
 import share from './lib/share';
-import {sheetToDomInnerHtml, setAttribute} from './lib/sheettodom';
+import sheetToDomInnerHtml from './lib/sheettodom';
 import emailsignupURL from './lib/emailsignupURL';
+import setAttributes from './lib/dom';
 
 
 export function init(el, context, config) {
@@ -25,10 +26,10 @@ export function init(el, context, config) {
         chapters.sort((a,b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
 
         chapters.forEach(function(chapter, index){
-          if(chapters.length > index+1){
-            const nextChapter = chapters[index+1];
-            chapter.nextChapter = parseInt(nextChapter.chapterTimestamp) - 1;
-          }
+            if(chapters.length > index+1){
+                const nextChapter = chapters[index+1];
+                chapter.nextChapter = parseInt(nextChapter.chapterTimestamp) - 1;
+            }
         });
 
         getYouTubeVideoDuration(youTubeTrailerId, function(duration) {
@@ -36,7 +37,9 @@ export function init(el, context, config) {
         });
 
         getYouTubeVideoDuration(youTubeId, function(duration) {
-            builder.querySelector('.docs__poster--play-button').setAttribute('data-duration', duration);
+            setAttributes(builder.querySelector('.docs__poster--play-button'), {
+                'data-duration': duration
+            });
         });
 
         const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
@@ -53,17 +56,21 @@ export function init(el, context, config) {
         const chaptersUl = document.createElement('ul');
 
         chapters.forEach( function(chapter, index){
-          const chapterDataLinkName = `${compressString(config.sheetChapter)} | ${compressString(chapter.chapterTitle)}`;
-          const chaptersLi = document.createElement('li');
-          const chaptersLiProgress = document.createElement('span');
-          chaptersLiProgress.classList.add('progress');
-          chaptersUl.classList.add('docs--chapters');
-          chaptersLi.setAttribute('data-sheet-timestamp' ,`${chapter.chapterTimestamp}`);
-          chaptersLi.setAttribute('data-link-name' ,`${chapterDataLinkName}`);
-          chaptersLi.setAttribute('title', `Skip to chapter ${index+1}: ${chapter.chapterTitle}`);
-          chaptersLi.innerText = `${chapter.chapterTitle}`;
-          chaptersUl.appendChild(chaptersLi);
-          chaptersLi.appendChild(chaptersLiProgress);
+            const chapterDataLinkName = `${compressString(config.sheetChapter)} | ${compressString(chapter.chapterTitle)}`;
+            const chaptersLi = document.createElement('li');
+            const chaptersLiProgress = document.createElement('span');
+            chaptersLiProgress.classList.add('progress');
+            chaptersUl.classList.add('docs--chapters');
+
+            setAttributes(chaptersLi, {
+                'data-sheet-timestamp': chapter.chapterTimestamp,
+                'data-link-name': chapterDataLinkName,
+                title: `Skip to chapter ${index+1}: ${chapter.chapterTitle}`
+            });
+
+            chaptersLi.innerText = `${chapter.chapterTitle}`;
+            chaptersUl.appendChild(chaptersLi);
+            chaptersLi.appendChild(chaptersLiProgress);
         });
 
         chaptersWrapper.appendChild(chaptersUl);
@@ -84,11 +91,15 @@ export function init(el, context, config) {
         showTrailer.onclick = () => {
             builder.classList.add('show-trailer');
             const embedIframe = document.createElement('iframe');
-            embedIframe.width = '100%';
-            embedIframe.height = '100%';
-            embedIframe.src = `https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1&rel=0`;
-            embedIframe.frameborder = '0';
-            embedIframe.allowfullscreen = 'true';
+
+            setAttributes(embedIframe, {
+                width: '100%',
+                height: '100%',
+                src: `https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1&rel=0`,
+                frameborder: '0',
+                allowfullscreen: 'true'
+            });
+
             embedIframe.classList.add('doc-trailer__player');
             embedContainer.appendChild(embedIframe);
         };
@@ -103,12 +114,22 @@ export function init(el, context, config) {
         });
 
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
-        emailIframe.setAttribute('src', emailsignupURL(config.emailListId));
+
+        setAttributes(emailIframe, {
+            src: emailsignupURL(config.emailListId)
+        });
 
         pimpYouTubePlayer(youTubeId, builder, '100%', '100%', chapters);
 
-        setAttribute(builder, '.docs__poster--image','style', `background-image:url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`);
-        setAttribute(builder, '.cutout','src', resp.sheets[config.sheetName][0].nextDocImageUrl);
+        setAttributes(builder.querySelector('.docs__poster--image'), {
+            style: {
+                'background-image': `url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`
+            }
+        });
+
+        setAttributes(builder.querySelector('.cutout'), {
+            src: resp.sheets[config.sheetName][0].nextDocImageUrl
+        });
 
         el.parentNode.replaceChild(builder, el);
     });
