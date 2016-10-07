@@ -87,10 +87,6 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
-    "npm:require-sdk@0.0.2": {
-      "load-script": "npm:load-script@1.0.0",
-      "pubsub": "npm:pubsub@0.0.5"
-    },
     "npm:sister@3.0.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2"
     },
