@@ -1,4 +1,11 @@
-
-export function getOffset(el) {
-    return el ? el.offsetTop + getOffset(el.offsetParent) : 0;
+function setAttributes(el, attrs) {
+    Object.keys(attrs).forEach(attr => {
+        if (attr === 'style') {
+            Object.keys(attrs[attr]).forEach(style => el.style[style] = attrs[attr][style]);
+        } else {
+            el.setAttribute(attr, attrs[attr]);
+        }
+    });
 }
+
+export default setAttributes;
