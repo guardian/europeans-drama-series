@@ -90,7 +90,7 @@ function pimpYouTubePlayer(videoId, node, height, width, chapters) {
 
         youtubePlayer.getCurrentTime().then(currentTime => {
             for (let prop in playbackEvents) {
-                if (currentTime > playbackEvents[prop]) {
+                if (currentTime >= playbackEvents[prop]) {
                     tracker.track(prop);
                 }
             }
