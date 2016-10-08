@@ -25,6 +25,7 @@ System.config({
     "events": "github:jspm/nodelibs-events@0.1.1",
     "guardian/iframe-messenger": "github:guardian/iframe-messenger@master",
     "json": "github:systemjs/plugin-json@0.1.2",
+    "moment": "npm:moment@2.15.1",
     "reqwest": "github:ded/reqwest@1.1.5",
     "text": "github:systemjs/plugin-text@0.0.2",
     "youtube-iframe": "npm:youtube-iframe@1.0.3",

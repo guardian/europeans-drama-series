@@ -4,6 +4,7 @@ import reqwest from 'reqwest';
 import {isMobile} from './detect';
 import Tracker from './tracking';
 import {setStyles} from './dom';
+import moment from 'moment';
 
 function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     const tracker = new Tracker({videoId: videoId});
@@ -150,14 +151,17 @@ function getYouTubeVideoDuration(videoId, callback){
         type: 'json',
         crossOrigin: true,
         success: (resp) => {
-            let duration =  resp.items[0].contentDetails.duration;
-            let re = /PT(\d+)M(\d+)S/;
-            callback(duration.replace(re,function(match, p1, p2) {
-                function numberToTwoDigits(number) {
-                    return (number < 10 ? '0' : '') + number;
-                }
-                return `${p1}:${numberToTwoDigits(p2)}`;
-            }));
+            //duration is an ISO8601 duration
+            //see: https://developers.google.com/youtube/v3/docs/videos#contentDetails.duration
+            const duration =  resp.items[0].contentDetails.duration;
+
+            const midnight = moment().startOf('day');
+
+            //add ISO8601 duration to midnight and moment format it (assumes video is less than an hour)
+            //see: http://momentjs.com/docs/#/displaying/format/
+            const formattedDuration = midnight.add(moment.duration(duration)).format('m:ss');
+
+            callback(formattedDuration);
         }
     });
 }
