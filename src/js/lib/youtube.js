@@ -4,7 +4,7 @@ import reqwest from 'reqwest';
 import {isMobile} from './detect';
 import Tracker from './tracking';
 import {setStyles} from './dom';
-import moment from 'moment';
+import {parse} from 'iso8601-duration';
 
 function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     const tracker = new Tracker({videoId: videoId});
@@ -155,11 +155,12 @@ function getYouTubeVideoDuration(videoId, callback){
             //see: https://developers.google.com/youtube/v3/docs/videos#contentDetails.duration
             const duration =  resp.items[0].contentDetails.duration;
 
-            const midnight = moment().startOf('day');
+            const parsedDuration = parse(duration);
 
-            //add ISO8601 duration to midnight and moment format it (assumes video is less than an hour)
-            //see: http://momentjs.com/docs/#/displaying/format/
-            const formattedDuration = midnight.add(moment.duration(duration)).format('m:ss');
+            const paddedSeconds = `${parsedDuration.seconds < 10 ? '0' : ''}${parsedDuration.seconds}`;
+
+            //assumes video duration is less than an hour
+            const formattedDuration = `${parsedDuration.minutes}:${paddedSeconds}`;
 
             callback(formattedDuration);
         }
