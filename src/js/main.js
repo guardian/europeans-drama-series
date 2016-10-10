@@ -1,5 +1,5 @@
 import mainHTML from './text/main.html!text';
-import {pimpYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube';
+import {PimpedYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube';
 import share from './lib/share';
 import sheetToDomInnerHtml from './lib/sheettodom';
 import emailsignupURL from './lib/emailsignupURL';
@@ -130,7 +130,10 @@ export function init(el, context, config) {
             src: emailsignupURL(config.emailListId)
         });
 
-        pimpYouTubePlayer(youTubeId, builder, '100%', '100%', chapters);
+        builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
+            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters);
+            player.play();
+        });
 
         setStyles(builder.querySelector('.docs__poster--image'), {
             'background-image': `url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`
