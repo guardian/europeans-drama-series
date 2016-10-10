@@ -4,6 +4,7 @@ import reqwest from 'reqwest';
 import {isMobile} from './detect';
 import Tracker from './tracking';
 import {setStyles} from './dom';
+import {parse} from 'iso8601-duration';
 
 function pimpYouTubePlayer(videoId, node, height, width, chapters) {
     const tracker = new Tracker({videoId: videoId});
@@ -150,14 +151,18 @@ function getYouTubeVideoDuration(videoId, callback){
         type: 'json',
         crossOrigin: true,
         success: (resp) => {
-            let duration =  resp.items[0].contentDetails.duration;
-            let re = /PT(\d+)M(\d+)S/;
-            callback(duration.replace(re,function(match, p1, p2) {
-                function numberToTwoDigits(number) {
-                    return (number < 10 ? '0' : '') + number;
-                }
-                return `${p1}:${numberToTwoDigits(p2)}`;
-            }));
+            //duration is an ISO8601 duration
+            //see: https://developers.google.com/youtube/v3/docs/videos#contentDetails.duration
+            const duration =  resp.items[0].contentDetails.duration;
+
+            const parsedDuration = parse(duration);
+
+            const paddedSeconds = `${parsedDuration.seconds < 10 ? '0' : ''}${parsedDuration.seconds}`;
+
+            //assumes video duration is less than an hour
+            const formattedDuration = `${parsedDuration.minutes}:${paddedSeconds}`;
+
+            callback(formattedDuration);
         }
     });
 }

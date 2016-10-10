@@ -24,6 +24,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "events": "github:jspm/nodelibs-events@0.1.1",
     "guardian/iframe-messenger": "github:guardian/iframe-messenger@master",
+    "iso8601-duration": "npm:iso8601-duration@1.0.6",
     "json": "github:systemjs/plugin-json@0.1.2",
     "reqwest": "github:ded/reqwest@1.1.5",
     "text": "github:systemjs/plugin-text@0.0.2",
