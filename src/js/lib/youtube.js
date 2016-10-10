@@ -46,7 +46,9 @@ class PimpedYouTubePlayer {
 
         self.tracker = new Tracker({videoId: videoId});
 
-        self.player = new YouTubePlayer(self.el.querySelector('#ytGuPlayer'), {
+        const playerEl = self.el.querySelector('#ytGuPlayer');
+
+        self.player = new YouTubePlayer(playerEl, {
             height: height,
             width: width,
             videoId: videoId,
