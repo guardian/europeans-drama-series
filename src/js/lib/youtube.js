@@ -19,7 +19,7 @@ class PimpedYouTubePlayer {
         scrollTo(document.body, 0, 300);
         self.el.querySelector('.docs__poster--loader').classList.add('docs__poster--hide');
 
-        if (seconds) {
+        if (seconds !== undefined) {
             self.player.seekTo(seconds, true);
         }
 
