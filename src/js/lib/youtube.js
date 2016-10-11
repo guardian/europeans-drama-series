@@ -38,13 +38,16 @@ class PimpedYouTubePlayer {
         self.play(seconds);
     }
 
-    constructor(videoId, node, height, width, chapters) {
+    constructor(videoId, node, height, width, chapters, config) {
         // declare `self` to avoid scoping issues of `this`
         const self = this;
 
         self.el = node;
 
-        self.tracker = new Tracker({videoId: videoId});
+        self.tracker = new Tracker({
+            videoId: videoId,
+            gaTrackers: config.googleAnalytics.trackers
+        });
 
         const playerEl = self.el.querySelector('#ytGuPlayer');
 
