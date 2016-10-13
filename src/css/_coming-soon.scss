@@ -99,6 +99,13 @@
     overflow-x: scroll;
     width: 100vw;
     margin: 10px 0 0 -10px;
+    @include mq(tablet) {
+      // needed for IE
+      overflow: auto;
+      overflow-x: auto;
+      overflow-y: auto;
+      height: 295px;
+    }
     @include mq(desktop) {
       transform-origin: top left;
       transform: scale(0.866);
@@ -252,11 +259,11 @@
     font-weight: 400;
     @include mq(desktop) {
       display: inline-block;
-      transform: translate3d(-74px,-44px,0);
+      transform: translate3d(-74px,-47px,0);
     }
     @include mq(wide) {
       display: inline-block;
-      transform: translate3d(0,0,0);
+      transform: translate3d(0,-4px,0);
       margin-left: 20px;
     }
     p {
