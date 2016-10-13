@@ -15,13 +15,31 @@ define([], function() {
             // Loading message while we fetch JS / CSS
             el.innerHTML = '<div style="font-size: 24px; text-align: center; padding: 72px 0; font-family: \'Guardian Egyptian Web\',Georgia,serif;">Loading…</div>';
 
-            config = {
+            const interactiveConfig = {
                 'assetPath': '<%= assetPath %>',
                 'sheetName': 'desert-fire',
                 'sheetChapter': 'desert-fire-chapters',
                 'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g',
                 'emailListId': 3745
             };
+
+            if (config) {
+                Object.assign(interactiveConfig, config);
+            }
+
+            //lifted from frontend
+            //see: https://github.com/guardian/frontend/blob/master/common/app/views/support/GoogleAnalyticsAccount.scala
+            if (! interactiveConfig.googleAnalytics) {
+                Object.assign(interactiveConfig, {
+                    googleAnalytics: {
+                        trackers: {
+                            editorial: 'allEditorialPropertyTracker',
+                            editorialProd: 'allEditorialPropertyTracker',
+                            editorialTest: 'guardianTestPropertyTracker'
+                        }
+                    }
+                });
+            }
 
             // Load CSS asynchronously
             window.setTimeout(function() {
@@ -30,7 +48,7 @@ define([], function() {
 
             // Load JS and init
             require(['<%= assetPath %>/main.js'], function(main) {
-                main.init(el, context, config, mediator);
+                main.init(el, context, interactiveConfig, mediator);
             }, function(err) { console.error('Error loading boot.', err); });
         }
     };
