@@ -126,7 +126,10 @@
     bottom: 9px;
     z-index: 5;
     transform-origin: bottom left;
-    transform: scale(0.9);
+    transform: scale(0.75);
+    @include mq(tablet) {
+      transform: scale(0.9);
+    }
   }
   &--play-button {
     margin-top: 56px;
