@@ -190,16 +190,18 @@
       &:hover {
         .cta {
           position: relative;
+          display: inline-block;
           // text-decoration: underline;
           &:before {
             content: '';
             display: block;
             position: absolute;
             left: 1px;
+            right: 31px;
             bottom: -2px;
             height: 2.5px;
             background-color: #fb0;
-            width: 297px;
+            width: auto;
           }
         }
       }
