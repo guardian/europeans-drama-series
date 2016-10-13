@@ -1,0 +1,285 @@
+.coming-soon {
+  color: #f6f6f6;
+  background-color: #333;
+  margin: 0 auto;
+  padding: 0 10px 100px;
+  position: relative;
+  font-family: 'Guardian Egyptian Web', Georgia, serif;
+
+  @include mq(tablet) {
+    padding: 0 20px;
+  }
+
+  &:before {
+    content: '';
+    background-color: #999;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 0;
+    height: 1px;
+    @include mq(tablet) {
+      left: 20px;
+      right: 20px;
+    }
+  }
+
+  @include mq(mobileLandscape) {
+    width: auto;
+    max-width: 580px;
+  }
+  @include mq(tablet) {
+    width: 700px;
+    max-width: none;
+  }
+  @include mq(desktop) {
+    width: 940px;
+  }
+  @include mq(leftCol) {
+    width: 1100px;
+  }
+  @include mq(wide) {
+    width: 1260px;
+  }
+
+  &__container-title {
+    @include mq(desktop) {
+      display: block;
+      width: auto;
+    }
+    @include mq(leftCol) {
+      width: 140px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    @include mq(wide) {
+      width: 220px;
+    }
+
+    color: #999;
+    .title {
+      font-size: 22px;
+    	font-weight: 600;
+      text-transform: lowercase;
+      padding-top: 5px;
+    }
+    .details {
+      line-height: 18px;
+    	font-weight: 200;
+      font-family: 'Guardian Egyptian Web', Georgia, serif;
+      margin-top: 4px;
+      @include mq(leftCol) {
+        // display: none;
+      }
+      @include mq(wide) {
+        display: block;
+        max-width: none;
+      }
+    }
+  }
+  &__contents {
+    position: relative;
+    margin-left: 0;
+    width: 100%;
+    white-space: nowrap;
+    @include mq(tablet) {
+      width: auto;
+    }
+    @include mq(leftCol) {
+      display: inline-block;
+      width: 940px;
+      margin-left: 15px;
+      margin-top: 20px;
+    }
+    @include mq(wide) {
+      width: 1020px;
+    }
+  }
+  &__posters {
+    overflow-x: scroll;
+    width: 100vw;
+    margin: 10px 0 0 -10px;
+    @include mq(desktop) {
+      transform-origin: top left;
+      transform: scale(0.866);
+      display: inline-block;
+      width: auto;
+    }
+    @include mq(leftCol) {
+      // margin-left: 150px;
+    }
+    @include mq(wide) {
+      transform: none;
+      // margin-left: 230px;
+    }
+    .poster {
+      display: inline-block;
+      position: relative;
+      width: 155px;
+      height: 210px;
+      overflow: hidden;
+      margin-right: 10px;
+      @include mq(tablet) {
+        width: 220px;
+        height: 290px;
+        margin-right: 20px;
+      }
+      &:first-child {
+        margin-left: 10px;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      &__image,
+      &__release,
+      &__title,
+      &__trailer {
+        display: block;
+        position: absolute;
+      }
+      &__image {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+      }
+      &__release {
+        top: 8px;
+        right: 8px;
+        width: 54px;
+        line-height: 16px;
+        padding: 11px 0;
+        text-align: center;
+        background-color: #FEF5E4;
+        color: #00456E;
+        border-radius: 100%;
+        font-size: 15px;
+        font-family: "Guardian Sans Web";
+        @include mq(tablet) {
+          font-size: 16px;
+          width: 62px;
+          line-height: 18px;
+          padding: 13px 0;
+        }
+        &:before {
+          content: 'Out ';
+          display: block;
+        }
+      }
+      &__title {
+        bottom: 5px;
+        left: 7px;
+        font-family: 'Guardian Egyptian Web', Georgia, serif;
+        font-weight: 500;
+        font-size: 42px;
+        line-height: 38px;
+        @include mq(tablet) {
+          font-size: 52px;
+          line-height: 46px;
+        }
+        &.on-the-road {
+          color: #FFEBF6;
+          text-shadow: 0 0 12px rgba(51,51,51, 0.5);
+          bottom: 48px;
+        }
+        &.radical-monarchs {
+          color: #F5DAC9;
+          text-shadow: 0 0 8px rgba(51,51,51, 0.9);
+          font-size: 32px;
+          line-height: 30px;
+          @include mq(tablet) {
+            font-size: 47px;
+            line-height: 43px;
+          }
+        }
+        &.quipu {
+          color: #F0F2F0;
+          text-shadow: 0 0 9px rgba(51,51,51, 0.8);
+        }
+      }
+      &__trailer {
+        left: 7px;
+        bottom: 11px;
+        color: #fb0;
+        border: 1px solid #fb0;
+        background-color: rgba(51,51,51,0.4);
+        font-family: 'Guardian Sans Web', sans-serif;
+        font-size: 14px;
+        line-height: 26px;
+        border-radius: 28px;
+        padding: 0 12px 0 34px;
+        cursor: pointer;
+        @include mq(tablet) {
+          bottom: 12px;
+          font-size: 15px;
+        }
+        @include mq(desktop) {
+          font-size: 16.5px;
+        }
+        @include mq(wide) {
+          font-size: 15px;
+        }
+        &:before,
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+        }
+        @include tiny-play;
+        &:before {
+          position: absolute;
+          top: 7px;
+          left: 8px;
+        }
+        &:after {
+          height: 16px;
+          top: 5px;
+          left: 27px;
+          width: 1px;
+          background-color: #fb0;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+  &__newsletter {
+    padding: 20px 0;
+    font-family: 'Guardian Egyptian Web', Georgia, serif;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
+    @include mq(desktop) {
+      display: inline-block;
+      transform: translate3d(-74px,-44px,0);
+    }
+    @include mq(wide) {
+      display: inline-block;
+      transform: translate3d(0,0,0);
+      margin-left: 20px;
+    }
+    p {
+      white-space: normal;
+      display: block;
+      max-width: 310px;
+      margin-bottom: 8px;
+      @include new-logo-theguardiandocumentaries();
+      position: relative;
+      padding-top: 90px;
+      &:after {
+        position: absolute;
+        top: -36px;
+        left: 1px;
+        transform-origin: bottom left;
+        transform: scale(0.65);
+      }
+    }
+    iframe {
+      width: 300px;
+      height: 42px;
+      position: relative;
+      right: 1px;
+    }
+  }
+}

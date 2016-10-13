@@ -2,7 +2,7 @@
   color: #f6f6f6;
   background-color: #333;
   margin: 0 auto;
-  padding: 0 10px 100px;
+  padding: 0 10px 30px;
   position: relative;
   font-family: 'Guardian Egyptian Web', Georgia, serif;
 
@@ -160,6 +160,9 @@
     @include mq(leftCol) {
       position: static;
       vertical-align: bottom;
+    }
+    @include mq(wide) {
+      width: 500px;
     }
 
     .logo {
