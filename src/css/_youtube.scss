@@ -54,7 +54,7 @@
     margin: 0 auto;
     @include mq(mobileLandscape) {
       padding: 0 20px 0 20px;
-      width: 580px;
+      width: 560px;
     }
     @include mq(tablet) {
       width: 700px;
@@ -86,15 +86,15 @@
     width: 400px;
     height: 310px;
     bottom: 0;
-    left: 6%;
+    left: 14px;
     margin: 0 auto;
     position: absolute;
     z-index: 1;
     @include mq(mobileLandscape) {
-      left: 3%;
+      left: 10px;
     }
     @include mq(tablet) {
-      left: 2%;
+      left: 3%;
     }
     @include mq(desktop) {
       left: 0;

@@ -2,7 +2,10 @@
   &--wrapper {
     position: relative;
     background-color: $c-grey-dark;
-    padding: 0 20px 40px 20px;
+    padding: 0 10px 40px 10px;
+    @include mq(tablet) {
+      padding: 0 20px 40px 20px;
+    }
     height: 100%;
     display: block;
     font-size: 16px;
