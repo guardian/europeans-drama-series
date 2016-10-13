@@ -131,7 +131,7 @@ export function init(el, context, config) {
         });
 
         builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
-            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters);
+            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
             player.play();
         });
 
