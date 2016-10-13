@@ -234,6 +234,17 @@
   }
 }
 
+@mixin tiny-play {
+  &:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    background-image: svg-url('<svg width="14" height="12" viewBox="9 8 14 12" xmlns="http://www.w3.org/2000/svg"><path fill="#FB0" fill-rule="evenodd" d="M23 14.33v-.62L9.5 8l-.5.4v11.25l.5.35"/></svg>');
+    display: block;
+  }
+}
 
 @mixin new-logo-theguardiandocumentaries {
   &:after {
