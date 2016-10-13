@@ -84,7 +84,7 @@
   }
   &--title {
     width: 400px;
-    height: 310px;
+    height: 350px;
     bottom: 0;
     left: 14px;
     margin: 0 auto;
@@ -117,17 +117,16 @@
     text-shadow: 0 0 36px rgba(51, 51, 51, 0.4);
   }
   &--logo{
-    font-family: "Guardian Titlepiece Web";
-    font-size: 22px;
-    font-weight: 400;
+    width: 250px;
+    height: 121px;
+    overflow: hidden;
+    text-indent: -9999em;
+    @include new-logo-theguardiandocumentaries();
+    position: absolute;
     bottom: 9px;
     z-index: 5;
-    position: absolute;
-    color: white;
-    text-shadow: 0 0 16px rgba(51, 51, 51, 0.4);
-    @include mq(desktop) {
-      font-size: 28px;
-    }
+    transform-origin: bottom left;
+    transform: scale(0.9);
   }
   &--play-button {
     margin-top: 56px;
