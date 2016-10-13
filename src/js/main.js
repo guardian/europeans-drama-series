@@ -71,7 +71,7 @@ export function init(el, context, config) {
         initChapters(builder, config, chapters);
 
         getYouTubeVideoDuration(youTubeTrailerId, function(duration) {
-            builder.querySelector('.docs--actions__trailer__duration').textContent = duration;
+            // builder.querySelector('.docs--actions__trailer__duration').textContent = duration;
         });
 
         getYouTubeVideoDuration(youTubeId, function(duration) {
@@ -98,7 +98,7 @@ export function init(el, context, config) {
 
         const embedContainer = builder.querySelector('.doc-trailer__embed');
 
-        const showTrailer = builder.querySelector('.docs__shows-trailer');
+        const showTrailer = builder.querySelector('#shows-trailer');
         showTrailer.onclick = () => {
             builder.classList.add('show-trailer');
             const embedIframe = document.createElement('iframe');
@@ -139,9 +139,9 @@ export function init(el, context, config) {
             'background-image': `url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`
         });
 
-        setAttributes(builder.querySelector('.cutout'), {
-            src: resp.sheets[config.sheetName][0].nextDocImageUrl
-        });
+        // setAttributes(builder.querySelector('.cutout'), {
+        //     src: resp.sheets[config.sheetName][0].nextDocImageUrl
+        // });
 
         el.parentNode.replaceChild(builder, el);
     });
