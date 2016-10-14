@@ -3,7 +3,7 @@
   "esversion": 6,
   "newcap": true,
   "quotmark": "single",
-  "maxdepth": 3,
+  "maxdepth": 5,
   "browser": true,
   "mocha": false,
   "globals": {}
