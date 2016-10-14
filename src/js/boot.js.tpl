@@ -15,7 +15,7 @@ define([], function() {
             // Loading message while we fetch JS / CSS
             el.innerHTML = '<div style="font-size: 24px; text-align: center; padding: 72px 0; font-family: \'Guardian Egyptian Web\',Georgia,serif;">Loading…</div>';
 
-            const interactiveConfig = {
+            var interactiveConfig = {
                 'assetPath': '<%= assetPath %>',
                 'sheetName': 'gun-nation',
                 'sheetChapter': 'gun-nation-chapters',
@@ -48,7 +48,7 @@ define([], function() {
                     };
                   })();
                 }
-            
+
                 Object.assign(interactiveConfig, config);
             }
 
