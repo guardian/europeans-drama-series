@@ -11,6 +11,8 @@ class Tracker {
     }
 
     buildGoogleAnalyticsEventObject(event) {
+        //TODO replace this polyfill with the babel plugin
+        //see: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Polyfill
         if (typeof Object.assign != 'function') {
             (function () {
                 Object.assign = function (target) {
