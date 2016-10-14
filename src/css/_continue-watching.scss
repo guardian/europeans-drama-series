@@ -97,6 +97,7 @@
     margin-right: -10px;
     max-width: 390px;
     position: relative;
+    pointer-events: none;
     @include mq(tablet) {
       display: inline-block;
       width: 380px;
