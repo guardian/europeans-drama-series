@@ -26,16 +26,6 @@
     &--playing {
       // 103px is the header height (48) + chapters height (55)
       height: calc(100vh - 103px);
-      &:after {
-        content: 'Loading...';
-        display: inline-block;
-        width: 100%;
-        height: calc(100vh - 103px);
-        line-height: calc(100vh - 103px);
-        font-size: 30px;
-        text-align: center;
-        color: $c-grey-lightest;
-      }
     }
 
     position: relative;
