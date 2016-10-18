@@ -75,6 +75,12 @@
       @include mq(tablet) {
         margin-top: 5px;
       }
+      @include mq(leftCol) {
+        font-size: 20px;
+      }
+      @include mq(wide) {
+        font-size: 22px;
+      }
     }
     .details {
       line-height: 18px;
@@ -85,6 +91,7 @@
       display: none;
       @include mq(leftCol) {
         display: block;
+        max-width: 120px;
       }
       @include mq(wide) {
         max-width: none;
@@ -137,14 +144,30 @@
         border-right: 1px dotted #666;
       }
     }
+    .trailer-button,
+    .trailer-duration,
     .section-title {
-      strong {
-        font-weight: 600;
+      display: none;
+    }
+    .watch-now {
+      display: inline-block;
+      color: #fb0;
+      font-weight: 600;
+      font-size: 20px;
+      margin-top: 10px;
+      padding-right: 10px;
+      padding-bottom: 10px;
+      position: relative;
+      @include watch-now();
+      &:after {
+        margin-left: 3px;
+        vertical-align: middle;
       }
     }
     .film-title,
-    .film-synopsis {
-      max-width: 55%;
+    .film-synopsis,
+    .watch-now {
+      max-width: 50%;
       min-width: 117px;
       @include mq(mobileLandscape) {
         max-width: 320px;
@@ -152,10 +175,15 @@
         padding-right: 220px;
       }
       @include mq(tablet) {
-        padding-right: 245px;
+        padding-right: 239px;
       }
       @include mq(desktop) {
         padding-right: 275px;
+      }
+    }
+    .watch-now {
+      @include mq(desktop) {
+        padding-right: 250px;
       }
     }
     .film-title {
@@ -228,10 +256,10 @@
       font-family: 'Guardian Egyptian Web', Georgia, serif;
       margin-top: 20px;
       @include mq(tablet) {
-        margin-top: 139px;
+        margin-top: 133px;
       }
       @include mq(desktop) {
-        margin-top: 94px;
+        margin-top: 74px;
       }
       &__title {
         margin-bottom: 2px;

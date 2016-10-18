@@ -203,6 +203,19 @@
   }
 }
 
+@mixin watch-now {
+  &:after {
+      content: '';
+      background-image: svg-url('<svg width="20" height="20" viewBox="706 573 20 20" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(706 573)"><circle fill="#FB0" cx="10" cy="10" r="10"/><path fill="#333" d="M4 10.33h9.17l-3.6 4.3.47.47 5-5v-.5l-5-5-.47.47 3.6 4.3H4"/></g></svg>');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+  }
+}
+
 @mixin title-desertfire {
   &:after {
     content: '';
