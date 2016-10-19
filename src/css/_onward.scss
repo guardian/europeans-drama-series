@@ -138,11 +138,6 @@
         border-right: 1px dotted #666;
       }
     }
-    .trailer-button,
-    .trailer-duration,
-    .section-title {
-      display: none;
-    }
     .watch-now {
       display: inline-block;
       color: $c-media-default;
@@ -242,9 +237,6 @@
       br {
         display: block;
       }
-    }
-    .section-title {
-
     }
     .email-form {
       font-family: 'Guardian Egyptian Web', Georgia, serif;

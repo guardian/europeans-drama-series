@@ -65,14 +65,9 @@ export function init(el, context, config) {
 
 
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
-        const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeTrailerId;
 
         const chapters = resp.sheets[config.sheetChapter];
         initChapters(builder, config, chapters);
-
-        getYouTubeVideoDuration(youTubeTrailerId, function(duration) {
-            builder.querySelector('.docs--actions__trailer__duration').textContent = duration;
-        });
 
         getYouTubeVideoDuration(youTubeId, function(duration) {
             setData(builder.querySelector('.docs__poster--play-button'), {
@@ -97,23 +92,6 @@ export function init(el, context, config) {
         aboutBody.addEventListener('click', (e) => e.stopPropagation());
 
         const embedContainer = builder.querySelector('.doc-trailer__embed');
-
-        const showTrailer = builder.querySelector('.docs__shows-trailer');
-        showTrailer.onclick = () => {
-            builder.classList.add('show-trailer');
-            const embedIframe = document.createElement('iframe');
-
-            setAttributes(embedIframe, {
-                width: '100%',
-                height: '100%',
-                src: `https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1&rel=0`,
-                frameborder: '0',
-                allowfullscreen: 'true'
-            });
-
-            embedIframe.classList.add('doc-trailer__player');
-            embedContainer.appendChild(embedIframe);
-        };
 
         // Hide the trailer
         const hideTrailerAll = builder.querySelectorAll('.docs__hides-trailer');
