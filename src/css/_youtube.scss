@@ -109,8 +109,6 @@
   &--logo{
     width: 250px;
     height: 121px;
-    overflow: hidden;
-    text-indent: -9999em;
     @include new-logo-theguardiandocumentaries();
     position: absolute;
     bottom: 9px;
