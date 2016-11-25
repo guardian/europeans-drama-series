@@ -69,11 +69,7 @@ export function init(el, context, config) {
 
         const chapters = resp.sheets[config.sheetChapter];
         initChapters(builder, config, chapters);
-
-        getYouTubeVideoDuration(youTubeTrailerId, function(duration) {
-            // builder.querySelector('.docs--actions__trailer__duration').textContent = duration;
-        });
-
+        
         getYouTubeVideoDuration(youTubeId, function(duration) {
             setData(builder.querySelector('.docs__poster--play-button'), {
                 duration: duration
