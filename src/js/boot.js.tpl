@@ -17,8 +17,8 @@ define([], function() {
 
             var interactiveConfig = {
                 'assetPath': '<%= assetPath %>',
-                'sheetName': 'desert-fire',
-                'sheetChapter': 'desert-fire-chapters',
+                'sheetName': 'radical-brownies',
+                'sheetChapter': 'radical-brownies-chapters',
                 'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g',
                 'emailListId': 3745
             };
