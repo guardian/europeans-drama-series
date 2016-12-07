@@ -21,7 +21,7 @@ If you haven't switched node version yet, run `nvm use`. Then start the server `
 Production / deployment
 -----------------------
 
-1. Get `interactivesProd` S3 credentials from Janus
+1. Get `interactives` S3 credentials from Janus
 2. `grunt deploy`
 
 
