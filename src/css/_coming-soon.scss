@@ -1,204 +1,239 @@
 .coming-soon {
-  color: #f6f6f6;
-  background-color: $c-grey-dark;
-  margin: 0 auto;
-  padding: 0 10px 100px;
-  position: relative;
-  font-family: 'Guardian Egyptian Web', Georgia, serif;
-
-  @include mq(tablet) {
-    padding: 0 20px;
-  }
-
-  &:before {
-    content: '';
-    background-color: #999;
-    position: absolute;
-    left: 10px;
-    right: 10px;
-    top: 0;
-    height: 1px;
-    @include mq(tablet) {
-      left: 20px;
-      right: 20px;
-    }
-  }
-
-  @include mq(mobileLandscape) {
-    width: auto;
-    max-width: 580px;
-  }
-  @include mq(tablet) {
-    width: 700px;
-    max-width: none;
-  }
-  @include mq(desktop) {
-    width: 940px;
-  }
-  @include mq(leftCol) {
-    width: 1100px;
-  }
-  @include mq(wide) {
-    width: 1260px;
-  }
-
-  &__container-title {
-    @include mq(desktop) {
-      display: block;
-      width: auto;
-    }
-    @include mq(leftCol) {
-      width: 140px;
-      display: inline-block;
-      vertical-align: top;
-    }
-    @include mq(wide) {
-      width: 220px;
-    }
-
-    color: #999;
-    .title {
-      font-size: 22px;
-    	font-weight: 600;
-      text-transform: lowercase;
-      padding-top: 10px;
-    }
-    .details {
-      line-height: 18px;
-    	font-weight: 200;
-      font-family: 'Guardian Egyptian Web', Georgia, serif;
-      margin-top: 4px;
-      @include mq(leftCol) {
-        // display: none;
-      }
-      @include mq(wide) {
-        display: block;
-        max-width: none;
-      }
-    }
-  }
-  &__contents {
+    color: #f6f6f6;
+    background-color: $c-grey-dark;
+    margin: 0 auto;
+    padding: 0 10px 100px;
     position: relative;
-    margin-left: 0;
-    width: 100%;
-    white-space: nowrap;
-    @include mq(tablet) {
-      width: auto;
-    }
-    @include mq(leftCol) {
-      display: inline-block;
-      width: 940px;
-      margin-left: 15px;
-      margin-top: 10px;
-    }
-    @include mq(wide) {
-      width: 1020px;
-    }
-  }
-  &__poster {
-    overflow-x: scroll;
-    width: 540px;
-    margin: 10px 0 0 -10px;
-    @include mq(tablet) {
-      // needed for IE
-      overflow: auto;
-      overflow-x: auto;
-      overflow-y: hidden;
-      height: 184px;
-    }
-    @include mq(desktop) {
-      transform-origin: top left;
-      transform: scale(0.866);
-      display: inline-block;
-    }
-    @include mq(leftCol) {
-      // margin-left: 150px;
-    }
-    @include mq(wide) {
-      transform: none;
-      // margin-left: 230px;
-    }
-    .poster {
-      display: inline-block;
-      position: relative;
-      width: 100%;
-      height: 184px;
-      overflow: hidden;
-      margin-right: 10px;
-      @include mq(tablet) {
-        width: 100%;
-        height: 184px;
-        margin-right: 20px;
-      }
-      &__image,
-      &__title {
-        display: block;
-        position: absolute;
-      }
-      &__image {
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-      }
-      &__title {
-        display: none;
-        bottom: 5px;
-        left: 7px;
-        font-family: 'Guardian Egyptian Web', Georgia, serif;
-        font-weight: 500;
-        font-size: 42px;
-        line-height: 38px;
-        @include mq(tablet) {
-          font-size: 52px;
-          line-height: 46px;
-        }
-        &.on-the-road {
-          color: #FFEBF6;
-          text-shadow: 0 0 12px rgba(51,51,51, 0.5);
-          bottom: 48px;
-        }
-      }
-    }
-  }
-  &__newsletter {
-    padding: 20px 0;
     font-family: 'Guardian Egyptian Web', Georgia, serif;
-    font-size: 16px;
-    line-height: 18px;
-    font-weight: 400;
+    @include mq(tablet) {
+        padding: 0 20px;
+    }
+    &:before {
+        content: '';
+        background-color: #fb0;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        top: 0;
+        height: 1px;
+        @include mq(tablet) {
+            left: 20px;
+            right: 20px;
+        }
+    }
+    @include mq(mobileLandscape) {
+        width: auto;
+        max-width: 580px;
+    }
+    @include mq(tablet) {
+        width: 700px;
+        max-width: none;
+    }
     @include mq(desktop) {
-      display: inline-block;
-      transform: translate3d(-74px,-47px,0);
+        width: 940px;
+    }
+    @include mq(leftCol) {
+        width: 1100px;
     }
     @include mq(wide) {
-      display: inline-block;
-      transform: translate3d(0,-4px,0);
-      margin-left: 20px;
+        width: 1260px;
     }
-    p {
-      white-space: normal;
-      display: block;
-      max-width: 310px;
-      margin-bottom: 8px;
-      @include new-logo-theguardiandocumentaries();
-      position: relative;
-      padding-top: 90px;
-      &:after {
-        position: absolute;
-        top: -36px;
-        left: 1px;
-        transform-origin: bottom left;
-        transform: scale(0.65);
-      }
+    &__container-title {
+        @include mq(desktop) {
+            display: block;
+            width: auto;
+        }
+        @include mq(leftCol) {
+            width: 140px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        @include mq(wide) {
+            width: 220px;
+        }
+        .title {
+            color: #fb0;
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: lowercase;
+            padding-top: 10px;
+        }
+        .details {
+            color: #999;
+            line-height: 18px;
+            font-weight: 200;
+            font-family: 'Guardian Egyptian Web', Georgia, serif;
+            margin-top: 4px;
+            @include mq(leftCol) {
+                // display: none;
+            }
+            @include mq(wide) {
+                display: block;
+                max-width: none;
+            }
+        }
     }
-    iframe {
-      width: 300px;
-      height: 42px;
-      position: relative;
-      right: 1px;
+    &__contents {
+        position: relative;
+        margin-left: 0;
+        width: 100%;
+        white-space: nowrap;
+        @include mq(tablet) {
+            width: auto;
+        }
+        @include mq(leftCol) {
+            display: inline-block;
+            width: 940px;
+            margin-left: 15px;
+            margin-top: 10px;
+        }
+        @include mq(wide) {
+            width: 1020px;
+        }
     }
-  }
+    &__poster {
+        overflow-x: scroll;
+        margin: 0;
+        vertical-align: top;
+        @include mq(tablet) {
+            // needed for IE
+            overflow: auto;
+            overflow-x: auto;
+            overflow-y: hidden;
+            height: 184px;
+            width: 100%;
+        }
+        @include mq(desktop) {
+            transform-origin: top left;
+            transform: scale(0.866);
+            display: inline-block;
+            width: 540px;
+        }
+        @include mq(leftCol) {
+            // margin-left: 150px;
+        }
+        @include mq(wide) {
+            transform: none;
+            // margin-left: 230px;
+        }
+        .poster {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            height: 184px;
+            overflow: hidden;
+            margin-right: 10px;
+            @include mq(tablet) {
+                width: 100%;
+                height: 184px;
+                margin-right: 20px;
+            }
+            &__image,
+            &__title,
+            &__strapline,
+            &__release {
+                display: block;
+                position: absolute;
+                white-space: normal;
+            }
+            &__title,
+            &__strapline {
+                font-family: 'Guardian Egyptian Web', Georgia, serif;
+            }
+            &__strapline,
+            &__release {
+                color: $c-white;
+            }
+            &__image,
+            &__gradient {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+            }
+            &__title {
+                top: 5px;
+                left: 10px;
+                font-weight: 100;
+                font-size: 40px;
+                line-height: 45px;
+                color: $c-grey-dark;
+                // @include mq(tablet) {
+                //   font-size: 25px;
+                //   line-height: 30px;
+                // }
+                // &.on-the-road {
+                //   color: #FFEBF6;
+                //   text-shadow: 0 0 12px rgba(51,51,51, 0.5);
+                //   bottom: 48px;
+                // }
+            }
+            &__strapline {
+                bottom: 5px;
+                left: 10px;
+                font-weight: 400;
+                width: 60%;
+                font-size: 18px;
+                line-height: 20px;
+            }
+            &__release {
+                bottom: 0px;
+                right: 10px;
+                font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-size: 15px;
+                line-height: 20px;
+                text-align: right;
+                padding: 0 0 5px 5px;
+                border-left: 1px solid rgba(255, 255, 255, 0.5);
+            }
+            &__gradient {
+                background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
+                background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
+                position: absolute;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    &__newsletter {
+        padding: 20px 0;
+        font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+        @include mq(desktop) {
+            display: inline-block;
+            transform: translate3d(-54px, -20px, 0);
+        }
+        @include mq(wide) {
+            display: inline-block;
+            transform: translate3d(0, -4px, 0);
+            margin-left: 20px;
+        }
+        p {
+            white-space: normal;
+            display: block;
+            max-width: 310px;
+            margin-bottom: 8px;
+            @include new-logo-theguardiandocumentaries();
+            position: relative;
+            padding-top: 90px;
+            &:after {
+                position: absolute;
+                top: -36px;
+                left: 1px;
+                transform-origin: bottom left;
+                transform: scale(0.65);
+            }
+        }
+        iframe {
+            width: 300px;
+            height: 42px;
+            position: relative;
+            right: 1px;
+        }
+    }
 }

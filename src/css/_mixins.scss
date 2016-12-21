@@ -255,7 +255,19 @@
     background-size: 100%;
     display: block;
     float: left;
-    width: 250px;
-    height: 121px;
+    width: 219px;
+    height: 106px;
+  }
+}
+
+@mixin info {
+  &:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-image: svg-url('<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="6F-25-11-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="January-design" transform="translate(-222.000000, -696.000000)"> <g id="Main" transform="translate(84.000000, 691.000000)"> <g id="Supporter" transform="translate(0.000000, 3.000000)"> <g id="Group-4"> <g id="About-these-films" transform="translate(138.000000, 2.000000)"> <g id="Group-11"> <circle id="Oval-2" fill="#333333" cx="11" cy="11" r="11"></circle> <path d="M9.25538462,18.0307692 C10.3261538,18.0307692 11.5076923,17.7538462 12.1538462,17.4769231 L12.56,16.2769231 L10.9538462,16.2769231 L13.4461538,8.04307692 L13.2061538,7.89538462 L9.07076923,8.41230769 L8.68307692,9.81538462 L10.0861538,9.81538462 L8.09230769,16.5353846 C8.01846154,16.7569231 8,16.9415385 8,17.1076923 C8,17.7907692 8.53538462,18.0307692 9.25538462,18.0307692 Z M12.3384615,6.80615385 C13.2061538,6.80615385 14,6.25230769 14,5.27384615 C14,4.51692308 13.4092308,4 12.5415385,4 C11.6923077,4 10.8984615,4.57230769 10.8984615,5.53230769 C10.8984615,6.28923077 11.4892308,6.80615385 12.3384615,6.80615385 Z" id="i" fill="#BDBDBD"></path> </g> </g> </g> </g> </g> </g> </g> </svg>');
+    display: block;
   }
 }

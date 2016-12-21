@@ -246,15 +246,12 @@
       vertical-align: top;
       padding-right: 5px;
       @include mq(mobileLandscape) {
-        display: block;
         line-height: 20px;
       }
       @include mq(tablet) {
-        display: inline-block;
         line-height: 47px;
       }
       @include mq(leftCol) {
-        display: block;
         line-height: 20px;
       }
     }
@@ -266,7 +263,7 @@
         display: block;
         width: 115px;
         height: 47px;
-        background-image: url('https://interactive.guim.co.uk/video-docs-assets/bertha-logo@3x.png');
+        background-image: url('https://uploads.guim.co.uk/2016/12/21/bertha-foundation-logo-grey.png');
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 100%;
@@ -280,21 +277,19 @@
       }
     }
     &-aboutfilms {
-      font-size: 12px;
+      @include info;
       cursor: pointer;
+      display: inline-block;
+      margin-left: 10px;
       @include mq(mobile) {
-        display: block;
-        margin-left: 95px;
       }
       @include mq(mobileLandscape) {
-        margin-left: 0;
       }
       @include mq(tablet) {
-        display: block;
-        margin-left: 95px;
+        margin-top: 0px;
       }
       @include mq(leftCol) {
-        margin: 0;
+        margin-top: -10px;
       }
     }
   }

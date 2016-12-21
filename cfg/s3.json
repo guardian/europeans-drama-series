@@ -1,9 +1,5 @@
 {
 	"bucket": "gdn-cdn",
-<<<<<<< HEAD
-	"path": "2016/10/docs-desert-fire",
-=======
 	"path": "2016/12/radical-brownies",
->>>>>>> e714a4d... add config
 	"domain": "https://interactive.guim.co.uk/"
 }
