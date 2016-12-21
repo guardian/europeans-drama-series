@@ -2,11 +2,11 @@
     color: #f6f6f6;
     background-color: $c-grey-dark;
     margin: 0 auto;
-    padding: 0 10px 100px;
+    padding: 0 20px 30px 20px;
     position: relative;
     font-family: 'Guardian Egyptian Web', Georgia, serif;
     @include mq(tablet) {
-        padding: 0 20px;
+        padding: 0 20px 30px 20px;
     }
     &:before {
         content: '';
@@ -92,14 +92,9 @@
         }
     }
     &__poster {
-        overflow-x: scroll;
         margin: 0;
         vertical-align: top;
         @include mq(tablet) {
-            // needed for IE
-            overflow: auto;
-            overflow-x: auto;
-            overflow-y: hidden;
             height: 184px;
             width: 100%;
         }
@@ -138,7 +133,7 @@
             }
             &__title,
             &__strapline {
-                font-family: 'Guardian Egyptian Web', Georgia, serif;
+                @include fs-headline(3);
             }
             &__strapline,
             &__release {
@@ -159,7 +154,7 @@
                 font-weight: 100;
                 font-size: 40px;
                 line-height: 45px;
-                color: $c-grey-dark;
+                color: #940000;
                 // @include mq(tablet) {
                 //   font-size: 25px;
                 //   line-height: 30px;
@@ -199,18 +194,18 @@
         }
     }
     &__newsletter {
-        padding: 20px 0;
+        padding: 0;
         font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
         font-size: 16px;
         line-height: 18px;
         font-weight: 400;
         @include mq(desktop) {
             display: inline-block;
-            transform: translate3d(-54px, -20px, 0);
+            // transform: translate3d(-54px, -20px, 0);
         }
         @include mq(wide) {
             display: inline-block;
-            transform: translate3d(0, -4px, 0);
+            // transform: translate3d(0, -4px, 0);
             margin-left: 20px;
         }
         p {

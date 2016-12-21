@@ -51,7 +51,7 @@
         @include mq(wide) {
             width: 220px;
         }
-        color: #999;
+        color: $c-grey-light;
         .title {
             font-size: 22px;
             font-weight: 600;
@@ -108,11 +108,10 @@
             width: 155px;
             height: 210px;
             overflow: hidden;
-            margin-right: 10px;
+            margin-right: 20px;
             @include mq(tablet) {
                 width: 220px;
                 height: 290px;
-                margin-right: 20px;
             }
             &:first-child {
                 margin-left: 10px;
@@ -123,8 +122,6 @@
             &__image {
                 display: block;
                 position: absolute;
-            }
-            &__image {
                 top: 0;
                 left: 0;
                 right: 0;
@@ -135,9 +132,10 @@
             &__title,
             &__strapline {
                 font-family: 'Guardian Egyptian Web', Georgia, serif;
-                font-size: 18px;
-                line-height: 22px;
+                font-size: 16px;
+                line-height: 20px;
                 white-space: normal;
+                color: $c-white;
                 @include mq(tablet) {
                     // font-size: 52px;
                     // line-height: 46px;
@@ -152,18 +150,17 @@
             &__cta {
                 display: block;
                 position: absolute;
-                left: 7px;
-                bottom: 11px;
-                color: #fff;
-                border: 1px solid #fff;
+                left: 0;
+                bottom: 0;
+                color: $c-grey-light;
+                border: 1px solid $c-grey-light;
                 font-family: 'Guardian Sans Web', sans-serif;
                 font-size: 14px;
-                line-height: 26px;
+                line-height: 27px;
                 border-radius: 28px;
-                padding: 0 12px 0 34px;
+                padding: 0 14px 0 38px;
                 cursor: pointer;
                 @include mq(tablet) {
-                    bottom: 12px;
                     font-size: 15px;
                 }
                 @include mq(desktop) {
@@ -182,15 +179,25 @@
                 &:before {
                     position: absolute;
                     top: 7px;
-                    left: 8px;
+                    left: 12px;
                 }
                 &:after {
                     height: 16px;
-                    top: 5px;
-                    left: 27px;
+                    top: 6px;
+                    left: 30px;
                     width: 1px;
-                    background-color: #fff;
+                    background-color: $c-grey-light;
                     opacity: 0.5;
+                }
+                &:hover {
+                    text-decoration: none;
+                    border: solid 1px $c-media-default;
+                    background-color: $c-media-default;
+                    color: $c-grey-dark;
+                    @include tiny-play-dark;
+                    &:after {
+                        background-color: $c-grey-dark;
+                    }
                 }
             }
         }
