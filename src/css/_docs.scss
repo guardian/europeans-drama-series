@@ -243,15 +243,16 @@
             display: inline-block;
             margin: 0 0 10px 5px;
             line-height: 47px;
-            padding-right: 5px;
-            @include mq(mobileLandscape) {
-                line-height: 20px;
-            }
-            @include mq(tablet) {
-                line-height: 47px;
+            @include mq(mobile) {
+                font-size: 12px;
+                margin: 0;
+                vertical-align: top;
+                line-height: 15px;
+                padding: 0;
             }
             @include mq(leftCol) {
                 line-height: 20px;
+                padding-right: 5px;
             }
         }
         &-logo {
@@ -279,10 +280,14 @@
             @include info;
             cursor: pointer;
             display: inline-block;
-            @include mq(mobile) {}
-            @include mq(mobileLandscape) {}
-            @include mq(tablet) {}
-            @include mq(leftCol) {}
+            @include mq(mobile) {
+                vertical-align: top;
+                padding-right: 5px;
+                margin-top: -5px;
+            }
+            @include mq(leftCol) {
+                margin-top: 0;
+            }
         }
     }
     &--timestamp {

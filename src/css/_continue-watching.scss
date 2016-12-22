@@ -2,12 +2,9 @@
     color: #f6f6f6;
     background-color: $c-grey-dark;
     margin: 0 auto;
-    padding: 0 10px 100px;
+    padding: 0 20px 20px;
     position: relative;
     font-family: 'Guardian Egyptian Web', Georgia, serif;
-    @include mq(tablet) {
-        padding: 0 20px 20px;
-    }
     &:before {
         content: '';
         background-color: #999;
@@ -34,11 +31,16 @@
     }
     @include mq(leftCol) {
         width: 1100px;
+        padding-bottom: 0;
     }
     @include mq(wide) {
         width: 1260px;
+        padding-bottom: 20px;
     }
     &__container-title {
+        @include mq(mobile) {
+            padding: 5px 0 10px 0;
+        }
         @include mq(desktop) {
             display: block;
             width: auto;
@@ -56,14 +58,12 @@
             font-size: 22px;
             font-weight: 600;
             text-transform: lowercase;
-            padding-top: 10px;
         }
     }
     &__contents {
         position: relative;
         margin-left: 0;
         width: 100%;
-        white-space: nowrap;
         @include mq(tablet) {
             width: auto;
         }
@@ -78,47 +78,39 @@
         }
     }
     &__posters {
-        overflow-x: scroll;
-        width: 100vw;
         margin: 0 0 0 -10px;
         @include mq(tablet) {
-            // needed for IE
-            overflow: auto;
-            overflow-x: auto;
-            overflow-y: auto;
-            height: 295px;
+            height: auto;
+            transform: none;
         }
         @include mq(desktop) {
             transform-origin: top left;
-            transform: scale(0.866);
+            // transform: scale(0.866);
             display: inline-block;
             width: auto;
         }
         @include mq(leftCol) {
-            // margin-left: 150px;
+            transform: scale(0.9);
         }
         @include mq(wide) {
             transform: none;
-            // margin-left: 230px;
+        }
+        .responsive-stack {
+            display: inline-block;
         }
         .poster,
         .poster-info {
             display: inline-block;
             position: relative;
-            width: 155px;
-            height: 210px;
-            overflow: hidden;
             margin-right: 20px;
-            @include mq(tablet) {
-                width: 220px;
-                height: 290px;
-            }
             &:first-child {
                 margin-left: 10px;
             }
             &:last-child {
                 margin-right: 0;
             }
+        }
+        .poster {
             &__image {
                 display: block;
                 position: absolute;
@@ -129,6 +121,27 @@
                 width: 100%;
                 height: 100%;
             }
+            @include mq(mobile) {
+                width: 155px;
+                height: 210px;
+                margin-right: 10px;
+            }
+              @include mq(tablet) {
+                width: 220px;
+                height: 290px;
+                margin-right: 10px;
+            }
+            // @include mq(mobile) {
+            //     width: 155px;
+            //     height: 210px;
+            // }
+            // @include mq(desktop) {
+            //     width: 220px;
+            //     height: 290px;
+            //     margin-right: 10px;
+            // }
+        }
+        .poster-info {
             &__title,
             &__strapline {
                 font-family: 'Guardian Egyptian Web', Georgia, serif;
@@ -136,10 +149,6 @@
                 line-height: 20px;
                 white-space: normal;
                 color: $c-white;
-                @include mq(tablet) {
-                    // font-size: 52px;
-                    // line-height: 46px;
-                }
             }
             &__title {
                 font-weight: 900;
@@ -148,23 +157,30 @@
                 font-weight: 100;
             }
             &__cta {
-                display: block;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                color: $c-grey-light;
-                border: 1px solid $c-grey-light;
                 font-family: 'Guardian Sans Web', sans-serif;
                 font-size: 14px;
                 line-height: 27px;
-                border-radius: 28px;
-                padding: 0 14px 0 38px;
                 cursor: pointer;
-                @include mq(tablet) {
-                    font-size: 15px;
+                color: $c-grey-light;
+                @include mq(mobile) {
+                    font-size: 16px;
+                    position: relative;
+                    display: inline-block;
+                    margin-top: 5px;
+                    border: none;
+                    padding-left: 0;
+                    font-weight: bolder;
                 }
                 @include mq(desktop) {
                     font-size: 16.5px;
+                    font-weight: 400;
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    border: 1px solid $c-grey-light;
+                    border-radius: 28px;
+                    padding: 0 14px 0 38px;
                 }
                 @include mq(wide) {
                     font-size: 15px;
@@ -178,8 +194,14 @@
                 @include tiny-play;
                 &:before {
                     position: absolute;
-                    top: 7px;
+                    top: 7.5px;
                     left: 12px;
+                    @include mq(mobile) {
+                        left: 82px;
+                    }
+                    @include mq(desktop) {
+                        left: 12px;
+                    }
                 }
                 &:after {
                     height: 16px;
@@ -188,6 +210,12 @@
                     width: 1px;
                     background-color: $c-grey-light;
                     opacity: 0.5;
+                    @include mq(mobile) {
+                        display: none;
+                    }
+                    @include mq(desktop) {
+                        display: block;
+                    }
                 }
                 &:hover {
                     text-decoration: none;
@@ -200,6 +228,22 @@
                     }
                 }
             }
+            @include mq(mobile) {
+                display: block;
+                margin: 5px 0 0 10px;
+                height: auto;
+                width: 155px;
+                height: 210px;
+            }
+            @include mq(desktop) {
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                width: 220px;
+                height: 290px;
+                margin-right: 20px;
+            }
+            
         }
     }
 }
