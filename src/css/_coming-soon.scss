@@ -2,7 +2,7 @@
     color: #f6f6f6;
     background-color: $c-grey-dark;
     margin: 0 auto;
-    padding: 0 20px 30px 20px;
+    padding: 0 10px 30px 10px;
     position: relative;
     font-family: 'Guardian Egyptian Web', Georgia, serif;
     @include mq(tablet) {
@@ -56,14 +56,14 @@
             font-size: 22px;
             font-weight: 600;
             text-transform: lowercase;
-            padding-top: 10px;
+            padding-top: 5px;
         }
         .details {
             color: #999;
             line-height: 18px;
             font-weight: 200;
             font-family: 'Guardian Egyptian Web', Georgia, serif;
-            margin-top: 4px;
+            margin: 4px 0 8px 0;
             @include mq(leftCol) {
                 // display: none;
             }
@@ -94,22 +94,12 @@
     &__poster {
         margin: 0;
         vertical-align: top;
-        @include mq(tablet) {
-            height: 184px;
-            width: 100%;
-        }
+        height: 184px;
+        width: 100%;
+        display: inline-block;
         @include mq(desktop) {
-            transform-origin: top left;
-            transform: scale(0.866);
-            display: inline-block;
             width: 540px;
-        }
-        @include mq(leftCol) {
-            // margin-left: 150px;
-        }
-        @include mq(wide) {
-            transform: none;
-            // margin-left: 230px;
+            margin-right: 20px;
         }
         .poster {
             display: inline-block;
@@ -122,6 +112,12 @@
                 width: 100%;
                 height: 184px;
                 margin-right: 20px;
+            }
+            &__image {
+                background-image: url('https://uploads.guim.co.uk/2016/12/20/next-doc-image.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: 0, 0;
             }
             &__image,
             &__title,
@@ -155,15 +151,6 @@
                 font-size: 40px;
                 line-height: 45px;
                 color: #940000;
-                // @include mq(tablet) {
-                //   font-size: 25px;
-                //   line-height: 30px;
-                // }
-                // &.on-the-road {
-                //   color: #FFEBF6;
-                //   text-shadow: 0 0 12px rgba(51,51,51, 0.5);
-                //   bottom: 48px;
-                // }
             }
             &__strapline {
                 bottom: 5px;
@@ -215,13 +202,20 @@
             margin-bottom: 8px;
             @include new-logo-theguardiandocumentaries();
             position: relative;
-            padding-top: 90px;
+            padding-top: 10px;
+            @include mq(desktop) {
+                padding-top: 90px;
+            }
             &:after {
                 position: absolute;
                 top: -36px;
                 left: 1px;
                 transform-origin: bottom left;
                 transform: scale(0.65);
+                display: none;
+                @include mq(desktop) {
+                    display: block;
+                }
             }
         }
         iframe {
