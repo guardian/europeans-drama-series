@@ -1,17 +1,17 @@
 import mainHTML from './text/main.html!text';
-import {PimpedYouTubePlayer, getYouTubeVideoDuration} from './lib/youtube';
+import { PimpedYouTubePlayer, getYouTubeVideoDuration } from './lib/youtube';
 import share from './lib/share';
 import sheetToDomInnerHtml from './lib/sheettodom';
 import emailsignupURL from './lib/emailsignupURL';
-import {setAttributes, setData, setStyles} from './lib/dom';
+import { setAttributes, setData, setStyles } from './lib/dom';
 
 function initChapters(rootEl, config, chapters) {
-    chapters.sort((a,b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
+    chapters.sort((a, b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
 
-    chapters.forEach(function(chapter, index){
+    chapters.forEach(function(chapter, index) {
         chapter.start = parseInt(chapter.chapterTimestamp);
-        if(chapters.length > index+1){
-            const nextChapter = chapters[index+1];
+        if (chapters.length > index + 1) {
+            const nextChapter = chapters[index + 1];
             chapter.end = parseInt(nextChapter.chapterTimestamp);
         }
     });
@@ -23,7 +23,7 @@ function initChapters(rootEl, config, chapters) {
     const ul = document.createElement('ul');
     ul.classList.add('docs--chapters');
 
-    chapters.forEach( function(chapter, index){
+    chapters.forEach(function(chapter, index) {
         const dataLinkName = getDataLinkName(chapter.chapterTitle);
         const li = document.createElement('li');
 
@@ -55,7 +55,7 @@ export function init(el, context, config) {
     const builder = document.createElement('div');
     builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
-    sheetToDomInnerHtml(config.sheetId, config.sheetName, builder, function callback(resp){
+    sheetToDomInnerHtml(config.sheetId, config.sheetName, builder, function callback(resp) {
         var shareFn = share(resp.sheets[config.sheetName][0].title, window.location);
 
         [].slice.apply(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
@@ -69,7 +69,7 @@ export function init(el, context, config) {
 
         const chapters = resp.sheets[config.sheetChapter];
         initChapters(builder, config, chapters);
-        
+
         getYouTubeVideoDuration(youTubeId, function(duration) {
             setData(builder.querySelector('.docs__poster--play-button'), {
                 duration: duration
@@ -83,7 +83,7 @@ export function init(el, context, config) {
         const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
 
         //Show the long description
-        showMoreBtn.onclick = function(){
+        showMoreBtn.onclick = function() {
             hiddenDesc.classList.toggle('docs--show-longdesc');
         };
 
@@ -126,19 +126,39 @@ export function init(el, context, config) {
             src: emailsignupURL(config.emailListId)
         });
 
+
         builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
             const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
             player.play();
         });
 
+
         setStyles(builder.querySelector('.docs__poster--image'), {
             'background-image': `url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`
         });
 
-        // setAttributes(builder.querySelector('.cutout'), {
-        //     src: resp.sheets[config.sheetName][0].nextDocImageUrl
-        // });
+        setStyles(builder.querySelector('.coming-soon-background'), {
+            'background-image': `url('${resp.sheets[config.sheetName][0].comingSoonImageUrl}')`
+        });
+
+        setAttributes(builder.querySelector('.poster__image--one'), {
+            src: resp.sheets[config.sheetName][0].nextDocOneImage
+        });
+
+        setAttributes(builder.querySelector('.poster__image--two'), {
+            src: resp.sheets[config.sheetName][0].nextDocTwoImage
+        });
+
+        setAttributes(builder.querySelector('.nextDocOneLinkURL'), {
+            href: resp.sheets[config.sheetName][0].nextDocOneLink,
+
+        });
+
+        setAttributes(builder.querySelector('.nextDocTwoLinkURL'), {
+            href: resp.sheets[config.sheetName][0].nextDocTwoLink
+        });
 
         el.parentNode.replaceChild(builder, el);
     });
+
 }

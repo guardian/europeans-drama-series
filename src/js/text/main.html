@@ -7,7 +7,7 @@
             <div class="docs__poster--title-wrapper">
                 <div class="docs__poster--logo">theguardian<span class="docs__poster--yellow">documentaries</span></div>
                 <div class="docs__poster--title">
-                    <div class="docs__poster--play-button" data-duration="25:31"></div>
+                    <div class="docs__poster--play-button" id="auto-play-progress"></div>
                     <div class="docs__poster--headline" data-sheet-attribute="title"></div>
                     <div class="docs__poster--stop-button">Stop</div>
                 </div>
@@ -66,26 +66,23 @@
             <div class='continue-watching__posters'>
                 <div class="responsive-stack">
                     <div class='poster'>
-                        <img class='poster__image' src='https://uploads.guim.co.uk/2016/12/12/gun-nation-poster.png'>
+                        <img class='poster__image poster__image--one' src=''>
                     </div>
                     <div class='poster-info'>
-                        <span class="poster-info__title">Gun Nation</span>
-                        <p class="poster-info__strapline">A unsettling journey to the heart of America's deadly love affair with the gun</p>
-                        <a class='poster-info__cta'>Watch now</a>
+                        <span class="poster-info__title" data-sheet-attribute="nextDocOneTitle"></span>
+                        <p class="poster-info__strapline" data-sheet-attribute="nextDocOneStrapline"></p>
+                        <a class='poster-info__cta nextDocOneLinkURL' href="">Watch now</a>
                     </div>
                 </div>
                 <div class="responsive-stack">
                     <div class='poster'>
-                        <img class='poster__image' src='https://uploads.guim.co.uk/2016/12/12/desert-fire-poster.png'>
+                        <img class='poster__image poster__image--two' src=''>
                     </div>
                     <div class='poster-info'>
-                        <span class="poster-info__title">Desert Fire</span>
-                        <p class="poster-info__strapline">The dreams of the Kurdistan football team in the rebel world cup</p>
-                        <a class='poster-info__cta'>Watch now</a>
+                        <span class="poster-info__title" data-sheet-attribute="nextDocTwoTitle"></span>
+                        <p class="poster-info__strapline" data-sheet-attribute="nextDocTwoStrapline"></p>
+                        <a class='poster-info__cta nextDocTwoLinkURL' href="">Watch now</a>
                     </div>
-                </div>
-                <div class="responsive-stack">
-                    <div class='more-soon'></div>
                 </div>
             </div>
         </div>
@@ -98,11 +95,11 @@
         <div class='coming-soon__contents'>
             <div class='coming-soon__poster'>
                 <div class='poster on-the-road' id='shows-trailer' data-link-name="play-trailer">
-                    <div class='poster__image'></div>
+                    <div class='poster__image coming-soon-background'></div>
                     <div class='poster__gradient'></div>
-                    <div class='poster__title'>Mars on Earth</div>
-                    <div class='poster__strapline'>The fourth planet from the Sun and the second-smallest planet in the Solar System, after Mercury.</div>
-                    <div class='poster__release'>Out 12 Feb</div>
+                    <div class='poster__title' data-sheet-attribute="comingSoonTitle"></div>
+                    <div class='poster__strapline' data-sheet-attribute="comingSoonStrapline"></div>
+                    <div class='poster__release' data-sheet-attribute="comingSoonDate"></div>
                 </div>
             </div>
             <div class='coming-soon__newsletter'>

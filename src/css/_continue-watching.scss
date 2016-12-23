@@ -102,8 +102,7 @@
             display: inline-block;
         }
         .poster,
-        .poster-info,
-        .more-soon {
+        .poster-info {
             display: inline-block;
             position: relative;
             margin-right: 20px;
@@ -114,20 +113,7 @@
                 margin-right: 0;
             }
         }
-        .more-soon {
-            display: none;
-            @include mq(mobileLandscape) {
-                position: absolute;
-                top: 0;
-                display: inline-block;
-                background-color: rgba(255,255,255,0.1);
-            }
-            @include mq(desktop) {
-                display: none;
-            }
-        }
-        .poster,
-        .more-soon {
+        .poster {
             width: 130px;
             height: 173.4px;
             margin-right: 0px;
@@ -179,14 +165,11 @@
             &__title,
             &__strapline {
                 font-family: 'Guardian Egyptian Web', Georgia, serif;
-                font-size: 14px;
-                line-height: 16px;
+                font-size: 16px;
+                line-height: 20px;
                 white-space: normal;
                 color: $c-white;
-                @include mq(mobileLandscape) {
-                    font-size: 16px;
-                    line-height: 20px;
-                }
+               
             }
             &__title {
                 font-weight: 900;
