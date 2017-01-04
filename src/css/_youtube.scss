@@ -144,11 +144,32 @@
         transition: all 160ms;
         backface-visibility: hidden;
         vertical-align: top;
-        &:hover {
-            cursor: pointer;
-            transform: scale(1.05);
-        }
+        position: relative;
+        cursor: pointer;
         @include icon-play;
+
+        .autoplay-timer {
+          display: none;
+        }
+        &.will-autoplay {
+          .autoplay-timer {
+            display: block;
+            overflow: visible;
+            transform: rotate(-90deg);
+            circle {
+              fill-opacity: 0;
+              stroke: #333;
+              stroke-width: 4px;
+              stroke-dasharray: 0 314px;
+              animation: closeDashArray 8s linear forwards;
+              transition: all 600ms;
+            }
+          }
+        }
+
+        &:hover {
+          transform: scale(1.05);
+        }
     }
     &--stop-button {
         display: none;
@@ -166,4 +187,10 @@
     &--yellow {
         color: $c-media-default;
     }
+}
+
+
+@keyframes closeDashArray {
+    0%   {stroke-dasharray: 0 314px;}
+    100%  {stroke-dasharray: 314px 314px;}
 }
