@@ -166,25 +166,24 @@ export function init(el, context, config) {
         });
 
         // to-do
-        // let autoplayTimeout;
-        // use this for the timeout
+        let autoplayTimeout;
 
         if (shouldAutoPlay && !isMobile()) {
-            builder.querySelector('.docs__poster--play-button').classList.add('will-autoplay');
-            setTimeout(()=> {
-              builder.querySelector('.docs__poster--play-button').classList.remove('will-autoplay');
+            builder.querySelector('.docs__poster--title').classList.add('will-autoplay');
+            autoplayTimeout = setTimeout(()=> {
+              builder.querySelector('.docs__poster--title').classList.remove('will-autoplay');
               const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
               player.play();
             }, 8000);
         }
 
-
-        // show stop button only when will-autoplay
-        // .will-autoplay+.stop-button
-        // e.stopPropagation();
-
-        // on click stop button, clearTimeout(autoplayTimeout);
-        // make sure the stop button has a data-link-name
+        console.log('hi 8');
+        builder.querySelector('.docs__poster--autoplay-stop-button').addEventListener('click', function(e) {
+          e.stopPropagation();
+          clearTimeout(autoplayTimeout);
+          builder.querySelector('.docs__poster--title').classList.remove('will-autoplay');
+          builder.querySelector('.docs__poster--title').classList.add('cancelled-autoplay');
+        });
 
     });
 
