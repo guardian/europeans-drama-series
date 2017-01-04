@@ -1,9 +1,10 @@
 import mainHTML from './text/main.html!text';
-import { PimpedYouTubePlayer, getYouTubeVideoDuration } from './lib/youtube';
+import { PimpedYouTubePlayer } from './lib/youtube';
 import share from './lib/share';
 import sheetToDomInnerHtml from './lib/sheettodom';
 import emailsignupURL from './lib/emailsignupURL';
 import { setAttributes, setData, setStyles } from './lib/dom';
+import { isMobile } from './lib/detect';
 
 function initChapters(rootEl, config, chapters) {
     chapters.sort((a, b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
@@ -70,12 +71,6 @@ export function init(el, context, config) {
         const chapters = resp.sheets[config.sheetChapter];
         initChapters(builder, config, chapters);
 
-        getYouTubeVideoDuration(youTubeId, function(duration) {
-            setData(builder.querySelector('.docs__poster--play-button'), {
-                duration: duration
-            });
-        });
-
         const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
         const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
         const aboutBody = builder.querySelector('.docs--about-body');
@@ -127,18 +122,13 @@ export function init(el, context, config) {
         });
 
 
-        builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
-            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
-            player.play();
-        });
-
-
-        setStyles(builder.querySelector('.docs__poster--image'), {
-            'background-image': `url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`
-        });
 
         setStyles(builder.querySelector('.coming-soon-background'), {
             'background-image': `url('${resp.sheets[config.sheetName][0].comingSoonImageUrl}')`
+        });
+
+        setStyles(builder.querySelector('.docs__poster--image'), {
+           'background-image': `url('${resp.sheets[config.sheetName][0].backgroundImageUrl}')`
         });
 
         setAttributes(builder.querySelector('.poster__image--one'), {
@@ -159,6 +149,43 @@ export function init(el, context, config) {
         });
 
         el.parentNode.replaceChild(builder, el);
+
+        const autoplayReferrers = [
+            /^https?:\/\/localhost:8000/,
+            /^https?:\/\/.*.gutools.co.uk/,
+            /^https?:\/\/m.code.dev-theguardian.com/,
+            /^https?:\/\/www.theguardian.com/
+        ];
+
+
+        const shouldAutoPlay = autoplayReferrers.find(ref => ref.test(document.referrer));
+
+        builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
+           const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
+           player.play();
+        });
+
+        // to-do
+        // let autoplayTimeout;
+        // use this for the timeout
+
+        if (shouldAutoPlay && !isMobile()) {
+            builder.querySelector('.docs__poster--play-button').classList.add('will-autoplay');
+            setTimeout(()=> {
+              builder.querySelector('.docs__poster--play-button').classList.remove('will-autoplay');
+              const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
+              player.play();
+            }, 1000);
+        }
+
+
+        // show stop button only when will-autoplay
+        // .will-autoplay+.stop-button
+        // e.stopPropagation();
+
+        // on click stop button, clearTimeout(autoplayTimeout);
+        // make sure the stop button has a data-link-name
+
     });
 
 }
