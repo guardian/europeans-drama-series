@@ -1,5 +1,4 @@
 .continue-watching {
-    opacity: 0.3;
     transition: opacity 400ms;
     color: #f6f6f6;
     background-color: $c-grey-dark;
@@ -43,9 +42,6 @@
         padding-bottom: 20px;
     }
 
-    &.fade-in {
-      opacity: 1;
-    }
 
     &__container-title {
         @include mq(mobile) {

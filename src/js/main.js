@@ -182,7 +182,6 @@ export function init(el, context, config) {
             }, 8000);
         }
 
-        console.log('hi 8');
         builder.querySelector('.docs__poster--autoplay-stop-button').addEventListener('click', function(e) {
           e.stopPropagation();
           clearTimeout(autoplayTimeout);
@@ -193,3 +192,19 @@ export function init(el, context, config) {
     });
 
 }
+
+
+
+window.addEventListener('scroll', function(e) {
+  var s = window.scrollY;
+  var faders = document.querySelectorAll('.should-fade-in')
+  if (s==0) {
+    for (var i = 0; i < faders.length; i++) {
+      faders[i].classList.remove('fade-in');
+    }
+  } else {
+    for (var i = 0; i < faders.length; i++) {
+      faders[i].classList.add('fade-in');
+    }
+  }
+});
