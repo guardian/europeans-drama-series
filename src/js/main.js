@@ -139,12 +139,17 @@ export function init(el, context, config) {
             src: resp.sheets[config.sheetName][0].nextDocTwoImage
         });
 
-        setAttributes(builder.querySelector('.nextDocOneLinkURL'), {
-            href: resp.sheets[config.sheetName][0].nextDocOneLink,
-
+        setAttributes(builder.querySelectorAll('.nextDocOneLinkURL')[0], {
+            href: resp.sheets[config.sheetName][0].nextDocOneLink
+        });
+        setAttributes(builder.querySelectorAll('.nextDocOneLinkURL')[1], {
+            href: resp.sheets[config.sheetName][0].nextDocOneLink
         });
 
-        setAttributes(builder.querySelector('.nextDocTwoLinkURL'), {
+        setAttributes(builder.querySelectorAll('.nextDocTwoLinkURL')[0], {
+            href: resp.sheets[config.sheetName][0].nextDocTwoLink
+        });
+        setAttributes(builder.querySelectorAll('.nextDocTwoLinkURL')[1], {
             href: resp.sheets[config.sheetName][0].nextDocTwoLink
         });
 
