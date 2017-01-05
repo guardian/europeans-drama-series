@@ -170,7 +170,6 @@ export function init(el, context, config) {
            player.play();
         });
 
-        // to-do
         let autoplayTimeout;
 
         if (shouldAutoPlay && !isMobile()) {
@@ -191,10 +190,13 @@ export function init(el, context, config) {
 
     });
 
-    window.addEventListener('scroll', function(e) {
-      var s = window.scrollY;
-      var faders = document.querySelectorAll('.should-fade-in')
-      if (s==0) {
+    window.addEventListener('scroll', ()=> {
+      const s = window.scrollY;
+      const bodyHeight = document.querySelector('body').offsetHeight;
+      const windowHeight = window.innerHeight;
+      const faders = document.querySelectorAll('.should-fade-in')
+
+      if (s==0 && windowHeight<bodyHeight) {
         for (var i = 0; i < faders.length; i++) {
           faders[i].classList.remove('fade-in');
         }
