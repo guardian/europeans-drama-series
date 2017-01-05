@@ -1,4 +1,6 @@
 .continue-watching {
+    opacity: 0.3;
+    transition: opacity 400ms;
     color: #f6f6f6;
     background-color: $c-grey-dark;
     margin: 0 auto;
@@ -40,6 +42,11 @@
         width: 1260px;
         padding-bottom: 20px;
     }
+
+    &.fade-in {
+      opacity: 1;
+    }
+
     &__container-title {
         @include mq(mobile) {
             padding: 5px 0 10px 0;
@@ -100,6 +107,7 @@
         }
         .responsive-stack {
             display: inline-block;
+            vertical-align: top;
         }
         .poster,
         .poster-info {
@@ -137,7 +145,7 @@
                 margin-right: 5px;
             }
             @include mq(desktop) {
-                margin-right: 20px;
+                margin-right: 17px;
             }
         }
         .poster-info {
@@ -182,26 +190,20 @@
                 font-size: 14px;
                 line-height: 27px;
                 cursor: pointer;
-                color: $c-grey-light;
-                @include mq(mobile) {
-                    font-size: 16px;
-                    position: relative;
-                    display: inline-block;
-                    margin-top: 5px;
-                    border: none;
-                    padding-left: 0;
-                    font-weight: bolder;
-                }
+                // color: $c-grey-light;
+                color: #fb0;
+                border: 1px solid currentColor;
+                font-size: 15px;
+                font-weight: 400;
+                display: inline-block;
+                border-radius: 28px;
+                padding: 0 14px 0 38px;
+                position: relative;
+                margin-top: 9px;
                 @include mq(desktop) {
-                    font-size: 15px;
-                    font-weight: 400;
-                    display: block;
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    border: 1px solid $c-grey-light;
-                    border-radius: 28px;
-                    padding: 0 14px 0 38px;
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
                 }
                 &:before,
                 &:after {
@@ -214,26 +216,15 @@
                     position: absolute;
                     top: 7.5px;
                     left: 12px;
-                    @include mq(mobile) {
-                        left: 82px;
-                    }
-                    @include mq(desktop) {
-                        left: 12px;
-                    }
                 }
                 &:after {
                     height: 16px;
                     top: 6px;
                     left: 30px;
                     width: 1px;
-                    background-color: $c-grey-light;
+                    background-color: currentColor;
                     opacity: 0.5;
-                    @include mq(mobile) {
-                        display: none;
-                    }
-                    @include mq(desktop) {
-                        display: block;
-                    }
+                    display: block;
                 }
                 &:hover {
                     text-decoration: none;

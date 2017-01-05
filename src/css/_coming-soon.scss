@@ -11,7 +11,7 @@
     }
     &:before {
         content: '';
-        background-color: #fb0;
+        background-color: #c5d4ea;
         position: absolute;
         left: 10px;
         right: 10px;
@@ -59,9 +59,9 @@
             text-transform: lowercase;
             padding: 5px 0 0 10px;
             position: relative;
-            color: $c-grey-dark;
+            color: $c-grey-lightest;
             @include mq(desktop) {
-                color: #fb0;
+                color: #c5d4ea;
                 left: 0;
                 top: 0;
                 padding-left: 0;
@@ -161,7 +161,7 @@
                 height: 100%;
             }
             &__title {
-                font-weight: 100;
+                font-weight: 500;
                 font-size: 40px;
                 line-height: 40px;
                 color: $c-white;
@@ -173,7 +173,6 @@
                     position: relative;
                     top: 5px;
                     width: 100%;
-                    color: $c-grey-dark;
                 }
             }
             &__strapline {
@@ -188,11 +187,11 @@
                 font-weight: 200;
                 @include mq(desktop) {
                     position: absolute;
-                    width: 60%;
+                    width: 380px;
                     left: 10px;
                     font-size: 18px;
                     line-height: 20px;
-                    font-weight: 400;
+                    font-weight: 500;
                 }
                 @include mq(tablet) {
                     padding: 0;
