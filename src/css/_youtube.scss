@@ -1,12 +1,3 @@
-#docs--poster {
-    position: absolute;
-    top: 250px;
-    left: 0;
-    width: 100%;
-    height: 540px;
-    transform: translateY(-50%);
-}
-
 .docs__poster--loader {
     position: absolute;
     top: 0;
@@ -19,17 +10,15 @@
 
 .docs__poster {
     &--wrapper {
+        position: relative;
         display: block;
         width: 100%;
         height: 540px;
         transition: height 300ms;
+        cursor: pointer;
         &--playing {
             // 103px is the header height (48) + chapters height (55)
             height: calc(100vh - 103px);
-        }
-        position: relative;
-        &:hover {
-            cursor: pointer;
         }
     }
     &--title-wrapper {
@@ -66,7 +55,7 @@
         position: absolute;
         width: 100vw;
         height: 540px;
-        background-image: radial-gradient(circle at 23% 54%, rgba(40, 40, 40, 0.2), rgba(40, 40, 40, 0));
+        background-image: radial-gradient(circle at 23% 54%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
     }
     &--logo,
     &--title {
@@ -88,18 +77,17 @@
         }
     }
     &--logo {
-        width: 219px;
-        height: 106px;
-        overflow: hidden;
-        text-indent: -9999em;
-        @include new-logo-theguardiandocumentaries();
+        width: 164px;
+        height: 92px;
+        margin-top: 4px;
+        @include g-documentaries-logo();
         position: absolute;
         top: 0;
         z-index: 5;
-        transform-origin: bottom left;
-        transform: scale(0.75);
-        @include mq(tablet) {
-            transform: scale(0.9);
+        transform-origin: top left;
+        transform: scale(0.8);
+        @include mq(phablet) {
+            transform: scale(1);
         }
     }
     &--title {
