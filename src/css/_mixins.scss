@@ -61,15 +61,30 @@
 @mixin icon-showmore {
   &:after {
     content: '';
-    width: 12px;
-    height: 12px;
-    background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17"><path d="M8 0.5c-4.4 0-8 3.6-8 8 0 4.4 3.6 8 8 8 4.4 0 8-3.6 8-8C16 4.1 12.4 0.5 8 0.5zM13.5 8.9L8.6 9.1 8.4 14H7.6L7.4 9.1 2.5 8.9V8.1L7.4 7.9 7.6 3h0.8L8.6 7.9l4.9 0.2V8.9z" style="fill:#DDDBD7;opacity:0.6"/></svg>');
+    width: 13px;
+    height: 13px;
+    background-image: svg-url('<svg width="13" height="13" viewBox="0 1 13 13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(0 1)"><ellipse fill="#BDBDBD" opacity=".6" cx="6.5" cy="6.5" rx="6.5" ry="6.5"/><path fill="#000" d="M6 7l-3.97-.2v-.6L6 6l.2-3.97h.6L7 6l3.97.2v.6L7 7l-.2 3.97h-.6"/></g></svg>');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100%;
     display: block;
     float:left;
-    margin: 4px 0 0;
+    margin: 3px 0 0;
+  }
+}
+
+@mixin icon-showless {
+  &:after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    background-image: svg-url('<svg width="13" height="13" viewBox="0 21 13 13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(0 21)"><ellipse fill="#BDBDBD" opacity=".6" cx="6.5" cy="6.5" rx="6.5" ry="6.5"/><path fill="#000" d="M6 7l-3.97-.2v-.6L6 6h1l3.97.2v.6L7 7"/></g></svg>');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+    float:left;
+    margin: 3px 0 0;
   }
 }
 
@@ -102,36 +117,19 @@
   }
 }
 
-@mixin icon-showless {
-  &:after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17"><path d="M8 0.5c-4.4 0-8 3.6-8 8 0 4.4 3.6 8 8 8 4.4 0 8-3.6 8-8C16 4.1 12.4 0.5 8 0.5zM13.5 8.9L8.6 9.1H7.4L2.5 8.9V8.1L7.4 7.9h1.2l4.9 0.2V8.9z" style="fill:#DDDBD7;opacity:0.6"/></svg>');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-color: $c-grey-dark;
-    display: block;
-    position: absolute;
-    margin-top: 4px;
-  }
-
-}
-
 @mixin icon-timestamp {
   &:after {
     content: '';
     width: 12px;
     height: 12px;
-    background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M12 6c0 3.3-2.7 6-6 6C2.7 12 0 9.3 0 6 0 2.7 2.7 0 6 0 9.3 0 12 2.7 12 6zM6.4 1.1H5.6L5.2 6.2l0.8 0.7 4.2-0.4V5.7L6.8 5.5 6.4 1.1z" fill="#676767"/></svg>');
+    background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M12 6c0 3.3-2.7 6-6 6C2.7 12 0 9.3 0 6 0 2.7 2.7 0 6 0 9.3 0 12 2.7 12 6zM6.4 1.1H5.6L5.2 6.2l0.8 0.7 4.2-0.4V5.7L6.8 5.5 6.4 1.1z" fill="#bdbdbd"/></svg>');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100%;
     display: block;
     float: left;
-    margin-right: 3px;
-    margin-top: 4px;
+    margin-right: 4px;
+    margin-top: 2px;
   }
 }
 
@@ -213,16 +211,17 @@
   }
 }
 
-@mixin info {
-  &:before {
+@mixin icon-info {
+  &:after {
     content: '';
-    width: 17px;
-    height: 17px;
-    background-size: 17px 17px;
+    width: 21px;
+    height: 21px;
+    background-size: 21px 21px;
     background-repeat: no-repeat;
-    background-image: svg-url('<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <g id="6F-25-11-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="January-design" transform="translate(-222.000000, -696.000000)"> <g id="Main" transform="translate(84.000000, 691.000000)"> <g id="Supporter" transform="translate(0.000000, 3.000000)"> <g id="Group-4"> <g id="About-these-films" transform="translate(138.000000, 2.000000)"> <g id="Group-11"> <circle id="Oval-2" fill="#333333" cx="11" cy="11" r="11"></circle> <path d="M9.25538462,18.0307692 C10.3261538,18.0307692 11.5076923,17.7538462 12.1538462,17.4769231 L12.56,16.2769231 L10.9538462,16.2769231 L13.4461538,8.04307692 L13.2061538,7.89538462 L9.07076923,8.41230769 L8.68307692,9.81538462 L10.0861538,9.81538462 L8.09230769,16.5353846 C8.01846154,16.7569231 8,16.9415385 8,17.1076923 C8,17.7907692 8.53538462,18.0307692 9.25538462,18.0307692 Z M12.3384615,6.80615385 C13.2061538,6.80615385 14,6.25230769 14,5.27384615 C14,4.51692308 13.4092308,4 12.5415385,4 C11.6923077,4 10.8984615,4.57230769 10.8984615,5.53230769 C10.8984615,6.28923077 11.4892308,6.80615385 12.3384615,6.80615385 Z" id="i" fill="#BDBDBD"></path> </g> </g> </g> </g> </g> </g> </g> </svg>');
-    display: block;
+    background-image: svg-url('<svg width="21" height="21" viewBox="99 6 21 21" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(100 7)"><circle fill="#333" cx="9.5" cy="9.5" r="9.5"/><path d="M8.02 15.15c.8 0 1.7-.2 2.2-.42l.3-.9h-1.2l1.88-6.25-.18-.1-3.14.38-.3 1.06h1.07l-1.5 5.1c-.07.17-.08.3-.08.43 0 .52.4.7.95.7zm2.34-8.5c.66 0 1.26-.43 1.26-1.17 0-.57-.45-.97-1.1-.97-.65 0-1.25.47-1.25 1.2 0 .57.44.96 1.1.96z" fill="#BDBDBD"/></g></svg>');
+    display: inline-block;
+    vertical-align: top;
     position: relative;
-    top:5px;
+    left: 4px;
   }
 }
