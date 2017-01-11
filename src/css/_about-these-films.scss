@@ -1,0 +1,64 @@
+.docs--about {
+    &-wrapper {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 360ms;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(51, 51, 51, 0.8);
+        z-index: 99999;
+    }
+    &-overlay {
+        position: relative;
+        margin: 0 auto;
+        width: 90%;
+        height: 90%;
+        margin-top: 15%;
+        max-width: 580px;
+        @include mq(mobileLandscape) {
+            margin-top: 10%;
+        }
+        @include mq(tablet) {
+            height: auto;
+        }
+        @include mq(leftCol) {
+            width: 50%;
+            margin-top: 5%;
+        }
+    }
+    &-body {
+        box-shadow: inset 0 -1px 0 0 $c-grey-mid, inset 0 2px 0 0 $c-grey-lightest;
+        background-color: $c-grey-lightest;
+        color: $c-background;
+        margin: 0 auto;
+        padding: 8px 20px 5px 20px;
+        z-index: 2;
+        overflow-y: scroll;
+        @include mq(mobile) {
+            height: 100%;
+        }
+        & p {
+            line-height: 1.4em;
+            margin-bottom: 8px;
+            a {
+                color: inherit;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    &-legal {
+        border-top: 1px solid rgba(60, 60, 60, 0.5);
+        padding-top: 3px;
+        margin-top: 15px;
+        color: $c-grey-light;
+    }
+    &-headline {
+        @include fs-bodyCopy(2);
+        font-weight: 800;
+    }
+}

@@ -71,15 +71,15 @@ export function init(el, context, config) {
         const chapters = resp.sheets[config.sheetChapter];
         initChapters(builder, config, chapters);
 
-        const showAboutBtn = builder.querySelector('.docs--sponsor-aboutfilms');
+        const showAboutBtn = builder.querySelector('#show-about-these-films');
         const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
         const aboutBody = builder.querySelector('.docs--about-body');
-        const hiddenDesc = builder.querySelector('.docs--standfirst-hidden');
-        const showMoreBtn = builder.querySelector('.docs--standfirst-read-more');
+        const hiddenDesc = builder.querySelector('#intro-expansion');
+        const showMoreBtn = builder.querySelector('#intro-expand-btn');
 
         //Show the long description
         showMoreBtn.onclick = function() {
-            hiddenDesc.classList.toggle('docs--show-longdesc');
+            hiddenDesc.classList.toggle('expanded');
         };
 
         //Show and hide the about these films overlay
