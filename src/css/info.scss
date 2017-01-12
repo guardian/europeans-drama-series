@@ -79,9 +79,9 @@
     }
     .meta {
         font-size: 13px;
-        display: inline-block;
         vertical-align: top;
         @include mq(weirdness) {
+            display: inline-block;
             width: 220px;
             margin-left: 20px;
         }
