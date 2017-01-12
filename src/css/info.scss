@@ -138,4 +138,22 @@
             }
         }
     }
+    .has-curtains {
+        @include mq(tablet) {
+            &:before {
+                left: -10px;
+            }
+            &:after {
+                right: -10px;
+            }
+        }
+        @include mq(leftCol) {
+            &:before {
+                left: -20px;
+            }
+            &:after {
+                right: -20px;
+            }
+        }
+    }
 }

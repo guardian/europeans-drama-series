@@ -39,6 +39,7 @@ a {
 
 .interactive-container {
     margin: 0 auto;
+    position: relative;
 }
 
 .interactive-es6-headline {
@@ -58,4 +59,24 @@ a {
 	li {
 		margin-bottom: 6px;
 	}
+}
+
+.has-curtains {
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        background-color: rgba(0,0,0,0.05);
+    }
+    &:before {
+        left: 0;
+        transform: translateX(calc(-100%));
+    }
+    &:after {
+        right: 0;
+        transform: translateX(calc(100%));
+    }
 }

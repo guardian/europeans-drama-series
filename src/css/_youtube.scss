@@ -43,6 +43,41 @@
         @include mq(wide) {
             width: 1300px;
         }
+
+        .has-curtains {
+            @include mq(weirdness) {
+                &:before {
+                    left: -10px;
+                }
+                &:after {
+                    right: -10px;
+                }
+            }
+            @include mq(tablet) {
+                &:before {
+                    left: 0;
+                }
+                &:after {
+                    right: 0;
+                }
+            }
+            @include mq(desktop) {
+                &:before {
+                    left: -20px;
+                }
+                &:after {
+                    right: -20px;
+                }
+            }
+            @include mq(leftCol) {
+                &:before {
+                    left: 0;
+                }
+                &:after {
+                    right: 0;
+                }
+            }
+        }
     }
     &--image {
         position: absolute;
@@ -206,6 +241,7 @@
     &--yellow {
         color: $c-media-default;
     }
+
 }
 
 
