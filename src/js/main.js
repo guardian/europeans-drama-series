@@ -89,32 +89,6 @@ export function init(el, context, config) {
 
         const embedContainer = builder.querySelector('.doc-trailer__embed');
 
-        const showTrailer = builder.querySelector('#shows-trailer');
-        showTrailer.onclick = () => {
-            builder.classList.add('show-trailer');
-            const embedIframe = document.createElement('iframe');
-
-            setAttributes(embedIframe, {
-                width: '100%',
-                height: '100%',
-                src: `https://www.youtube.com/embed/${youTubeTrailerId}?autoplay=1&rel=0`,
-                frameborder: '0',
-                allowfullscreen: 'true'
-            });
-
-            embedIframe.classList.add('doc-trailer__player');
-            embedContainer.appendChild(embedIframe);
-        };
-
-        // Hide the trailer
-        const hideTrailerAll = builder.querySelectorAll('.docs__hides-trailer');
-        [].forEach.call(hideTrailerAll, function(hideTrailer) {
-            hideTrailer.onclick = () => {
-                builder.classList.remove('show-trailer');
-                embedContainer.removeChild(builder.querySelector('.doc-trailer__player'));
-            };
-        });
-
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
 
         setAttributes(emailIframe, {
