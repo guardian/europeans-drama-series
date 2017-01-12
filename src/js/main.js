@@ -66,7 +66,6 @@ export function init(el, context, config) {
 
 
         const youTubeId = resp.sheets[config.sheetName][0].youTubeId;
-        const youTubeTrailerId = resp.sheets[config.sheetName][0].youTubeTrailerId;
 
         const chapters = resp.sheets[config.sheetChapter];
         initChapters(builder, config, chapters);
@@ -86,8 +85,6 @@ export function init(el, context, config) {
         showAboutBtn.addEventListener('click', () => hideAboutBtn.classList.add('docs--show-about'));
         hideAboutBtn.addEventListener('click', () => hideAboutBtn.classList.remove('docs--show-about'));
         aboutBody.addEventListener('click', (e) => e.stopPropagation());
-
-        const embedContainer = builder.querySelector('.doc-trailer__embed');
 
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
 
@@ -168,14 +165,14 @@ export function init(el, context, config) {
       const s = window.scrollY;
       const bodyHeight = document.querySelector('body').offsetHeight;
       const windowHeight = window.innerHeight;
-      const faders = document.querySelectorAll('.should-fade-in')
+      const faders = document.querySelectorAll('.should-fade-in');
 
       if (s==0 && windowHeight<bodyHeight) {
-        for (var i = 0; i < faders.length; i++) {
+        for (let i = 0; i < faders.length; i++) {
           faders[i].classList.remove('fade-in');
         }
       } else {
-        for (var i = 0; i < faders.length; i++) {
+        for (let i = 0; i < faders.length; i++) {
           faders[i].classList.add('fade-in');
         }
       }
