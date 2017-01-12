@@ -2,7 +2,7 @@
     &-wrapper {
         opacity: 0;
         visibility: hidden;
-        transition: all 360ms;
+        transition: all 300ms;
         position: fixed;
         top: 0;
         left: 0;
@@ -10,6 +10,10 @@
         right: 0;
         background-color: rgba(51, 51, 51, 0.8);
         z-index: 99999;
+        &.docs--show-about {
+            visibility: visible;
+            opacity: 1;
+        }
     }
     &-overlay {
         position: relative;
@@ -37,6 +41,11 @@
         padding: 8px 20px 5px 20px;
         z-index: 2;
         overflow-y: scroll;
+        transition: all 240ms;
+        transform: scale(0.97);
+        .docs--show-about & {
+            transform: scale(1);
+        }
         @include mq(mobile) {
             height: 100%;
         }
