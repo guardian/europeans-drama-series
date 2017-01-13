@@ -64,7 +64,6 @@
         &__expand {
             @include icon-showmore;
             @include fs-textSans(4);
-            font-size: 13px;
             text-indent: 4px;
             transition: opacity 240ms;
             cursor: pointer;
@@ -78,7 +77,6 @@
         }
     }
     .meta {
-        font-size: 13px;
         vertical-align: top;
         @include mq(weirdness) {
             display: inline-block;
