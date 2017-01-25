@@ -23,6 +23,8 @@
         font-size: 16px;
         display: inline-block;
         vertical-align: top;
+        padding-bottom: 12px;
+        
         @include mq(weirdness) {
             width: 340px;
         }
