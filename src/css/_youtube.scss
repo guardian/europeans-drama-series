@@ -115,10 +115,16 @@
             height: 551px;
         }
         @include mq(leftCol) {
-            height: 641px;
+            height: 620px;
+            &--playing {
+                height: 641px;
+            }
         }
         @include mq(wide) {
-            height: 731px;
+            height: 680px;
+            &--playing {
+                height: 731px;
+            }
         }
     }
     &--logo,
