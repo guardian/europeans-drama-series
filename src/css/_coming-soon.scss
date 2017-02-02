@@ -10,7 +10,7 @@
     }
     &:before {
         content: '';
-        background-color: #c5d4ea;
+        background-color: #FB0;
         position: absolute;
         left: 0;
         right: 0;
@@ -60,7 +60,7 @@
             position: relative;
             color: $c-grey-lightest;
             @include mq(desktop) {
-                color: #c5d4ea;
+                color: #FB0;
                 left: 0;
                 top: 0;
                 padding-left: 0;
