@@ -6,6 +6,7 @@ import emailsignupURL from './lib/emailsignupURL';
 import { setAttributes, setData, setStyles } from './lib/dom';
 import { isMobile } from './lib/detect';
 import sheetNameFromShortId from './lib/sheetnamefromshortid';
+import reqwest from 'reqwest';
 
 function initChapters(rootEl, chapters, chapterSheetName) {
     chapters.sort((a, b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
@@ -109,25 +110,22 @@ export function init(el, context, config) {
             'background-image': `url('${resp.sheets[config.comingSoonSheetName][0].image}')`
         });
 
-
-        setAttributes(builder.querySelector('.poster__image--one'), {
-            src: resp.sheets[sheetName][0].nextDocOneImage
-        });
-
-        setAttributes(builder.querySelector('.poster__image--two'), {
-            src: resp.sheets[sheetName][0].nextDocTwoImage
-        });
-
-        setAttributes(builder.querySelector('.nextDocOneLinkURL'), {
-            href: resp.sheets[sheetName][0].nextDocOneLink
-
-        });
-
-        setAttributes(builder.querySelector('.nextDocTwoLinkURL'), {
-            href: resp.sheets[sheetName][0].nextDocTwoLink
-        });
-
         el.parentNode.replaceChild(builder, el);
+
+        const snapLinks = ['One', 'Two', 'Three', 'Four'];
+        snapLinks.forEach((snapLink) => {
+            const jsonURL = resp.sheets[sheetName][0]['jsonSnap' + snapLink];
+            console.log('link:', snapLink, jsonURL);
+            reqwest({
+                'url': jsonURL,
+                'type': 'json',
+                'crossOrigin': true,
+                'success': snapJSON => {
+                    const el = builder.querySelector('section#more-documentaries .nextSnap' + snapLink);
+                    el.innerHTML = snapJSON.html;
+                }
+            });
+        });
 
         const autoplayReferrers = [
             /^https?:\/\/localhost:8000/,

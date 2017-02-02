@@ -1,236 +1,33 @@
-.continue-watching {
-    transition: opacity 400ms;
-    color: #f6f6f6;
-    background-color: $c-grey-dark;
-    margin: 0 auto;
-    padding: 0 10px 20px;
-    position: relative;
-    font-family: 'Guardian Egyptian Web', Georgia, serif;
-    @include mq(tablet) {
-        padding: 0 20px 20px;
-    }
-    &:before {
-        content: '';
-        background-color: $c-grey-mid;
-        position: absolute;
-        left: 10px;
-        right: 10px;
-        top: 0;
-        height: 1px;
-        @include mq(tablet) {
-            left: 0;
-            right: 0;
-        }
-    }
-    @include mq(mobileLandscape) {
-        width: auto;
-        max-width: 580px;
-    }
-    @include mq(tablet) {
-        width: 700px;
-        max-width: none;
-    }
-    @include mq(desktop) {
-        width: 940px;
-    }
-    @include mq(leftCol) {
-        width: 1100px;
-        padding-bottom: 0;
-    }
-    @include mq(wide) {
-        width: 1260px;
-        padding-bottom: 20px;
-    }
-
-
-    &__container-title {
-        @include mq(mobile) {
-            padding: 5px 0 10px 0;
-        }
-        @include mq(desktop) {
-            display: block;
-            width: auto;
-        }
-        @include mq(leftCol) {
-            width: 140px;
-            display: inline-block;
-            vertical-align: top;
-        }
-        @include mq(wide) {
-            width: 220px;
-        }
-        color: $c-grey-light;
-        .title {
-            font-size: 22px;
+#more-documentaries {
+    .fc-container__inner {
+        border-top: 1px solid #676767;
+        .fc-container__header__title {
+            color: #999;
             font-weight: 600;
-            text-transform: lowercase;
         }
     }
-    &__contents {
-        position: relative;
-        margin-left: 0;
-        width: 100%;
-        @include mq(tablet) {
-            width: auto;
-        }
-        @include mq(leftCol) {
-            display: inline-block;
-            width: 940px;
-            margin-left: 15px;
-            margin-top: 10px;
-        }
-        @include mq(wide) {
-            width: 1020px;
-        }
-    }
-    &__posters {
-        margin: 0 0 0 -10px;
-        @include mq(tablet) {
-            height: auto;
-            transform: none;
-        }
-        @include mq(desktop) {
-            transform-origin: top left;
-            // transform: scale(0.866);
-            display: inline-block;
-            width: auto;
-        }
-        @include mq(leftCol) {
-            transform: scale(0.9);
-        }
-        @include mq(wide) {
-            transform: none;
-        }
-        .responsive-stack {
-            display: inline-block;
-            vertical-align: top;
-        }
-        .poster,
-        .poster-info {
-            display: inline-block;
-            position: relative;
-            margin-right: 20px;
-            &:first-child {
-                margin-left: 10px;
-            }
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-        .poster {
-            width: 130px;
-            height: 173.4px;
-            margin-right: 0px;
-            &__image {
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
-            }
-            @include mq(mobileLandscape) {
-                width: 155px;
-                height: 210px;
-            }
-            @include mq(tablet) {
-                width: 220px;
-                height: 290px;
-                margin-right: 5px;
-            }
-            @include mq(desktop) {
-                margin-right: 17px;
-            }
-        }
-        .poster-info {
-            display: inline-block;
-            vertical-align: top;
-            margin: 0 0 0 10px;
-            height: auto;
-            width: 50%;
-            height: auto;
-            @include mq(mobileLandscape) {
-                display: block;
-                margin-top: 5px;
-                height: auto;
-                width: 155px;
-                height: auto;
-            }
-            @include mq(desktop) {
+    .fc-slice-wrapper {
+        .fc-slice:not(.l-row--cols-1) {
+            display: block;
+            font-size: 0;
+            .fc-slice__item {
                 display: inline-block;
                 vertical-align: top;
-                position: relative;
-                width: 220px;
-                height: 290px;
-                margin: 0 20px 0 0;
-            }
-            &__title,
-            &__strapline {
-                font-family: 'Guardian Egyptian Web', Georgia, serif;
-                font-size: 18px;
-                line-height: 20px;
-                white-space: normal;
-                color: $c-white;
-
-            }
-            &__title {
-                font-weight: 900;
-            }
-            &__strapline {
-                font-weight: 100;
-            }
-            &__cta {
-                font-family: 'Guardian Sans Web', sans-serif;
-                font-size: 14px;
-                line-height: 27px;
-                cursor: pointer;
-                // color: $c-grey-light;
-                color: #fb0;
-                border: 1px solid currentColor;
-                font-size: 15px;
-                font-weight: 400;
-                display: inline-block;
-                border-radius: 28px;
-                padding: 0 14px 0 38px;
-                position: relative;
-                margin-top: 9px;
-                @include mq(desktop) {
-                  position: absolute;
-                  left: 0;
-                  bottom: 0;
+                padding-top: 0;
+                margin-bottom: 20px;
+                width: 50%;
+                @include mq(phablet) {
+                    width: 25%;
                 }
-                &:before,
-                &:after {
-                    content: '';
-                    display: block;
-                    position: absolute;
+                .fc-item,
+                .fc-item:hover {
+                    background-color: transparent;
                 }
-                @include tiny-play;
-                &:before {
-                    position: absolute;
-                    top: 7.5px;
-                    left: 12px;
+                &+.fc-slice__item:before {
+                    border-left: 1px solid #333;
                 }
-                &:after {
-                    height: 16px;
-                    top: 6px;
-                    left: 30px;
-                    width: 1px;
-                    background-color: currentColor;
-                    opacity: 0.5;
-                    display: block;
-                }
-                &:hover {
-                    text-decoration: none;
-                    border: solid 1px $c-media-default;
-                    background-color: $c-media-default;
-                    color: $c-grey-dark;
-                    @include tiny-play-dark;
-                    &:after {
-                        background-color: $c-grey-dark;
-                    }
+                .doc-card:hover {
+                    opacity: 0.8;
                 }
             }
         }
