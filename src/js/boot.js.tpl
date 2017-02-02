@@ -23,7 +23,8 @@ define([], function() {
                 [
                   ["/p/5267g", "gun-nation"],
                   ["/p/564f6", "desert-fire"],
-                  ["/p/5amdt", "radical-brownies"]
+                  ["/p/5amdt", "radical-brownies"],
+                  ["/p/5pbm6", "quipu"]
                 ],
                 'emailListId': 3745
             };
