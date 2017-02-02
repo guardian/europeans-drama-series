@@ -158,7 +158,7 @@ module.exports = function(grunt) {
                 bucket: '<%= visuals.s3.bucket %>',
                 uploadConcurrency: 10, // 5 simultaneous uploads
                 downloadConcurrency: 10, // 5 simultaneous downloads
-                awsProfile: 'interactivesProd'
+                awsProfile: 'interactives'
             },
             production: {
                 options: {
