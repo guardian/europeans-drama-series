@@ -1,0 +1,8 @@
+.should-fade-in {
+  opacity: 0.3;
+  transition: opacity 1200ms;
+  &.fade-in {
+    opacity: 1;
+    transition: opacity 1600ms;
+  }
+}

@@ -17,9 +17,15 @@ define([], function() {
 
             var interactiveConfig = {
                 'assetPath': '<%= assetPath %>',
-                'sheetName': 'gun-nation',
-                'sheetChapter': 'gun-nation-chapters',
+                'comingSoonSheetName': 'coming-soon',
                 'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g',
+                'docsArray':
+                [
+                  ["/p/5267g", "gun-nation"],
+                  ["/p/564f6", "desert-fire"],
+                  ["/p/5amdt", "radical-brownies"],
+                  ["/p/5pbm6", "quipu"]
+                ],
                 'emailListId': 3745
             };
 

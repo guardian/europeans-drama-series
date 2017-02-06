@@ -87,7 +87,7 @@ module.exports = function(grunt) {
         copy: {
             harness: {
                 files: [
-                    {expand: true, cwd: 'harness/', src: ['curl.js', 'index.html', 'immersive.html', 'interactive.html'], dest: 'build'},
+                    {expand: true, cwd: 'harness/', src: ['curl.js', 'index.html', 'immersive.html', 'interactive.html', 'referrer.html'], dest: 'build'},
                 ]
             },
             assets: {

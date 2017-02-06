@@ -2,7 +2,7 @@ import sheetUrl from './sheetURL';
 import reqwest from 'reqwest';
 
 
-export function sheetToDomInnerHtml(sheetID, sheetName, el, callback) {
+export function sheetToDomInnerHtml(sheetID, sheetName, el, comingSoonSheetName, callback) {
 
     var sheet = sheetUrl(sheetID);
 
@@ -15,7 +15,12 @@ export function sheetToDomInnerHtml(sheetID, sheetName, el, callback) {
             //get list of elements with data-sheet-attribute
             for (const node of el.querySelectorAll('[data-sheet-attribute]')) {
                 const value = node.getAttribute('data-sheet-attribute');
-                node.innerHTML = resp.sheets[sheetName][0][value];
+                if(value.startsWith(`${comingSoonSheetName}-`)){
+                    node.innerHTML = resp.sheets[comingSoonSheetName][0][value.split(`${comingSoonSheetName}-`)[1]];
+                }
+                else {
+                    node.innerHTML = resp.sheets[sheetName][0][value];
+                }
             }
             callback(resp);
 

@@ -1,6 +1,6 @@
 //Variables
-$c-background: #2e2e2e;
-$c-grey-dark: #333;
+$c-background: #141414;
+$c-grey-dark: #161616;
 $c-divider: #474747;
 $c-grey-mid: #676767;
 $c-grey-light: #999;
@@ -39,6 +39,8 @@ a {
 
 .interactive-container {
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 }
 
 .interactive-es6-headline {
@@ -58,4 +60,24 @@ a {
 	li {
 		margin-bottom: 6px;
 	}
+}
+
+.has-curtains {
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        background-color: rgba(0,0,0,0.05);
+    }
+    &:before {
+        left: 0;
+        transform: translateX(calc(-100%));
+    }
+    &:after {
+        right: 0;
+        transform: translateX(calc(100%));
+    }
 }
