@@ -4,6 +4,9 @@
         .fc-container__header__title {
             color: #999;
             font-weight: 600;
+            &:hover a {
+                color: currentColor;
+            }
         }
     }
     .fc-slice-wrapper {
