@@ -115,7 +115,6 @@ export function init(el, context, config) {
         const snapLinks = ['One', 'Two', 'Three', 'Four'];
         snapLinks.forEach((snapLink) => {
             const jsonURL = resp.sheets[sheetName][0]['jsonSnap' + snapLink];
-            console.log('link:', snapLink, jsonURL);
             reqwest({
                 'url': jsonURL,
                 'type': 'json',
