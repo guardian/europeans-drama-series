@@ -1,39 +1,39 @@
 // adapted from https://github.com/philbooth/vagueTime.js
 
 var times = {
-    year: 31557600000, // 1000 ms * 60 s * 60 m * 24 h * 365.25 d
-    month: 2629800000, // 31557600000 ms / 12 m
-    week: 604800000, // 1000 ms * 60 s * 60 m * 24 h * 7 d
-    day: 86400000, // 1000 ms * 60 s * 60 m * 24 h
-    hour: 3600000, // 1000 ms * 60 s * 60 m
-    minute: 60000 // 1000 ms * 60 s
-},
+        year: 31557600000, // 1000 ms * 60 s * 60 m * 24 h * 365.25 d
+        month: 2629800000, // 31557600000 ms / 12 m
+        week: 604800000, // 1000 ms * 60 s * 60 m * 24 h * 7 d
+        day: 86400000, // 1000 ms * 60 s * 60 m * 24 h
+        hour: 3600000, // 1000 ms * 60 s * 60 m
+        minute: 60000 // 1000 ms * 60 s
+    },
 
-languages = {
-    en: {
-        year: [ 'year', 'years' ],
-        month: [ 'month', 'months' ],
-        week: [ 'week', 'weeks' ],
-        day: [ 'day', 'days' ],
-        hour: [ 'hour', 'hours' ],
-        minute: [ 'minute', 'minutes' ],
+    languages = {
+        en: {
+            year: [ 'year', 'years' ],
+            month: [ 'month', 'months' ],
+            week: [ 'week', 'weeks' ],
+            day: [ 'day', 'days' ],
+            hour: [ 'hour', 'hours' ],
+            minute: [ 'minute', 'minutes' ],
 
-        past: function (vagueTime, unit) {
-            return vagueTime + ' ' + unit + ' ago';
-        },
+            past: function (vagueTime, unit) {
+                return vagueTime + ' ' + unit + ' ago';
+            },
 
-        future: function (vagueTime, unit) {
-            return 'in ' + vagueTime + ' ' + unit;
-        },
+            future: function (vagueTime, unit) {
+                return 'in ' + vagueTime + ' ' + unit;
+            },
 
-        defaults: {
-            past: 'just now',
-            future: 'soon'
+            defaults: {
+                past: 'just now',
+                future: 'soon'
+            }
         }
-    }
-},
+    },
 
-defaultLanguage = 'en';
+    defaultLanguage = 'en';
 
 function normaliseUnits (units) {
     if (typeof units === 'undefined') {
