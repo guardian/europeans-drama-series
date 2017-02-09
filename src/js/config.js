@@ -26,6 +26,7 @@ System.config({
     "guardian/iframe-messenger": "github:guardian/iframe-messenger@master",
     "iso8601-duration": "npm:iso8601-duration@1.0.6",
     "json": "github:systemjs/plugin-json@0.1.2",
+    "lodash.startswith": "npm:lodash.startswith@4.2.1",
     "reqwest": "github:ded/reqwest@1.1.5",
     "text": "github:systemjs/plugin-text@0.0.2",
     "youtube-player": "npm:youtube-player@3.0.4",
@@ -78,6 +79,9 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:lodash.startswith@4.2.1": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
