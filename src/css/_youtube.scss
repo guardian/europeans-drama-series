@@ -252,9 +252,9 @@
           circle {
             fill-opacity: 0;
             stroke: #333;
-            stroke-width: 4px;
+            stroke-width: 8px;
             stroke-dasharray: 0 314px;
-            animation: closeDashArray 8s linear forwards;
+            animation: closeDashArray 6s linear forwards;
             transition: all 600ms;
           }
         }
