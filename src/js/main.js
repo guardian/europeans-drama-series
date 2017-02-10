@@ -137,7 +137,7 @@ export function init(el, context, config) {
         const shouldAutoPlay = autoplayReferrers.find(ref => ref.test(document.referrer));
 
         builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
-            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', config);
+            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chaptersResp, config);
             player.play();
         });
 
@@ -147,7 +147,7 @@ export function init(el, context, config) {
             builder.querySelector('.docs__poster--title').classList.add('will-autoplay');
             autoplayTimeout = setTimeout(()=> {
                 builder.querySelector('.docs__poster--title').classList.remove('will-autoplay');
-                const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', config);
+                const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chaptersResp, config);
                 player.play();
             }, 8000);
         }
