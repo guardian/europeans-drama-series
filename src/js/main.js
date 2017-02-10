@@ -58,7 +58,7 @@ export function init(el, context, config) {
     const builder = document.createElement('div');
     builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
-    const sheetName = sheetNameFromShortId(config.docsArray, config.page.shortUrlId);
+    const sheetName = sheetNameFromShortId(config.docsArray, window.guardian.config.page.pageId);
     sheetToDomInnerHtml(config.sheetId, sheetName, builder, config.comingSoonSheetName, function callback(resp) {
         var shareFn = share(resp.sheets[sheetName][0].title, window.location);
 

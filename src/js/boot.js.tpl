@@ -21,10 +21,10 @@ define([], function() {
                 'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g',
                 'docsArray':
                 [
-                  ["/p/5267g", "gun-nation"],
-                  ["/p/564f6", "desert-fire"],
-                  ["/p/5amdt", "radical-brownies"],
-                  ["/p/5pbm6", "quipu"]
+                  ["world/ng-interactive/2016/sep/16/gun-nation-a-journey-to-the-heart-of-americas-gun-culture-video", "gun-nation"],
+                  ["world/ng-interactive/2016/oct/14/desert-fire-the-world-cup-rebels-of-kurdistan-video", "desert-fire"],
+                  ["world/ng-interactive/2017/jan/06/radical-brownies-berets-badges-and-social-justice-video", "radical-brownies"],
+                  ["world/ng-interactive/2017/feb/10/quipu-the-phone-line-calling-for-justice-in-peru-video", "quipu"]
                 ],
                 'emailListId': 3745
             };
