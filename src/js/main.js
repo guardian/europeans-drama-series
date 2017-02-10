@@ -149,7 +149,7 @@ export function init(el, context, config) {
                 builder.querySelector('.docs__poster--title').classList.remove('will-autoplay');
                 const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chaptersResp, config);
                 player.play();
-            }, 8000);
+            }, 6000);
         }
 
         builder.querySelector('.docs__poster--autoplay-stop-button').addEventListener('click', function(e) {
