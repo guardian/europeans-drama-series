@@ -12,6 +12,7 @@
     &--wrapper,
     &--title-wrapper {
         height: 460px;
+        max-height: calc(100vh - 96px);
         @include mq(tablet) {
             height: 500px;
         }
