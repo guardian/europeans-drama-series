@@ -252,24 +252,24 @@
       }
     }
     &--title.will-autoplay {
-      .docs__poster--play-button {
-        .autoplay-timer {
-          display: block;
-          overflow: visible;
-          transform: rotate(-90deg);
-          circle {
-            fill-opacity: 0;
-            stroke: #333;
-            stroke-width: 8px;
-            stroke-dasharray: 0 314px;
-            animation: closeDashArray 6s linear forwards;
-            transition: all 600ms;
-          }
+        .docs__poster--play-button {
+            .autoplay-timer {
+                display: block;
+                overflow: visible;
+                transform: rotate(-90deg);
+                circle {
+                    fill-opacity: 0;
+                    stroke: #333;
+                    stroke-width: 6px;
+                    stroke-dasharray: 0 314px;
+                    animation: closeDashArray 6s linear forwards;
+                    transition: all 600ms;
+                }
+            }
         }
-      }
-      .docs__poster--autoplay-stop-button {
-        display: block;
-      }
+        .docs__poster--autoplay-stop-button {
+            display: block;
+        }
     }
     &--title.cancelled-autoplay {
       .docs__poster--play-button {
