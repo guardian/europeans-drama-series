@@ -177,11 +177,16 @@
     &--headline {
         @include fs-headline(3);
         font-weight: 900;
-        font-size: 52px;
-        line-height: 48px;
+        font-size: 36px;
+        line-height: 36px;
+        margin-top: 42px;
+        @include mq(phablet) {
+            font-size: 52px;
+            line-height: 48px;
+            margin-top: 30px;
+        }
         min-width: 50%;
         width: calc(100% - 125px);
-        margin-top: 30px;
         margin-left: -5px;
         color: white;
         z-index: 10;
@@ -191,8 +196,9 @@
             margin-left: 0;
         }
         @include mq(tablet) {
-            margin: 56px 0 0 10px;
+            margin: 32px 0 0 10px;
             width: auto;
+            max-width: calc(100% - 120px);
         }
     }
     &--play-button {
