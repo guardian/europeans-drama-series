@@ -24,7 +24,7 @@
         display: inline-block;
         vertical-align: top;
         padding-bottom: 12px;
-        
+
         @include mq(weirdness) {
             width: 340px;
         }
@@ -73,7 +73,7 @@
             border-bottom: 1px solid $c-divider;
             text-decoration: none;
             &:hover {
-                color: #f6f6f6;
+                color: $c-nearly-white;
                 border-color: $c-grey-light;
             }
         }
