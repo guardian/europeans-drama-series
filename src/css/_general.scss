@@ -75,11 +75,11 @@ a {
     }
     &:before {
         left: 0;
-        transform: translateX(calc(-100%));
+        transform: translateX(-100%);
     }
     &:after {
         right: 0;
-        transform: translateX(calc(100%));
+        transform: translateX(100%);
     }
 }
 
