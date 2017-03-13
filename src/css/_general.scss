@@ -7,6 +7,7 @@ $c-grey-light: #999;
 $c-grey-lightest: #ececec;
 $c-grey-lighterman: #1e4385;
 $c-white: #fff;
+$c-nearly-white: #F6F6F6;
 $c-media-default: #fb0;
 $c-media-bright: #FFE700;
 $c-share-border: #dddbd7;
@@ -74,10 +75,14 @@ a {
     }
     &:before {
         left: 0;
-        transform: translateX(calc(-100%));
+        transform: translateX(-100%);
     }
     &:after {
         right: 0;
-        transform: translateX(calc(100%));
+        transform: translateX(100%);
     }
+}
+
+html {
+    min-height: calc(100% + 36px);
 }
