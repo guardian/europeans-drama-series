@@ -67,16 +67,20 @@ class PimpedYouTubePlayer {
         });
 
         self.player.on('stateChange', event => {
-            let playTimer;
-            if (event.data === YT.PlayerState.PLAYING) {
-                playTimer = setInterval(function() {
-                    self.player.getCurrentTime().then(currentTime => {
-                        trackChapterProgress(currentTime);
-                        sendPercentageCompleteEvents(currentTime);
-                    });
-                }, 1000);
+            if (event.data === YT.PlayerState.ENDED) {
+                trackPlayerEnd();
             } else {
-                clearTimeout(playTimer);
+                let playTimer;
+                if (event.data === YT.PlayerState.PLAYING) {
+                    playTimer = setInterval(function() {
+                        self.player.getCurrentTime().then(currentTime => {
+                            trackChapterProgress(currentTime);
+                            sendPercentageCompleteEvents(currentTime);
+                        });
+                    }, 1000);
+                } else {
+                    clearTimeout(playTimer);
+                }
             }
         });
 
@@ -121,8 +125,7 @@ class PimpedYouTubePlayer {
             const playbackEvents = {
                 '25': quartile,
                 '50': quartile * 2,
-                '75': quartile * 3,
-                'end': self.videoDuration
+                '75': quartile * 3
             };
 
             for (let prop in playbackEvents) {
@@ -130,6 +133,10 @@ class PimpedYouTubePlayer {
                     self.tracker.track(prop);
                 }
             }
+        }
+
+        function trackPlayerEnd() {
+            self.tracker.track('end');
         }
 
         function addChapterEventHandlers() {
