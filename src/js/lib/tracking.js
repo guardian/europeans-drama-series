@@ -4,7 +4,7 @@ class Tracker {
     buildOphanEventObject(event) {
         return {
             video: {
-                id: this.trackingId,
+                id: `interactive-${this.trackingId}`,
                 eventType: `video:content:${event}`
             }
         };
