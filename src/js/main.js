@@ -7,6 +7,8 @@ import { setAttributes, setData, setStyles } from './lib/dom';
 import { isMobile } from './lib/detect';
 import sheetNameFromShortId from './lib/sheetnamefromshortid';
 import reqwest from 'reqwest';
+import DocsSupporter from './lib/docs-supporter';
+import DocsComingSoon from './lib/docs-coming-soon';
 
 function initChapters(rootEl, chapters, chapterSheetName) {
     chapters.sort((a, b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
@@ -60,6 +62,8 @@ export function init(el, context, config) {
 
     const sheetName = sheetNameFromShortId(config.docsArray, window.guardian.config.page.pageId);
     sheetToDomInnerHtml(config.sheetId, sheetName, builder, config.comingSoonSheetName, function callback(resp) {
+        const sheetValues = resp.sheets[sheetName][0]; // TODO refactor all instances of `resp.sheets[sheetName][0]` to use this `const`
+
         var shareFn = share(resp.sheets[sheetName][0].title, window.location);
 
         [].slice.apply(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
@@ -73,21 +77,28 @@ export function init(el, context, config) {
         const chaptersResp = resp.sheets[chaptersSheetName];
         initChapters(builder, chaptersResp, chaptersSheetName);
 
-        const showAboutBtn = builder.querySelector('#show-about-these-films');
-        const hideAboutBtn = builder.querySelector('.docs--about-wrapper');
-        const aboutBody = builder.querySelector('.docs--about-body');
         const hiddenDesc = builder.querySelector('#intro-expansion');
         const showMoreBtn = builder.querySelector('#intro-expand-btn');
+
+        // show the supported section unless explicitly set to `FALSE` in the sheet
+        if (sheetValues.showSupported !== 'FALSE') {
+            new DocsSupporter({
+                node: builder,
+                badgeUrl: sheetValues.supportedBadgeUrl,
+                siteUrl: sheetValues.supportedSiteUrl,
+                info: sheetValues.supportedInfo
+            });
+        }
+
+        // show the Bertha coming soon message unless explicitly set to `FALSE` in the sheet
+        if (sheetValues.isBertha !== 'FALSE') {
+            DocsComingSoon.render({node: builder});
+        }
 
         //Show the long description
         showMoreBtn.onclick = function() {
             hiddenDesc.classList.toggle('expanded');
         };
-
-        //Show and hide the about these films overlay
-        showAboutBtn.addEventListener('click', () => hideAboutBtn.classList.add('docs--show-about'));
-        hideAboutBtn.addEventListener('click', () => hideAboutBtn.classList.remove('docs--show-about'));
-        aboutBody.addEventListener('click', (e) => e.stopPropagation());
 
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
 

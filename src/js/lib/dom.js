@@ -22,4 +22,10 @@ function scrollTo(element, to, duration) {
     }, 10);
 }
 
-export {setAttributes, setData, setStyles, scrollTo};
+function stringToNode(htmlString) {
+    const el = document.createElement('div');
+    el.innerHTML = htmlString;
+    return el;
+}
+
+export {setAttributes, setData, setStyles, scrollTo, stringToNode};
