@@ -28,7 +28,7 @@ define([], function() {
                   ["world/ng-interactive/2017/mar/10/the-internet-warriors-meet-the-trolls-in-their-own-homes-video", "internet-warriors"],
                   ["world/ng-interactive/2017/apr/03/erica-man-made", "erica"],
                   ["world/ng-interactive/2017/apr/10/the-fight", "the-fight"],
-                  ["world/ng-interactive/2017/apr/17/the-island", "the-island"],
+                  ["world/ng-interactive/2017/apr/13/the-island-crabs-asylum-seekers-and-therapy-on-christmas-island", "the-island"],
                   ["world/ng-interactive/2017/apr/24/sprinters-factory", "sprinters-factory"]
                 ],
                 'emailListId': 3745
