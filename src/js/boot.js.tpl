@@ -26,9 +26,9 @@ define([], function() {
                   ["world/ng-interactive/2017/jan/06/radical-brownies-berets-badges-and-social-justice-video", "radical-brownies"],
                   ["world/ng-interactive/2017/feb/10/quipu-the-phone-line-calling-for-justice-in-peru-video", "quipu"],
                   ["world/ng-interactive/2017/mar/10/the-internet-warriors-meet-the-trolls-in-their-own-homes-video", "internet-warriors"],
-                  ["world/ng-interactive/2017/apr/03/erica-man-made", "erica"],
+                  ["technology/ng-interactive/2017/apr/07/meet-erica-the-worlds-most-autonomous-android-video", "erica"],
+                  ["world/ng-interactive/2017/apr/13/crossing-boundaries-crabs-asylum-seekers-and-therapy-on-christmas-island-video", "the-island"],
                   ["world/ng-interactive/2017/apr/10/the-fight", "the-fight"],
-                  ["world/ng-interactive/2017/apr/17/the-island", "the-island"],
                   ["world/ng-interactive/2017/apr/24/sprinters-factory", "sprinters-factory"]
                 ],
                 'emailListId': 3745
