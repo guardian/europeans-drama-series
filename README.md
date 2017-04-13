@@ -10,7 +10,7 @@ Usage
 
 Requirements
 -----
-- Node 6.X
+- [Node](https://nodejs.org/en/download/) 6.X
 
 Optional Requirements
 -----
