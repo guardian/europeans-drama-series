@@ -8,17 +8,24 @@ An interactive template & test harness, set up with commonly used components and
 Usage
 =====
 
+Requirements
+-----
+- Node 6.X
+
+Optional Requirements
+-----
+- [nvm](https://github.com/creationix/nvm)
+
 Setup
 -----
-- Install [nvm](https://github.com/creationix/nvm) to manage multiple versions of node.
-- Switch node version `nvm use`
-- Install dependancies `npm install`
+- Clone this repo `git clone git@github.com:guardian/docs-interactive-template.git`
+- Change directory `cd docs-interactive-template`
+- Ensure you're using Node 6.X (`node --version`), or run `nvm use` to switch
+- Install dependencies `npm install`
+- Start the local server `npm start`
+- Navigate to interactive in a browser `http://localhost:8000/immersive.html`
 
-Development
------------
-If you haven't switched node version yet, run `nvm use`. Then start the server `npm start`.
-
-Production / deployment
+Deploying
 -----------------------
 
 1. Get Interactives S3 credentials from Janus
