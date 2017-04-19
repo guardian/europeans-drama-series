@@ -29,7 +29,7 @@ define([], function() {
                   ["technology/ng-interactive/2017/apr/07/meet-erica-the-worlds-most-autonomous-android-video", "erica"],
                   ["world/ng-interactive/2017/apr/13/crossing-boundaries-crabs-asylum-seekers-and-therapy-on-christmas-island-video", "the-island"],
                   ["world/ng-interactive/2017/apr/10/the-fight", "the-fight"],
-                  ["world/ng-interactive/2017/apr/24/sprinters-factory", "sprinters-factory"],
+                  ["world/ng-interactive/2017/apr/28/the-sprinters-factory-the-tournament-where-girls-compete-to-be-jamaicas-next-top-sprinters", "sprinters-factory"],
                   ["global/ng-interactive/2017/apr/12/valley-rebels", "valley-rebels"]
                 ],
                 'emailListId': 3745
