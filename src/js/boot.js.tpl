@@ -30,7 +30,7 @@ define([], function() {
                   ["world/ng-interactive/2017/apr/13/crossing-boundaries-crabs-asylum-seekers-and-therapy-on-christmas-island-video", "the-island"],
                   ["world/ng-interactive/2017/apr/10/the-fight", "the-fight"],
                   ["world/ng-interactive/2017/apr/28/the-sprinters-factory-the-tournament-where-girls-compete-to-be-jamaicas-next-top-sprinters", "sprinters-factory"],
-                  ["global/ng-interactive/2017/apr/21/valley-rebels-the-french-farmer-helping-migrants-cross-to-france", "valley-rebels"],
+                  ["world/ng-interactive/2017/apr/28/the-valley-rebels-the-french-farmer-helping-refugees-cross-europe-video", "valley-rebels"],
                   ["world/ng-interactive/2017/apr/13/crossing-boundaries-crabs-asylum-seekers-and-therapy-on-christmas-island-video", "the-island"]
                 ],
                 'emailListId': 3745
