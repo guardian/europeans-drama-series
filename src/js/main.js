@@ -63,11 +63,13 @@ export function init(el, context, config) {
     const sheetName = sheetNameFromShortId(config.docsArray, window.guardian.config.page.pageId);
     sheetToDomInnerHtml(config.sheetId, sheetName, builder, config.comingSoonSheetName, function callback(resp) {
         const sheetValues = resp.sheets[sheetName][0]; // TODO refactor all instances of `resp.sheets[sheetName][0]` to use this `const`
+        
+        const headline = window.guardian && window.guardian.config && window.guardian.config.page && window.guardian.config.page.headline;
+        const shareText = headline || resp.sheets[sheetName][0].title;
+        const shareFn = share(shareText, window.location);
 
-        var shareFn = share(resp.sheets[sheetName][0].title, window.location);
-
-        [].slice.apply(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
-            var network = shareEl.getAttribute('data-network');
+        Array.from(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
+            const network = shareEl.getAttribute('data-network');
             shareEl.addEventListener('click', () => shareFn(network));
         });
 
