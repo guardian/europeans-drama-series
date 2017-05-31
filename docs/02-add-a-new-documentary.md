@@ -26,9 +26,12 @@ Once you have a Composer page, get its URL from Previewer and update the `docsAr
  
 Run the app and confirm you can see the new doc appearing.
 
-If its all ok, deploy your changes and create a Composer page.
+If its all ok, deploy your changes.
 
 As there is a single Documentary interactive boot.js, we need a way of determining which Documentary to show.
 This is determined by the path of the page and defaults to `DEFAULT_DOC`. That is, if the path of the page exists 
 in `docsArray` we look at the corresponding values in the Google Sheet. If its not in `docsArray` we fallback to the `DEFAULT_DOC`. 
 This allows us to preview an Documentary before publishing, but also means we can only preview one upcoming Doc at a time.
+
+### The Composer url has changed!! 😱
+This usually happens when the Documentary is close to launch. You'll need to update the `docsArray` as above.
