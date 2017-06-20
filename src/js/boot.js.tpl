@@ -31,7 +31,8 @@ define([], function() {
                   ["world/ng-interactive/2017/apr/28/the-valley-rebels-the-french-farmer-helping-refugees-cross-europe-video", "valley-rebels"],
                   ["world/ng-interactive/2017/apr/13/crossing-boundaries-crabs-asylum-seekers-and-therapy-on-christmas-island-video", "the-island"],
                   ["world/ng-interactive/2017/may/05/fighting-for-a-pension-disability-rights-protesters-in-bolivia-face-barricades", "the-fight"],
-                  ["world/ng-interactive/2017/may/25/the-infamous-chalk-girl", "the-infamous-chalk-girl"]
+                  ["world/ng-interactive/2017/jun/16/chalk-girl-hong-kong-democracy-umbrella-movement-protester-china", "the-infamous-chalk-girl"],
+                  ["film/ng-interactive/2017/jun/19/fish-story-angelsey-video", "fish-story"]
                 ],
                 'emailListId': 3745
             };
