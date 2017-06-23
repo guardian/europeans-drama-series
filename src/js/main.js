@@ -61,9 +61,15 @@ export function init(el, context, config) {
     builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
     const sheetName = sheetNameFromShortId(config.docsArray, window.guardian.config.page.pageId);
-    sheetToDomInnerHtml(config.sheetId, sheetName, builder, config.comingSoonSheetName, function callback(resp) {
+
+    sheetToDomInnerHtml({
+        sheetId: config.sheetId,
+        sheetName: sheetName,
+        el: builder,
+        comingSoonSheetName: config.comingSoonSheetName
+    }).then(resp => {
         const sheetValues = resp.sheets[sheetName][0]; // TODO refactor all instances of `resp.sheets[sheetName][0]` to use this `const`
-        
+
         const headline = window.guardian && window.guardian.config && window.guardian.config.page && window.guardian.config.page.headline;
         const shareText = headline || resp.sheets[sheetName][0].title;
         const shareFn = share(shareText, window.location);
