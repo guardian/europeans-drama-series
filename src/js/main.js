@@ -10,7 +10,7 @@ import reqwest from 'reqwest';
 import DocsSupporter from './lib/docs-supporter';
 import DocsComingSoon from './lib/docs-coming-soon';
 
-function initChapters(rootEl, chapters, chapterSheetName) {
+function initChapters(rootEl, docName, chapters) {
     chapters.sort((a, b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
 
     chapters.forEach(function(chapter, index) {
@@ -23,13 +23,11 @@ function initChapters(rootEl, chapters, chapterSheetName) {
 
     const compressString = (str) => str.replace(/[\s+|\W]/g, '').toLowerCase();
 
-    const getDataLinkName = (chapterSheetName, title) => `${compressString(chapterSheetName)} | ${title}`;
-
     const ul = document.createElement('ul');
     ul.classList.add('docs--chapters');
 
     chapters.forEach(function(chapter, index) {
-        const dataLinkName = getDataLinkName(chapterSheetName, chapter.chapterTitle);
+        const dataLinkName = `${compressString(docName)} | ${chapter.chapterTitle}`;
         const li = document.createElement('li');
 
         setAttributes(li, {
@@ -60,18 +58,18 @@ export function init(el, context, config) {
     const builder = document.createElement('div');
     builder.innerHTML = mainHTML.replace(/%assetPath%/g, config.assetPath);
 
-    const sheetName = sheetNameFromShortId(config.docsArray, window.guardian.config.page.pageId);
+    const docName = sheetNameFromShortId(config.docsArray, window.guardian.config.page.pageId);
 
     sheetToDomInnerHtml({
         sheetId: config.sheetId,
-        sheetName: sheetName,
+        docName: docName,
         el: builder,
         comingSoonSheetName: config.comingSoonSheetName
     }).then(resp => {
-        const sheetValues = resp.sheets[sheetName][0]; // TODO refactor all instances of `resp.sheets[sheetName][0]` to use this `const`
+        const docData = resp.sheets.documentaries.find(_ => _.docName === docName);
 
         const headline = window.guardian && window.guardian.config && window.guardian.config.page && window.guardian.config.page.headline;
-        const shareText = headline || resp.sheets[sheetName][0].title;
+        const shareText = headline || docData.title;
         const shareFn = share(shareText, window.location);
 
         Array.from(builder.querySelectorAll('.interactive-share')).forEach(shareEl => {
@@ -79,27 +77,27 @@ export function init(el, context, config) {
             shareEl.addEventListener('click', () => shareFn(network));
         });
 
+        const youTubeId = docData.youTubeId;
 
-        const youTubeId = resp.sheets[sheetName][0].youTubeId;
-        const chaptersSheetName = `${sheetName}-chapters`;
-        const chaptersResp = resp.sheets[chaptersSheetName];
-        initChapters(builder, chaptersResp, chaptersSheetName);
+        const chapters = resp.sheets.chapters.filter(_ => _.docName === docName);
+
+        initChapters(builder, docName, chapters);
 
         const hiddenDesc = builder.querySelector('#intro-expansion');
         const showMoreBtn = builder.querySelector('#intro-expand-btn');
 
         // show the supported section unless explicitly set to `FALSE` in the sheet
-        if (sheetValues.showSupported !== 'FALSE') {
+        if (docData.showSupported !== 'FALSE') {
             new DocsSupporter({
                 node: builder,
-                badgeUrl: sheetValues.supportedBadgeUrl,
-                siteUrl: sheetValues.supportedSiteUrl,
-                info: sheetValues.supportedInfo
+                badgeUrl: docData.supportedBadgeUrl,
+                siteUrl: docData.supportedSiteUrl,
+                info: docData.supportedInfo
             });
         }
 
         // show the Bertha coming soon message unless explicitly set to `FALSE` in the sheet
-        if (sheetValues.isBertha !== 'FALSE') {
+        if (docData.isBertha !== 'FALSE') {
             DocsComingSoon.render({node: builder});
         }
 
@@ -116,13 +114,13 @@ export function init(el, context, config) {
 
 
         builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
-            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chaptersResp, config);
+            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
             player.play();
         });
 
 
         setStyles(builder.querySelector('.docs__poster--image'), {
-            'background-image': `url('${resp.sheets[sheetName][0].backgroundImageUrl}')`
+            'background-image': `url('${docData.backgroundImageUrl}')`
         });
 
         setStyles(builder.querySelector('.coming-soon-background'), {
@@ -133,7 +131,7 @@ export function init(el, context, config) {
 
         const snapLinks = ['One', 'Two', 'Three', 'Four'];
         snapLinks.forEach((snapLink) => {
-            const jsonURL = resp.sheets[sheetName][0]['jsonSnap' + snapLink];
+            const jsonURL = docData['jsonSnap' + snapLink];
             reqwest({
                 'url': jsonURL,
                 'type': 'json',
@@ -156,7 +154,7 @@ export function init(el, context, config) {
         const shouldAutoPlay = autoplayReferrers.find(ref => ref.test(document.referrer));
 
         builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
-            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chaptersResp, config);
+            const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
             player.play();
         });
 
@@ -166,7 +164,7 @@ export function init(el, context, config) {
             builder.querySelector('.docs__poster--title').classList.add('will-autoplay');
             autoplayTimeout = setTimeout(()=> {
                 builder.querySelector('.docs__poster--title').classList.remove('will-autoplay');
-                const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chaptersResp, config);
+                const player = new PimpedYouTubePlayer(youTubeId, builder, '100%', '100%', chapters, config);
                 player.play();
             }, 6000);
         }

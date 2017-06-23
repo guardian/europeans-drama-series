@@ -18,7 +18,7 @@ define([], function() {
             var interactiveConfig = {
                 'assetPath': '<%= assetPath %>',
                 'comingSoonSheetName': 'coming-soon',
-                'sheetId': '1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g',
+                'sheetId': '1jYb4okCk7I42wCoduH-o48DE-EKGajM8w-MTxQYxmck',
                 'docsArray':
                 [
                   ["world/ng-interactive/2016/sep/16/gun-nation-a-journey-to-the-heart-of-americas-gun-culture-video", "gun-nation"],

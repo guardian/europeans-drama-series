@@ -3,7 +3,7 @@ import reqwest from 'reqwest';
 import startsWith from 'lodash.startswith';
 
 
-export function sheetToDomInnerHtml({sheetId, sheetName, el, comingSoonSheetName}) {
+export function sheetToDomInnerHtml({sheetId, docName, el, comingSoonSheetName}) {
 
     const sheet = sheetUrl(sheetId);
 
@@ -14,16 +14,18 @@ export function sheetToDomInnerHtml({sheetId, sheetName, el, comingSoonSheetName
             'crossOrigin': true,
             'success': resp => {
                 //get list of elements with data-sheet-attribute
-                for (const node of el.querySelectorAll('[data-sheet-attribute]')) {
-                    const value = node.getAttribute('data-sheet-attribute');
+                Array.from(el.querySelectorAll('[data-sheet-attribute]')).forEach(node => {
+                    const field = node.getAttribute('data-sheet-attribute');
 
-                    if(startsWith(value, `${comingSoonSheetName}-`)){
-                        node.innerHTML = resp.sheets[comingSoonSheetName][0][value.split(`${comingSoonSheetName}-`)[1]];
+                    if(startsWith(field, `${comingSoonSheetName}-`)){
+                        node.innerHTML = resp.sheets[comingSoonSheetName][0][field.split(`${comingSoonSheetName}-`)[1]];
                     }
                     else {
-                        node.innerHTML = resp.sheets[sheetName][0][value];
+                        const docData = resp.sheets.documentaries.find(_ => _.docName === docName);
+                        node.innerHTML = docData[field];
                     }
-                }
+                });
+
                 resolve(resp);
             },
             'error': err => reject(err)
