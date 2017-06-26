@@ -3,18 +3,11 @@
 To add a new Documentary, do the following:
 
 ## Update Google Doc
-Open the [Google Doc](https://docs.google.com/spreadsheets/d/1NcSvccw77rHAncarwfeq7RGZF7yez9mP1Icf3oLMA7g/edit) and add 
-two new tabs with the following convention:
-- doc-name
-- doc-name-chapters
-
-It is best to copy existing tabs.
-
-The naming of the tabs is important!
+Open the [Google Doc](https://docs.google.com/spreadsheets/d/1jYb4okCk7I42wCoduH-o48DE-EKGajM8w-MTxQYxmck/edit) and edit the `documentaries` and `chapters` tabs.
 
 ## Update the `DEFAULT_DOC` for Preview
 Edit [sheetNameFromShortId](../src/js/lib/sheetNameFromShortId.js), changing `DEFAULT_DOC` to be your new Documentary.
-This matches the name of your new tab created above.
+This matches the name of your doc, lower cased and hyphen separated.
 
 Run the app and confirm you can see the new doc appearing.
 
