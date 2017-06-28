@@ -32,7 +32,9 @@ define([], function() {
                   ["world/ng-interactive/2017/apr/13/crossing-boundaries-crabs-asylum-seekers-and-therapy-on-christmas-island-video", "the-island"],
                   ["world/ng-interactive/2017/may/05/fighting-for-a-pension-disability-rights-protesters-in-bolivia-face-barricades", "the-fight"],
                   ["world/ng-interactive/2017/jun/16/chalk-girl-hong-kong-democracy-umbrella-movement-protester-china", "the-infamous-chalk-girl"],
-                  ["film/ng-interactive/2017/jun/19/fish-story-angelsey-video", "fish-story"]
+                  ["film/ng-interactive/2017/jun/30/fish-story-anglesey-video-fish-surnames", "fish-story"],
+                  ["global/ng-interactive/2017/jun/28/pitching-up-documentary", "pitching-up"]
+                  
                 ],
                 'emailListId': 3745
             };
