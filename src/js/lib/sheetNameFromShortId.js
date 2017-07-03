@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'fish-story';
+const DEFAULT_DOC = 'pitching-up';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
