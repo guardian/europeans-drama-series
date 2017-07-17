@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'pitching-up';
+const DEFAULT_DOC = 'dearborn-michigan';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
