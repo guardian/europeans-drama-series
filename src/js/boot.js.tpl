@@ -33,7 +33,8 @@ define([], function() {
                   ["world/ng-interactive/2017/may/05/fighting-for-a-pension-disability-rights-protesters-in-bolivia-face-barricades", "the-fight"],
                   ["world/ng-interactive/2017/jun/16/chalk-girl-hong-kong-democracy-umbrella-movement-protester-china", "the-infamous-chalk-girl"],
                   ["film/ng-interactive/2017/jun/30/fish-story-anglesey-video-fish-surnames", "fish-story"],
-                  ["global/ng-interactive/2017/jun/28/pitching-up-documentary", "pitching-up"]
+                  ["global/ng-interactive/2017/jun/28/pitching-up-documentary", "pitching-up"],
+                  ["us-news/ng-interactive/2017/jul/17/dearborn-michigan", "dearborn-michigan"]
                   
                 ],
                 'emailListId': 3745
