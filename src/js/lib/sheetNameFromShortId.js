@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'dearborn-michigan';
+const DEFAULT_DOC = 'second-innings';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
