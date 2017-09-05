@@ -35,9 +35,9 @@ define([], function() {
                   ["film/ng-interactive/2017/jun/30/fish-story-anglesey-video-fish-surnames", "fish-story"],
                   ["world/ng-interactive/2017/jul/14/pitching-up-ancient-sports-for-children-in-irelands-most-ethnically-diverse-town", "pitching-up"],
                   ["us-news/ng-interactive/2017/aug/04/dearborn-michigan-divided-muslim-american-donald-trump-documentary", "dearborn-michigan"],
-                  ["world/ng-interactive/2017/aug/10/second-innings-from-afghanistan-to-london-building-a-new-life-playing-cricket", "second-innings"]
-
-                  
+                  ["world/ng-interactive/2017/sep/07/second-innings-how-cricket-is-helping-three-afghan-boys-build-a-new-life-in-london", "second-innings"],
+                  ["world/ng-interactive/2017/sep/05/qandeel-baloch", "qandeel-baloch"],
+                  ["world/ng-interactive/2017/sep/05/home-games", "home-games"]           
                 ],
                 'emailListId': 3745
             };
