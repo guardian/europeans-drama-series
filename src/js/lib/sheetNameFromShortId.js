@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'second-innings';
+const DEFAULT_DOC = 'qandeel-baloch';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
