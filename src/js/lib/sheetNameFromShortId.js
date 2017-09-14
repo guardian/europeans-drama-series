@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'qandeel-baloch';
+const DEFAULT_DOC = 'qandeel';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
