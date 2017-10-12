@@ -37,7 +37,8 @@ define([], function() {
                   ["us-news/ng-interactive/2017/aug/04/dearborn-michigan-divided-muslim-american-donald-trump-documentary", "dearborn-michigan"],
                   ["world/ng-interactive/2017/sep/07/second-innings-how-cricket-is-helping-three-afghan-boys-build-a-new-life-in-london", "second-innings"],
                   ["world/ng-interactive/2017/sep/22/qandeel-baloch-the-life-death-and-impact-of-pakistans-working-class-icon", "qandeel"],
-                  ["world/ng-interactive/2017/sep/05/home-games", "home-match"]           
+                  ["world/ng-interactive/2017/oct/06/home-match-a-young-ukrainian-woman-torn-between-football-and-family", "home-match"],
+                  ["world/ng-interactive/2017/oct/12/muxes", "muxes"]
                 ],
                 'emailListId': 3745
             };
