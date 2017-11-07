@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'muxes';
+const DEFAULT_DOC = 'on-the-road';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
