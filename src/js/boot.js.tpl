@@ -38,7 +38,8 @@ define([], function() {
                   ["world/ng-interactive/2017/sep/07/second-innings-how-cricket-is-helping-three-afghan-boys-build-a-new-life-in-london", "second-innings"],
                   ["world/ng-interactive/2017/sep/22/qandeel-baloch-the-life-death-and-impact-of-pakistans-working-class-icon", "qandeel"],
                   ["world/ng-interactive/2017/oct/06/home-match-a-young-ukrainian-woman-torn-between-football-and-family", "home-match"],
-                  ["world/ng-interactive/2017/oct/12/muxes", "muxes"]
+                  ["world/ng-interactive/2017/oct/27/muxes-documentary-the-mexican-town-where-gender-is-fluid", "muxes"],
+                  ["world/ng-interactive/2017/nov/07/on-the-road", "on-the-road"]
                 ],
                 'emailListId': 3745
             };
