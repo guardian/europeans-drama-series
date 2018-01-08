@@ -40,7 +40,7 @@ define([], function() {
                   ["world/ng-interactive/2017/oct/06/home-match-a-young-ukrainian-woman-torn-between-football-and-family", "home-match"],
                   ["world/ng-interactive/2017/oct/27/muxes-documentary-the-mexican-town-where-gender-is-fluid", "muxes"],
                   ["world/ng-interactive/2017/nov/24/on-the-road-living-and-working-on-the-italian-road-of-love", "on-the-road"],
-                  ["world/ng-interactive/2017/dec/15/killing-gavle-swedish-city-40ft-goat-battle-for-the-spirit-of-christmas", "killing-gävle"],
+                  ["world/ng-interactive/2017/dec/15/killing-gavle-swedish-city-40ft-goat-battle-for-the-spirit-of-christmas", "killing-gavle"],
                   ["world/ng-interactive/2018/jan/05/connectifai", "connectifai"],
                 ],
                 'emailListId': 3745
