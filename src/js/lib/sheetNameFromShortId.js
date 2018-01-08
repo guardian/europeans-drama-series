@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'killing-gävle';
+const DEFAULT_DOC = 'connectifai';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
