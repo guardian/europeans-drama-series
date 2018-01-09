@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'connectifai';
+const DEFAULT_DOC = 'conectifai';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
