@@ -10,7 +10,7 @@
     }
     &:before {
         content: '';
-        background-color: #FB0;
+        background-color: #FFFFFF;
         position: absolute;
         left: 0;
         right: 0;
@@ -60,7 +60,7 @@
             position: relative;
             color: $c-grey-lightest;
             @include mq(desktop) {
-                color: #FB0;
+                color: #FFFFFF;
                 left: 0;
                 top: 0;
                 padding-left: 0;
@@ -251,10 +251,10 @@
             }
             &:after {
                 position: absolute;
-                top: -36px;
+                top: -12px;
                 left: 1px;
                 transform-origin: bottom left;
-                transform: scale(0.65);
+                transform: scale(0.7);
                 display: none;
                 @include mq(desktop) {
                     display: block;
