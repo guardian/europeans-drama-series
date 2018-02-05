@@ -1,5 +1,6 @@
 .coming-soon {
     color: $c-nearly-white;
+    //color: #FFFFFF;
     background-color: $c-grey-dark;
     margin: 0 auto;
     padding: 0;
@@ -10,7 +11,7 @@
     }
     &:before {
         content: '';
-        background-color: #FFFFFF;
+        background-color: #CCCCCC;
         position: absolute;
         left: 0;
         right: 0;
@@ -55,10 +56,11 @@
             z-index: 9;
             font-size: 22px;
             font-weight: 600;
-            text-transform: lowercase;
+            //text-transform: lowercase;
             padding: 5px 0 0 10px;
             position: relative;
-            color: $c-grey-lightest;
+            //color: $c-grey-lightest;
+            color: #FFFFFF;
             @include mq(desktop) {
                 color: #FFFFFF;
                 left: 0;
@@ -67,9 +69,9 @@
             }
         }
         .details {
-            color: #999;
-            line-height: 18px;
-            font-weight: 200;
+            color: #FFFFFF;
+            line-height: 19px;
+            font-weight: 300;
             font-family: 'Guardian Egyptian Web', Georgia, serif;
             margin: 4px 0 8px 0;
             display: none;

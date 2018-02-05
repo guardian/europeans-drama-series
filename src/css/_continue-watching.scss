@@ -1,11 +1,12 @@
 #more-documentaries {
     .fc-container__inner {
-        border-top: 1px solid #676767;
+        border-top: 1px solid #CCCCCC;
         .fc-container__header__title {
-            color: #999;
+            color: #FFF;
             font-weight: 600;
             &:hover a {
-                color: currentColor;
+                color: #FFF;
+                text-decoration: none;
             }
         }
     }
