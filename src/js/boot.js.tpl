@@ -41,7 +41,8 @@ define([], function() {
                   ["world/ng-interactive/2017/oct/27/muxes-documentary-the-mexican-town-where-gender-is-fluid", "muxes"],
                   ["world/ng-interactive/2017/nov/24/on-the-road-living-and-working-on-the-italian-road-of-love", "on-the-road"],
                   ["world/ng-interactive/2017/dec/15/killing-gavle-swedish-city-40ft-goat-battle-for-the-spirit-of-christmas", "killing-gavle"],
-                  ["world/ng-interactive/2018/jan/05/conectifai", "connectifai"],
+                  ["world/ng-interactive/2018/feb/02/pork-crackling-wifi-parks-havana-hotspot-conectifai-documentary", "connectifai"],
+                  ["world/ng-interactive/2018/feb/13/how-to-make-a-pearl", "how-to-make-a-pearl"]
                 ],
                 'emailListId': 3745
             };
