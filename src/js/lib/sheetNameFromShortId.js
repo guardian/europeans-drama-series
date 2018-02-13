@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'conectifai';
+const DEFAULT_DOC = 'how-to-make-a-pearl';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
