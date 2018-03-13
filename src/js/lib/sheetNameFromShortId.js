@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'how-to-make-a-pearl';
+const DEFAULT_DOC = 'white-fright';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
