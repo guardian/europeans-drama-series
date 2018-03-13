@@ -42,7 +42,8 @@ define([], function() {
                   ["world/ng-interactive/2017/nov/24/on-the-road-living-and-working-on-the-italian-road-of-love", "on-the-road"],
                   ["world/ng-interactive/2017/dec/15/killing-gavle-swedish-city-40ft-goat-battle-for-the-spirit-of-christmas", "killing-gavle"],
                   ["world/ng-interactive/2018/feb/02/pork-crackling-wifi-parks-havana-hotspot-conectifai-documentary", "conectifai"],
-                  ["world/ng-interactive/2018/feb/13/how-to-make-a-pearl", "how-to-make-a-pearl"]
+                  ["artanddesign/ng-interactive/2018/mar/02/how-to-make-a-pearl-the-san-francisco-man-who-lives-in-darkness", "how-to-make-a-pearl"],
+                  ["world/ng-interactive/2018/mar/13/white-fright", "white-fright"]
                 ],
                 'emailListId': 3745
             };
