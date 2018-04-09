@@ -43,8 +43,8 @@ define([], function() {
                   ["world/ng-interactive/2017/dec/15/killing-gavle-swedish-city-40ft-goat-battle-for-the-spirit-of-christmas", "killing-gavle"],
                   ["world/ng-interactive/2018/feb/02/pork-crackling-wifi-parks-havana-hotspot-conectifai-documentary", "conectifai"],
                   ["artanddesign/ng-interactive/2018/mar/02/how-to-make-a-pearl-the-san-francisco-man-who-lives-in-darkness", "how-to-make-a-pearl"],
-                  ["world/ng-interactive/2018/apr/05/the-climate-and-the-cross", "the-climate-and-the-cross"],
-                  ["world/ng-interactive/2018/mar/13/white-fright", "white-fright"]
+                  ["world/ng-interactive/2018/mar/13/white-fright", "white-fright"],
+                  ["world/ng-interactive/2018/apr/05/the-climate-and-the-cross", "the-climate-and-the-cross"]
                 ],
                 'emailListId': 3745
             };
