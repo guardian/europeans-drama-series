@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'the-climate-and-the-cross';
+const DEFAULT_DOC = 'four-weddings';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
