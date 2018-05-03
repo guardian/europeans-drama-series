@@ -44,7 +44,8 @@ define([], function() {
                   ["world/ng-interactive/2018/feb/02/pork-crackling-wifi-parks-havana-hotspot-conectifai-documentary", "conectifai"],
                   ["artanddesign/ng-interactive/2018/mar/02/how-to-make-a-pearl-the-san-francisco-man-who-lives-in-darkness", "how-to-make-a-pearl"],
                   ["world/ng-interactive/2018/mar/13/white-fright", "white-fright"],
-                  ["world/ng-interactive/2018/apr/05/the-climate-and-the-cross", "the-climate-and-the-cross"]
+                  ["environment/ng-interactive/2018/apr/13/the-climate-and-the-cross-us-evangelical-christians-tussle-with-climate-change", "the-climate-and-the-cross"],
+                  ["preview/global/ng-interactive/2018/apr/27/four-weddings", "four-weddings"]
                 ],
                 'emailListId': 3745
             };
