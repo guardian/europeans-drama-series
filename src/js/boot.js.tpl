@@ -45,7 +45,8 @@ define([], function() {
                   ["artanddesign/ng-interactive/2018/mar/02/how-to-make-a-pearl-the-san-francisco-man-who-lives-in-darkness", "how-to-make-a-pearl"],
                   ["world/ng-interactive/2018/mar/13/white-fright", "white-fright"],
                   ["environment/ng-interactive/2018/apr/13/the-climate-and-the-cross-us-evangelical-christians-tussle-with-climate-change", "the-climate-and-the-cross"],
-                  ["preview/global/ng-interactive/2018/apr/27/four-weddings", "four-weddings"]
+                  ["news/ng-interactive/2018/may/14/four-weddings-four-alternative-nuptials-to-harry-and-meghans-video", "four-weddings"],
+                  ["preview/uk-news/ng-interactive/2018/may/22/our-house", "our-house"]
                 ],
                 'emailListId': 3745
             };
