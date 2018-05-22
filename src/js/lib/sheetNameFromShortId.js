@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'our-house';
+const DEFAULT_DOC = 'four-weddings';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
