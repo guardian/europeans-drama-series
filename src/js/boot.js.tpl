@@ -46,7 +46,7 @@ define([], function() {
                   ["world/ng-interactive/2018/mar/13/white-fright", "white-fright"],
                   ["environment/ng-interactive/2018/apr/13/the-climate-and-the-cross-us-evangelical-christians-tussle-with-climate-change", "the-climate-and-the-cross"],
                   ["news/ng-interactive/2018/may/14/four-weddings-four-alternative-nuptials-to-harry-and-meghans-video", "four-weddings"],
-                  ["preview/uk-news/ng-interactive/2018/may/22/our-house", "our-house"]
+                  ["uk-news/ng-interactive/2018/may/24/our-house-the-homeless-man-the-hippy-and-the-property-developer", "our-house"]
                 ],
                 'emailListId': 3745
             };
