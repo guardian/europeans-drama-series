@@ -1,8 +1,13 @@
 #more-documentaries {
     .fc-container__inner {
         border-color: #767676;
-        .fc-container__header__title:after {
-          background-color: #767676;
+        .fc-container__header__title {
+            a:hover {
+                border: 0;
+            }
+            &:after {
+                background-color: #767676;
+            }
         }
         .fc-container__header__title {
             color: #FFF;
