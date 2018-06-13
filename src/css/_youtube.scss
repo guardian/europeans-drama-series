@@ -129,8 +129,18 @@
             }
         }
     }
-    &--logo,
     &--title {
+        height: auto;
+        bottom: 18px;
+        margin: 0 auto;
+        transform-origin: center left;
+        transform: translateX(-2px);
+        @include mq(mobileLandscape) {
+            transform: translateX(-6px);
+        }
+
+        z-index: 1;
+        position: absolute;
         left: 14px;
         @include mq(mobileLandscape) {
             left: 10px;
@@ -146,32 +156,6 @@
         }
         @include mq(wide) {
             left: 20%;
-        }
-    }
-    &--logo {
-        width: 200px;
-        height: 36px;
-        margin-top: 14px;
-        @include g-documentaries-logo();
-        position: absolute;
-        top: 0;
-        z-index: 5;
-        transform-origin: top left;
-        //transform: scale(0.8);
-        @include mq(phablet) {
-            transform: scale(1);
-        }
-    }
-    &--title {
-        height: auto;
-        bottom: 18px;
-        margin: 0 auto;
-        position: absolute;
-        z-index: 1;
-        transform-origin: center left;
-        transform: translateX(-2px);
-        @include mq(mobileLandscape) {
-            transform: translateX(-6px);
         }
     }
     &--headline {
