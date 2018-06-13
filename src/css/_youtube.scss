@@ -205,10 +205,10 @@
         @include mq(phablet) {
             margin-top: 27px;
             display: inline-block;
-            transform: scale(1);
+            transform: scale(1) translate(0, 0);
             transform-origin: center;
             &:hover {
-                transform: scale(1.06);
+                transform: scale(1.06) translate(0, 0);
             }
         }
 
@@ -232,8 +232,31 @@
         text-align: center;
         border-radius: 16px;
         transition: all 360ms;
+        position: absolute;
+        transform: translate(68px, -68px);
+        @include mq(phablet) {
+            position: relative;
+            transform: translate(6px, 52px);
+        }
+        @include mq(desktop) {
+            position: absolute;
+            transform: none;
+            bottom: -9px;
+            left: 0;
+        }
         &:hover {
             background-color: rgba(22,22,22,0.7);
+        }
+    }
+    &--title.will-autoplay,
+    &--title.cancelled-autoplay {
+        @include mq(desktop) {
+            padding-bottom: 32px;
+        }
+        @include mq($from: tablet, $until: desktop) {
+            .docs__poster--headline {
+                margin-top: 12px;
+            }
         }
     }
     &--title.will-autoplay {
@@ -253,22 +276,24 @@
             }
         }
         .docs__poster--autoplay-stop-button {
-            display: block;
+            display: inline-block;
         }
     }
     &--title.cancelled-autoplay {
-        .docs__poster--play-button {
-            transform: scale(0.88);
-            margin-right: 0%;
-            &:hover {
-                transform: scale(0.92);
+        @include mq($from: phablet, $until: desktop) {
+            .docs__poster--play-button {
+                transition: none;
+                transform: scale(1) translate(0, 41px);
             }
         }
         .docs__poster--autoplay-stop-button {
             transition: all 300ms;
             display: block;
-            transform: scale(0.9);
+            transform: scale(0.9) translate(68px, -68px);
             opacity: 0;
+            @include mq(desktop) {
+                transform: scale(0.9);
+            }
         }
     }
 }
