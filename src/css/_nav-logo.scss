@@ -1,12 +1,6 @@
 @include mq(desktop) {
     .new-header .inline-the-guardian-roundel {
-        background-image: url(https://uploads.guim.co.uk/2018/06/13/theguardian-documentaries.svg);
-        background-repeat: no-repeat;
-        background-position: top left;
-        background-size: 100% auto;
-        height: 82px;
-        width: 97px;
-        display: block;
+        @include compact-logo;
         svg {
             display: none;
         }
