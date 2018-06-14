@@ -11,7 +11,7 @@
     }
     &:before {
         content: '';
-        background-color: #CCCCCC;
+        background-color: #767676;
         position: absolute;
         left: 0;
         right: 0;
@@ -48,13 +48,24 @@
             width: 140px;
             display: inline-block;
             vertical-align: top;
+            position: relative;
+            &:after {
+                content: '';
+                position: absolute;
+                height: 1.875rem;
+                width: 0.0625rem;
+                background-color: #767676;
+                right: -0.5rem;
+                top: 0;
+            }
         }
         @include mq(wide) {
             width: 220px;
         }
         .title {
             z-index: 9;
-            font-size: 22px;
+            font-size: 20px;
+            line-height: 24px;
             font-weight: 600;
             //text-transform: lowercase;
             padding: 5px 0 0 10px;
@@ -66,6 +77,10 @@
                 left: 0;
                 top: 0;
                 padding-left: 0;
+            }
+            @include mq(wide) {
+                font-size: 24px;
+                line-height: 28px;
             }
         }
         .details {

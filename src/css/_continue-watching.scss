@@ -1,9 +1,24 @@
 #more-documentaries {
     .fc-container__inner {
-        border-top: 1px solid #CCCCCC;
+        border-color: #767676;
+        .fc-container__header__title {
+            a:hover {
+                border: 0;
+            }
+            &:after {
+                background-color: #767676;
+            }
+        }
         .fc-container__header__title {
             color: #FFF;
             font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
+            @include mq(wide) {
+                font-size: 24px;
+                line-height: 28px;
+            }
+
             &:hover a {
                 color: #FFF;
                 text-decoration: none;
@@ -31,7 +46,7 @@
                     border-left: 1px solid #333;
                 }
                 .doc-card:hover {
-                    opacity: 0.8;
+                    opacity: 0.85;
                 }
             }
         }

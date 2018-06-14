@@ -211,6 +211,16 @@
   }
 }
 
+@mixin compact-logo {
+    background-image: svg-url('<svg width="97" height="81" viewBox="0 0 97 81" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero" fill="none"><path fill="#121212" d="M3.435.079L0 2.767V78.62l3.435 2.39 93.172-38.225v-4.181z"/><path d="M31.037 16.344h.004c13.364 0 24.199 10.834 24.199 24.2 0 13.364-10.835 24.2-24.199 24.2-13.366 0-24.2-10.836-24.2-24.2 0-13.366 10.834-24.2 24.196-24.2zm4.152 5.978v.778l7.813 10.408h.769v-7.012c-1.458-1.525-5.182-3.674-8.582-4.174zm-2.592.44v-.793c-8.26-.565-19.432 5.734-19.27 18.65v.037c-.162 12.916 11.01 19.217 19.27 18.65v-.79h-.091c-5.492 0-8.653-7.603-8.492-17.86v-.037c-.16-10.255 3-17.858 8.492-17.858h.091zm11.174 20.593l2.591-1.126v-.787H32.597v.714l2.592.945V59.14c3.561-.722 7.124-2.825 8.582-4.173v-11.61z" fill="#FFF"/></g></svg>');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 100% auto;
+    height: 82px;
+    width: 97px;
+    display: block;
+}
+
 @mixin icon-info {
   &:after {
     content: '';
