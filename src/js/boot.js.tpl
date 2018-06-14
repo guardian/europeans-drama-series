@@ -47,7 +47,8 @@ define([], function() {
                   ["environment/ng-interactive/2018/apr/13/the-climate-and-the-cross-us-evangelical-christians-tussle-with-climate-change", "the-climate-and-the-cross"],
                   ["news/ng-interactive/2018/may/14/four-weddings-four-alternative-nuptials-to-harry-and-meghans-video", "four-weddings"],
                   ["society/ng-interactive/2018/jun/01/our-house-the-homeless-man-the-hippy-and-the-property-developer", "our-house"],
-                  ["society/ng-interactive/2018/jun/01/the-tower-next-door", "the-tower-next-door"]
+                  ["uk-news/ng-interactive/2018/jun/14/the-tower-next-door-living-in-the-shadow-of-grenfell", "the-tower-next-door"],
+                  ["preview/us-news/ng-interactive/2018/jun/14/the-trap", "the-trap"]
                 ],
                 'emailListId': 3745
             };
