@@ -49,7 +49,9 @@ define([], function() {
                   ["society/ng-interactive/2018/jun/01/our-house-the-homeless-man-the-hippy-and-the-property-developer", "our-house"],
                   ["uk-news/ng-interactive/2018/jun/14/the-tower-next-door-living-in-the-shadow-of-grenfell", "the-tower-next-door"],
                   ["us-news/ng-interactive/2018/jun/29/the-trap-sex-trafficking-american-prisons", "the-trap"],
-                  ["world/ng-interactive/2018/jul/20/white-fright-the-plot-to-attack-muslims-that-the-us-media-ignored", "white-fright"]
+                  ["world/ng-interactive/2018/jul/20/white-fright-the-plot-to-attack-muslims-that-the-us-media-ignored", "white-fright"],
+                  ["world/ng-interactive/2018/jul/05/little-pyongyang", "little-pyongyang"],
+                  ["us-news/ng-interactive/2018/jul/05/cops-and-robbers", "cops-and-robbers"]
                 ],
                 'emailListId': 3745
             };
