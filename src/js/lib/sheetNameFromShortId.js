@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'the-trap';
+const DEFAULT_DOC = 'white-fright';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
