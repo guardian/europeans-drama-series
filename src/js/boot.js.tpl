@@ -48,7 +48,8 @@ define([], function() {
                   ["news/ng-interactive/2018/may/14/four-weddings-four-alternative-nuptials-to-harry-and-meghans-video", "four-weddings"],
                   ["society/ng-interactive/2018/jun/01/our-house-the-homeless-man-the-hippy-and-the-property-developer", "our-house"],
                   ["uk-news/ng-interactive/2018/jun/14/the-tower-next-door-living-in-the-shadow-of-grenfell", "the-tower-next-door"],
-                  ["preview/us-news/ng-interactive/2018/jun/14/the-trap", "the-trap"]
+                  ["us-news/ng-interactive/2018/jun/29/the-trap-sex-trafficking-american-prisons", "the-trap"],
+                  ["world/ng-interactive/2018/jul/20/white-fright-the-plot-to-attack-muslims-that-the-us-media-ignored", "white-fright"]
                 ],
                 'emailListId': 3745
             };
