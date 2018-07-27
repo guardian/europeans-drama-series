@@ -51,7 +51,7 @@ define([], function() {
                   ["us-news/ng-interactive/2018/jun/29/the-trap-sex-trafficking-american-prisons", "the-trap"],
                   ["world/ng-interactive/2018/jul/20/white-fright-the-plot-to-attack-muslims-that-the-us-media-ignored", "white-fright"],
                   ["world/ng-interactive/2018/jul/05/little-pyongyang", "little-pyongyang"],
-                  ["us-news/ng-interactive/2018/jul/05/cops-and-robbers", "cops-and-robbers"]
+                  ["us-news/ng-interactive/2018/jul/27/cops-and-robbers-corey-pegues-new-york-documentary-video", "cops-and-robbers"]
                 ],
                 'emailListId': 3745
             };
