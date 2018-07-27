@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'cops-and-robbers';
+const DEFAULT_DOC = 'little-pyongyang';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
