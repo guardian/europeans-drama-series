@@ -50,7 +50,8 @@ define([], function() {
                   ["uk-news/ng-interactive/2018/jun/14/the-tower-next-door-living-in-the-shadow-of-grenfell", "the-tower-next-door"],
                   ["us-news/ng-interactive/2018/jun/29/the-trap-sex-trafficking-american-prisons", "the-trap"],
                   ["world/ng-interactive/2018/jul/20/white-fright-the-plot-to-attack-muslims-that-the-us-media-ignored", "white-fright"],
-                  ["world/ng-interactive/2018/jul/05/little-pyongyang", "little-pyongyang"],
+                  ["world/ng-interactive/2018/aug/03/little-pyongyang-a-north-korean-in-south-london", "little-pyongyang"],
+                  ["preview/uk-news/ng-interactive/2018/aug/21/silent-sam", "silent-sam"],
                   ["us-news/ng-interactive/2018/jul/27/cops-and-robbers-corey-pegues-new-york-documentary-video", "cops-and-robbers"]
                 ],
                 'emailListId': 3745
