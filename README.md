@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/guardian/docs-interactive-template.svg?style=svg)](https://circleci.com/gh/guardian/docs-interactive-template)
-
 # Guardian Documentaries
 
 An interactive template for the Guardian Documentaries.
