@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'silent-sam';
+const DEFAULT_DOC = 'black-sheep';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
