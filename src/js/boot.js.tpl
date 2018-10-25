@@ -53,7 +53,7 @@ define([], function() {
                   ["world/ng-interactive/2018/aug/03/little-pyongyang-a-north-korean-in-south-london", "little-pyongyang"],
                   ["uk-news/ng-interactive/2018/sep/21/silent-sam-the-mute-punk-singer-video", "silent-sam"],
                   ["us-news/ng-interactive/2018/jul/27/cops-and-robbers-corey-pegues-new-york-documentary-video", "cops-and-robbers"],
-                  ["news/ng-interactive/2018/oct/26/black-sheep-the-black-teenager-who-joined-a-racist-gang-video", "black-sheep"],
+                  ["news/ng-interactive/2018/oct/26/black-sheep-the-black-teenager-who-made-friends-with-racists-video", "black-sheep"],
                   ["global/ng-interactive/2018/sep/24/black-sheep", "julian's-wait"]
                 ],
                 'emailListId': 3745
