@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'black-sheep';
+const DEFAULT_DOC = 'julians-wait';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
