@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'skip-day';
+const DEFAULT_DOC = 'crisanto-street';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
