@@ -54,7 +54,9 @@ define([], function() {
                   ["uk-news/ng-interactive/2018/sep/21/silent-sam-the-mute-punk-singer-video", "silent-sam"],
                   ["us-news/ng-interactive/2018/jul/27/cops-and-robbers-corey-pegues-new-york-documentary-video", "cops-and-robbers"],
                   ["news/ng-interactive/2018/oct/26/black-sheep-the-black-teenager-who-made-friends-with-racists-video", "black-sheep"],
-                  ["world/ng-interactive/2018/oct/25/julians-wait-julian-cole-visiting-the-man-paralysed-after-police-incident-outside-a-nightclub-video", "julians-wait"]
+                  ["world/ng-interactive/2018/oct/25/julians-wait-julian-cole-visiting-the-man-paralysed-after-police-incident-outside-a-nightclub-video", "julians-wait"],
+                  ["news/ng-interactive/2018/nov/29/skip-day-high-school-friendship-and-everyday-racism-at-the-beach-in-florida-video", "skip-day"],
+                  ["global/ng-interactive/2018/dec/06/crisanto-street", "crisanto-street"]
                 ],
                 'emailListId': 3745
             };
