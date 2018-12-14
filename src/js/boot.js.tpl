@@ -57,7 +57,7 @@ define([], function() {
                   ["world/ng-interactive/2018/oct/25/julians-wait-julian-cole-visiting-the-man-paralysed-after-police-incident-outside-a-nightclub-video", "julians-wait"],
                   ["news/ng-interactive/2018/nov/29/skip-day-high-school-friendship-and-everyday-racism-at-the-beach-in-florida-video", "skip-day"],
                   ["news/ng-interactive/2018/dec/18/crisanto-street-a-child-living-in-a-mobile-home-in-silicon-valley-video", "crisanto-street"],
-                  ["preview/world/ng-interactive/2018/dec/14/fighting-shame", "brazil"]
+                  ["world/ng-interactive/2018/dec/14/marielle-and-monica", "marielle-and-monica"]
                 ],
                 'emailListId': 3745
             };
