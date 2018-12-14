@@ -56,7 +56,8 @@ define([], function() {
                   ["news/ng-interactive/2018/oct/26/black-sheep-the-black-teenager-who-made-friends-with-racists-video", "black-sheep"],
                   ["world/ng-interactive/2018/oct/25/julians-wait-julian-cole-visiting-the-man-paralysed-after-police-incident-outside-a-nightclub-video", "julians-wait"],
                   ["news/ng-interactive/2018/nov/29/skip-day-high-school-friendship-and-everyday-racism-at-the-beach-in-florida-video", "skip-day"],
-                  ["global/ng-interactive/2018/dec/06/crisanto-street", "crisanto-street"]
+                  ["news/ng-interactive/2018/dec/18/crisanto-street-a-child-living-in-a-mobile-home-in-silicon-valley-video", "crisanto-street"],
+                  ["preview/world/ng-interactive/2018/dec/14/fighting-shame", "brazil"]
                 ],
                 'emailListId': 3745
             };
