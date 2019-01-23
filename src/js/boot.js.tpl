@@ -112,9 +112,15 @@ define([], function() {
             }, 10);
 
             // Load JS and init
-            require(['<%= assetPath %>/main.js'], function(main) {
-                main.init(el, context, interactiveConfig, mediator);
-            }, function(err) { console.error('Error loading boot.', err); });
+            if (typeof require !== 'undefined') {
+                require(['<%= assetPath %>/main.js'], function(main) {
+                    main.init(el, context, interactiveConfig, mediator);
+                }, function(err) { console.error('Error loading boot.', err); });
+            } else if (typeof curl !== 'undefined') {
+                curl(['<%= assetPath %>/main.js'], function(main) {
+                    main.init(el, context, interactiveConfig, mediator);
+                }, function(err) { console.error('Error loading boot.', err); });
+            }
         }
     };
 });
