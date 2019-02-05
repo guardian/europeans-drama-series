@@ -58,7 +58,8 @@ define([], function() {
                   ["news/ng-interactive/2018/nov/29/skip-day-high-school-friendship-and-everyday-racism-at-the-beach-in-florida-video", "skip-day"],
                   ["news/ng-interactive/2018/dec/18/crisanto-street-a-child-living-in-a-mobile-home-in-silicon-valley-video", "crisanto-street"],
                   ["world/ng-interactive/2018/dec/28/marielle-and-monica-the-lgbt-activists-resisting-bolsonaros-brazil", "marielle-and-monica"],
-                  ["global/ng-interactive/2019/jan/04/fighting-shame", "fighting-shame"]
+                  ["news/ng-interactive/2019/jan/25/fighting-shame-women-leeds-tell-stories-fighting-poverty", "fighting-shame"],
+                  ["global/ng-interactive/2019/feb/05/the-breadmakers", "the-breadmaker"]
                 ],
                 'emailListId': 3745
             };
