@@ -60,7 +60,7 @@ define([], function() {
                   ["world/ng-interactive/2018/dec/28/marielle-and-monica-the-lgbt-activists-resisting-bolsonaros-brazil", "marielle-and-monica"],
                   ["news/ng-interactive/2019/jan/25/fighting-shame-women-leeds-tell-stories-fighting-poverty", "fighting-shame"],
                   ["global-development/ng-interactive/2019/feb/15/the-breadmaker-frontline-venezuela-bakery-wars-video-la-minka", "the-breadmaker"],
-                  ["global/ng-interactive/2019/feb/05/the-breadmakers", "the-trial"],
+                  ["news/ng-interactive/2019/feb/22/the-trial-inside-the-ammar-al-baluchi-guantanamo-trial-video", "the-trial"],
                 ],
                 'emailListId': 3745
             };
