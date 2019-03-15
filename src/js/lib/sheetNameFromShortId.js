@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'the-trial';
+const DEFAULT_DOC = 'where-the-river-runs-red';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
