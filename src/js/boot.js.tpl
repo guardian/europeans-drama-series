@@ -61,7 +61,8 @@ define([], function() {
                   ["news/ng-interactive/2019/jan/25/fighting-shame-women-leeds-tell-stories-fighting-poverty", "fighting-shame"],
                   ["global-development/ng-interactive/2019/feb/15/the-breadmaker-frontline-venezuela-bakery-wars-video-la-minka", "the-breadmaker"],
                   ["us-news/ng-interactive/2019/feb/22/the-trial-inside-the-ammar-al-baluchi-guantanamo-trial-video", "the-trial"],
-                  ["preview/global/ng-interactive/2019/mar/15/where-the-river-runs-red", "where-the-river-runs-red"]
+                  ["news/ng-interactive/2019/mar/25/where-the-river-runs-red-a-former-mining-community-caught-between-the-past-and-a-sustainable-future-video", "where-the-river-runs-red"],
+                  ["preview/world/ng-interactive/2019/mar/25/someone-elses-war", "someone-elses-war"]
                 ],
                 'emailListId': 3745
             };
