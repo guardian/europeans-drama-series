@@ -62,7 +62,8 @@ define([], function() {
                   ["global-development/ng-interactive/2019/feb/15/the-breadmaker-frontline-venezuela-bakery-wars-video-la-minka", "the-breadmaker"],
                   ["us-news/ng-interactive/2019/feb/22/the-trial-inside-the-ammar-al-baluchi-guantanamo-trial-video", "the-trial"],
                   ["news/ng-interactive/2019/mar/25/where-the-river-runs-red-a-former-mining-community-caught-between-the-past-and-a-sustainable-future-video", "where-the-river-runs-red"],
-                  ["preview/world/ng-interactive/2019/mar/25/someone-elses-war", "someone-elses-war"]
+                  ["world/ng-interactive/2019/apr/05/someone-elses-war-when-your-child-joins-the-war-against-isis-video", "someone-elses-war"],
+                  ["preview/global/ng-interactive/2019/apr/05/lasting-marks", "lasting-marks"]
                 ],
                 'emailListId': 3745
             };
