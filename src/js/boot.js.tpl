@@ -63,7 +63,9 @@ define([], function() {
                   ["us-news/ng-interactive/2019/feb/22/the-trial-inside-the-ammar-al-baluchi-guantanamo-trial-video", "the-trial"],
                   ["news/ng-interactive/2019/mar/25/where-the-river-runs-red-a-former-mining-community-caught-between-the-past-and-a-sustainable-future-video", "where-the-river-runs-red"],
                   ["world/ng-interactive/2019/apr/05/someone-elses-war-when-your-child-joins-the-war-against-isis-video", "someone-elses-war"],
-                  ["preview/global/ng-interactive/2019/apr/05/lasting-marks", "lasting-marks"]
+                  ["society/ng-interactive/2019/apr/12/lasting-marks-16-men-put-on-trial-for-sadomasochism-video", "lasting-marks"],
+                  ["news/ng-interactive/2019/apr/18/anonymous-comes-to-town-how-hackers-took-on-high-school-sexual-assault-in-ohio", "anonymous-comes-to-town"],
+                  ["preview/uk-news/ng-interactive/2019/apr/18/sam-and-the-plant-next-door", "sam-and-the-plant-next-door"]
                 ],
                 'emailListId': 3745
             };
