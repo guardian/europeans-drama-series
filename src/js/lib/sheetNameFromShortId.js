@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'lasting-marks';
+const DEFAULT_DOC = 'sam-and-the-plant-next-door';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
