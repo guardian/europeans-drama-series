@@ -65,7 +65,8 @@ define([], function() {
                   ["world/ng-interactive/2019/apr/05/someone-elses-war-when-your-child-joins-the-war-against-isis-video", "someone-elses-war"],
                   ["society/ng-interactive/2019/apr/12/lasting-marks-16-men-put-on-trial-for-sadomasochism-video", "lasting-marks"],
                   ["news/ng-interactive/2019/apr/18/anonymous-comes-to-town-how-hackers-took-on-high-school-sexual-assault-in-ohio", "anonymous-comes-to-town"],
-                  ["preview/uk-news/ng-interactive/2019/apr/18/sam-and-the-plant-next-door", "sam-and-the-plant-next-door"]
+                  ["preview/uk-news/ng-interactive/2019/apr/18/sam-and-the-plant-next-door", "sam-and-the-plant-next-door"],
+                  ["news/ng-interactive/2019/may/23/the-hour-of-lynching-vigilante-violence-against-muslims-in-india-video", "the-hour-of-lynching"]
                 ],
                 'emailListId': 3745
             };
