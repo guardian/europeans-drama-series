@@ -66,7 +66,7 @@ define([], function() {
                   ["society/ng-interactive/2019/apr/12/lasting-marks-16-men-put-on-trial-for-sadomasochism-video", "lasting-marks"],
                   ["news/ng-interactive/2019/apr/18/anonymous-comes-to-town-how-hackers-took-on-high-school-sexual-assault-in-ohio", "anonymous-comes-to-town"],
                   ["uk-news/ng-interactive/2019/may/03/sam-and-the-plant-next-door-growing-up-with-hinkley-point-video", "sam-and-the-plant-next-door"],
-                  ["news/ng-interactive/2019/may/23/the-hour-of-lynching-vigilante-violence-against-muslims-in-india-video", "the-hour-of-lynching"],
+                  ["news/ng-interactive/2019/may/24/the-hour-of-lynching-vigilante-violence-against-muslims-in-india-video", "the-hour-of-lynching"],
                   ["preview/global/ng-interactive/2019/may/17/buyers-club", "buyers-club"],
                 ],
                 'emailListId': 3745
