@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'buyers-club';
+const DEFAULT_DOC = 'trapped-in-the-city-of-a-thousand-mountains';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
