@@ -67,7 +67,7 @@ define([], function() {
                   ["news/ng-interactive/2019/apr/18/anonymous-comes-to-town-how-hackers-took-on-high-school-sexual-assault-in-ohio", "anonymous-comes-to-town"],
                   ["uk-news/ng-interactive/2019/may/03/sam-and-the-plant-next-door-growing-up-with-hinkley-point-video", "sam-and-the-plant-next-door"],
                   ["news/ng-interactive/2019/may/24/the-hour-of-lynching-vigilante-violence-against-muslims-in-india-video", "the-hour-of-lynching"],
-                  ["news/ng-interactive/2019/jun/03/the-buyers-club-for-people-seeking-low-cost-hepatitis-c-medicine-video", "buyers-club"],
+                  ["news/ng-interactive/2019/jun/03/buyers-club-the-network-providing-people-with-affordable-hepatitis-c-medicine-video", "buyers-club"],
                   ["preview/world/ng-interactive/2019/may/31/trapped-in-a-city-of-a-thousand-mountains", "trapped-in-the-city-of-a-thousand-mountains"],
                 ],
                 'emailListId': 3745
