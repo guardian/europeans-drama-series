@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'trapped-in-the-city-of-a-thousand-mountains';
+const DEFAULT_DOC = 'the-waiting-room';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
