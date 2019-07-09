@@ -69,7 +69,7 @@ define([], function() {
                   ["news/ng-interactive/2019/may/24/the-hour-of-lynching-vigilante-violence-against-muslims-in-india-video", "the-hour-of-lynching"],
                   ["news/ng-interactive/2019/jun/03/buyers-club-the-network-providing-people-with-affordable-hepatitis-c-medicine-video", "buyers-club"],
                   ["world/ng-interactive/2019/jun/14/trapped-in-the-city-of-a-thousand-mountains-video", "trapped-in-the-city-of-a-thousand-mountains"],
-                  ["preview/news/ng-interactive/2019/jun/24/the-waiting-room-a-single-parents-unflinching-account-of-living-with-cancer-video", "the-waiting-room"],
+                  ["news/ng-interactive/2019/jun/28/the-waiting-room-single-parents-unflinching-account-living-with-cancer-video", "the-waiting-room"],
                 ],
                 'emailListId': 3745
             };
