@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'crannog';
+const DEFAULT_DOC = 'share';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
