@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'the-waiting-room';
+const DEFAULT_DOC = 'share';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
