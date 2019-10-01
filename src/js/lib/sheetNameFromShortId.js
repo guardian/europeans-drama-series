@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'share';
+const DEFAULT_DOC = 'windrush';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
