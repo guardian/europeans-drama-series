@@ -71,7 +71,8 @@ define([], function() {
                   ["world/ng-interactive/2019/jun/14/trapped-in-the-city-of-a-thousand-mountains-video", "trapped-in-the-city-of-a-thousand-mountains"],
                   ["news/ng-interactive/2019/jun/28/the-waiting-room-single-parents-unflinching-account-living-with-cancer-video", "the-waiting-room"],
                   ['news/ng-interactive/2019/jul/12/crannog-the-woman-who-cares-for-animals-at-the-end-of-their-lives-video', 'crannog'],
-                  ['society/ng-interactive/2019/jul/19/share-an-instagram-star-at-a-crossroads-video', 'share']
+                  ['society/ng-interactive/2019/jul/19/share-an-instagram-star-at-a-crossroads-video', 'share'],
+                  ['news/ng-interactive/2019/oct/07/after-windrush-paulette-wilsons-visit-to-jamaica-50-years-on', 'windrush']
                 ],
                 'emailListId': 3745
             };
