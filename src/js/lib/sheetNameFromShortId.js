@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'windrush';
+const DEFAULT_DOC = 'lost-rambos';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
