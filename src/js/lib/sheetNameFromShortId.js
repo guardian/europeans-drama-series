@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'lost-rambos';
+const DEFAULT_DOC = 'nowt-but-a-fleeting-thing';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
