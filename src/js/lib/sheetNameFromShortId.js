@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'nowt-but-a-fleeting-thing';
+const DEFAULT_DOC = 'open-water';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
