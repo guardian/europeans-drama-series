@@ -1,18 +1,14 @@
-const DEFAULT_DOC = 'lost-rambos';
+const DEFAULT_DOC = 'a-childhood-on-fire';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
     const docName = map.get(shortUrl);
-    console.log("hihihihhihi")
-    console.log("hihihihhihi")
     console.log(DEFAULT_DOC)
-    console.log("hihihihhihi")
-    console.log("hihihihhihi")
 
     // uncomment and just return DEFAULT_DOC
     // to test other docs locally
-    // return DEFAULT_DOC;
+    return DEFAULT_DOC;
 
-    return docName ? docName : DEFAULT_DOC;
+    // return docName ? docName : DEFAULT_DOC;
 
 }

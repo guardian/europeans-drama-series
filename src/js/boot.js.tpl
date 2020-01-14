@@ -75,7 +75,8 @@ define([], function() {
                   ['news/ng-interactive/2019/oct/07/after-windrush-paulette-wilsons-visit-to-jamaica-50-years-on', 'windrush'],
                   ['world/ng-interactive/2019/oct/28/the-lost-rambos-of-papua-new-guinea-how-weapons-and-hollywood-changed-tribal-disputes-video', 'lost-rambos'],
                   ['world/ng-interactive/2019/nov/18/nowt-but-a-fleeting-thing-a-young-farmers-fight-for-survival-video', 'nowt-but-a-fleeting-thing'],
-                  ['news/ng-interactive/2019/dec/02/open-water-lives-of-three-greenlanders-climate-crisis', 'open-water']
+                  ['news/ng-interactive/2019/dec/02/open-water-lives-of-three-greenlanders-climate-crisis', 'open-water'],
+                  ['', 'a-childhood-on-fire']
                 ],
                 'emailListId': 3745
             };
