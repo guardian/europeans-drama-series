@@ -1,55 +1,55 @@
 #more-documentaries {
-    display:none;
-//     .fc-container__inner {
-//         border-color: #767676;
-//         .fc-container__header__title {
-//             a:hover {
-//                 border: 0;
-//             }
-//             &:after {
-//                 background-color: #767676;
-//             }
-//         }
-//         .fc-container__header__title {
-//             color: #FFF;
-//             font-weight: 600;
-//             font-size: 20px;
-//             line-height: 24px;
-//             @include mq(wide) {
-//                 font-size: 24px;
-//                 line-height: 28px;
-//             }
+    .fc-container__inner {
+        border-color: #767676;
+        .fc-container__header__title {
+            a:hover {
+                border: 0;
+            }
+            &:after {
+                background-color: #767676;
+            }
+        }
+        .fc-container__header__title {
+            color: #FFF;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
+            @include mq(wide) {
+                font-size: 24px;
+                line-height: 28px;
+            }
 
-//             &:hover a {
-//                 color: #FFF;
-//                 text-decoration: none;
-//             }
-//         }
-//     }
-//     .fc-slice-wrapper {
-//         .fc-slice:not(.l-row--cols-1) {
-//             display: block;
-//             font-size: 0;
-//             .fc-slice__item {
-//                 display: inline-block;
-//                 vertical-align: top;
-//                 padding-top: 0;
-//                 margin-bottom: 20px;
-//                 width: 50%;
-//                 @include mq(phablet) {
-//                     width: 25%;
-//                 }
-//                 .fc-item,
-//                 .fc-item:hover {
-//                     background-color: transparent;
-//                 }
-//                 &+.fc-slice__item:before {
-//                     border-left: 1px solid #333;
-//                 }
-//                 .doc-card:hover {
-//                     opacity: 0.85;
-//                 }
-//             }
-//         }
-//     }
+            &:hover a {
+                color: #FFF;
+                text-decoration: none;
+            }
+        }
+    }
+    .fc-slice-wrapper {
+        .fc-slice:not(.l-row--cols-1) {
+            display: block;
+            font-size: 0;
+            .fc-slice__item {
+                display: inline-block;
+                vertical-align: top;
+                padding-top: 0;
+                margin-bottom: 20px;
+                width: 50%;
+                @include mq(phablet) {
+                    width: 25%;
+                }
+                .fc-item,
+                .fc-item:hover {
+                    background-color: transparent;
+                }
+                &+.fc-slice__item:before {
+                    border-left: 1px solid #333;
+                }
+                .doc-card:hover {
+                    opacity: 0.85;
+                }
+            }
+        }
+    }
+}
 }
