@@ -7,8 +7,8 @@ export default function sheetNameFromShortId(docsArray, shortUrl) {
 
     // uncomment and just return DEFAULT_DOC
     // to test other docs locally
-    return DEFAULT_DOC;
+    // return DEFAULT_DOC;
 
-    // return docName ? docName : DEFAULT_DOC;
+    return docName ? docName : DEFAULT_DOC;
 
 }
