@@ -14,7 +14,7 @@ import DocumentaryMetadata from './lib/sheetData';
 function initChapters(rootEl, docName, chapters) {
     chapters.sort((a, b) => parseInt(a.chapterTimestamp) - parseInt(b.chapterTimestamp));
 
-    chapters.forEach(function(chapter, index) {
+    chapters.forEach(function (chapter, index) {
         chapter.start = parseInt(chapter.chapterTimestamp);
         if (chapters.length > index + 1) {
             const nextChapter = chapters[index + 1];
@@ -27,12 +27,12 @@ function initChapters(rootEl, docName, chapters) {
     const ul = document.createElement('ul');
     ul.classList.add('docs--chapters');
 
-    chapters.forEach(function(chapter, index) {
+    chapters.forEach(function (chapter, index) {
         const dataLinkName = `${compressString(docName)} | ${chapter.chapterTitle}`;
         const li = document.createElement('li');
 
         setAttributes(li, {
-            title: `Skip to chapter ${index+1}: ${chapter.chapterTitle}`
+            title: `Skip to chapter ${index + 1}: ${chapter.chapterTitle}`
         });
 
         setData(li, {
@@ -96,11 +96,11 @@ export function init(el, context, config) {
         }
 
         if (docData.isBertha) {
-            DocsComingSoon.render({node: builder});
+            DocsComingSoon.render({ node: builder });
         }
 
         //Show the long description
-        showMoreBtn.onclick = function() {
+        showMoreBtn.onclick = function () {
             hiddenDesc.classList.toggle('expanded');
         };
 
@@ -111,7 +111,7 @@ export function init(el, context, config) {
         });
 
 
-        builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
+        builder.querySelector('.docs__poster--loader').addEventListener('click', function () {
             const player = new PimpedYouTubePlayer(docData.youtubeId, builder, '100%', '100%', docData.chapters, config);
             player.play();
         });
@@ -149,7 +149,7 @@ export function init(el, context, config) {
 
         const shouldAutoPlay = autoplayReferrers.find(ref => ref.test(document.referrer));
 
-        builder.querySelector('.docs__poster--loader').addEventListener('click', function() {
+        builder.querySelector('.docs__poster--loader').addEventListener('click', function () {
             const player = new PimpedYouTubePlayer(docData.youtubeId, builder, '100%', '100%', docData.chapters, config);
             player.play();
         });
@@ -158,14 +158,14 @@ export function init(el, context, config) {
 
         if (shouldAutoPlay && !isMobile()) {
             builder.querySelector('.docs__poster--title').classList.add('will-autoplay');
-            autoplayTimeout = setTimeout(()=> {
+            autoplayTimeout = setTimeout(() => {
                 builder.querySelector('.docs__poster--title').classList.remove('will-autoplay');
                 const player = new PimpedYouTubePlayer(docData.youtubeId, builder, '100%', '100%', docData.chapters, config);
                 player.play();
             }, 6000);
         }
 
-        builder.querySelector('.docs__poster--autoplay-stop-button').addEventListener('click', function(e) {
+        builder.querySelector('.docs__poster--autoplay-stop-button').addEventListener('click', function (e) {
             e.stopPropagation();
             clearTimeout(autoplayTimeout);
             builder.querySelector('.docs__poster--title').classList.remove('will-autoplay');
@@ -173,13 +173,13 @@ export function init(el, context, config) {
         });
     });
 
-    window.addEventListener('scroll', ()=> {
+    window.addEventListener('scroll', () => {
         const s = window.scrollY;
         const bodyHeight = document.querySelector('body').offsetHeight;
         const windowHeight = window.innerHeight;
         const faders = document.querySelectorAll('.should-fade-in');
 
-        if (s===0 && windowHeight<bodyHeight) {
+        if (s === 0 && windowHeight < bodyHeight) {
             for (let i = 0; i < faders.length; i++) {
                 faders[i].classList.remove('fade-in');
             }

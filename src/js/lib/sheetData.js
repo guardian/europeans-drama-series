@@ -2,9 +2,9 @@ import sheetUrl from './sheetURL';
 import reqwest from 'reqwest';
 
 const DEFAULT_SUPPORTED_DATA = {
-    supportedBadgeUrl: 'https://uploads.guim.co.uk/2017/01/11/bertha-foundation-logo-grey.png',
-    supportedSiteUrl: 'http://www.berthafoundation.org/',
-    supportedInfo: `
+  supportedBadgeUrl: 'https://uploads.guim.co.uk/2017/01/11/bertha-foundation-logo-grey.png',
+  supportedSiteUrl: 'http://www.berthafoundation.org/',
+  supportedInfo: `
         <p class="docs--about-headline">About the Guardian Bertha documentary partnership</p>
         <p>The Guardian is partnering with Bertha Foundation to tell international documentary film stories with global impact.</p>
         <p><a href='http://berthafoundation.org/'>Bertha Foundation</a> support activists, storytellers and lawyers who are working to bring about social and economic justice, and human rights for all.</p>
@@ -16,125 +16,125 @@ const DEFAULT_SUPPORTED_DATA = {
 };
 
 class DocumentaryMetadata {
-    constructor({sheetId, docName, comingSoonSheetName}) {
-        this._sheetId = sheetId;
-        this._docName = docName;
-        this._comingSoonSheetName = comingSoonSheetName;
+  constructor({ sheetId, docName, comingSoonSheetName }) {
+    this._sheetId = sheetId;
+    this._docName = docName;
+    this._comingSoonSheetName = comingSoonSheetName;
+  }
+
+  getMetadata() {
+    const url = sheetUrl(this._sheetId);
+
+    return new Promise((resolve, reject) => {
+      reqwest({
+        url: url,
+        type: 'json',
+        crossOrigin: true,
+        success: resp => {
+          const metadata = resp.sheets.documentaries.find(_ => _.docName === this._docName);
+
+          if (!metadata && window.console) {
+            // eslint-disable-next-line no-console
+            console.warn(`Unable to find sheet data for ${this._docName}`);
+          }
+
+          // supported columns are optional in the sheet, use defaults if not set
+          Object.keys(DEFAULT_SUPPORTED_DATA).forEach(supportedKey => {
+            if (metadata[supportedKey] === '') {
+              metadata[supportedKey] = DEFAULT_SUPPORTED_DATA[supportedKey];
+            }
+          });
+
+          const chapters = resp.sheets.chapters.filter(_ => _.docName === this._docName);
+          const comingSoon = resp.sheets[this._comingSoonSheetName];
+
+          this._docData = Object.assign(
+            {},
+            metadata,
+            { chapters: chapters, comingSoon: comingSoon }
+          );
+
+          resolve(this);
+        },
+        error: err => reject(err)
+      });
+    });
+  }
+
+  getField(field) {
+    if (this._docData) {
+      return this._docData[field];
     }
+  }
 
-    getMetadata() {
-        const url = sheetUrl(this._sheetId);
+  get title() {
+    return this.getField('title');
+  }
 
-        return new Promise((resolve, reject) => {
-            reqwest({
-                url: url,
-                type: 'json',
-                crossOrigin: true,
-                success: resp => {
-                    const metadata = resp.sheets.documentaries.find(_ => _.docName === this._docName);
+  get shortDescription() {
+    return this.getField('shortDecription');
+  }
 
-                    if (!metadata && window.console) {
-                        // eslint-disable-next-line no-console
-                        console.warn(`Unable to find sheet data for ${this._docName}`);
-                    }
+  get longDescription() {
+    return this.getField('longDescription');
+  }
 
-                    // supported columns are optional in the sheet, use defaults if not set
-                    Object.keys(DEFAULT_SUPPORTED_DATA).forEach(supportedKey => {
-                        if (metadata[supportedKey] === ''){
-                            metadata[supportedKey] = DEFAULT_SUPPORTED_DATA[supportedKey];
-                        }
-                    });
+  get youtubeId() {
+    return this.getField('youTubeId');
+  }
 
-                    const chapters = resp.sheets.chapters.filter(_ => _.docName === this._docName);
-                    const comingSoon = resp.sheets[this._comingSoonSheetName];
+  get credits() {
+    return this.getField('credits');
+  }
 
-                    this._docData = Object.assign(
-                        {},
-                        metadata,
-                        {chapters: chapters, comingSoon: comingSoon}
-                    );
+  get docDate() {
+    return this.getField('docDate');
+  }
 
-                    resolve(this);
-                },
-                error: err => reject(err)
-            });
-        });
-    }
+  get backgroundImageUrl() {
+    return this.getField('backgroundImageUrl');
+  }
 
-    getField(field) {
-        if (this._docData) {
-            return this._docData[field];
-        }
-    }
+  get isBertha() {
+    // is a Bertha doc unless explicitly set to `FALSE` in the sheet
+    return this.getField('isBertha') !== 'FALSE';
+  }
 
-    get title () {
-        return this.getField('title');
-    }
+  get isSupported() {
+    // is supported unless explicitly set to `FALSE` in the sheet
+    return this.getField('showSupported') !== 'FALSE';
+  }
 
-    get shortDescription () {
-        return this.getField('shortDecription');
-    }
+  get supportedBadgeUrl() {
+    return this.getField('supportedBadgeUrl');
+  }
 
-    get longDescription () {
-        return this.getField('longDescription');
-    }
+  get supportedSiteUrl() {
+    return this.getField('supportedSiteUrl');
+  }
 
-    get youtubeId () {
-        return this.getField('youTubeId');
-    }
+  get supportedInfo() {
+    return this.getField('supportedInfo');
+  }
 
-    get credits () {
-        return this.getField('credits');
-    }
+  get chapters() {
+    return this.getField('chapters');
+  }
 
-    get docDate () {
-        return this.getField('docDate');
-    }
+  get comingSoon() {
+    return this.getField('comingSoon');
+  }
 
-    get backgroundImageUrl () {
-        return this.getField('backgroundImageUrl');
-    }
+  get comingNext() {
+    return this.comingSoon[0];
+  }
 
-    get isBertha () {
-        // is a Bertha doc unless explicitly set to `FALSE` in the sheet
-        return this.getField('isBertha') !== 'FALSE';
-    }
-
-    get isSupported () {
-        // is supported unless explicitly set to `FALSE` in the sheet
-        return this.getField('showSupported') !== 'FALSE';
-    }
-
-    get supportedBadgeUrl () {
-        return this.getField('supportedBadgeUrl');
-    }
-
-    get supportedSiteUrl () {
-        return this.getField('supportedSiteUrl');
-    }
-
-    get supportedInfo () {
-        return this.getField('supportedInfo');
-    }
-
-    get chapters () {
-        return this.getField('chapters');
-    }
-
-    get comingSoon () {
-        return this.getField('comingSoon');
-    }
-
-    get comingNext () {
-        return this.comingSoon[0];
-    }
-
-    get onwardJourneyLinks () {
-        return ['One', 'Two', 'Three', 'Four'].reduce((links, i) => {
-            links.push({position: i, jsonUrl: this.getField(`jsonSnap${i}`)});
-            return links;
-        }, []);
-    }
+  get onwardJourneyLinks() {
+    return ['One', 'Two', 'Three', 'Four'].reduce((links, i) => {
+      links.push({ position: i, jsonUrl: this.getField(`jsonSnap${i}`) });
+      return links;
+    }, []);
+  }
 }
 
 export default DocumentaryMetadata;
