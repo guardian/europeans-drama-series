@@ -138,6 +138,10 @@ class DocumentaryMetadata {
     return this.comingSoon[0];
   }
 
+  get linkedDocs() {
+    return this._docData.linkedDocs;
+  }
+
   get onwardJourneyLinks() {
     return ['One', 'Two', 'Three', 'Four'].reduce((links, i) => {
       links.push({ position: i, jsonUrl: this.getField(`jsonSnap${i}`) });
