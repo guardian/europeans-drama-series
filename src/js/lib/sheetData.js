@@ -38,6 +38,14 @@ class DocumentaryMetadata {
             console.warn(`Unable to find sheet data for ${this._docName}`);
           }
 
+          const linkedDocs = ['1', '2', '3', '4'].map((i) => {
+            const linkedDocName = metadata[`watchNext${i}`];
+            const linkedDocMetadata = resp.sheets.documentaries.find(_ => _.docName === linkedDocName);
+            return linkedDocMetadata;
+          }).filter((doc) => {
+            return doc !== undefined;
+          });
+
           // supported columns are optional in the sheet, use defaults if not set
           Object.keys(DEFAULT_SUPPORTED_DATA).forEach(supportedKey => {
             if (metadata[supportedKey] === '') {
@@ -51,6 +59,7 @@ class DocumentaryMetadata {
           this._docData = Object.assign(
             {},
             metadata,
+            { linkedDocs: linkedDocs },
             { chapters: chapters, comingSoon: comingSoon }
           );
 
