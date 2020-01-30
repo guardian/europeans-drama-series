@@ -41,7 +41,11 @@ class DocumentaryMetadata {
           const linkedDocs = ['1', '2', '3', '4'].map((i) => {
             const linkedDocName = metadata[`watchNext${i}`];
             const linkedDocMetadata = resp.sheets.documentaries.find(_ => _.docName === linkedDocName);
-            return linkedDocMetadata;
+            if (linkedDocName && linkedDocMetadata) {
+              return linkedDocMetadata;
+            } else {
+              return undefined;
+            }
           }).filter((doc) => {
             return doc !== undefined;
           });
