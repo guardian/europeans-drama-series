@@ -1,0 +1,44 @@
+
+.doc-card {
+    position: relative;
+    background-color: #161616;
+    color: #F6F6F6;
+    font-family: "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+    width: 100%;
+
+    font-size: 16px;
+    line-height: 18px;
+    @include mq(mobileLandscape) {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    @include mq(phablet) {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    @include mq(tablet) {
+        font-size: 18px;
+        line-height: 20px;
+    }
+    &__poster {
+        max-width: 100%;
+        display: block;
+        margin-bottom: 6px;
+    }
+    &__description {
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: 500;
+        padding-bottom: 6px;
+        margin: 0;
+    }
+    & &__link {
+        text-indent: -9em;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
