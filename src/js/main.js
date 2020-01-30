@@ -127,17 +127,24 @@ export function init(el, context, config) {
 
         el.parentNode.replaceChild(builder, el);
 
-        docData.onwardJourneyLinks.forEach(snapLink => {
-            reqwest({
-                'url': snapLink.jsonUrl,
-                'type': 'json',
-                'crossOrigin': true,
-                'success': snapJSON => {
-                    const el = builder.querySelector(`section#more-documentaries .nextSnap${snapLink.position}`);
-                    el.innerHTML = snapJSON.html;
-                }
+        if (docData.linkedDocs.length > 0) {
+            docData.linkedDocs.forEach((linkedDoc, i) => {
+                const el = builder.querySelector(`section#more-documentaries .fc-slice__item:nth-child(${++i}) .nextSnap`);
+                el.innerHTML = `<div class="doc-card"><img class="doc-card__poster" src="${linkedDoc.posterImage}"><div class="doc-card__meta"><p class="doc-card__description">${linkedDoc.logline}</p><a class="doc-card__link" href="${linkedDoc.fullLink}"></a></div></div>`;
             });
-        });
+        } else {
+            docData.onwardJourneyLinks.forEach(snapLink => {
+                reqwest({
+                    'url': snapLink.jsonUrl,
+                    'type': 'json',
+                    'crossOrigin': true,
+                    'success': snapJSON => {
+                        const el = builder.querySelector(`section#more-documentaries .nextSnap${snapLink.position}`);
+                        el.innerHTML = snapJSON.html;
+                    }
+                });
+            });
+        }
 
         const autoplayReferrers = [
             /^https?:\/\/localhost:8000/,
