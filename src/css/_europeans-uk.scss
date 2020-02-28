@@ -2,11 +2,26 @@ body.uk .docs__poster {
     &--image {
         .people__uk {
             display: block;
+            @include mq(desktop) {
+                overflow: visible;
+            }
+            @include mq(leftCol) {
+                overflow: hidden;
+            }
             img {
-                margin-left: -8%;
+                margin-left: 0;
                 margin-bottom: -2px;
                 @include mq(tablet) {
-                    margin-left: -6%;
+                    margin-left: 0;
+                }
+                @include mq(desktop) {
+                    margin-left: 22%;
+                }
+                @include mq(leftCol) {
+                    margin-left: -10%;
+                }
+                @include mq(wide) {
+                    margin-left: 0;
                 }
             }
         }
@@ -27,7 +42,7 @@ body.uk .docs__poster {
                 margin-top: -388px;
             }
             @include mq(wide) {
-                margin-left: 644px;
+                margin-left: 554px;
                 margin-top: -429px;
             }
         }

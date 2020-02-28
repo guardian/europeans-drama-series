@@ -3,24 +3,18 @@ body.sweden .docs__poster {
         .people__sweden {
             display: block;
 
-            @include mq(tablet) {
-                width: 380px;
-            }
-            @include mq(desktop) {
-                width: 410px;
-            }
-            @include mq(leftCol) {
-                width: 450px;
-            }
-            @include mq(wide) {
-                width: 500px;
-            }
-
             img {
                 margin-left: -25%;
-                margin-bottom: -2px;
-                @include mq(tablet) {
-                    margin-left: -16%;
+                margin-bottom: 50px;
+                @include mq(weirdness) {
+                    margin-bottom: -2px;
+                    margin-left: 0%;
+                }
+                @include mq(leftCol) {
+                    margin-left: -28%;
+                }
+                @include mq(wide) {
+                    margin-left: -24%;
                 }
             }
         }

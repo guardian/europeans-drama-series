@@ -19,10 +19,16 @@ body.ireland .docs__poster {
 
             img {
                 margin-left: -30%;
-                margin-bottom: -110px;
+                margin-bottom: -40px;
                 @include mq(tablet) {
                     margin-bottom: -120px;
                     margin-left: -16%;
+                }
+                @include mq(desktop) {
+                    margin-left: 0;
+                }
+                @include mq(wide) {
+                    margin-left: -22%;
                 }
             }
         }

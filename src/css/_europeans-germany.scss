@@ -19,10 +19,19 @@ body.germany .docs__poster {
 
             img {
                 margin-left: -38%;
-                margin-bottom: -2px;
+                margin-bottom: 24px;
                 @include mq(tablet) {
                     margin-left: -20%;
                     margin-bottom: -30px;
+                }
+                @include mq(desktop) {
+                    margin-left: 5%;
+                }
+                @include mq(leftCol) {
+                    margin-left: -30%;
+                }
+                @include mq(wide) {
+                    margin-left: -20%;
                 }
             }
         }

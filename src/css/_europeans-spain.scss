@@ -22,6 +22,12 @@ body.spain .docs__poster {
                 @include mq(tablet) {
                     margin-left: -14%;
                 }
+                @include mq(leftCol) {
+                    margin-left: 0;
+                }
+                @include mq(wide) {
+                    margin-left: -14%;
+                }
             }
         }
         .maps__spain {
