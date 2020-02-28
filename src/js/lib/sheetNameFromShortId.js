@@ -1,4 +1,4 @@
-const DEFAULT_DOC = 'france';
+const DEFAULT_DOC = 'poland';
 
 export default function sheetNameFromShortId(docsArray, shortUrl) {
     const map = new Map(docsArray);
