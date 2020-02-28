@@ -8,10 +8,10 @@
     margin: 0 auto;
     position: relative;
     @include mq(tablet) {
-        padding-top: 18px;
         max-width: 700px;
     }
     @include mq(desktop) {
+        padding-top: 18px;
         max-width: 940px;
     }
     @include mq(leftCol) {

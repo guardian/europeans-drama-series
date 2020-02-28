@@ -49,7 +49,7 @@
             padding: 0 10px
         }
         @include mq(tablet) {
-            width: 740px;
+            width: 700px;
             max-width: 1300px;
         }
         @include mq(desktop) {
@@ -219,6 +219,10 @@
             transform-origin: center;
         }
 
+        @include mq(leftCol) {
+            margin-left: 0;
+        }
+
         .autoplay-timer {
             display: none;
         }
@@ -241,15 +245,8 @@
         transition: all 360ms;
         position: absolute;
         transform: translate(68px, -68px);
-        @include mq(phablet) {
-            position: relative;
-            transform: translate(6px, 52px);
-        }
-        @include mq(desktop) {
-            position: absolute;
-            transform: none;
-            bottom: -9px;
-            left: 0;
+        @include mq(tablet) {
+            transform: translate(104px, -90px);
         }
         &:hover {
             background-color: rgba(22,22,22,0.7);
@@ -257,9 +254,6 @@
     }
     &--title.will-autoplay,
     &--title.cancelled-autoplay {
-        @include mq(desktop) {
-            padding-bottom: 32px;
-        }
         @include mq($from: tablet, $until: desktop) {
             .docs__poster--headline {
                 margin-top: 12px;
