@@ -61,30 +61,30 @@
 @mixin icon-showmore {
   &:after {
     content: '';
-    width: 13px;
-    height: 13px;
-    background-image: svg-url('<svg width="13" height="13" viewBox="0 1 13 13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(0 1)"><ellipse fill="#BDBDBD" opacity=".6" cx="6.5" cy="6.5" rx="6.5" ry="6.5"/><path fill="#000" d="M6 7l-3.97-.2v-.6L6 6l.2-3.97h.6L7 6l3.97.2v.6L7 7l-.2 3.97h-.6"/></g></svg>');
+    width: 16px;
+    height: 16px;
+    background-image: svg-url('<svg width="13" height="13" viewBox="0 1 13 13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(0 1)"><ellipse fill="#eee" opacity=".6" cx="6.5" cy="6.5" rx="6.5" ry="6.5"/><path fill="#121212" d="M6 7l-3.97-.2v-.6L6 6l.2-3.97h.6L7 6l3.97.2v.6L7 7l-.2 3.97h-.6"/></g></svg>');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 13px 13px;
     display: block;
     float:left;
-    margin: 3px 0 0;
+    margin: 3px 0 0 -1px;
   }
 }
 
 @mixin icon-showless {
   &:after {
     content: '';
-    width: 13px;
-    height: 13px;
-    background-image: svg-url('<svg width="13" height="13" viewBox="0 21 13 13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(0 21)"><ellipse fill="#BDBDBD" opacity=".6" cx="6.5" cy="6.5" rx="6.5" ry="6.5"/><path fill="#000" d="M6 7l-3.97-.2v-.6L6 6h1l3.97.2v.6L7 7"/></g></svg>');
+    width: 16px;
+    height: 16px;
+    background-image: svg-url('<svg width="13" height="13" viewBox="0 21 13 13" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" transform="translate(0 21)"><ellipse fill="#eee" opacity=".6" cx="6.5" cy="6.5" rx="6.5" ry="6.5"/><path fill="#000" d="M6 7l-3.97-.2v-.6L6 6h1l3.97.2v.6L7 7"/></g></svg>');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 13px 13px;
     display: block;
     float:left;
-    margin: 3px 0 0;
+    margin: 3px 0 0 -1px;
   }
 }
 
