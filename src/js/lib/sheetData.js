@@ -16,10 +16,9 @@ const DEFAULT_SUPPORTED_DATA = {
 };
 
 class DocumentaryMetadata {
-    constructor({ sheetId, docName, comingSoonSheetName }) {
+    constructor({ sheetId, docName }) {
         this._sheetId = sheetId;
         this._docName = docName;
-        this._comingSoonSheetName = comingSoonSheetName;
     }
 
     getMetadata() {
@@ -57,13 +56,10 @@ class DocumentaryMetadata {
                         }
                     });
 
-                    const comingSoon = resp.sheets[this._comingSoonSheetName];
-
                     this._docData = Object.assign(
                         {},
                         metadata,
-                        { linkedDocs: linkedDocs },
-                        { comingSoon: comingSoon }
+                        { linkedDocs: linkedDocs }
                     );
 
                     resolve(this);
@@ -127,14 +123,6 @@ class DocumentaryMetadata {
 
     get supportedInfo() {
         return this.getField('supportedInfo');
-    }
-
-    get comingSoon() {
-        return this.getField('comingSoon');
-    }
-
-    get comingNext() {
-        return this.comingSoon[0];
     }
 
     get linkedDocs() {

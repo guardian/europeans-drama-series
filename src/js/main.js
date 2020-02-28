@@ -8,7 +8,6 @@ import { isMobile } from './lib/detect';
 import sheetNameFromShortId from './lib/sheetnamefromshortid';
 import reqwest from 'reqwest';
 import DocsSupporter from './lib/docs-supporter';
-import DocsComingSoon from './lib/docs-coming-soon';
 import DocumentaryMetadata from './lib/sheetData';
 
 export function init(el, context, config) {
@@ -19,15 +18,13 @@ export function init(el, context, config) {
 
     const docMetadata = new DocumentaryMetadata({
         sheetId: config.sheetId,
-        docName: docName,
-        comingSoonSheetName: config.comingSoonSheetName
+        docName: docName
     });
 
     docMetadata.getMetadata().then(docData => {
         sheetToDomInnerHtml({
             el: builder,
-            docData: docData,
-            comingSoonSheetName: config.comingSoonSheetName
+            docData: docData
         });
 
         const headline = window.guardian && window.guardian.config && window.guardian.config.page && window.guardian.config.page.headline;
@@ -49,21 +46,12 @@ export function init(el, context, config) {
             });
         }
 
-        if (docData.isBertha) {
-            DocsComingSoon.render({ node: builder });
-        }
-
         //Show the long description
         showMoreBtn.onclick = function () {
             hiddenDesc.classList.toggle('expanded');
         };
 
         const emailIframe = builder.querySelector('.js-email-sub__iframe');
-
-        setAttributes(emailIframe, {
-            src: emailsignupURL(config.emailListId)
-        });
-
 
         builder.querySelector('.docs__poster--loader').addEventListener('click', function () {
             const player = new PimpedYouTubePlayer(docData.youtubeId, builder, '100%', '100%', config);
@@ -73,10 +61,6 @@ export function init(el, context, config) {
 
         setStyles(builder.querySelector('.docs__poster--image'), {
             'background-image': `url('${docData.backgroundImageUrl}')`
-        });
-
-        setStyles(builder.querySelector('.coming-soon-background'), {
-            'background-image': `url('${docData.comingNext.image}')`
         });
 
         el.parentNode.replaceChild(builder, el);

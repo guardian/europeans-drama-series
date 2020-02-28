@@ -17,7 +17,6 @@ define([], function () {
 
       var interactiveConfig = {
         'assetPath': '<%= assetPath %>',
-        'comingSoonSheetName': 'coming-soon',
         'sheetId': '1jYb4okCk7I42wCoduH-o48DE-EKGajM8w-MTxQYxmck',
         'docsArray':
           [
