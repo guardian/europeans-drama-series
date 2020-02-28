@@ -59,9 +59,6 @@ class PimpedYouTubePlayer {
         });
 
         self.player.on('ready', () => {
-
-            self.el.querySelector('#shows-trailer').addEventListener('click', () => self.pause());
-
             self.player.getDuration().then(duration => self.videoDuration = duration);
         });
 
