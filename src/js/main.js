@@ -21,6 +21,10 @@ export function init(el, context, config) {
     });
 
     docMetadata.getMetadata().then(docData => {
+
+        // Set docName in body tag
+        document.body.classList.add(docData._docName);
+
         sheetToDomInnerHtml({
             el: builder,
             docData: docData
