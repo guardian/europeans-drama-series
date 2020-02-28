@@ -1,8 +1,0 @@
-@include mq(desktop) {
-    .new-header .inline-the-guardian-roundel {
-        @include compact-logo;
-        svg {
-            display: none;
-        }
-    }
-}
