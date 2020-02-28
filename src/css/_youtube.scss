@@ -102,7 +102,15 @@
         width: 100%;
         height: 100%;
         background-position: center center;
-        background-size: cover;
+        background-image: url(https://uploads.guim.co.uk/2020/02/28/player-background.jpg);
+        background-size: 600px 400px;
+        background-repeat: repeat;
+
+        @media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+          background-image: url(https://uploads.guim.co.uk/2020/02/28/player-background@2x.jpg);
+        }
+
 
         @media (inverted-colors: inverted) {
             filter: invert(100%);

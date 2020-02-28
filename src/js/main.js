@@ -50,10 +50,6 @@ export function init(el, context, config) {
         });
 
 
-        setStyles(builder.querySelector('.docs__poster--image'), {
-            'background-image': `url('${docData.backgroundImageUrl}')`
-        });
-
         el.parentNode.replaceChild(builder, el);
 
         const autoplayReferrers = [
