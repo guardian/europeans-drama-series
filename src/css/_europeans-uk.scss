@@ -2,9 +2,34 @@ body.uk .docs__poster {
     &--image {
         .people__uk {
             display: block;
+            img {
+                margin-left: -8%;
+                margin-bottom: -2px;
+                @include mq(tablet) {
+                    margin-left: -6%;
+                }
+            }
         }
         .maps__uk {
             display: block;
+            margin-left: 174px;
+            margin-top: -200px;
+            @include mq(tablet) {
+                margin-left: 314px;
+                margin-top: -280px;
+            }
+            @include mq(desktop) {
+                margin-left: 394px;
+                margin-top: -327px;
+            }
+            @include mq(leftCol) {
+                margin-left: 484px;
+                margin-top: -388px;
+            }
+            @include mq(wide) {
+                margin-left: 644px;
+                margin-top: -429px;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ body.france .docs__poster {
             margin-left: 174px;
             margin-top: -200px;
             @include mq(tablet) {
-                margin-left: 274px;
+                margin-left: 314px;
                 margin-top: -310px;
             }
             @include mq(desktop) {
@@ -23,7 +23,7 @@ body.france .docs__poster {
                 margin-top: -387px;
             }
             @include mq(leftCol) {
-                margin-left: 444px;
+                margin-left: 484px;
                 margin-top: -438px;
             }
             @include mq(wide) {

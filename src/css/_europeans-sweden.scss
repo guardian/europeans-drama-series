@@ -1,10 +1,52 @@
-body.uk .docs__poster {
+body.sweden .docs__poster {
     &--image {
-        .people__uk {
+        .people__sweden {
             display: block;
+
+            @include mq(tablet) {
+                width: 380px;
+            }
+            @include mq(desktop) {
+                width: 410px;
+            }
+            @include mq(leftCol) {
+                width: 450px;
+            }
+            @include mq(wide) {
+                width: 500px;
+            }
+
+            img {
+                margin-left: -25%;
+                margin-bottom: -2px;
+                @include mq(tablet) {
+                    margin-left: -16%;
+                }
+            }
         }
-        .maps__uk {
+        .maps__sweden {
             display: block;
+            margin-left: -14px;
+            margin-top: -10px;
+            @include mq(tablet) {
+                margin-left: 264px;
+                margin-top: -90px;
+            }
+            @include mq(desktop) {
+                width: 800px;
+                margin-left: 334px;
+                margin-top: -98px;
+            }
+            @include mq(leftCol) {
+                width: 860px;
+                margin-left: 374px;
+                margin-top: -88px;
+            }
+            @include mq(wide) {
+                width: 940px;
+                margin-left: 484px;
+                margin-top: -98px;
+            }
         }
     }
 }

@@ -2,9 +2,50 @@ body.ireland .docs__poster {
     &--image {
         .people__ireland {
             display: block;
+
+            width: 310px;
+            @include mq(tablet) {
+                width: 360px;
+            }
+            @include mq(desktop) {
+                width: 395px;
+            }
+            @include mq(leftCol) {
+                width: 460px;
+            }
+            @include mq(wide) {
+                width: 500px;
+            }
+
+            img {
+                margin-left: -30%;
+                margin-bottom: -110px;
+                @include mq(tablet) {
+                    margin-bottom: -120px;
+                    margin-left: -16%;
+                }
+            }
         }
         .maps__ireland {
             display: block;
+            margin-left: 200px;
+            margin-top: -160px;
+            @include mq(tablet) {
+                margin-left: 248px;
+                margin-top: -300px;
+            }
+            @include mq(desktop) {
+                margin-left: 424px;
+                margin-top: -367px;
+            }
+            @include mq(leftCol) {
+                margin-left: 474px;
+                margin-top: -408px;
+            }
+            @include mq(wide) {
+                margin-left: 514px;
+                margin-top: -438px;
+            }
         }
     }
 }

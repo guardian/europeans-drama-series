@@ -29,7 +29,7 @@
             }
         }
 
-        .people {
+        .europeans-visuals {
             @include mq(tablet) {
                 width: 720px;
                 height: 100%;
@@ -37,7 +37,7 @@
                 position: relative;
             }
             @include mq(desktop) {
-                width: 960px;
+                width: 980px;
             }
             @include mq(leftCol) {
                 width: 1140px;
@@ -69,6 +69,16 @@
             img {
                 width: 100%;
             }
+
+            // &:before {
+            //     content: '';
+            //     position: absolute;
+            //     left: 0;
+            //     bottom: 0;
+            //     width: 1px;
+            //     height: 246px;
+            //     background-color: #062962;
+            // }
         }
 
     }

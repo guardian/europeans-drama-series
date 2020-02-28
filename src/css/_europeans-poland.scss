@@ -1,10 +1,35 @@
-body.spain .docs__poster {
+body.poland .docs__poster {
     &--image {
-        .people__spain {
+        .people__poland {
             display: block;
+            img {
+                margin-left: -32.5%;
+                margin-bottom: -2px;
+                @include mq(tablet) {
+                    margin-left: -30%;
+                }
+            }
         }
-        .maps__spain {
+        .maps__poland {
             display: block;
+            margin-left: 0px;
+            margin-top: -160px;
+            @include mq(tablet) {
+                margin-left: 168px;
+                margin-top: -300px;
+            }
+            @include mq(desktop) {
+                margin-left: 254px;
+                margin-top: -367px;
+            }
+            @include mq(leftCol) {
+                margin-left: 214px;
+                margin-top: -408px;
+            }
+            @include mq(wide) {
+                margin-left: 354px;
+                margin-top: -438px;
+            }
         }
     }
 }
