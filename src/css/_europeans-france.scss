@@ -2,9 +2,34 @@ body.france .docs__poster {
     &--image {
         .people__france {
             display: block;
+            img {
+                margin-left: -32.5%;
+                margin-bottom: -10px;
+                @include mq(tablet) {
+                    margin-left: -30%;
+                }
+            }
         }
         .maps__france {
             display: block;
+            margin-left: 174px;
+            margin-top: -200px;
+            @include mq(tablet) {
+                margin-left: 274px;
+                margin-top: -310px;
+            }
+            @include mq(desktop) {
+                margin-left: 394px;
+                margin-top: -387px;
+            }
+            @include mq(leftCol) {
+                margin-left: 444px;
+                margin-top: -438px;
+            }
+            @include mq(wide) {
+                margin-left: 664px;
+                margin-top: -498px;
+            }
         }
     }
 }

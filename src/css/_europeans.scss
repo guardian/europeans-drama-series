@@ -13,21 +13,61 @@
         .maps__map {
             display: none;
             position: absolute;
-            width: 1181px;
+            width: 591px;
             z-index: 10;
+            @include mq(tablet) {
+                width: 780px;
+            }
+            @include mq(desktop) {
+                width: 900px;
+            }
+            @include mq(leftCol) {
+                width: 1020px;
+            }
+            @include mq(wide) {
+                width: 1120px;
+            }
         }
 
+        .people {
+            @include mq(tablet) {
+                width: 720px;
+                height: 100%;
+                margin: 0 auto;
+                position: relative;
+            }
+            @include mq(desktop) {
+                width: 960px;
+            }
+            @include mq(leftCol) {
+                width: 1140px;
+            }
+            @include mq(wide) {
+                width: 1300px;
+            }
+        }
         .people__person {
             display: none;
+            overflow: hidden;
             position: absolute;
             z-index: 20;
             bottom: 0;
             left: 0;
-            width: 580px;
-            overflow: hidden;
+            width: 330px;
+            @include mq(tablet) {
+                width: 400px;
+            }
+            @include mq(desktop) {
+                width: 420px;
+            }
+            @include mq(leftCol) {
+                width: 480px;
+            }
+            @include mq(wide) {
+                width: 540px;
+            }
             img {
                 width: 100%;
-                margin-left: -170px;
             }
         }
 
