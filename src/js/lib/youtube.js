@@ -1,18 +1,18 @@
 /*globals YT*/
 import YouTubePlayer from 'youtube-player';
 import reqwest from 'reqwest';
-import {isMobile} from './detect';
+import { isMobile } from './detect';
 import Tracker from './tracking';
-import {setStyles, scrollTo} from './dom';
-import {parse} from 'iso8601-duration';
+import { setStyles, scrollTo } from './dom';
+import { parse } from 'iso8601-duration';
 
 class PimpedYouTubePlayer {
-    play (seconds) {
+    play(seconds) {
         const self = this;
 
         self.tracker.track('play');
 
-        if (! isMobile()) {
+        if (!isMobile()) {
             self.el.querySelector('.docs__poster--wrapper').classList.add('docs__poster--wrapper--playing');
         }
 
@@ -26,19 +26,19 @@ class PimpedYouTubePlayer {
         self.player.playVideo();
     }
 
-    pause () {
+    pause() {
         const self = this;
 
         self.player.pauseVideo();
     }
 
-    seekTo (seconds) {
+    seekTo(seconds) {
         const self = this;
 
         self.play(seconds);
     }
 
-    constructor(videoId, node, height, width, chapters, config) {
+    constructor(videoId, node, height, width, config) {
         // declare `self` to avoid scoping issues of `this`
         const self = this;
 
@@ -59,7 +59,6 @@ class PimpedYouTubePlayer {
         });
 
         self.player.on('ready', () => {
-            addChapterEventHandlers();
 
             self.el.querySelector('#shows-trailer').addEventListener('click', () => self.pause());
 
@@ -72,9 +71,9 @@ class PimpedYouTubePlayer {
             } else {
                 let playTimer;
                 if (event.data === YT.PlayerState.PLAYING) {
-                    playTimer = setInterval(function() {
+                    playTimer = setInterval(function () {
                         self.player.getCurrentTime().then(currentTime => {
-                            trackChapterProgress(currentTime);
+                            // trackChapterProgress(currentTime);
                             sendPercentageCompleteEvents(currentTime);
                         });
                     }, 1000);
@@ -83,41 +82,6 @@ class PimpedYouTubePlayer {
                 }
             }
         });
-
-        function trackChapterProgress(currentTime) {
-            const currentChapter = chapters.filter(function(value){
-                const chapStart = value.start;
-                const chapEnd = value.end || self.videoDuration;
-                if (currentTime >= chapStart && currentTime < chapEnd){
-                    return value;
-                }
-            });
-            if (currentChapter.length === 1){
-                const chapterElements = self.el.querySelectorAll('.docs--chapters li[data-role="chapter"]');
-
-                Array.from(chapterElements).forEach(function(el){
-                    const dataStart = parseInt(el.dataset.start);
-
-                    if (dataStart === currentChapter[0].start){
-                        el.classList.add('docs--chapters-active');
-                        el.classList.remove('docs--chapters-inactive');
-
-                        const dataEnd = parseInt(el.dataset.end);
-                        const nextChapter = dataEnd || self.videoDuration;
-                        const chapterCurrentProgress = (currentTime - dataStart)/(nextChapter - dataStart);
-
-                        const progress = el.querySelector('.progress');
-
-                        setStyles(progress, {
-                            width: `${chapterCurrentProgress * 100}%`
-                        });
-                    } else {
-                        el.classList.add('docs--chapters-inactive');
-                        el.classList.remove('docs--chapters-active');
-                    }
-                });
-            }
-        }
 
         function sendPercentageCompleteEvents(currentTime) {
             const quartile = self.videoDuration / 4;
@@ -138,21 +102,10 @@ class PimpedYouTubePlayer {
         function trackPlayerEnd() {
             self.tracker.track('end');
         }
-
-        function addChapterEventHandlers() {
-            const chapterElements = self.el.querySelectorAll('.docs--chapters li[data-role="chapter"]');
-
-            Array.from(chapterElements).forEach( function(chapterBtn) {
-                chapterBtn.onclick = function(){
-                    const chapStart = parseInt(chapterBtn.getAttribute('data-start'));
-                    self.seekTo(chapStart);
-                };
-            });
-        }
     }
 }
 
-function getYouTubeVideoDuration(videoId, callback){
+function getYouTubeVideoDuration(videoId, callback) {
     //Note: This is a browser key intended to be exposed on the client-side.
     const apiKey = 'AIzaSyCtM2CJsgRhfXVj_HesBIs540tzD4JUXqc';
 
@@ -163,7 +116,7 @@ function getYouTubeVideoDuration(videoId, callback){
         success: (resp) => {
             //duration is an ISO8601 duration
             //see: https://developers.google.com/youtube/v3/docs/videos#contentDetails.duration
-            const duration =  resp.items[0].contentDetails.duration;
+            const duration = resp.items[0].contentDetails.duration;
 
             const parsedDuration = parse(duration);
 

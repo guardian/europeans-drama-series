@@ -57,14 +57,13 @@ class DocumentaryMetadata {
                         }
                     });
 
-                    const chapters = resp.sheets.chapters.filter(_ => _.docName === this._docName);
                     const comingSoon = resp.sheets[this._comingSoonSheetName];
 
                     this._docData = Object.assign(
                         {},
                         metadata,
                         { linkedDocs: linkedDocs },
-                        { chapters: chapters, comingSoon: comingSoon }
+                        { comingSoon: comingSoon }
                     );
 
                     resolve(this);
@@ -128,10 +127,6 @@ class DocumentaryMetadata {
 
     get supportedInfo() {
         return this.getField('supportedInfo');
-    }
-
-    get chapters() {
-        return this.getField('chapters');
     }
 
     get comingSoon() {
