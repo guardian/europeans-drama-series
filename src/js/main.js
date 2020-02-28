@@ -7,7 +7,6 @@ import { setAttributes, setData, setStyles } from './lib/dom';
 import { isMobile } from './lib/detect';
 import sheetNameFromShortId from './lib/sheetnamefromshortid';
 import reqwest from 'reqwest';
-import DocsSupporter from './lib/docs-supporter';
 import DocumentaryMetadata from './lib/sheetData';
 
 export function init(el, context, config) {
@@ -38,13 +37,6 @@ export function init(el, context, config) {
 
         const hiddenDesc = builder.querySelector('#intro-expansion');
         const showMoreBtn = builder.querySelector('#intro-expand-btn');
-
-        if (docData.isSupported) {
-            new DocsSupporter({
-                node: builder,
-                docData: docData
-            });
-        }
 
         //Show the long description
         showMoreBtn.onclick = function () {

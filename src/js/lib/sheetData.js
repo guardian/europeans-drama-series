@@ -1,19 +1,6 @@
 import sheetUrl from './sheetURL';
 import reqwest from 'reqwest';
 
-const DEFAULT_SUPPORTED_DATA = {
-    supportedBadgeUrl: 'https://uploads.guim.co.uk/2017/01/11/bertha-foundation-logo-grey.png',
-    supportedSiteUrl: 'http://www.berthafoundation.org/',
-    supportedInfo: `
-        <p class="docs--about-headline">About the Guardian Bertha documentary partnership</p>
-        <p>The Guardian is partnering with Bertha Foundation to tell international documentary film stories with global impact.</p>
-        <p><a href='http://berthafoundation.org/'>Bertha Foundation</a> support activists, storytellers and lawyers who are working to bring about social and economic justice, and human rights for all.</p>
-        <p>The Guardian and Bertha Foundation are commissioning a series of 12 short documentary films from independent filmmakers. The series covers global stories, with a focus on films that have the ability to advance the contemporary issues they address, and and raise awareness of people and movements who are catalysts for change.</p>
-        <p>These documentaries help the Guardian audience to understand the world in creative, entertaining and surprising ways designed for a wide online audience. All documentaries are editorially independent and follow GNM's published editorial code.</p>
-        <p>This unique collaboration involves the Guardian and Bertha Foundation engaging a network of film-makers with embedded access to, and deep knowledge of, the communities in which they are filming. The Guardian are delighted to be working with Bertha Foundation who have a track record of supporting documentary makers that make a significant difference in the world.</p>
-        <p class="docs--about-legal">Unless otherwise stated, all statements and materials in these documentaries reflect the views of the individual documentary makers and not those of Bertha Foundation or the Guardian.</p>
-    `
-};
 
 class DocumentaryMetadata {
     constructor({ sheetId, docName }) {
@@ -36,13 +23,6 @@ class DocumentaryMetadata {
                         // eslint-disable-next-line no-console
                         console.warn(`Unable to find sheet data for ${this._docName}`);
                     }
-
-                    // supported columns are optional in the sheet, use defaults if not set
-                    Object.keys(DEFAULT_SUPPORTED_DATA).forEach(supportedKey => {
-                        if (metadata[supportedKey] === '') {
-                            metadata[supportedKey] = DEFAULT_SUPPORTED_DATA[supportedKey];
-                        }
-                    });
 
                     this._docData = Object.assign(
                         {},
@@ -88,11 +68,6 @@ class DocumentaryMetadata {
 
     get backgroundImageUrl() {
         return this.getField('backgroundImageUrl');
-    }
-
-    get isBertha() {
-        // is a Bertha doc unless explicitly set to `FALSE` in the sheet
-        return this.getField('isBertha') !== 'FALSE';
     }
 
     get isSupported() {

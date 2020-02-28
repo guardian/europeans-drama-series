@@ -119,8 +119,6 @@
             .supporter-info {
                 position: relative;
                 line-height: 22px;
-                @include icon-info;
-                cursor: pointer;
             }
             .supporter-logo {
                 img {
