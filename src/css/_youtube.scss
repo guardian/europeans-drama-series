@@ -101,45 +101,9 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background-position: center center;
-        background-image: url(https://uploads.guim.co.uk/2020/02/28/player-background.jpg);
-        background-size: 600px 400px;
-        background-repeat: repeat;
-
-        @media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-          background-image: url(https://uploads.guim.co.uk/2020/02/28/player-background@2x.jpg);
-        }
-
 
         @media (inverted-colors: inverted) {
             filter: invert(100%);
-        }
-    }
-    &--gradient-fill {
-        position: absolute;
-        width: 100vw;
-        background-image: radial-gradient(circle at 23% 54%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
-        height: 460px;
-        max-height: calc(100vh - 96px);
-        min-height: 420px;
-        @include mq(tablet) {
-            height: 500px;
-        }
-        @include mq(desktop) {
-            height: 551px;
-        }
-        @include mq(leftCol) {
-            height: 620px;
-            &--playing {
-                height: 641px;
-            }
-        }
-        @include mq(wide) {
-            height: 680px;
-            &--playing {
-                height: 731px;
-            }
         }
     }
     &--title {

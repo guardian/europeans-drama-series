@@ -1,0 +1,36 @@
+.docs__poster {
+    &--image {
+        overflow: hidden;
+        background-position: center center;
+        background-image: url(https://uploads.guim.co.uk/2020/02/28/player-background.jpg);
+        background-size: 600px 400px;
+        background-repeat: repeat;
+        @media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+          background-image: url(https://uploads.guim.co.uk/2020/02/28/player-background@2x.jpg);
+        }
+
+        .maps__map {
+            display: none;
+            position: absolute;
+            width: 1181px;
+            z-index: 10;
+        }
+
+        .people__person {
+            display: none;
+            position: absolute;
+            z-index: 20;
+            bottom: 0;
+            left: 0;
+            width: 580px;
+            overflow: hidden;
+            img {
+                width: 100%;
+                margin-left: -170px;
+            }
+        }
+
+    }
+}
+
