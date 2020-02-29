@@ -178,6 +178,10 @@
             @include mq(desktop) {
                 font-size: 72px;
                 line-height: 76px;
+                body.france & {
+                    font-size: 72px;
+                    line-height: 76px;
+                }
             }
         }
         .writer {
