@@ -121,11 +121,11 @@
         }
 
         @include mq(leftCol) {
-            left: 16%;
+            left: 200px;
             width: auto;
         }
         @include mq(wide) {
-            left: 20%;
+            left: 280px;
         }
     }
     &--headline {
@@ -150,8 +150,8 @@
             background-color: #121212;
             font-family: "Guardian Titlepiece", "Guardian Headline Full", "Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
             color: #fff;
-            font-size: 22px;
-            line-height: 30px;
+            font-size: 20px;
+            line-height: 28px;
             padding: 0 10px 2px;
             @include mq(desktop) {
                 font-size: 28px;
@@ -168,8 +168,11 @@
             padding: 2px 10px;
         }
         .title__inner {
-            font-size: 50px;
-            line-height: 54px;
+            font-size: 42px;
+            body.france & {
+                font-size: 40px;
+            }
+            line-height: 46px;
             position: relative;
             z-index: 10;
             @include mq(desktop) {
@@ -180,7 +183,7 @@
         .writer {
             font-weight: 500;
             font-style: italic;
-            font-size: 22px;
+            font-size: 20px;
             line-height: 28px;
             @include mq(desktop) {
                 font-size: 28px;

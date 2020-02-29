@@ -9,10 +9,12 @@
     position: relative;
     @include mq(tablet) {
         max-width: 700px;
+        padding-bottom: 24px;
     }
     @include mq(desktop) {
         padding-top: 18px;
         max-width: 940px;
+        padding-bottom: 32px;
         &:before,
         &:after {
             content: '';
@@ -138,6 +140,10 @@
         }
         &__social {
             padding-top: 9px;
+            @include mq(desktop) {
+                padding-top: 0;
+                margin-top: -3px;
+            }
             .interactive-share {
                 background-color: transparent;
                 border: 1px solid $c-grey-light;
@@ -170,6 +176,12 @@
                 padding-top: 1px;
                 &:before {
                     top: 0;
+                }
+            }
+            @include mq($from:leftCol, $until:wide) {
+                .supporter-info,
+                .supporter-logo {
+                    margin-left: -10px;
                 }
             }
         }
