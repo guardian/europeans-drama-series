@@ -22,8 +22,12 @@ body.spain .docs__poster {
                 @include mq(tablet) {
                     margin-left: -14%;
                 }
+                @include mq(desktop) {
+                    margin-left: 1%;
+                }
                 @include mq(leftCol) {
-                    margin-left: 0;
+                    margin-left: 10px;
+                    margin-bottom: -2px;
                 }
                 @include mq(wide) {
                     margin-left: -14%;
@@ -39,8 +43,8 @@ body.spain .docs__poster {
                 margin-top: -360px;
             }
             @include mq(desktop) {
-                margin-left: 454px;
-                margin-top: -427px;
+                margin-left: 474px;
+                margin-top: -377px;
             }
             @include mq(leftCol) {
                 margin-left: 534px;

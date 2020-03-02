@@ -5,10 +5,13 @@ body.sweden .docs__poster {
 
             img {
                 margin-left: -25%;
-                margin-bottom: 50px;
+                margin-bottom: 48px;
                 @include mq(weirdness) {
                     margin-bottom: -2px;
                     margin-left: 0%;
+                }
+                @include mq(desktop) {
+                    margin-left: 5%;
                 }
                 @include mq(leftCol) {
                     margin-left: -28%;
@@ -21,25 +24,25 @@ body.sweden .docs__poster {
         .maps__sweden {
             display: block;
             margin-left: -14px;
-            margin-top: -10px;
+            margin-top: 19px;
             @include mq(tablet) {
-                margin-left: 264px;
-                margin-top: -90px;
+                margin-left: 234px;
+                margin-top: -50px;
             }
             @include mq(desktop) {
                 width: 800px;
-                margin-left: 334px;
-                margin-top: -98px;
+                margin-left: 260px;
+                margin-top: -56px;
             }
             @include mq(leftCol) {
                 width: 860px;
-                margin-left: 374px;
-                margin-top: -88px;
+                margin-left: 304px;
+                margin-top: -48px;
             }
             @include mq(wide) {
                 width: 940px;
-                margin-left: 484px;
-                margin-top: -98px;
+                margin-left: 424px;
+                margin-top: -58px;
             }
         }
     }

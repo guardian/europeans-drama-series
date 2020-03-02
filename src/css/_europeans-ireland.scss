@@ -22,10 +22,13 @@ body.ireland .docs__poster {
                 margin-bottom: -40px;
                 @include mq(tablet) {
                     margin-bottom: -120px;
-                    margin-left: -16%;
+                    margin-left: -9%;
                 }
                 @include mq(desktop) {
                     margin-left: 0;
+                }
+                @include mq(leftCol) {
+                    margin-left: -24%;
                 }
                 @include mq(wide) {
                     margin-left: -22%;
@@ -37,7 +40,7 @@ body.ireland .docs__poster {
             margin-left: 200px;
             margin-top: -160px;
             @include mq(tablet) {
-                margin-left: 248px;
+                margin-left: 312px;
                 margin-top: -300px;
             }
             @include mq(desktop) {

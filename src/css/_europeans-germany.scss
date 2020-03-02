@@ -18,7 +18,7 @@ body.germany .docs__poster {
             }
 
             img {
-                margin-left: -38%;
+                margin-left: -33%;
                 margin-bottom: 24px;
                 @include mq(tablet) {
                     margin-left: -20%;
@@ -37,7 +37,7 @@ body.germany .docs__poster {
         }
         .maps__germany {
             display: block;
-            margin-left: 60px;
+            margin-left: 68px;
             margin-top: -180px;
             @include mq(tablet) {
                 margin-left: 218px;
@@ -45,7 +45,7 @@ body.germany .docs__poster {
             }
             @include mq(desktop) {
                 margin-left: 294px;
-                margin-top: -367px;
+                margin-top: -342px;
             }
             @include mq(leftCol) {
                 margin-left: 294px;
