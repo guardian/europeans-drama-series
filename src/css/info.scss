@@ -44,6 +44,7 @@
         display: inline-block;
         vertical-align: top;
         padding-bottom: 12px;
+        font-family: "Guardian Text Egyptian Web", Georgia, serif;
 
         @include mq(weirdness) {
             width: 340px;

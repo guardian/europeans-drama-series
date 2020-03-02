@@ -1,0 +1,230 @@
+.onward-journey {
+    margin: 0 auto;
+    position: relative;
+
+    @include mq(weirdness) {
+        width: 600px;
+    }
+    @include mq(tablet) {
+        width: 720px;
+        border-top: 1px solid #333;
+    }
+    @include mq(desktop) {
+        width: 998px;
+        border-left: 1px solid #333;
+        border-right: 1px solid #333;
+    }
+    @include mq(leftCol) {
+        width: 1138px;
+    }
+    @include mq(wide) {
+        width: 1298px;
+    }
+
+
+    .container-meta {
+        position: relative;
+        @include mq(leftCol) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 160px;
+        }
+        @include mq(wide) {
+            width: 220px;
+        }
+        .tab {
+            background-color: #062962;
+            color: #fff;
+            position: relative;
+            padding: 6px 10px 24px;
+            .ios &,
+            .android & {
+                padding-bottom: 22px;
+            }
+
+            @include mq(tablet) {
+                width: 217px;
+                position: absolute;
+                top: -1px;
+                left: -1px;
+            }
+            @include mq(desktop) {
+                left: 20px;
+            }
+            @include mq(leftCol) {
+                display: block;
+                width: 140px;
+                position: static;
+            }
+            @include mq(wide) {
+                width: 220px;
+            }
+
+            &__badge {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                @include mq(tablet) {
+                    right: auto;
+                    left: 8px;
+                }
+                @include mq($from: leftCol, $until: wide) {
+                    position: static;
+                }
+            }
+
+            &__text {
+                @include mq(tablet) {
+                    padding-left: 58px;
+                }
+                @include mq($from: leftCol, $until: wide) {
+                    padding-left: 0;
+                    padding-top: 6px;
+                    .subtitle {
+                        line-height: 20px;;
+                    }
+                }
+                .title {
+                    font-size: 22px;
+                    line-height: 22px;
+                    font-weight: 700;
+                    padding-bottom: 2px;
+                    font-family: "Guardian Headline", "Guardian Headline Full", "Guardian Egyptian Web","Guardian Text Egyptian Web",Georgia,serif;
+                    .ios &,
+                    .android & {
+                        padding-bottom: 4px;
+                    }
+                }
+                .subtitle {
+                    font-size: 16px;
+                    line-height: 16px;
+                    font-family: "Guardian Text Egyptian Web",Georgia,serif;
+                    font-style: italic;
+                }
+            }
+        }
+        .description {
+            padding: 6px 10px 20px;
+            color: #fff;
+            font-size: 16px;
+            line-height: 20px;
+            font-family: "Guardian Text Egyptian Web",Georgia,serif;
+            padding-right: 40%;
+            @include mq(tablet) {
+                padding: 2px 0 48px 254px;
+            }
+            @include mq(desktop) {
+                padding-left: 274px;
+            }
+            @include mq(leftCol) {
+                padding: 4px 0 0 10px;
+            }
+    }
+    }
+
+    .drama-container {
+        padding: 10px;
+        @include mq(tablet) {
+            padding: 18px 0 48px;
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row wrap;
+        }
+        @include mq(desktop) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        @include mq(leftCol) {
+            padding-left: 180px;
+            padding-right: 20px;
+            padding-top: 9px;
+        }
+        @include mq(wide) {
+            padding-left: 260px;
+            padding-right: 80px;
+        }
+        .film {
+            position: relative;
+            &:hover {
+                opacity: 0.88;
+            }
+            @include mq(tablet) {
+                display: block;
+                width: calc(50% - 10px);
+                margin-bottom: 18px;
+            }
+            &__link {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 20;
+            }
+            &__image {
+                position: relative;
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+                &__label {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    .title,
+                    .country {
+                        background-color: #ffe500;
+                        padding: 3px 5px;
+                        font-size: 22px;
+                        line-height: 22px;
+                        display: inline-block;
+                        float: left;
+                        clear: both;
+                        @include mq(desktop) {
+                            font-size: 32px;
+                            line-height: 32px;
+                            padding: 3px 7px 7px 7px;
+                        }
+                    }
+                    .title {
+                        font-weight: 800;
+                    }
+                    .country {
+                        font-style: italic;
+                    }
+                }
+            }
+            &__description {
+                color: #fff;
+                padding: 4px 0 18px;
+                font-size: 16px;
+                line-height: 20px;
+                font-family: "Guardian Text Egyptian Web",Georgia,serif;
+            }
+
+            body.france &.france {
+                display: none;
+            }
+            body.poland &.poland {
+                display: none;
+            }
+            body.uk &.uk {
+                display: none;
+            }
+            body.spain &.spain {
+                display: none;
+            }
+            body.germany &.germany {
+                display: none;
+            }
+            body.sweden &.sweden {
+                display: none;
+            }
+            body.ireland &.ireland {
+                display: none;
+            }
+        }
+    }
+}
