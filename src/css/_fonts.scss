@@ -1,7 +1,8 @@
 @import '../../bower_components/guss-typography/_typography.scss';
 
 html, body {
-  text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
   -webkit-font-feature-settings: 'kern';
   -moz-font-feature-settings: 'kern';
   font-feature-settings: 'kern';

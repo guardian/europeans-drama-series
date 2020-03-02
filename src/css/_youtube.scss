@@ -135,6 +135,8 @@
         min-width: 50%;
         z-index: 10;
         display: inline-block;
+        font-family: "Guardian Headline Full", "Guardian Headline", "Guardian Egyptian Web", Georgia, serif;
+
         @include mq(phablet) {
             width: calc(100% - 125px);
             margin-left: 0;
@@ -166,6 +168,7 @@
             color: #121212;
             display: inline-block;
             padding: 2px 10px;
+
         }
         .title__inner {
             font-size: 42px;
